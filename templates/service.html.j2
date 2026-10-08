@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="bg" data-theme="{{ d.theme }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ d.name }} — {{ d.category }}, {{ d.city }}</title>
+<meta name="description" content="{{ d.tagline }}">
+{% if d.is_demo %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?{{ d.fonts }}&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../static/demo.css">
+{% if d.accent %}<style>:root{--accent:{{ d.accent }}}</style>{% endif %}
+</head>
+<body>
+{% if d.is_demo %}
+<div class="demo-bar">
+  {% if d.demo_for %}Примерен сайт, изготвен от <a href="../../">Otto.web</a> за {{ d.demo_for }}. Не е официален сайт.
+  {% else %}Демо на <a href="../../">Otto.web</a> — измислен бизнес, истински дизайн. Такъв сайт за вашия бизнес: от €{{ studio.packages[0].price }}.{% endif %}
+</div>
+{% endif %}
+
+<header class="top">
+  <a class="brand" href="#">{{ d.name }}</a>
+  <nav class="top-nav">
+    <a href="#services">Услуги</a>{% if d.team %}<a href="#team">Екип</a>{% endif %}<a href="#contact">Контакт</a>
+  </nav>
+  <a class="btn btn-small" href="tel:{{ d.phone }}">{{ d.phone_display }}</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">{{ d.category }} · {{ d.area }}</p>
+    <h1>{{ d.tagline }}</h1>
+    <p class="lead">{{ d.lead }}</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:{{ d.phone }}">Обадете се</a>
+      {% if d.viber %}<a class="btn btn-ghost" href="viber://chat?number=%2B{{ d.viber|replace('+','') }}">Пишете във Viber</a>{% endif %}
+    </div>
+    {% if d.highlights %}
+    <ul class="highlights">
+      {% for h in d.highlights %}<li><b>{{ h[0] }}</b><span>{{ h[1] }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>
+
+<section id="services" class="wrap block">
+  <h2>{{ d.services_title or "Услуги и цени" }}</h2>
+  {% for group in d.services %}
+  <div class="price-group">
+    {% if group.title %}<h3>{{ group.title }}</h3>{% endif %}
+    <ul class="price-list">
+      {% for s in group["items"] %}
+      <li><span class="svc">{{ s[0] }}{% if s|length > 2 and s[2] %}<small>{{ s[2] }}</small>{% endif %}</span><span class="dots"></span><span class="price">{{ s[1] }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  {% if d.price_note %}<p class="note">{{ d.price_note }}</p>{% endif %}
+</section>
+
+{% if d.about %}
+<section class="wrap block about">
+  <h2>{{ d.about_title or "За нас" }}</h2>
+  <p>{{ d.about }}</p>
+</section>
+{% endif %}
+
+{% if d.team %}
+<section id="team" class="wrap block">
+  <h2>Екип</h2>
+  <div class="team">
+    {% for t in d.team %}
+    <div class="person"><div class="avatar">{{ t[0][:1] }}</div><b>{{ t[0] }}</b><span>{{ t[1] }}</span></div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if d.reviews %}
+<section class="wrap block">
+  <h2>Отзиви</h2>
+  {% if d.is_demo %}<p class="note">В демото отзивите са примерни. В истинския сайт слагаме ваши отзиви от Google.</p>{% endif %}
+  <div class="reviews">
+    {% for r in d.reviews %}<figure><blockquote>„{{ r[1] }}“</blockquote><figcaption>— {{ r[0] }}</figcaption></figure>{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if d.faq %}
+<section class="wrap block">
+  <h2>Чести въпроси</h2>
+  {% for q in d.faq %}<details><summary>{{ q[0] }}</summary><p>{{ q[1] }}</p></details>{% endfor %}
+</section>
+{% endif %}
+
+<section id="contact" class="wrap block contact">
+  <div>
+    <h2>Работно време</h2>
+    <dl class="hours">{% for h in d.hours %}<dt>{{ h[0] }}</dt><dd>{{ h[1] }}</dd>{% endfor %}</dl>
+    <h2>Адрес</h2>
+    <p>{{ d.address }}</p>
+    <p><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query={{ d.map_query|urlencode }}">Маршрут в Google Maps</a></p>
+  </div>
+  <iframe class="map" title="Карта" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q={{ d.map_query|urlencode }}&output=embed"></iframe>
+</section>
+</main>
+
+<footer class="foot wrap">
+  <span>© {{ d.name }}, {{ d.city }}</span>
+  <a href="../../">Сайт от Otto.web</a>
+</footer>
+
+<div class="callbar">
+  <a href="tel:{{ d.phone }}">Обадете се</a>
+  {% if d.viber %}<a href="viber://chat?number=%2B{{ d.viber|replace('+','') }}">Viber</a>{% endif %}
+  <a href="https://www.google.com/maps/search/?api=1&query={{ d.map_query|urlencode }}">Маршрут</a>
+</div>
+</body>
+</html>

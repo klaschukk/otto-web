@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Otto.web — сайтове за малък бизнес в Бургас, от €{{ studio.packages[0].price }}</title>
+<meta name="description" content="Правя модерни сайтове за салони, сервизи, кабинети и магазини в Бургас. Първо виждате готов пример с вашето име, после решавате. От €{{ studio.packages[0].price }}, с фактура.">
+<link rel="canonical" href="{{ studio.base_url }}/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/otto.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23141414'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23ff5a1f' stroke-width='4'/></svg>">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#">Otto<span>.web</span></a>
+  <nav><a href="#examples">Примери</a><a href="#prices">Цени</a><a href="#how">Как работя</a><a href="#contact">Контакт</a></nav>
+  <a class="btn btn-small" href="viber://chat?number=%2B{{ studio.viber|replace('+','') }}">Viber</a>
+</header>
+
+<main>
+<section class="hero wrap">
+  <p class="kicker">Сайтове за малък бизнес · Бургас</p>
+  <h1>Вашият бизнес<br>в Google — <em>от €{{ studio.packages[0].price }}</em></h1>
+  <p class="lead">Правя бързи и модерни сайтове за салони, сервизи, кабинети и магазини. Първо ви показвам <b>готов пример с вашето име</b>. Плащате само ако ви харесва.</p>
+  <div class="cta-row">
+    <a class="btn" href="tel:{{ studio.phone }}">Обадете се</a>
+    <a class="btn btn-ghost" href="#examples">Вижте примери ↓</a>
+  </div>
+  <ul class="facts">
+    <li><b>3–4 дни</b><span>до готов сайт</span></li>
+    <li><b>Фактура</b><span>от фирма, без ДДС</span></li>
+    <li><b>Ваш</b><span>домейнът е на ваше име</span></li>
+  </ul>
+</section>
+
+<section id="examples" class="block">
+  <div class="wrap">
+    <h2>Примери</h2>
+    <p class="sub">Измислени бизнеси, истински дизайн. Отворете ги от телефона — точно така ще ги видят клиентите ви.</p>
+  </div>
+  <div class="examples wrap">
+    {% for d in demos %}
+    <a class="ex" href="demo/{{ d.slug }}/">
+      <div class="ex-frame" aria-hidden="true"><iframe src="demo/{{ d.slug }}/" loading="lazy" tabindex="-1" title=""></iframe></div>
+      <div class="ex-cap"><b>{{ d.name }}</b><span>{{ d.niche_label }}</span></div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="block dark">
+  <div class="wrap">
+    <h2>Защо сайт, ако имам Facebook?</h2>
+    <div class="why">
+      <div><b>Хората търсят в Google</b><p>„фризьор Лазур“, „автосервиз Бургас“. Без сайт показват конкурента, който има.</p></div>
+      <div><b>Едно копче — обаждане</b><p>Цени, работно време, карта и бутон за Viber. Клиентът не пише „колко струва?“ в съобщения.</p></div>
+      <div><b>Изглеждате сериозно</b><p>Собствен адрес като <i>вашето-име.bg</i> внушава доверие повече от профил в социалните мрежи.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prices" class="block wrap">
+  <h2>Цени</h2>
+  <p class="sub">Фиксирана цена, без скрити такси. Домейнът (~€12 на година) се плаща отделно и е на ваше име.</p>
+  <div class="plans">
+    {% for p in studio.packages %}
+    <div class="plan{% if p.featured %} featured{% endif %}">
+      {% if p.featured %}<span class="badge">Най-често избиран</span>{% endif %}
+      <h3>{{ p.name }}</h3>
+      <p class="for">{{ p.for }}</p>
+      <p class="price">€{{ p.price }}</p>
+      <ul>{% for i in p["items"] %}<li>{{ i }}</li>{% endfor %}</ul>
+      <a class="btn {% if not p.featured %}btn-ghost{% endif %}" href="#contact">Искам този</a>
+    </div>
+    {% endfor %}
+  </div>
+  <h3 class="extras-title">Малки задачи</h3>
+  <ul class="extras">
+    {% for e in studio.extras %}<li><span>{{ e[0] }}</span><b>{{ e[1] }}</b></li>{% endfor %}
+  </ul>
+</section>
+
+<section id="how" class="block wrap">
+  <h2>Как работя</h2>
+  <ol class="steps">
+    <li><b>Разговор — 10 минути</b><span>Какви услуги, цени и снимки имате. Може на място или по телефона.</span></li>
+    <li><b>Безплатен пример</b><span>До 2 дни ви показвам сайта с вашето име и вашите цени.</span></li>
+    <li><b>Плащане и корекции</b><span>Ако ви харесва — плащате по банков път срещу фактура. Нанасям корекциите.</span></li>
+    <li><b>Онлайн</b><span>Свързвам домейна, HTTPS и Google карта. Получавате всички достъпи.</span></li>
+  </ol>
+</section>
+
+<section class="block wrap about">
+  <div>
+    <h2>Кой стои зад Otto.web</h2>
+    <p>Казвам се Кирил, млад разработчик от Украйна и живея в Бургас. Поддържам 7 сайта на собствен сървър. Най-големият, <a href="https://prevozni.com">prevozni.com</a>, разписания на автобуси и влакове, има стотици посетители на ден от Google.</p>
+    <p>Цените са по-ниски от тези на агенциите, защото сега събирам първите си местни клиенти и отзиви. Качеството не е по-ниско: сайтът е ваш, бърз е и работи на телефон.</p>
+  </div>
+  <ul class="projects">
+    <li><a href="https://prevozni.com">prevozni.com</a><span>разписания, Сърбия и Черна гора</span></li>
+    <li><a href="https://valocheck.com">valocheck.com</a><span>статистика за играчи</span></li>
+    <li><a href="https://flightpunctuality.online">flightpunctuality.online</a><span>закъснения на полети</span></li>
+    <li><a href="https://ai-web-lab.study">ai-web-lab.study</a><span>школа по програмиране</span></li>
+  </ul>
+</section>
+
+<section class="block wrap">
+  <h2>Въпроси</h2>
+  <details><summary>Чий е сайтът след като платя?</summary><p>Ваш. Домейнът се регистрира на ваше име, а ако поискате, получавате и всички файлове.</p></details>
+  <details><summary>Издавате ли фактура?</summary><p>Да, от фирма, която не е регистрирана по ДДС, затова в цената няма ДДС. Плащане по банков път.</p></details>
+  <details><summary>Ами ако не ми хареса примерът?</summary><p>Нищо не дължите. Примерът е безплатен.</p></details>
+  <details><summary>Какво става, ако след година трябва да сменя цените?</summary><p>С поддръжка (от €15/мес) пращате нови цени във Viber и ги сменям. Без поддръжка — еднократна промяна от €20.</p></details>
+  <details><summary>Имам стар сайт, който не работи добре.</summary><p>Пратете ми линк. Безплатно ще ви кажа какво не е наред и колко струва поправката.</p></details>
+</section>
+
+<section id="contact" class="block contact">
+  <div class="wrap">
+    <h2>Да направим пример за вашия бизнес?</h2>
+    <p class="sub">Пишете или се обадете. Отговарям до час, говоря български, английски, руски, украински и сръбски.</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:{{ studio.phone }}">{{ studio.phone_display }}</a>
+      <a class="btn btn-ghost" href="viber://chat?number=%2B{{ studio.viber|replace('+','') }}">Viber</a>
+      <a class="btn btn-ghost" href="https://wa.me/{{ studio.whatsapp }}">WhatsApp</a>
+      <a class="btn btn-ghost" href="https://t.me/{{ studio.telegram }}">Telegram</a>
+      <a class="btn btn-ghost" href="mailto:{{ studio.email }}">{{ studio.email }}</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot wrap"><span>© Otto.web · Бургас</span><span>Фактури: {{ studio.company }}</span></footer>
+<script src="static/frames.js"></script>
+</body>
+</html>

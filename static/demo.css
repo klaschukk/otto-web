@@ -1,0 +1,96 @@
+/* Один шаблон — четыре темы. Тема задаётся data-theme на <html>, цвет — accent в YAML. */
+:root{--bg:#fff;--fg:#141414;--muted:#666;--line:#e5e5e5;--card:#f6f6f6;--accent:#c4552d;--on-accent:#fff;
+  --display:"Manrope",system-ui,sans-serif;--body:"Manrope",system-ui,sans-serif;--radius:14px;--hero-bg:var(--bg)}
+[data-theme=dark]{--bg:#17130f;--fg:#f3ece2;--muted:#b3a796;--line:#3a3127;--card:#211b15;--accent:#c99a4b;--on-accent:#17130f;
+  --display:"Playfair Display",serif;--body:"Manrope",sans-serif;--radius:6px;
+  --hero-bg:radial-gradient(120% 90% at 85% 0%,#3a2b1a 0%,#17130f 60%)}
+[data-theme=blush]{--bg:#fbf6f3;--fg:#2b1f22;--muted:#7d6a6e;--line:#ecdcd6;--card:#fff;--accent:#b5546e;
+  --display:"Cormorant Garamond",serif;--body:"Montserrat",sans-serif;--radius:22px;
+  --hero-bg:linear-gradient(160deg,#f7e3dd 0%,#fbf6f3 55%)}
+[data-theme=garage]{--bg:#f2f2ee;--fg:#111;--muted:#555;--line:#d6d6cf;--card:#fff;--accent:#f2b705;--on-accent:#111;
+  --display:"Oswald",sans-serif;--body:"Rubik",sans-serif;--radius:4px;
+  --hero-bg:repeating-linear-gradient(-45deg,#1a1a1a 0 22px,#202020 22px 44px)}
+[data-theme=clinic]{--bg:#f7fafc;--fg:#0f2533;--muted:#56707f;--line:#dbe6ec;--card:#fff;--accent:#1a8a9b;
+  --display:"Manrope",sans-serif;--body:"Nunito",sans-serif;--radius:18px;
+  --hero-bg:linear-gradient(180deg,#e3f2f5 0%,#f7fafc 100%)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-bottom:64px}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.1rem,7vw,3.8rem);font-weight:700;max-width:16ch}
+h2{font-size:clamp(1.6rem,4.5vw,2.3rem)}
+h3{font-size:1.05rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-family:var(--body)}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+.block{padding:56px 20px}
+
+.demo-bar{background:#111;color:#eee;font:13px/1.4 system-ui,sans-serif;text-align:center;padding:8px 16px}
+.demo-bar a{color:#ffb38a}
+
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:16px;padding:12px 20px;
+  background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;text-decoration:none;margin-right:auto}
+.top-nav{display:flex;gap:18px}.top-nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
+.top-nav a:hover{color:var(--fg)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:var(--radius);
+  background:var(--accent);color:var(--on-accent);font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn-small{min-height:40px;padding:0 14px;font-size:.9rem}
+
+.hero{background:var(--hero-bg);padding:64px 0 56px}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;color:var(--accent);font-weight:600;margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+.highlights{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.highlights li{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.highlights b{display:block;font-family:var(--display);font-size:1.3rem}
+.highlights span{color:var(--muted);font-size:.9rem}
+
+[data-theme=garage] .hero{color:#f2f2ee}
+[data-theme=garage] .hero .lead,[data-theme=garage] .highlights span{color:#bdbdb5}
+[data-theme=garage] .hero .btn-ghost{color:#f2f2ee;border-color:#444}
+[data-theme=garage] .highlights li{background:#111;border-color:#333}
+[data-theme=garage] h1{text-transform:uppercase;letter-spacing:.01em}
+
+.price-group{margin-bottom:28px}
+.price-list{list-style:none;padding:0;margin:0}
+.price-list li{display:flex;align-items:baseline;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.svc{display:flex;flex-direction:column}.svc small{color:var(--muted);font-size:.85rem}
+.dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-5px)}
+.price{font-weight:700;color:var(--accent);white-space:nowrap}
+[data-theme=garage] .price{color:var(--fg);background:var(--accent);padding:2px 8px;border-radius:3px}
+.note{color:var(--muted);font-size:.9rem}
+
+.about p{font-size:1.1rem;max-width:62ch}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:2px}
+.avatar{width:52px;height:52px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;
+  font:700 1.3rem var(--display);margin-bottom:10px}
+.person span{color:var(--muted);font-size:.9rem}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.reviews figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.reviews blockquote{margin:0 0 10px;font-size:1.05rem}
+.reviews figcaption{color:var(--muted);font-size:.9rem}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:start}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0 0 28px}
+.hours dt{color:var(--muted)}.hours dd{margin:0;font-weight:600}
+.map{width:100%;min-height:340px;border:0;border-radius:var(--radius);background:var(--card)}
+
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:28px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.callbar{position:fixed;left:0;right:0;bottom:0;display:none;background:var(--fg);z-index:9}
+.callbar a{flex:1;text-align:center;padding:16px 4px;color:var(--bg);text-decoration:none;font-weight:600;font-size:.95rem}
+.callbar a:first-child{background:var(--accent);color:var(--on-accent)}
+
+@media (max-width:720px){
+  .top-nav{display:none}
+  .contact{grid-template-columns:1fr}
+  .callbar{display:flex}
+  .top .btn-small{display:none}
+}
+@media (min-width:721px){body{padding-bottom:0}}

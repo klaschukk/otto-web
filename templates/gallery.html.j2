@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Примери — Otto.web</title><meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../static/otto.css"></head>
+<body>
+<header class="top"><a class="logo" href="../">Otto<span>.web</span></a><a class="btn btn-small" href="../#contact">Контакт</a></header>
+<section class="wrap gallery-head"><h2>Примери</h2><p class="sub">Изберете сайт, който прилича на вашия бизнес.</p></section>
+<div class="examples wrap" style="padding-bottom:60px">
+{% for d in demos %}<a class="ex" href="{{ d.slug }}/"><div class="ex-frame" aria-hidden="true"><iframe src="{{ d.slug }}/" loading="lazy" tabindex="-1" title=""></iframe></div><div class="ex-cap"><b>{{ d.name }}</b><span>{{ d.niche_label }}</span></div></a>
+{% endfor %}</div>
+<script src="../static/frames.js"></script>
+</body></html>
