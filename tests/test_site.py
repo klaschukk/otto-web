@@ -3,7 +3,7 @@ import sqlite3
 
 import pytest
 
-PAGES = ["/", "/raboti/", "/raboti/avto-profi/", "/raboti/dental-morska/", "/ceni/", "/kontakt/", "/blagodarim/"]
+PAGES = ["/", "/raboti/", "/raboti/avto-profi/", "/raboti/dental-morska/", "/ceni/", "/kontakt/", "/blagodarim/", "/poveritelnost/"]
 
 
 @pytest.mark.parametrize("prefix", ["", "/en", "/ru"])
@@ -93,3 +93,14 @@ def test_admin_login_and_list(client):
 
 def test_admin_login_needs_csrf(client):
     assert client.post("/admin/login", data={"user": "admin", "password": "secret-pass"}).status_code == 400
+
+
+def test_no_third_party_assets_on_studio_pages(client):
+    html = client.get("/").get_data(as_text=True)
+    for host in ("fonts.googleapis.com", "fonts.gstatic.com", "cdnjs.cloudflare.com", "openstreetmap.org"):
+        assert host not in html
+
+
+def test_privacy_has_controller_but_no_address(client):
+    html = client.get("/poveritelnost/").get_data(as_text=True)
+    assert "ЕИК" in html and "{company}" not in html and "Сарафово" not in html
