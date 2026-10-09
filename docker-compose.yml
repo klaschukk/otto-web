@@ -1,0 +1,12 @@
+# Временный хостинг витрины на IP сервера: http://<ip>:8080
+# site/ собирается build.py; nginx отдаёт его только на чтение
+services:
+  web:
+    image: nginx:1.27-alpine
+    container_name: otto-web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
