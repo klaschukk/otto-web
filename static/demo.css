@@ -30,7 +30,8 @@ h3{font-size:1.05rem;text-transform:uppercase;letter-spacing:.08em;color:var(--m
 
 .top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:16px;padding:12px 20px;
   background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;text-decoration:none;margin-right:auto}
+.brand{font-family:var(--display);font-weight:700;font-size:1.25rem;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
+.brand-logo{height:36px;width:auto;display:block}
 .top-nav{display:flex;gap:18px}.top-nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
 .top-nav a:hover{color:var(--fg)}
 
@@ -94,3 +95,21 @@ summary{cursor:pointer;font-weight:600}
   .top .btn-small{display:none}
 }
 @media (min-width:721px){body{padding-bottom:0}}
+
+/* Фото: на телефоне баннер сверху, на десктопе — правая половина героя */
+.hero.has-photo{padding-top:0;display:grid}
+.hero-img{width:100%;height:240px;object-fit:cover;display:block}
+.hero.has-photo .hero-text{padding-top:34px}
+.about.has-photo{display:grid;gap:28px;align-items:center}
+.about img{width:100%;max-width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius)}
+@media (min-width:900px){
+  .hero.has-photo{grid-template-columns:1fr 1fr;align-items:center;padding:0}
+  .hero.has-photo .hero-img{order:2;height:100%;min-height:560px}
+  .hero.has-photo .hero-text{padding:64px 32px 56px max(20px,calc((100vw - 980px)/2 + 20px));max-width:none}
+  .about.has-photo{grid-template-columns:1.1fr 1fr}
+}
+/* Цифры героя — строкой с разделителями, без карточек */
+.highlights{display:flex;flex-wrap:wrap;gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.highlights li{background:none;border:0;border-radius:0;padding:14px 22px 0 0;margin-right:22px;border-right:1px solid var(--line)}
+.highlights li:last-child{border-right:0}
+[data-theme=garage] .highlights li{background:none;border-color:#333}

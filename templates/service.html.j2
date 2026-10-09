@@ -14,14 +14,14 @@
 </head>
 <body>
 {% if d.is_demo %}
-<div class="demo-bar">
+<div class="demo-bar" id="demo-bar">
   {% if d.demo_for %}Примерен сайт, изготвен от <a href="../../">Otto.web</a> за {{ d.demo_for }}. Не е официален сайт.
   {% else %}Демо на <a href="../../">Otto.web</a> — измислен бизнес, истински дизайн. Такъв сайт за вашия бизнес: от €{{ studio.packages[0].price }}.{% endif %}
 </div>
 {% endif %}
 
 <header class="top">
-  <a class="brand" href="#">{{ d.name }}</a>
+  <a class="brand" href="#">{% if d.logo %}<img class="brand-logo" src="../../static/logos/{{ d.logo }}" alt="" height="36">{% endif %}<span>{{ d.name }}</span></a>
   <nav class="top-nav">
     <a href="#services">Услуги</a>{% if d.team %}<a href="#team">Екип</a>{% endif %}<a href="#contact">Контакт</a>
   </nav>
@@ -29,8 +29,9 @@
 </header>
 
 <main>
-<section class="hero">
-  <div class="wrap">
+<section class="hero{% if d.photo %} has-photo{% endif %}">
+  {% if d.photo %}<img class="hero-img" src="../../static/img/{{ d.photo }}" alt="{{ d.photo_alt }}" width="1024" height="680" fetchpriority="high">{% endif %}
+  <div class="wrap hero-text">
     <p class="kicker">{{ d.category }} · {{ d.area }}</p>
     <h1>{{ d.tagline }}</h1>
     <p class="lead">{{ d.lead }}</p>
@@ -62,9 +63,12 @@
 </section>
 
 {% if d.about %}
-<section class="wrap block about">
-  <h2>{{ d.about_title or "За нас" }}</h2>
-  <p>{{ d.about }}</p>
+<section class="wrap block about{% if d.photo2 %} has-photo{% endif %}">
+  <div>
+    <h2>{{ d.about_title or "За нас" }}</h2>
+    <p>{{ d.about }}</p>
+  </div>
+  {% if d.photo2 %}<img src="../../static/img/{{ d.photo2 }}" alt="{{ d.photo2_alt }}" loading="lazy" width="1024" height="680">{% endif %}
 </section>
 {% endif %}
 
@@ -119,5 +123,6 @@
   {% if d.viber %}<a href="viber://chat?number=%2B{{ d.viber|replace('+','') }}">Viber</a>{% endif %}
   <a href="https://www.google.com/maps/search/?api=1&query={{ d.map_query|urlencode }}">Маршрут</a>
 </div>
+<script>if(location.search.indexOf("shot")>-1){var b=document.getElementById("demo-bar");if(b)b.hidden=true}</script>
 </body>
 </html>
