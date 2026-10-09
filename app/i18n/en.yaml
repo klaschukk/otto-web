@@ -1,0 +1,217 @@
+locale: en_GB
+lang_name: EN
+meta:
+  title: "Otto.web — websites for small businesses in Burgas"
+  description: "Websites for salons, garages, dentists and barbershops in Burgas. Each one is different. You see your example first, then you pay. From €79."
+skip: "Skip to content"
+nav:
+  works: "Work"
+  prices: "Prices"
+  how: "How it works"
+  contact: "Contact"
+  call: "Call us"
+  menu: "Menu"
+  close: "Close"
+hero:
+  eyebrow: "Web studio · Burgas"
+  h1_pre: "Websites that make your phone"
+  h1_mark: "ring"
+  h1_post: "."
+  lead: "We build websites for small businesses in Burgas. Every one is different. You see yours first, then you pay."
+  cta: "Show me an example"
+  price_from: "from €79"
+  price_note: "fixed price in the contract"
+  trust:
+    - "Reply within 1 hour"
+    - "The site and domain are yours"
+    - "No monthly hosting fee"
+  phone_alt: "Demo garage website on a phone screen"
+  notifs:
+    - {icon: phone, app: "Call from the website", text: "Incoming · 0888 ··· 412", time: "21:40"}
+    - {icon: viber, app: "Viber", text: "Any free slot on Saturday?", time: "21:52"}
+    - {icon: pin, app: "Directions to you", text: "Started in Meden Rudnik · 3 km", time: "8:05"}
+    - {icon: form, app: "New request", text: "Oil change, Golf 7", time: "8:17"}
+niches: ["garages", "beauty salons", "dentists", "barbershops", "restaurants", "hotels", "tradespeople", "clinics"]
+reel:
+  eyebrow: "Work"
+  h2: "Four businesses. Four different websites."
+  lead: "No shared template. Every site starts from what the business sells and has one feature its competitors don't."
+  feature: "Feature"
+  open: "Open the demo"
+  case: "How it's made"
+  all: "All work"
+  hint: "Swipe sideways"
+  demo_note: "The businesses are made up, the websites are real. Open them on your phone."
+noshab:
+  eyebrow: "No templates"
+  h2: "First we think about what you sell. Then we design."
+  arrow: "→"
+ba:
+  eyebrow: "Before and after"
+  h2: "People find you on Google Maps. Then what?"
+  lead: "Drag the handle. On the left, a business with no website: just an address and a phone. On the right, the same business with a site, prices and a booking button."
+  handle: "Drag to compare"
+  before: "No website"
+  after: "With a website"
+  name: "Avto Profi"
+  kind: "Car repair · 12 Industrialna St"
+  open_now: "Open · until 18:00"
+  no_site: "No website"
+  no_photos: "No photos from the owner"
+  no_prices: "Prices: no information"
+  btn_call: "Call"
+  btn_route: "Directions"
+  btn_site: "Website"
+  btn_book: "Book"
+  site_prices: "Oil change · from €25"
+  site_line: "Prices, photos, free slots"
+  caption: "Example. The business is made up."
+how:
+  eyebrow: "How it works"
+  h2: "From the first call to a live site: 4 days."
+  steps:
+    - {day: "Day 0", title: "A 15-minute talk", text: "By phone or in person. What you sell, to whom, and what annoys you about your competitors' websites."}
+    - {day: "Day 1–2", title: "We build your example", text: "A demo with your name, services and prices. Free, no commitment. We send the link on Viber."}
+    - {day: "Day 3", title: "Changes", text: "You tell us what to change, we change it. Two rounds of changes are included."}
+    - {day: "Day 4", title: "The site is live", text: "Domain, HTTPS, Google map, call buttons. You pay once you accept the site."}
+prices:
+  eyebrow: "Prices"
+  h2: "The price is in the contract. It doesn't grow on the way."
+  lead: "You pay once for the build. Hosting is free. There's a monthly fee only if you want us to look after the site for you."
+  receipt_title: "Price list"
+  receipt_no: "No. 0001 · Burgas"
+  popular: "most popular"
+  choose: "I want this"
+  extras_title: "Extras"
+  total_note: "Final prices. The company is not VAT-registered."
+  more: "Package calculator"
+  packages:
+    - name: "Business card"
+      price: 79
+      for: "Salon, garage, tradesperson, practice"
+      items: ["1 page: services, prices, opening hours", "Buttons: call, Viber, WhatsApp", "Google map and directions", "Perfect on phones, HTTPS", "2 rounds of changes", "Ready in 3–4 days"]
+    - name: "Business"
+      price: 149
+      for: "When you want customers from Google"
+      featured: true
+      items: ["Everything in Business card", "Up to 5 pages or sections", "Gallery and enquiry form", "Google Business profile setup", "Visitor statistics", "Ready in 5–7 days"]
+    - name: "Business+"
+      price: 249
+      for: "More languages and features"
+      items: ["Everything in Business", "2 languages (e.g. BG + EN)", "Online booking with Telegram or Viber alerts", "Fast loading and SEO per service", "3 rounds of changes"]
+  extras:
+    - {name: "Extra page or section", price: 20, unit: ""}
+    - {name: "Email on your domain and DNS setup", price: 25, unit: ""}
+    - {name: "Fixing an existing website", price: 20, unit: "from"}
+    - {name: "Moving a site to new hosting", price: 40, unit: "from"}
+  hosting:
+    title: "Hosting: €0"
+    text: "Your site lives on Cloudflare Pages, on your own account: fast, HTTPS, no monthly fee. You only pay for the domain, about €10–15 a year, directly to the registrar, in your name."
+  care:
+    title: "Site care"
+    price: 15
+    per: "€ / month"
+    note: "optional"
+    items: ["Changes up to 30 minutes a month", "New prices and photos", "Checking that everything works", "Monthly visitor report"]
+about:
+  eyebrow: "Who is behind Otto.web"
+  h2: "Kirill. I build the sites myself and I answer myself."
+  lines:
+    - "I live in Burgas. I've been building websites and running them on my own server since 2025."
+    - "My biggest project is prevozni.com: bus and train timetables in 4 languages, 510 routes."
+    - "No middlemen, no account managers. Message me on Viber and I'm the one who replies."
+  stats:
+    - {num: "7", label: "live websites on my own server"}
+    - {num: "~350", label: "visitors a day from Google on prevozni.com"}
+    - {num: "45,000", label: "Google impressions a day"}
+  monogram_alt: "Kirill, Otto.web"
+faq:
+  eyebrow: "Questions"
+  h2: "What owners ask."
+  items:
+    - q: "How long does it take?"
+      a: "Business card: 3–4 days. Business: 5–7 days. The clock starts when we get your texts and photos. If you don't have them, we help you gather them."
+    - q: "Do I pay upfront?"
+      a: "The example is free. If you like it, we sign a contract. For a Business card you pay after acceptance. Business and Business+ have an advance written into the contract."
+    - q: "Who owns the site and the domain?"
+      a: "You do. The domain is in your name, the site is on your account. If we stop working together, everything stays with you."
+    - q: "Is there a monthly fee?"
+      a: "Not required. Hosting is free. Site care at €15 a month is optional, for when you want us to update prices and photos."
+    - q: "Do you issue invoices?"
+      a: "Yes, we work through a company. It is not VAT-registered, so the prices are final."
+    - q: "Will people find me on Google?"
+      a: "The site is fast, works on phones and has proper headings per service. In the Business package we also set up your Google Business profile. No honest studio guarantees first place on Google."
+cta:
+  h2_pre: "Shall I build an example"
+  h2_post: "for your business?"
+  lead: "Leave your number. I call back within 1 hour during the day, ask 3 questions and send you a link within 2 days."
+  name: "Name"
+  business: "Business"
+  business_ph: "e.g. Mila salon"
+  phone: "Phone"
+  message: "What should the website have?"
+  send: "I want an example"
+  sending: "Sending…"
+  ok: "Got your request. I'll call within 1 hour during the day."
+  err_name: "Write your name so I know who to ask for."
+  err_phone: "Check the phone number: at least 6 digits."
+  err_rate: "Too many requests from this network. Please call directly."
+  err_net: "No connection. Call or message on Viber."
+  or: "or directly"
+  privacy: "I only use your number to call you about the website."
+footer:
+  line: "Websites for small businesses in Burgas."
+  rights: "Demo websites are for made-up businesses."
+  made: "Made in Burgas"
+works_page:
+  title: "Work — Otto.web"
+  h1: "Work"
+  lead: "Four demo websites for made-up businesses, each with its own concept, plus our own projects with real visitors."
+  demos: "Demo websites"
+  own: "Own projects"
+  own_items:
+    - {name: "prevozni.com", img: "own-prevozni.webp", text: "Bus and train timetables for Serbia and Montenegro, 4 languages, 510 routes. ~350 visitors a day from Google.", url: "https://prevozni.com"}
+    - {name: "flightpunctuality.online", img: "own-flight.webp", text: "Flight delay statistics and an EU261 compensation calculator.", url: "https://flightpunctuality.online"}
+    - {name: "valocheck.com", img: "own-valocheck.webp", text: "Valorant player stats and leaderboards. Automated tests and CI.", url: "https://valocheck.com"}
+  visit: "Open the site"
+case:
+  idea: "Idea"
+  did: "What we built"
+  feature: "The feature"
+  open: "Open the demo"
+  next: "Next project"
+  back: "All work"
+  phone_hint: "Best viewed on a phone."
+ceni_page:
+  title: "Prices — Otto.web"
+  h1: "Prices"
+  lead: "Pick a package and extras. The total is what goes into the contract."
+  calc_title: "Calculator"
+  package: "Package"
+  extras: "Extras"
+  care: "Site care, €15 / month"
+  total: "Build"
+  monthly: "Monthly"
+  send: "Send me this offer"
+  domain_note: "The domain (~€10–15 a year) is paid separately, directly to the registrar."
+kontakt_page:
+  title: "Contact — Otto.web"
+  h1: "Contact"
+  lead: "Phone or Viber is fastest. If I don't pick up, I call back within 1 hour during the day."
+  phone: "Phone"
+  hours: "Messages"
+  hours_val: "Viber, WhatsApp, Telegram"
+  area: "Area"
+  area_val: "Burgas and the region. I come to you."
+  form_title: "Or leave a request"
+  map_title: "Map of Burgas"
+thanks:
+  title: "Thank you — Otto.web"
+  h1: "Got your request."
+  lead: "I'll call within 1 hour during the day. If you're in a hurry, call me."
+  back: "Back to home"
+e404:
+  title: "Page not found — Otto.web"
+  h1: "This page doesn't ring."
+  lead: "It isn't here. Maybe you're looking for our work or prices."
+  home: "Back to home"
