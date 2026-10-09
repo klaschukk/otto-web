@@ -249,5 +249,5 @@ client:
   label: "Реальный клиент"
   name: "SARAFAN"
   text: "Сайт детского клуба в Сарафово, Бургас: занятия, расписание и заявка на запись, на трёх языках."
-  url: "https://sarafan-bg.com"
+  url: "https://sarafan-bg.com/"
   open: "Открыть sarafan-bg.com"

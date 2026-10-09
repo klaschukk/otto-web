@@ -456,16 +456,17 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 @media (max-width:760px){.client{grid-template-columns:1fr;padding:20px}}
 .client-card{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,56px);align-items:center;text-decoration:none;
   background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,32px)}
-.client-card>img{border-radius:14px;border:1px solid var(--line);aspect-ratio:16/10;object-fit:cover;object-position:top}
-.client-card>.phone{position:absolute;left:calc(clamp(18px,3vw,32px) + 52%);bottom:-24px;width:min(19%,170px);border-radius:30px;padding:6px}
-.client-card>.phone::before{top:10px;width:46px;height:12px;margin-left:-23px}
+.client-shot{position:relative;display:block}
+.client-shot>img{border-radius:14px;border:1px solid var(--line);aspect-ratio:16/10;object-fit:cover;object-position:top}
+.client-shot>.phone{position:absolute;right:-14px;bottom:-28px;width:min(28%,170px);border-radius:30px;padding:6px}
+.client-shot>.phone::before{top:10px;width:46px;height:12px;margin-left:-23px}
 .client-card .phone-screen{border-radius:24px;padding-top:24px}
 .client-card .phone-screen::before{top:8px;font-size:8px}.client-card .phone-screen::after{top:9px;width:12px;height:6px;border-width:1px}
 .client-card-body{display:grid;gap:12px;justify-items:start}
 .client-card-body .client-tag{border-color:var(--ink);color:var(--ink)}
 .client-card-body b{font:800 clamp(1.8rem,3vw,2.5rem)/1 var(--sans);letter-spacing:-.04em}
 .client-card-body span:not(.client-tag):not(.link){color:var(--sub)}
-@media (max-width:860px){.client-card{grid-template-columns:1fr}.client-card>.phone{display:none}}
+@media (max-width:860px){.client-card{grid-template-columns:1fr}.client-shot>.phone{display:none}}
 
 /* /ceni/: одна липкая панель (итог калькулятора) вместо двух */
 @media (max-width:760px){.page-ceni .mbar{display:none}.page-ceni{padding-bottom:0}}
