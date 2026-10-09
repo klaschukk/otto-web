@@ -417,6 +417,7 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 .js [data-r].r-pre{opacity:0;transform:translateY(16px)}
 
 @media (max-width:899px){
+  .hero .h1{font-size:max(3rem,11.5vw)}
   .hero-in{grid-template-columns:1fr}
   .hero-phone{width:min(78%,300px);margin-top:12px}
   .notifs{left:-16%;right:-16%}
