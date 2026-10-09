@@ -1,0 +1,10 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Вход — Otto.web</title><link rel="stylesheet" href="/static/css/site.css"></head>
+<body><form class="admin-login" method="post">
+<a class="logo" href="/" style="color:var(--ink)">Otto<span>.web</span></a>
+<input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Логин <input name="user" autocomplete="username" required style="width:100%"></label>
+<label>Пароль <input name="password" type="password" autocomplete="current-password" required style="width:100%"></label>
+{% if error %}<p role="alert">Неверный логин или пароль.</p>{% endif %}
+<button class="btn btn-ink" type="submit">Войти</button>
+</form></body></html>

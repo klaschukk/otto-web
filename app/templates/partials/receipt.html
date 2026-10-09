@@ -1,0 +1,25 @@
+{% from "partials/icons.html" import icon %}
+{% macro receipt(t, P) -%}
+<div class="receipt">
+  <div class="rc-head mono"><span>{{ t.prices.receipt_title }}</span><span>{{ t.prices.receipt_no }}</span></div>
+  {% for p in t.prices.packages %}
+  <div class="rc-pkg{% if p.featured %} is-featured{% endif %}">
+    <div class="rc-line">
+      <h3>{{ p.name }}{% if p.featured %} <span class="rc-pop mono">{{ t.prices.popular }}</span>{% endif %}</h3>
+      <span class="rc-dots" aria-hidden="true"></span>
+      <span class="num">{{ p.price }} €</span>
+    </div>
+    <p class="rc-for">{{ p.for }}</p>
+    <ul>{% for it in p["items"] %}<li>{{ it }}</li>{% endfor %}</ul>
+    <a class="rc-choose" href="{{ P }}/ceni/?p={{ loop.index0 }}">{{ t.prices.choose }} {{ icon("arrow", 16) }}</a>
+  </div>
+  {% endfor %}
+  <div class="rc-extras">
+    <p class="rc-sub mono">{{ t.prices.extras_title }}</p>
+    {% for e in t.prices.extras %}
+    <div class="rc-line rc-small"><span>{{ e.name }}</span><span class="rc-dots" aria-hidden="true"></span><span class="mono">{% if e.unit %}{{ e.unit }} {% endif %}{{ e.price }} €</span></div>
+    {% endfor %}
+  </div>
+  <p class="rc-foot mono">{{ t.prices.total_note }}</p>
+</div>
+{%- endmacro %}

@@ -1,0 +1,16 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Заявки — Otto.web</title><link rel="stylesheet" href="/static/css/site.css"></head>
+<body><div class="admin">
+<div class="bar"><h1 class="sub-h" style="margin:0">Заявки <span class="num">{{ rows|length }}</span></h1>
+<div style="display:flex;gap:12px;align-items:center"><a class="link" href="{{ url_for('admin.export') }}">CSV</a>
+<form method="post" action="{{ url_for('admin.logout') }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn btn-ink" type="submit">Выйти</button></form></div></div>
+{% if not rows %}<p>Пока заявок нет. Форма на главной пишет сюда.</p>{% else %}
+<div style="overflow-x:auto"><table>
+<tr><th>#</th><th>Когда (UTC)</th><th>Имя</th><th>Бизнес</th><th>Телефон</th><th>Сообщение</th><th>Откуда</th><th>Статус</th></tr>
+{% for r in rows %}<tr><td>{{ r.id }}</td><td class="mono">{{ r.ts }}</td><td>{{ r.name }}</td><td>{{ r.business }}</td>
+<td><a class="mono" href="tel:{{ r.phone }}">{{ r.phone }}</a></td><td>{{ r.message }}</td><td>{{ r.source }} · {{ r.lang }}</td>
+<td><form method="post" action="{{ url_for('admin.set_status', lead_id=r.id) }}"><input type="hidden" name="csrf" value="{{ csrf }}">
+<select name="status" onchange="this.form.submit()" aria-label="Статус">{% for s in statuses %}<option value="{{ s }}"{% if s == r.status %} selected{% endif %}>{{ s }}</option>{% endfor %}</select>
+<noscript><button>OK</button></noscript></form></td></tr>{% endfor %}
+</table></div>{% endif %}
+</div></body></html>

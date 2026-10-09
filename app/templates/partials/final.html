@@ -1,0 +1,16 @@
+{% from "partials/icons.html" import icon %}
+{% from "partials/lead_form.html" import lead_form %}
+{% from "partials/icons.html" import icon %}
+<section class="final" id="zayavka" aria-labelledby="cta-h">
+  <div class="wrap final-in">
+    <h2 id="cta-h" class="h2 final-h" data-r>{{ t.cta.h2_pre }} <span>{{ t.cta.h2_post }}</span></h2>
+    <p class="lead" data-r>{{ t.cta.lead }}</p>
+    {{ lead_form(t, lang, page_path) }}
+    <div class="final-direct">
+      <span class="mono">{{ t.cta.or }}</span>
+      <a href="tel:{{ studio.phone }}" class="mono">{{ icon("phone", 18) }}{{ studio.phone_display }}</a>
+      <a href="viber://chat?number=%2B{{ studio.phone | replace('+','') }}">{{ icon("viber", 18) }}Viber</a>
+      <a href="https://wa.me/{{ studio.whatsapp }}" rel="noopener">{{ icon("whatsapp", 18) }}WhatsApp</a>
+    </div>
+  </div>
+</section>

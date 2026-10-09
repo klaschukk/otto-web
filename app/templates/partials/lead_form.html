@@ -1,0 +1,35 @@
+{# Форма заявки. Работает и без JS (обычный POST → /blagodarim/), с JS шлёт fetch и показывает ответ на месте. #}
+{% macro lead_form(t, lang, source, message=False, id="lead") -%}
+<form class="leadf" id="{{ id }}" action="/api/lead" method="post" novalidate
+      data-sending="{{ t.cta.sending }}" data-ok="{{ t.cta.ok }}" data-err-name="{{ t.cta.err_name }}"
+      data-err-phone="{{ t.cta.err_phone }}" data-err-rate="{{ t.cta.err_rate }}" data-err-net="{{ t.cta.err_net }}">
+  <input type="hidden" name="lang" value="{{ lang }}">
+  <input type="hidden" name="source" value="{{ source }}">
+  <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  <div class="field">
+    <label for="{{ id }}-name">{{ t.cta.name }}</label>
+    <input id="{{ id }}-name" name="name" autocomplete="name" required maxlength="80" aria-describedby="{{ id }}-name-err">
+    <p class="err" id="{{ id }}-name-err" aria-live="polite"></p>
+  </div>
+  <div class="field">
+    <label for="{{ id }}-business">{{ t.cta.business }}</label>
+    <input id="{{ id }}-business" name="business" autocomplete="organization" maxlength="120" placeholder="{{ t.cta.business_ph }}">
+  </div>
+  <div class="field">
+    <label for="{{ id }}-phone">{{ t.cta.phone }}</label>
+    <input id="{{ id }}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="40" placeholder="08X XXX XXXX" aria-describedby="{{ id }}-phone-err">
+    <p class="err" id="{{ id }}-phone-err" aria-live="polite"></p>
+  </div>
+  {% if message %}
+  <div class="field field-wide">
+    <label for="{{ id }}-message">{{ t.cta.message }}</label>
+    <textarea id="{{ id }}-message" name="message" rows="3" maxlength="1000"></textarea>
+  </div>
+  {% endif %}
+  <div class="lead-foot">
+    <button class="btn btn-ink" type="submit">{{ t.cta.send }}</button>
+    <p class="lead-note">{{ t.cta.privacy }}</p>
+  </div>
+  <p class="lead-status" role="status" aria-live="polite"></p>
+</form>
+{%- endmacro %}
