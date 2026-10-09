@@ -1,0 +1,53 @@
+# Демо-работы: каждая со своей концепцией. Скриншот телефона: static/shots/<slug>.webp (shots.py)
+- slug: avto-profi
+  name: "Авто Профи"
+  tone: "#ffc400"
+  niche: {bg: "Автосервиз", en: "Car repair", ru: "Автосервис"}
+  feature: {bg: "Калкулатор на цената", en: "Price calculator", ru: "Калькулятор цены"}
+  idea:
+    bg: "Автосервизът продава доверие. Човек се страхува от сметката, а не от ремонта."
+    en: "A garage sells trust. People fear the bill more than the repair."
+    ru: "Автосервис продаёт доверие. Люди боятся счёта, а не ремонта."
+  did:
+    bg: "Работна карта вместо витрина: асфалт, жълта лента, логото е бургаски номер. Калкулаторът казва цената по клас на колата и праща запитването във Viber."
+    en: "A job card instead of a shop window: asphalt, yellow tape, a Burgas licence plate for a logo. The calculator prices the job by car class and sends the request to Viber."
+    ru: "Рабочая карта вместо витрины: асфальт, жёлтая лента, логотип — бургасский номер. Калькулятор считает цену по классу машины и отправляет заявку в Viber."
+- slug: berber-studio
+  name: "Berber Studio"
+  tone: "#d23a2a"
+  niche: {bg: "Барбершоп", en: "Barbershop", ru: "Барбершоп"}
+  feature: {bg: "Свободни часове днес", en: "Free slots today", ru: "Свободные часы сегодня"}
+  idea:
+    bg: "В барбершопа идват днес, не следващата седмица. Важното е кой час е свободен."
+    en: "People book a barber for today, not next week. What matters is which slot is free."
+    ru: "В барбершоп идут сегодня, а не через неделю. Важно, какой час свободен."
+  did:
+    bg: "Винтидж плакат: снимка на цял екран, въртящ се бръснарски стълб, цени като на черна дъска. Решетката с часовете за днес праща избрания час във Viber."
+    en: "A vintage poster: full-screen photo, a spinning barber pole, prices on a chalkboard. Today's slot grid sends the chosen time to Viber."
+    ru: "Винтажный постер: фото на весь экран, крутящийся барберский столб, цены на меловой доске. Сетка слотов на сегодня отправляет выбранный час в Viber."
+- slug: studio-mila
+  name: "Studio Mila"
+  tone: "#c98b8b"
+  niche: {bg: "Маникюр и красота", en: "Nails & beauty", ru: "Маникюр и красота"}
+  feature: {bg: "Палитра гел лакове", en: "Gel polish palette", ru: "Палитра гель-лаков"}
+  idea:
+    bg: "Клиентката избира цвета седмици преди да дойде. Нека го избере на сайта."
+    en: "A client picks the colour weeks before her visit. Let her pick it on the site."
+    ru: "Клиентка выбирает цвет за недели до визита. Пусть выберет его на сайте."
+  did:
+    bg: "Лукбук: арка със снимка, курсив Prata и пудрова палитра. Тап по цвят пребоядисва ноктите на рисунката, бутонът „Искам този цвят“ праща го в съобщение."
+    en: "A lookbook: an arched photo, Prata italics, a powder palette. Tapping a colour repaints the nails in the drawing; “I want this colour” sends it in a message."
+    ru: "Лукбук: арка с фото, курсив Prata и пудровая палитра. Тап по цвету перекрашивает ногти на рисунке, кнопка «Хочу этот цвет» отправляет его в сообщении."
+- slug: dental-morska
+  name: "Дентал Морска"
+  tone: "#1f8a8a"
+  niche: {bg: "Зъболекар", en: "Dentist", ru: "Стоматология"}
+  feature: {bg: "Карта на зъбите", en: "Tooth map", ru: "Карта зубов"}
+  idea:
+    bg: "Пациентът знае кой зъб го боли, но не знае какво струва лечението."
+    en: "A patient knows which tooth hurts but not what the treatment costs."
+    ru: "Пациент знает, какой зуб болит, но не знает, сколько стоит лечение."
+  did:
+    bg: "Спокойна клиника: Literata и морско тюркоазено. Тап по зъб на картата (номерация FDI), избор на проблем, и сайтът показва лечението, цената и бутон за час."
+    en: "A calm clinic: Literata and sea turquoise. Tap a tooth on the map (FDI numbering), pick the problem, and the site shows the treatment, the price and a booking button."
+    ru: "Спокойная клиника: Literata и морская бирюза. Тап по зубу на карте (нумерация FDI), выбор проблемы — сайт показывает лечение, цену и кнопку записи."
