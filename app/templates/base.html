@@ -20,7 +20,9 @@
 <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Onest:wght@400;500;800&display=swap">
+{% set fonts = "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Onest:wght@400;500;800&display=swap" %}
+<link rel="preload" as="style" href="{{ fonts }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ fonts }}"></noscript>
 <link rel="stylesheet" href="/static/css/site.css?v={{ asset_v("css/site.css") }}">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">{{ {
@@ -44,7 +46,7 @@
       <a href="{{ P }}/kontakt/"{% if page_path == '/kontakt/' %} aria-current="page"{% endif %}>{{ t.nav.contact }}</a>
       <span class="langs">{% for l, href in alt.items() %}<a href="{{ href }}" hreflang="{{ l }}" lang="{{ l }}"{% if l == lang %} aria-current="true"{% endif %}>{{ l | upper }}</a>{% endfor %}</span>
     </nav>
-    <a class="hdr-tel mono" href="tel:{{ studio.phone }}">{{ icon("phone", 16) }}<span>{{ studio.phone_display }}</span></a>
+    <a class="hdr-tel mono" href="tel:{{ studio.phone }}" aria-label="{{ t.nav.call }}: {{ studio.phone_display }}">{{ icon("phone", 16) }}<span>{{ studio.phone_display }}</span></a>
     <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="{{ t.nav.menu }}" data-close="{{ t.nav.close }}">{{ icon("menu", 22) }}</button>
   </div>
 </header>
