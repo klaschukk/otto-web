@@ -40,6 +40,7 @@ def create_app(test_config=None):
         SEND_FILE_MAX_AGE_DEFAULT=60 * 60 * 24 * 7,
         SESSION_COOKIE_HTTPONLY=True,
         SESSION_COOKIE_SAMESITE="Lax",
+        SESSION_COOKIE_SECURE=os.environ.get("BASE_URL", "").startswith("https://"),
     )
     if test_config:
         app.config.update(test_config)
