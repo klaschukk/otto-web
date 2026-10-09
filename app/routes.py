@@ -10,7 +10,7 @@ from . import LANGS, ROOT
 bp = Blueprint("pages", __name__)
 DEMO_DIR = ROOT / "site" / "demo"
 PAGES = {  # endpoint -> путь без языкового префикса
-    "home": "/", "raboti": "/raboti/", "ceni": "/ceni/", "kontakt": "/kontakt/",
+    "home": "/", "raboti": "/raboti/", "ceni": "/ceni/", "kontakt": "/kontakt/", "poveritelnost": "/poveritelnost/",
 }
 
 with open(Path(__file__).parent / "works.yaml", encoding="utf-8") as f:
@@ -75,6 +75,11 @@ def kontakt(lang):
 @page("blagodarim", "/blagodarim/")
 def blagodarim(lang):
     return render_template("blagodarim.html", **ctx(lang, "/blagodarim/"))
+
+
+@page("poveritelnost", "/poveritelnost/")
+def poveritelnost(lang):
+    return render_template("poveritelnost.html", **ctx(lang, "/poveritelnost/"))
 
 
 @bp.route("/demo/")

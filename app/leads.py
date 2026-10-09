@@ -54,6 +54,8 @@ def lead():
         return done(400, ok=False, errors=errors)
 
     db = get_db()
+    # срок хранения из политики конфиденциальности: 12 месяцев
+    db.execute("DELETE FROM leads WHERE ts < datetime('now','-12 months')")
     ip = request.remote_addr or ""
     recent = db.execute("SELECT COUNT(*) FROM leads WHERE ip=? AND ts > datetime('now','-1 hour')", (ip,)).fetchone()[0]
     if recent >= current_app.config["LEADS_PER_HOUR"]:

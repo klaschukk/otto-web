@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{# ПРОЕКТ — за преглед от счетоводител/юрист преди домейна. Тексты в app/i18n/*.yaml → privacy #}
+{% block title %}{{ t.privacy.title }}{% endblock %}
+{% block main %}
+<section class="ph stage">
+  <div class="wrap">
+    <p class="eyebrow">Otto.web</p>
+    <h1 class="h1">{{ t.privacy.h1 }}</h1>
+    <p class="lead">{{ t.privacy.updated }}</p>
+  </div>
+</section>
+<section class="sec paper">
+  <div class="wrap legal">
+    {% for s in t.privacy.sections %}
+    <h2>{{ s.h }}</h2>
+    <p>{{ s.p | replace("{company}", studio.company) | replace("{email}", studio.email) | replace("{phone}", studio.phone_display) }}</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
