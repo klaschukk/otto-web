@@ -17,12 +17,15 @@ hero:
   h1_pre: "Websites that make your phone"
   h1_mark: "ring"
   h1_post: "."
-  lead: "We build websites for small businesses in Burgas. Every one is different. You see yours first, then you pay."
-  cta: "Show me an example"
+  lead: "We build websites for small businesses in Burgas. Every site is different. You see yours first, then you pay."
+  cta: "I want a free example"
+  cta2: "See our work"
+  notif_caption: "Example notifications from a client's site"
+  lock_date: "Friday, 9 October"
   price_from: "from €79"
   price_note: "fixed price in the contract"
   trust:
-    - "Reply within 1 hour"
+    - "I reply within 1 hour, every day 10:00–20:00"
     - "The site and domain are yours"
     - "No monthly hosting fee"
   phone_alt: "Demo garage website on a phone screen"
@@ -34,7 +37,7 @@ hero:
 niches: ["garages", "beauty salons", "dentists", "barbershops", "restaurants", "hotels", "tradespeople", "clinics"]
 reel:
   eyebrow: "Work"
-  h2: "Four businesses. Four different websites."
+  h2: "Four businesses and four completely different websites"
   lead: "No shared template. Every site starts from what the business sells and has one feature its competitors don't."
   feature: "Feature"
   open: "Open the demo"
@@ -76,7 +79,7 @@ how:
     - {day: "Day 4", title: "The site is live", text: "Domain, HTTPS, Google map, call buttons. You pay once you accept the site."}
 prices:
   eyebrow: "Prices"
-  h2: "The price is in the contract. It doesn't grow on the way."
+  h2: "The price is in the contract and doesn't change."
   lead: "You pay once for the build. Hosting is free. There's a monthly fee only if you want us to look after the site for you."
   receipt_title: "Price list"
   receipt_no: "No. 0001 · Burgas"
@@ -85,6 +88,7 @@ prices:
   extras_title: "Extras"
   total_note: "Final prices. The company is not VAT-registered."
   more: "Package calculator"
+  why: "Why €79 is possible: the site is static (no WordPress, no paid plugins), hosting is free, and I do everything myself, with no office or middlemen. Not included: the domain, professional photos and paid ads."
   packages:
     - name: "Business card"
       price: 79
@@ -115,7 +119,7 @@ prices:
     items: ["Changes up to 30 minutes a month", "New prices and photos", "Checking that everything works", "Monthly visitor report"]
 about:
   eyebrow: "Who is behind Otto.web"
-  h2: "Kirill. I build the sites myself and I answer myself."
+  h2: "I'm Kirill, and I build every site myself."
   lines:
     - "I live in Burgas. I've been building websites and running them on my own server since 2025."
     - "My biggest project is prevozni.com: bus and train timetables in 4 languages, 510 routes."
@@ -127,10 +131,10 @@ about:
   monogram_alt: "Kirill, Otto.web"
 faq:
   eyebrow: "Questions"
-  h2: "What owners ask."
+  h2: "Frequently asked questions"
   items:
     - q: "How long does it take?"
-      a: "Business card: 3–4 days. Business: 5–7 days. The clock starts when we get your texts and photos. If you don't have them, we help you gather them."
+      a: "Business card: 3–4 days. Business: 5–7 days. The deadline counts from when we get your texts and photos. If you don't have them, we help you gather them."
     - q: "Do I pay upfront?"
       a: "The example is free. If you like it, we sign a contract. For a Business card you pay after acceptance. Business and Business+ have an advance written into the contract."
     - q: "Who owns the site and the domain?"
@@ -140,11 +144,11 @@ faq:
     - q: "Do you issue invoices?"
       a: "Yes, we work through a company. It is not VAT-registered, so the prices are final."
     - q: "Will people find me on Google?"
-      a: "The site is fast, works on phones and has proper headings per service. In the Business package we also set up your Google Business profile. No honest studio guarantees first place on Google."
+      a: "The site is fast, works on phones and has proper headings per service. In the Business package we also set up your Google Business profile. No one can honestly guarantee first place on Google."
 cta:
   h2_pre: "Shall I build an example"
   h2_post: "for your business?"
-  lead: "Leave your number. I call back within 1 hour during the day, ask 3 questions and send you a link within 2 days."
+  lead: "Leave your number. I call back within 1 hour (every day 10:00–20:00), ask 3 questions and send you a link within 2 days."
   name: "Name"
   business: "Business"
   business_ph: "e.g. Mila salon"
@@ -152,17 +156,22 @@ cta:
   message: "What should the website have?"
   send: "I want an example"
   sending: "Sending…"
-  ok: "Got your request. I'll call within 1 hour during the day."
+  ok: "Got your request. I'll call within 1 hour, every day 10:00–20:00."
   err_name: "Write your name so I know who to ask for."
   err_phone: "Check the phone number: at least 6 digits."
   err_rate: "Too many requests from this network. Please call directly."
   err_net: "No connection. Call or message on Viber."
   or: "or directly"
   privacy: "I only use your number to call you about the website."
+  privacy_link: "How we handle your data"
 footer:
   line: "Websites for small businesses in Burgas."
   rights: "Demo websites are for made-up businesses."
   made: "Made in Burgas"
+  city: "Burgas, Bulgaria"
+  vat: "Not VAT-registered."
+  hours: "Every day 10:00–20:00"
+  privacy: "Privacy"
 works_page:
   title: "Work — Otto.web"
   h1: "Work"
@@ -197,10 +206,12 @@ ceni_page:
 kontakt_page:
   title: "Contact — Otto.web"
   h1: "Contact"
-  lead: "Phone or Viber is fastest. If I don't pick up, I call back within 1 hour during the day."
+  lead: "Phone or Viber is fastest. If I don't pick up, I call back within 1 hour. Every day 10:00–20:00."
   phone: "Phone"
   hours: "Messages"
   hours_val: "Viber, WhatsApp, Telegram"
+  hours2: "Hours"
+  hours2_val: "Every day, 10:00–20:00"
   area: "Area"
   area_val: "Burgas and the region. I come to you."
   form_title: "Or leave a request"
@@ -208,10 +219,35 @@ kontakt_page:
 thanks:
   title: "Thank you — Otto.web"
   h1: "Got your request."
-  lead: "I'll call within 1 hour during the day. If you're in a hurry, call me."
+  lead: "I'll call within 1 hour, every day 10:00–20:00. If you're in a hurry, call me."
   back: "Back to home"
 e404:
   title: "Page not found — Otto.web"
   h1: "This page doesn't ring."
   lead: "It isn't here. Maybe you're looking for our work or prices."
   home: "Back to home"
+privacy:
+  title: "Privacy — Otto.web"
+  h1: "How we handle your data"
+  updated: "Updated: 9 October 2026"
+  sections:
+    - h: "Who is responsible"
+      p: "The data controller is {company}. Contact: {email}, phone {phone}."
+    - h: "What we collect"
+      p: "When you send the form: name, business, phone and your message, if you wrote one. We also store the IP address and time of the request to stop spam (up to 5 requests per hour from one address)."
+    - h: "Why we use it"
+      p: "Only to reply to your request and prepare an example or an offer. Legal basis: steps taken at your request before entering into a contract (Art. 6(1)(b) GDPR). The IP address is kept on the basis of legitimate interest in preventing abuse (Art. 6(1)(f))."
+    - h: "How long we keep it"
+      p: "Up to 12 months from the request, then it is deleted automatically. If we sign a contract, its data is kept as long as accounting law requires."
+    - h: "Who sees it"
+      p: "Only us. The site and the request database are on our server at netcup GmbH in Germany. For each new request we get a Telegram notification with your name, business and phone. We don't sell or share data with third parties for advertising."
+    - h: "Cookies and tracking"
+      p: "The studio site uses no advertising or analytics cookies and loads its fonts and scripts from our own server. The demo sites under /demo/ load fonts from Google Fonts, which sends your IP address to Google."
+    - h: "Your rights"
+      p: "You can ask for access, correction, deletion, restriction or portability of your data, or object to its processing. Write to {email}; we reply within 30 days. You may complain to the Bulgarian Commission for Personal Data Protection (CPDP), www.cpdp.bg."
+client:
+  label: "Real client"
+  name: "SARAFAN"
+  text: "Website for a kids' club in Sarafovo, Burgas: activities, schedule and a sign-up request, in three languages."
+  url: "https://sarafan-bg.com"
+  open: "Open sarafan-bg.com"
