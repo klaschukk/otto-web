@@ -45,3 +45,15 @@ git add demos/studio-ani.yaml && git commit -m "demo: studio-ani" && git push
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python build.py --serve
 ```
+
+## v3: сайт студии (Flask)
+
+```bash
+cp .env.example .env          # пароль админки, Telegram-бот
+make test                     # pytest
+make shots                    # скриншоты демо → static/shots/
+make up                       # docker compose: app + nginx на :8080, проверка /health
+```
+
+Тексты страниц: `app/i18n/{bg,en,ru}.yaml`. Работы: `app/works.yaml`. Демо: `custom/<slug>/index.html` → `/demo/<slug>/`.
+Заявки: `/admin/` (логин из `.env`), база `data/otto.db`, бэкап `make backup`. Дизайн-система: `DESIGN.md`.
