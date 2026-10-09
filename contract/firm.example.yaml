@@ -1,0 +1,9 @@
+# Образец. Скопировать в firm.local.yaml (он в .gitignore), вписать реальные реквизиты,
+# потом: .venv/bin/python contract/render.py  → contract/out/dogovor.html и .pdf
+name: "„ИМЕ“ ЕООД"
+eik: "000000000"
+address: "гр. Бургас, ул. … № …"
+manager: "Име Фамилия"
+iban: "BG00 XXXX 0000 0000 0000 00"
+bic: "XXXXBGSF"
+bank: "Име на банката"

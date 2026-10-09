@@ -5,3 +5,5 @@ pages.yml
 .env
 data/
 .pytest_cache/
+contract/firm.local.yaml
+contract/out/
