@@ -1,3 +1,8 @@
 .venv/
 site/
 __pycache__/
+pages.yml
+.env
+data/
+.pytest_cache/
+docs/PROMPT_V3_NEW_CHAT.md
