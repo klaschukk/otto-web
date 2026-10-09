@@ -1,0 +1,11 @@
+.venv
+.git
+.github
+data
+site
+.env
+__pycache__
+.pytest_cache
+docs
+contract
+tests

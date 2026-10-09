@@ -1,3 +1,7 @@
 .venv/
 site/
 __pycache__/
+pages.yml
+.env
+data/
+.pytest_cache/
