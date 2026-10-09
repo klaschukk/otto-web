@@ -1,0 +1,318 @@
+<!doctype html>
+<!-- otto:custom — ручное демо, исходник сохраняется в custom/berber-studio/ при сборке -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berber Studio — барбершоп в Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Caveat:wght@600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#efe6d2;--paper-2:#e4d8bd;--ink:#1b1712;--ink-2:#4a4238;--red:#d23a2a;--red-ink:#a3271b;--navy:#1f3a5f;
+  --board:#1f2a24;--chalk:#f2efe6;--chalk-dim:#bfc4bb;
+  --display:"Oswald",Impact,sans-serif;--chalkf:"Caveat",cursive;--body:"PT Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.demo-bar{background:var(--ink);color:var(--paper);font:400 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:700}
+
+/* шапка */
+.top{position:absolute;left:0;right:0;z-index:5;display:flex;align-items:center;gap:22px;padding:16px 24px;color:var(--paper)}
+.logo{font:700 20px/1 var(--display);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:12px}
+.mini-pole{width:12px;height:30px;border-radius:6px;border:2px solid var(--paper);overflow:hidden;position:relative}
+.top nav{display:flex;gap:24px;margin-left:auto}
+.top nav a{text-decoration:none;font:500 14px var(--display);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.top nav a:hover{opacity:1}
+.top .tel{font:500 16px var(--display);letter-spacing:.08em;text-decoration:none;border:2px solid var(--paper);padding:8px 14px}
+
+/* постер */
+.poster{position:relative;min-height:min(92vh,860px);display:grid;place-items:center;overflow:hidden;background:var(--ink);color:var(--paper);padding:96px 20px 56px}
+.poster>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.55) contrast(1.1) brightness(.55)}
+.poster::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(10,8,6,.75) 100%)}
+.frame{position:relative;z-index:2;text-align:center;border:3px solid var(--paper);outline:1px solid var(--paper);outline-offset:6px;padding:44px clamp(20px,5vw,72px) 40px;max-width:760px;
+  background:rgba(20,16,12,.35)}
+.frame .kicker{font:500 14px var(--display);letter-spacing:.42em;text-transform:uppercase;margin:0 0 6px}
+.word{font:700 clamp(4.2rem,15vw,9.5rem)/.82 var(--display);letter-spacing:.04em;text-transform:uppercase;margin:0}
+.rule{display:flex;align-items:center;gap:14px;justify-content:center;font:500 15px var(--display);letter-spacing:.5em;text-transform:uppercase;margin:12px 0 22px}
+.rule::before,.rule::after{content:"";height:2px;width:56px;background:var(--paper)}
+h1{font:500 clamp(1.4rem,3.2vw,2rem)/1.2 var(--display);letter-spacing:.04em;text-transform:uppercase;margin:0 0 10px}
+h1 em{font-style:normal;background:var(--red);padding:0 .25em}
+.frame p.sub{margin:0 auto 26px;max-width:44ch;color:#e9e1cf}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;font:500 16px var(--display);letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;border:2px solid var(--red);background:var(--red);color:#fff;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* бръснарски стълб */
+.pole{position:absolute;z-index:2;right:clamp(16px,6vw,90px);top:50%;transform:translateY(-50%);width:46px;height:300px}
+.pole .cap{height:22px;background:linear-gradient(90deg,#8d8270,#efe6d2 40%,#8d8270);border-radius:23px 23px 4px 4px}
+.pole .cap.b{border-radius:4px 4px 23px 23px}
+.pole .glass{height:256px;overflow:hidden;position:relative;border-left:2px solid #8d8270;border-right:2px solid #8d8270}
+.stripes,.mini-pole i{position:absolute;left:0;right:0;top:0;height:calc(100% + 79.2px);
+  background:repeating-linear-gradient(45deg,var(--red) 0 14px,var(--paper) 14px 28px,var(--navy) 28px 42px,var(--paper) 42px 56px);
+  animation:spin 2.4s linear infinite}
+.mini-pole i{height:calc(100% + 39.6px);background:repeating-linear-gradient(45deg,var(--red) 0 7px,var(--paper) 7px 14px,var(--navy) 14px 21px,var(--paper) 21px 28px);animation-name:spin-s}
+.pole .glass::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.35),transparent 35%,rgba(255,255,255,.35) 55%,transparent 70%,rgba(0,0,0,.3))}
+@keyframes spin{to{transform:translateY(-79.2px)}}
+@keyframes spin-s{to{transform:translateY(-39.6px)}}
+
+/* часове днес */
+section.block{padding-top:80px;padding-bottom:80px}
+.eyebrow{font:500 13px var(--display);letter-spacing:.32em;text-transform:uppercase;color:var(--red-ink);margin:0 0 10px}
+h2{font:700 clamp(2.2rem,5.5vw,3.8rem)/.95 var(--display);text-transform:uppercase;letter-spacing:.01em;margin:0 0 14px}
+.slots-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:start}
+.day{font:500 18px var(--display);letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+.note{font-size:14px;color:var(--ink-2);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;list-style:none;padding:0;margin:0}
+.grid button{width:100%;min-height:52px;font:500 18px var(--display);letter-spacing:.06em;border:2px solid var(--ink);background:#fbf7ee;color:var(--ink);cursor:pointer;transition:transform .12s}
+.grid button:hover:not(:disabled){transform:translateY(-2px)}
+.grid button[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.grid button:disabled{border-color:#c9bea6;background:transparent;color:#8a7f6c;text-decoration:line-through;cursor:not-allowed}
+.legend{display:flex;gap:18px;font-size:14px;color:var(--ink-2);margin:14px 0 0}
+.legend i{display:inline-block;width:14px;height:14px;border:2px solid var(--ink);vertical-align:-2px;margin-right:6px;background:#fbf7ee}
+.legend i.x{border-color:#c9bea6;background:transparent}
+.ticket{background:var(--ink);color:var(--paper);padding:24px;position:relative}
+.ticket::before,.ticket::after{content:"";position:absolute;left:-10px;top:50%;width:20px;height:20px;border-radius:50%;background:var(--paper);margin-top:-10px}
+.ticket::after{left:auto;right:-10px}
+.ticket .label{font:500 12px var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--chalk-dim);margin:0 0 8px}
+.svc{display:grid;gap:6px;margin-bottom:18px}
+.svc label{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 12px;border:1px solid #4a4238;cursor:pointer}
+.svc input{accent-color:var(--red);width:18px;height:18px}
+.svc span{flex:1}
+.svc b{font:500 16px var(--display)}
+.pick{border-top:1px dashed #6b6255;padding-top:14px;margin-bottom:16px}
+.pick b{display:block;font:700 30px/1.1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.pick span{color:var(--chalk-dim);font-size:15px}
+.send{display:grid;grid-template-columns:1fr auto;gap:8px}
+.send .btn{min-height:48px;padding:0 16px;font-size:14px}
+.send .btn.wa{background:transparent;border-color:var(--paper);color:var(--paper)}
+.send .btn[aria-disabled=true]{opacity:.45;pointer-events:none}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:20}
+
+/* черна дъска */
+.board-sec{background:var(--paper-2)}
+.board-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.board{background:radial-gradient(ellipse at 30% 20%,#2c3a32,transparent 60%),radial-gradient(ellipse at 80% 90%,#28352e,transparent 55%),var(--board);
+  color:var(--chalk);padding:40px clamp(22px,4vw,48px);border:14px solid #6b4a2b;box-shadow:inset 0 0 40px rgba(0,0,0,.5)}
+.board h2{font:700 clamp(2.6rem,6vw,3.6rem)/1 var(--chalkf);text-transform:none;letter-spacing:0;margin:0 0 18px;color:var(--chalk)}
+.board ul{list-style:none;padding:0;margin:0}
+.board li{display:flex;align-items:baseline;gap:10px;font:600 clamp(1.45rem,3vw,1.75rem)/1.25 var(--chalkf);padding:7px 0}
+.board li .dots{flex:1;border-bottom:2px dotted rgba(242,239,230,.45);transform:translateY(-6px)}
+.board li small{display:block;font:400 14px var(--body);color:var(--chalk-dim)}
+.board .p{white-space:nowrap}
+.board .foot{font:600 1.3rem var(--chalkf);color:var(--chalk-dim);margin:18px 0 0}
+.board-photo{margin:0;position:relative}
+.board-photo img{width:100%;height:100%;min-height:360px;object-fit:cover;filter:sepia(.35) contrast(1.05)}
+
+/* правила */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.rules div{padding:28px 24px}
+.rules div+div{border-left:1px solid var(--ink)}
+.rules .no{font:700 3.2rem/1 var(--display);color:var(--red-ink)}
+.rules h3{font:700 1.35rem/1.1 var(--display);text-transform:uppercase;margin:8px 0 8px;letter-spacing:.02em}
+.rules p{margin:0;color:var(--ink-2)}
+
+/* контакт */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours{width:100%;border-collapse:collapse;font:500 18px var(--display);letter-spacing:.04em}
+.hours td{padding:12px 0;border-bottom:1px solid #c9bea6}
+.hours td:last-child{text-align:right}
+.hours tr.today td{color:var(--red-ink);font-weight:700}
+.addr{font-size:1.1rem;margin:0 0 22px}
+.addr span{color:var(--ink-2)}
+footer{border-top:3px solid var(--ink);padding:24px 20px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--ink-2);font-size:.92rem}
+.callbar{display:none}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.poster :focus-visible,.ticket :focus-visible{outline-color:var(--paper)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (max-width:860px){
+  .top{padding:14px 16px}.top nav{display:none}.top .tel{margin-left:auto;padding:8px 10px;font-size:15px}
+  .poster{min-height:auto;padding:92px 16px 48px}
+  .pole{display:none}
+  .frame{padding:32px 16px 28px}
+  .slots-wrap{grid-template-columns:1fr;gap:28px}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .board-wrap{grid-template-columns:1fr}.board-photo img{min-height:220px;height:240px}
+  .rules{grid-template-columns:1fr}.rules div+div{border-left:0;border-top:1px solid var(--ink)}
+  .contact{grid-template-columns:1fr;gap:28px}
+  section.block{padding-top:60px;padding-bottom:60px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--ink);border-top:3px solid var(--red)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font:500 15px var(--display);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--paper)}
+  .callbar a:first-child{background:var(--red);color:#fff}
+}
+@media (max-width:380px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Демо от <a href="../../">Otto.web</a>: бизнесът е измислен, сайтът е истински. Бутоните звънят на Otto.web.</div>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Berber Studio, начало"><span class="mini-pole" aria-hidden="true"><i></i></span>Berber</a>
+  <nav aria-label="Навигация"><a href="#chasove">Часове</a><a href="#ceni">Цени</a><a href="#kontakt">Контакт</a></nav>
+  <a class="tel" href="tel:+359876752600">0876 752 600</a>
+</header>
+
+<main>
+<section class="poster">
+  <img src="../../static/img/barber-hero.webp" alt="" width="1024" height="679" fetchpriority="high">
+  <div class="frame">
+    <p class="kicker">Барбершоп · Бургас</p>
+    <p class="word" aria-hidden="true">Berber</p>
+    <p class="rule" aria-hidden="true">Studio</p>
+    <h1>Подстригване <em>днес</em>, без чакане</h1>
+    <p class="sub">Вижте кой час е свободен още сега и го запазете с едно съобщение. Машинка, ножица, бръснач.</p>
+    <div class="cta">
+      <a class="btn" href="#chasove">Свободни часове днес</a>
+      <a class="btn ghost" href="tel:+359876752600">Обадете се</a>
+    </div>
+  </div>
+  <div class="pole" aria-hidden="true"><div class="cap"></div><div class="glass"><div class="stripes"></div></div><div class="cap b"></div></div>
+</section>
+
+<section class="block wrap" id="chasove">
+  <div class="slots-wrap">
+    <div>
+      <p class="eyebrow">Запис за днес</p>
+      <h2>Свободни часове</h2>
+      <p class="day" id="day"></p>
+      <p class="note">Демо: заетите часове са примерни. На истинския сайт се виждат реалните.</p>
+      <ul class="grid" id="grid" aria-label="Часове"></ul>
+      <p class="legend"><span><i></i>свободен</span><span><i class="x"></i>зает или мина</span></p>
+    </div>
+    <form class="ticket" id="ticket" aria-label="Запазване на час" onsubmit="return false">
+      <p class="label">Услуга</p>
+      <div class="svc" id="svc">
+        <label><input type="radio" name="svc" value="0" checked><span>Подстригване</span><b>15 €</b></label>
+        <label><input type="radio" name="svc" value="1"><span>Брада и контур</span><b>10 €</b></label>
+        <label><input type="radio" name="svc" value="2"><span>Подстригване + брада</span><b>22 €</b></label>
+        <label><input type="radio" name="svc" value="3"><span>Бръснене с бръснач</span><b>15 €</b></label>
+      </div>
+      <div class="pick" aria-live="polite"><b id="pick-t">Изберете час</b><span id="pick-s">Натиснете свободен час вляво</span></div>
+      <div class="send">
+        <button type="button" class="btn" id="viber" aria-disabled="true">Запази във Viber</button>
+        <a class="btn wa" id="wa" href="#" aria-disabled="true">WhatsApp</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="board-sec" id="ceni">
+  <div class="board-wrap">
+    <div class="board">
+      <h2>Цени</h2>
+      <ul>
+        <li><span>Подстригване<small>машинка и ножица, измиване</small></span><span class="dots"></span><span class="p">15 €</span></li>
+        <li><span>Брада и контур</span><span class="dots"></span><span class="p">10 €</span></li>
+        <li><span>Подстригване + брада</span><span class="dots"></span><span class="p">22 €</span></li>
+        <li><span>Бръснене с бръснач<small>гореща кърпа</small></span><span class="dots"></span><span class="p">15 €</span></li>
+        <li><span>Детско до 12 г.</span><span class="dots"></span><span class="p">12 €</span></li>
+      </ul>
+      <p class="foot">Плащане в брой или с карта.</p>
+    </div>
+    <figure class="board-photo"><img src="../../static/img/barber-2.webp" alt="Бръснар оформя прическа с машинка" loading="lazy" width="1300" height="865"></figure>
+  </div>
+</section>
+
+<section class="block wrap">
+  <p class="eyebrow">Правилата на стола</p>
+  <div class="rules">
+    <div><span class="no">01</span><h3>Часът е ваш</h3><p>Записвате се за точен час и не чакате на опашка. Ако закъснявате, пишете ни.</p></div>
+    <div><span class="no">02</span><h3>10 минути толеранс</h3><p>При закъснение над 10 минути преместваме часа на следващия свободен.</p></div>
+    <div><span class="no">03</span><h3>Без запис също може</h3><p>Минете, ако има празен стол. Със запис е сигурно.</p></div>
+  </div>
+</section>
+
+<section class="block wrap contact" id="kontakt">
+  <div>
+    <p class="eyebrow">Къде сме</p>
+    <h2>Елате</h2>
+    <p class="addr">ул. „Александровска“, Бургас<br><span>(демо адрес)</span></p>
+    <p><a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%D1%83%D0%BB.%20%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81">Маршрут в Google Maps</a></p>
+  </div>
+  <table class="hours" id="hours">
+    <tr data-d="1 2 3 4 5"><td>Пон – Пет</td><td>10:00 – 20:00</td></tr>
+    <tr data-d="6"><td>Събота</td><td>10:00 – 18:00</td></tr>
+    <tr data-d="0"><td>Неделя</td><td>почивен ден</td></tr>
+  </table>
+</section>
+</main>
+
+<footer><span>© Berber Studio, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="tel:+359876752600">Обадете се</a><a href="#chasove">Час днес</a><a href="#kontakt">Маршрут</a></div>
+
+<script>
+var PHONE="359876752600";
+var SVC=[["Подстригване",15],["Брада и контур",10],["Подстригване + брада",22],["Бръснене с бръснач",15]];
+var HOURS={0:null,1:[10,20],2:[10,20],3:[10,20],4:[10,20],5:[10,20],6:[10,18]};
+var now=new Date(), day=new Date(now), slot=null;
+var grid=document.getElementById("grid");
+
+function pad(n){return String(n).padStart(2,"0")}
+function busy(d,m){ // детерминирано „заето“ за деня: еднакво при презареждане
+  var h=(d.getFullYear()*372+d.getMonth()*31+d.getDate())*1440+m;
+  h=Math.imul(h^(h>>>13),0x5bd1e995);h^=h>>>15;return (h>>>0)%10<4;
+}
+function slotsFor(d,isToday){
+  var w=HOURS[d.getDay()],out=[];if(!w)return out;
+  var cut=isToday?now.getHours()*60+now.getMinutes()+15:-1;
+  for(var m=w[0]*60;m<w[1]*60;m+=30)out.push({m:m,off:m<cut||busy(d,m)});
+  return out;
+}
+function build(){
+  var list=slotsFor(day,true),label="Днес";
+  if(!list.some(function(s){return !s.off})){ // днес няма — показваме първия работен ден напред
+    for(var i=1;i<8;i++){day=new Date(now);day.setDate(now.getDate()+i);list=slotsFor(day,false);if(list.length)break}
+    label=i===1?"Днес вече няма. Утре":"Днес вече няма. Следващ работен ден";
+  }
+  document.getElementById("day").textContent=label+" · "+day.toLocaleDateString("bg-BG",{weekday:"long",day:"numeric",month:"long"});
+  grid.innerHTML="";
+  list.forEach(function(s){
+    var li=document.createElement("li"),b=document.createElement("button"),t=pad(s.m/60|0)+":"+pad(s.m%60);
+    b.type="button";b.textContent=t;b.dataset.t=t;
+    if(s.off){b.disabled=true;b.setAttribute("aria-label",t+", зает")}else b.setAttribute("aria-pressed","false");
+    li.appendChild(b);grid.appendChild(li);
+  });
+}
+function svc(){return SVC[+document.querySelector("#svc input:checked").value]}
+function message(){
+  var s=svc();
+  return "Здравейте! Искам час в Berber Studio: "+day.toLocaleDateString("bg-BG",{weekday:"long",day:"numeric",month:"long"})+" в "+slot+". Услуга: "+s[0]+" ("+s[1]+" €).";
+}
+function render(){
+  var s=svc(),ok=!!slot,wa=document.getElementById("wa");
+  document.getElementById("pick-t").textContent=ok?slot:"Изберете час";
+  document.getElementById("pick-s").textContent=ok?s[0]+" · "+s[1]+" € · "+day.toLocaleDateString("bg-BG",{weekday:"short",day:"numeric",month:"short"}):"Натиснете свободен час";
+  document.getElementById("viber").setAttribute("aria-disabled",String(!ok));
+  wa.setAttribute("aria-disabled",String(!ok));
+  wa.href=ok?"https://wa.me/"+PHONE+"?text="+encodeURIComponent(message()):"#";
+}
+grid.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.disabled)return;
+  grid.querySelectorAll("button[aria-pressed]").forEach(function(x){x.setAttribute("aria-pressed","false")});
+  b.setAttribute("aria-pressed","true");slot=b.dataset.t;render();
+  if(matchMedia("(max-width:860px)").matches)document.getElementById("ticket").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"center"});
+});
+document.getElementById("svc").addEventListener("change",render);
+document.getElementById("wa").addEventListener("click",function(e){if(!slot){e.preventDefault();toast("Първо изберете час.")}});
+document.getElementById("viber").addEventListener("click",function(){
+  if(!slot){toast("Първо изберете час.");return}
+  var t=message();
+  function go(){location.href="viber://chat?number=%2B"+PHONE}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast("Текстът е копиран. Поставете го във Viber.");setTimeout(go,900)},go)}else{go()}
+});
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+document.querySelectorAll("#hours tr").forEach(function(r){if(r.dataset.d.split(" ").indexOf(String(now.getDay()))>-1)r.className="today"});
+if(location.search.indexOf("shot")>-1)document.getElementById("demo-bar").hidden=true;
+build();render();
+</script>
+</body>
+</html>

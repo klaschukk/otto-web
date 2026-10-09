@@ -1,0 +1,268 @@
+<!doctype html>
+<!-- otto:custom — ручное демо, исходник сохраняется в custom/studio-mila/ при сборке -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Mila — маникюр и педикюр в Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7efea;--blush:#efdcd5;--rose:#c98b8b;--rose-ink:#8c4a4f;--ink:#3a2a2b;--muted:#6e5a58;--line:#dcc5bd;
+  --skin:#f2d3c2;--skin-d:#dcae98;--polish:#e8604c;
+  --serif:"Prata",Georgia,serif;--ital:"Cormorant Garamond",Georgia,serif;--body:"Jost",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px}
+.demo-bar{background:var(--ink);color:var(--bg);font:400 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:500}
+
+.top{display:flex;align-items:center;gap:28px;padding:20px;max-width:1140px;margin:0 auto}
+.logo{font:24px/1 var(--serif);text-decoration:none;letter-spacing:.02em}
+.logo i{font:600 26px var(--ital);color:var(--rose-ink)}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;font-size:15px;letter-spacing:.06em;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+.top .tel{font-size:15px;letter-spacing:.06em;text-decoration:none;border-bottom:1px solid var(--rose-ink);padding:6px 0}
+
+.no{font:500 13px var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--rose-ink);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.no::after{content:"";height:1px;width:48px;background:var(--rose-ink)}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-top:40px;padding-bottom:88px}
+h1{font:clamp(2.6rem,6.2vw,5rem)/1.04 var(--serif);margin:0 0 24px;letter-spacing:-.01em}
+h1 em,h2 em{font:600 1.08em/1 var(--ital);font-style:italic;color:var(--rose-ink)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:42ch;margin:0 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 28px;border-radius:999px;font:500 15px var(--body);letter-spacing:.06em;
+  text-decoration:none;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.arch{margin:0;position:relative}
+.arch img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:999px 999px 6px 6px;object-position:62% 50%}
+.arch figcaption{position:absolute;left:-18px;bottom:36px;background:var(--bg);padding:12px 18px;font:600 1.3rem var(--ital);font-style:italic;box-shadow:0 12px 30px -16px rgba(58,42,43,.4)}
+
+/* палитра */
+.palette{background:var(--blush);padding:88px 0}
+.pal-grid{display:grid;grid-template-columns:.9fr 1.1fr;grid-template-areas:"hand head" "hand ctrl";column-gap:56px;align-items:center}
+.hand-box{grid-area:hand}.pal-head{grid-area:head;align-self:end}.pal-ctrl{grid-area:ctrl;align-self:start}
+.hand-box{position:relative}
+.hand{width:100%;max-width:420px;height:auto;display:block;margin:0 auto}
+.hand .nail{fill:var(--polish);transition:fill .35s ease}
+.hand .gloss{fill:#fff;opacity:.55;transition:opacity .35s}
+.matte .hand .gloss{opacity:0}
+h2{font:clamp(2rem,4.4vw,3.2rem)/1.08 var(--serif);margin:0 0 16px}
+.pal-head p.hint{color:var(--muted);margin:0 0 26px;max-width:46ch}
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:420px;margin:0 0 22px}
+.swatches button{aspect-ratio:1;min-width:44px;min-height:44px;border-radius:50%;border:3px solid var(--bg);background:var(--c);cursor:pointer;
+  box-shadow:0 0 0 1px var(--line);transition:transform .2s}
+.swatches button:hover{transform:scale(1.08)}
+.swatches button[aria-pressed=true]{box-shadow:0 0 0 2px var(--ink);transform:scale(1.08)}
+.chosen{display:flex;align-items:baseline;gap:14px;margin:0 0 18px}
+.chosen span{font:500 13px var(--body);letter-spacing:.2em;color:var(--muted)}
+.chosen b{font:600 2.2rem/1 var(--ital);font-style:italic;color:var(--ink)}
+.finish{display:inline-flex;border:1px solid var(--ink);border-radius:999px;padding:3px;margin:0 0 26px}
+.finish button{min-height:44px;padding:0 22px;border:0;border-radius:999px;background:transparent;font:500 14px var(--body);letter-spacing:.06em;color:var(--ink);cursor:pointer}
+.finish button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.send{display:flex;flex-wrap:wrap;gap:10px}
+.small{font-size:14px;color:var(--muted);margin:16px 0 0;max-width:48ch}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;z-index:20;box-shadow:0 10px 30px rgba(58,42,43,.35)}
+
+/* услуги — като меню в списание */
+section.block{padding-top:96px;padding-bottom:96px}
+.menu-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:start}
+.menu{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.menu h3{font:1.45rem/1.2 var(--serif);margin:0}
+.menu .price{font:1.45rem/1.2 var(--serif);white-space:nowrap}
+.menu p{margin:0;color:var(--muted);font-size:15.5px}
+.menu .dur{text-align:right;font-size:14px;color:var(--muted)}
+.oval{margin:0}
+.oval img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:50%;object-position:30% 50%}
+.oval figcaption{font:600 1.15rem var(--ital);font-style:italic;color:var(--muted);text-align:center;margin-top:14px}
+
+.care{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.care h3{font:1.3rem/1.25 var(--serif);margin:0 0 8px}
+.care h3 em{display:block;font:600 2.6rem/1 var(--ital);color:var(--rose);margin-bottom:10px}
+.care p{margin:0;color:var(--muted)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;border-top:1px solid var(--line)}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{color:var(--rose-ink);font-weight:500}
+.addr{font-size:1.1rem;margin:0 0 22px}
+.addr span{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:26px 20px;max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.92rem}
+.callbar{display:none}
+:focus-visible{outline:2px solid var(--rose-ink);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (max-width:860px){
+  .top{padding:16px}.top nav{display:none}.top .tel{margin-left:auto}
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:12px;padding-bottom:64px}
+  .arch{max-width:340px;margin:0 auto;width:100%}
+  .arch figcaption{left:0}
+  .palette{padding:64px 0}
+  .pal-grid{grid-template-columns:1fr;grid-template-areas:"head" "hand" "ctrl"}
+  .pal-head p.hint{margin-bottom:8px}
+  .hand{max-width:230px}.hand-box{margin-bottom:18px}
+  .swatches{grid-template-columns:repeat(6,1fr);gap:8px}
+  section.block{padding-top:64px;padding-bottom:64px}
+  .menu-grid{grid-template-columns:1fr;gap:40px}
+  .oval{max-width:260px;margin:0 auto}
+  .care{grid-template-columns:1fr;gap:28px}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--ink)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--bg)}
+  .callbar a:first-child{background:var(--rose-ink)}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Демо от <a href="../../">Otto.web</a>: бизнесът е измислен, сайтът е истински. Бутоните звънят на Otto.web.</div>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Studio Mila, начало">Studio <i>Mila</i></a>
+  <nav aria-label="Навигация"><a href="#cvyat">Палитра</a><a href="#uslugi">Услуги</a><a href="#kontakt">Контакт</a></nav>
+  <a class="tel" href="tel:+359876752600">0876 752 600</a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div>
+    <p class="no">Маникюр · педикюр · Бургас</p>
+    <h1>Ноктите, каквито <em>си ги представяте</em></h1>
+    <p class="lead">Изберете цвета още тук, на сайта. Когато дойдете, той ви чака на масата.</p>
+    <div class="cta">
+      <a class="btn" href="#cvyat">Изберете цвят</a>
+      <a class="btn ghost" href="tel:+359876752600">Обадете се</a>
+    </div>
+  </div>
+  <figure class="arch">
+    <img src="../../static/img/salon-hero.webp" alt="Маникюристка лакира ноктите на клиентка" width="1024" height="681" fetchpriority="high">
+    <figcaption>№ 01 — Лукбук</figcaption>
+  </figure>
+</section>
+
+<section class="palette" id="cvyat">
+  <div class="wrap pal-grid">
+    <div class="hand-box" id="hand-box">
+<svg class="hand" viewBox="-6 0 360 400" role="img" aria-labelledby="hand-t"><title id="hand-t">Ръка с лакирани нокти</title><circle cx="165" cy="215" r="160" fill="#fff" opacity=".55"/><g transform="rotate(-11 76 300)"><rect x="57.0" y="158" width="38" height="162" rx="19.0" fill="var(--skin)"/><path d="M67.6 216.9q8.4 5 16.7 0M68.4 253.0q7.6 4 15.2 0" stroke="var(--skin-d)" stroke-width="2" fill="none" stroke-linecap="round"/><path class="nail" d="M64.2 197.2V174.8A11.8 11.8 0 0 1 87.8 174.8V197.2Q76.0 190.2 64.2 197.2Z"/><rect class="gloss" x="68.0" y="171.2" width="3.8" height="17.1" rx="1.9"/></g><g transform="rotate(-4 124 300)"><rect x="102.0" y="96" width="44" height="224" rx="22.0" fill="var(--skin)"/><path d="M114.3 164.2q9.7 5 19.4 0M115.2 206.0q8.8 4 17.6 0" stroke="var(--skin-d)" stroke-width="2" fill="none" stroke-linecap="round"/><path class="nail" d="M110.4 140.6V114.6A13.6 13.6 0 0 1 137.6 114.6V140.6Q124.0 133.6 110.4 140.6Z"/><rect class="gloss" x="114.7" y="110.5" width="4.4" height="19.8" rx="2.2"/></g><g transform="rotate(0 172 300)"><rect x="149.0" y="72" width="46" height="248" rx="23.0" fill="var(--skin)"/><path d="M161.9 143.3q10.1 5 20.2 0M162.8 187.0q9.2 4 18.4 0" stroke="var(--skin-d)" stroke-width="2" fill="none" stroke-linecap="round"/><path class="nail" d="M157.7 118.4V91.3A14.3 14.3 0 0 1 186.3 91.3V118.4Q172.0 111.4 157.7 118.4Z"/><rect class="gloss" x="162.3" y="87.0" width="4.6" height="20.7" rx="2.3"/></g><g transform="rotate(5 221 300)"><rect x="199.0" y="100" width="44" height="220" rx="22.0" fill="var(--skin)"/><path d="M211.3 168.2q9.7 5 19.4 0M212.2 210.0q8.8 4 17.6 0" stroke="var(--skin-d)" stroke-width="2" fill="none" stroke-linecap="round"/><path class="nail" d="M207.4 144.6V118.6A13.6 13.6 0 0 1 234.6 118.6V144.6Q221.0 137.6 207.4 144.6Z"/><rect class="gloss" x="211.7" y="114.5" width="4.4" height="19.8" rx="2.2"/></g><path d="M74 400L56 296Q52 232 96 224L232 224Q272 230 272 290L248 400Z" fill="var(--skin)"/><g transform="rotate(34 258 312)"><g transform="rotate(0 258 312)"><rect x="234.0" y="196" width="48" height="136" rx="24.0" fill="var(--skin)"/><path d="M247.4 270.4q10.6 5 21.1 0M248.4 316.0q9.6 4 19.2 0" stroke="var(--skin-d)" stroke-width="2" fill="none" stroke-linecap="round"/><path class="nail" d="M243.1 244.2V215.9A14.9 14.9 0 0 1 272.9 215.9V244.2Q258.0 237.2 243.1 244.2Z"/><rect class="gloss" x="247.9" y="211.4" width="4.8" height="21.6" rx="2.4"/></g></g><path d="M96 300q30 10 60 4" stroke="var(--skin-d)" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/></svg>
+    </div>
+    <div class="pal-head">
+      <p class="no">№ 02 — Палитра гел лакове</p>
+      <h2>Докоснете цвят, <em>ноктите се сменят</em></h2>
+      <p class="hint">Дванайсет цвята от сезона. Изберете своя и ни го пратете в съобщение, ще го приготвим за вашия час.</p>
+    </div>
+    <div class="pal-ctrl">
+      <div class="swatches" id="swatches" role="group" aria-label="Цветове"></div>
+      <p class="chosen" aria-live="polite"><span id="c-no">№ 04</span><b id="c-name">Корал</b></p>
+      <div class="finish" role="group" aria-label="Покритие">
+        <button type="button" data-f="гланц" aria-pressed="true">Гланц</button>
+        <button type="button" data-f="мат" aria-pressed="false">Мат</button>
+      </div>
+      <div class="send">
+        <button type="button" class="btn" id="viber">Искам този цвят · Viber</button>
+        <a class="btn ghost" id="wa" href="#">WhatsApp</a>
+      </div>
+      <p class="small">На екрана цветът изглежда малко по-различно. В салона ще видите мострата на живо.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap" id="uslugi">
+  <div class="menu-grid">
+    <div>
+      <p class="no">№ 03 — Услуги</p>
+      <h2>Меню</h2>
+      <ul class="menu">
+        <li><h3>Маникюр с гел лак</h3><span class="price">25 €</span><p>Оформяне, кожички, гел лак по избор.</p><span class="dur">60 мин</span></li>
+        <li><h3>Изграждане с гел</h3><span class="price">40 €</span><p>Удължаване и форма по ваш избор.</p><span class="dur">90 мин</span></li>
+        <li><h3>Поддръжка на изграждане</h3><span class="price">32 €</span><p>На 3–4 седмици.</p><span class="dur">75 мин</span></li>
+        <li><h3>Педикюр с гел лак</h3><span class="price">30 €</span><p>Пилинг, оформяне, гел лак.</p><span class="dur">60 мин</span></li>
+        <li><h3>Сваляне на гел</h3><span class="price">8 €</span><p>Без пилене до естествения нокът.</p><span class="dur">20 мин</span></li>
+      </ul>
+    </div>
+    <figure class="oval">
+      <img src="../../static/img/salon-2.webp" alt="Лакиране на нокти в бордо" loading="lazy" width="1024" height="683">
+      <figcaption>Бордо, гланц</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="block wrap" style="padding-top:0">
+  <p class="no">№ 04 — Как работим</p>
+  <div class="care">
+    <div><h3><em>i.</em>Само със запис</h3><p>Една клиентка, един час. Никой не чака на дивана.</p></div>
+    <div><h3><em>ii.</em>Чисти инструменти</h3><p>Металните инструменти се стерилизират след всяка клиентка, пилите са еднократни.</p></div>
+    <div><h3><em>iii.</em>Отмяна до 24 часа</h3><p>Пишете ни ден по-рано и даваме часа на някой друг. Без такси.</p></div>
+  </div>
+</section>
+
+<section class="block wrap contact" id="kontakt">
+  <div>
+    <p class="no">№ 05 — Контакт</p>
+    <h2>Елате <em>на гости</em></h2>
+    <p class="addr">к-с „Лазур“, Бургас<br><span>(демо адрес)</span></p>
+    <p><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%9B%D0%B0%D0%B7%D1%83%D1%80%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81">Маршрут в Google Maps</a></p>
+  </div>
+  <table class="hours" id="hours">
+    <tr data-d="1 2 3 4 5"><td>Пон – Пет</td><td>10:00 – 19:00</td></tr>
+    <tr data-d="6"><td>Събота</td><td>10:00 – 15:00</td></tr>
+    <tr data-d="0"><td>Неделя</td><td>почивен ден</td></tr>
+  </table>
+</section>
+</main>
+
+<footer><span>© Studio Mila, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="tel:+359876752600">Обадете се</a><a href="#cvyat">Цвят</a><a href="#kontakt">Маршрут</a></div>
+
+<script>
+var PHONE="359876752600";
+var COLORS=[["Пудра","#e8c4bd"],["Нюд","#d4a48c"],["Праскова","#f2a488"],["Корал","#e8604c"],["Череша","#a3192f"],["Бордо","#5c1a28"],
+  ["Лавандула","#b9a3d6"],["Мента","#a8dcc6"],["Небе","#9cc3e6"],["Маслина","#7b7a4a"],["Мляко","#f4efe6"],["Шоколад","#4a2e25"]];
+var cur=3, finish="гланц";
+var box=document.getElementById("swatches"), hand=document.getElementById("hand-box");
+function no(i){return "№ "+String(i+1).padStart(2,"0")}
+COLORS.forEach(function(c,i){
+  var b=document.createElement("button");b.type="button";b.style.setProperty("--c",c[1]);
+  b.setAttribute("aria-label",c[0]);b.setAttribute("aria-pressed",String(i===cur));b.title=c[0];b.dataset.i=i;
+  box.appendChild(b);
+});
+function message(){return "Здравейте! Искам час в Studio Mila за гел лак. Цвят: "+COLORS[cur][0]+" ("+no(cur)+"), "+finish+"."}
+function render(){
+  hand.style.setProperty("--polish",COLORS[cur][1]);
+  hand.classList.toggle("matte",finish==="мат");
+  document.getElementById("c-no").textContent=no(cur);
+  document.getElementById("c-name").textContent=COLORS[cur][0];
+  document.getElementById("wa").href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(message());
+}
+box.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  box.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+  b.setAttribute("aria-pressed","true");cur=+b.dataset.i;render();
+});
+document.querySelectorAll(".finish button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".finish button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true");finish=b.dataset.f;render();
+  });
+});
+document.getElementById("viber").addEventListener("click",function(){
+  var t=message();
+  function go(){location.href="viber://chat?number=%2B"+PHONE}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast("Текстът е копиран. Поставете го във Viber.");setTimeout(go,900)},go)}else{go()}
+});
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+var now=new Date();
+document.querySelectorAll("#hours tr").forEach(function(r){if(r.dataset.d.split(" ").indexOf(String(now.getDay()))>-1)r.className="today"});
+if(location.search.indexOf("shot")>-1)document.getElementById("demo-bar").hidden=true;
+render();
+</script>
+</body>
+</html>
