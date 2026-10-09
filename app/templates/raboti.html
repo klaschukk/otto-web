@@ -13,9 +13,11 @@
   <div class="wrap">
     <h2 class="sub-h" data-r>{{ t.client.label }}</h2>
     <a class="client-card" href="{{ t.client.url }}" target="_blank" rel="noopener" data-r>
-      <img src="/static/img/client-sarafan.webp" width="1200" height="750" alt="{{ t.client.name }}: sarafan-bg.com" loading="lazy" decoding="async">
-      <span class="phone phone-sm"><span class="phone-screen"><img src="/static/shots/sarafan.webp" width="780" height="1688" alt="" loading="lazy" decoding="async"></span></span>
-      <span class="client-card-body"><span class="client-tag">{{ t.client.label }}</span><b>{{ t.client.name }}</b><span>{{ t.client.text }}</span><span class="link">{{ t.client.open }} {{ icon("out", 16) }}</span></span>
+      <span class="client-shot">
+        <img src="/static/img/client-sarafan.webp" width="1200" height="750" alt="{{ t.client.name }}: sarafan-bg.com" loading="lazy" decoding="async">
+        <span class="phone phone-sm"><span class="phone-screen"><img src="/static/shots/sarafan.webp" width="780" height="1688" alt="" loading="lazy" decoding="async"></span></span>
+      </span>
+      <span class="client-card-body"><b>{{ t.client.name }}</b><span>{{ t.client.text }}</span><span class="link">{{ t.client.open }} {{ icon("out", 16) }}</span></span>
     </a>
     <h2 class="sub-h" data-r style="margin-top:clamp(56px,7vw,96px)">{{ t.works_page.demos }}</h2>
     <div class="grid-works">

@@ -249,5 +249,5 @@ client:
   label: "Real client"
   name: "SARAFAN"
   text: "Website for a kids' club in Sarafovo, Burgas: activities, schedule and a sign-up request, in three languages."
-  url: "https://sarafan-bg.com"
+  url: "https://sarafan-bg.com/en/"
   open: "Open sarafan-bg.com"
