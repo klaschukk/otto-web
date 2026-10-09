@@ -20,16 +20,13 @@
           <a class="link" href="https://wa.me/{{ studio.whatsapp }}" rel="noopener">{{ icon("whatsapp", 18) }}WhatsApp</a> &nbsp;
           <a class="link" href="https://t.me/{{ studio.telegram }}" rel="noopener">{{ icon("telegram", 18) }}Telegram</a></dd></div>
         <div><dt>E-mail</dt><dd><a class="link" href="mailto:{{ studio.email }}">{{ studio.email }}</a></dd></div>
+        <div><dt>{{ t.kontakt_page.hours2 }}</dt><dd>{{ t.kontakt_page.hours2_val }}</dd></div>
         <div><dt>{{ t.kontakt_page.area }}</dt><dd>{{ t.kontakt_page.area_val }}</dd></div>
       </dl>
       <div class="paper">
         <h2 class="sub-h">{{ t.kontakt_page.form_title }}</h2>
         {{ lead_form(t, lang, "kontakt", message=True, id="k-lead") }}
       </div>
-    </div>
-    <div class="kmap">
-      <iframe title="{{ t.kontakt_page.map_title }}" loading="lazy" referrerpolicy="no-referrer"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=27.38%2C42.46%2C27.53%2C42.53&amp;layer=mapnik"></iframe>
     </div>
   </div>
 </section>

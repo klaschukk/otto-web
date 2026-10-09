@@ -19,24 +19,37 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
   }
 
-  /* 1-й момент: уведомления на телефоне в hero */
+  /* 1-й момент: уведомления приходят на экран блокировки одно за другим */
   var notifs = $$(".notif");
-  if (notifs.length) {
-    var i = 0;
-    var show = function () {
-      notifs.forEach(function (n, k) {
-        n.classList.toggle("is-in", k === i);
-        n.classList.toggle("is-prev", k === (i - 1 + notifs.length) % notifs.length);
-      });
+  if (notifs.length && !reduce) {
+    var k = 0, timer;
+    var step = function () {
+      if (k < notifs.length) { notifs[k].classList.add("is-in"); k++; timer = setTimeout(step, 1400); }
+      else { timer = setTimeout(function () { notifs.forEach(function (n) { n.classList.remove("is-in"); }); k = 0; timer = setTimeout(step, 700); }, 3200); }
     };
-    show();
-    if (!reduce) {
-      var timer = setInterval(function () { i = (i + 1) % notifs.length; show(); }, 3000);
-      document.addEventListener("visibilitychange", function () {
-        if (document.hidden) clearInterval(timer);
-        else timer = setInterval(function () { i = (i + 1) % notifs.length; show(); }, 3000);
-      });
-    }
+    timer = setTimeout(step, 500);
+    document.addEventListener("visibilitychange", function () {
+      clearTimeout(timer);
+      if (document.hidden) notifs.forEach(function (n) { n.classList.add("is-in"); });
+      else { k = notifs.length; timer = setTimeout(step, 1500); }
+    });
+  } else {
+    notifs.forEach(function (n) { n.classList.add("is-in"); });
+  }
+
+  /* главная кнопка: скролл к форме и курсор в поле «Имя» */
+  $$("[data-focus]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      var el = $(a.dataset.focus);
+      if (el) setTimeout(function () { el.focus({ preventScroll: true }); }, reduce ? 0 : 650);
+    });
+  });
+
+  /* нижняя панель на телефоне: появляется после первого экрана, чтобы не закрывать hero */
+  var mbar = $(".mbar"), hero = $(".hero");
+  if (mbar && hero && "IntersectionObserver" in window) {
+    mbar.classList.add("is-hidden");
+    new IntersectionObserver(function (en) { mbar.classList.toggle("is-hidden", en[0].isIntersecting); }, { threshold: 0.15 }).observe(hero);
   }
 
   /* До / След: ползунок */
@@ -124,7 +137,7 @@
         trigger: parent, start: "top 85%", once: true,
         onEnter: function () {
           gsap.to(els, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.06,
-            onComplete: function () { els.forEach(function (e) { e.classList.remove("r-pre"); e.style.cssText = ""; }); } });
+            clearProps: "opacity,transform", onComplete: function () { els.forEach(function (e) { e.classList.remove("r-pre"); }); } });
         }
       });
     });
