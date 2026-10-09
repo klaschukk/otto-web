@@ -18,11 +18,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0e0f11">
 <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{% set fonts = "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Onest:wght@400;500;800&display=swap" %}
-<link rel="preload" as="style" href="{{ fonts }}" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ fonts }}"></noscript>
+{# шрифты и скрипты с собственного сервера: без передачи IP третьим лицам #}
+<link rel="preload" href="/static/fonts/onest-{{ 'latin' if lang == 'en' else 'cyrillic' }}-{{ 'cebbb5' if lang == 'en' else '4c7562' }}.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/static/css/fonts.css?v={{ asset_v("css/fonts.css") }}">
 <link rel="stylesheet" href="/static/css/site.css?v={{ asset_v("css/site.css") }}">
 <script>document.documentElement.classList.add("js")</script>
 <script type="application/ld+json">{{ {
@@ -66,15 +64,16 @@
       <a href="https://t.me/{{ studio.telegram }}" rel="noopener">Telegram</a>
       <a href="mailto:{{ studio.email }}">{{ studio.email }}</a>
     </div>
-    <p class="ftr-small mono">© {{ 2026 }} Otto.web · {{ t.footer.made }} · {{ t.footer.rights }}</p>
+    <p class="ftr-legal">Otto.web · {{ studio.company }} · {{ t.footer.city }} · {{ t.footer.vat }}<br>{{ t.footer.hours }} · <a href="{{ P }}/poveritelnost/">{{ t.footer.privacy }}</a></p>
+    <p class="ftr-small">© 2026 Otto.web · {{ t.footer.rights }}</p>
   </div>
 </footer>
 <nav class="mbar" aria-label="{{ t.nav.call }}">
   <a class="mbar-call" href="tel:{{ studio.phone }}">{{ icon("phone", 18) }}{{ t.nav.call }}</a>
   <a href="viber://chat?number=%2B{{ studio.phone | replace('+','') }}">{{ icon("viber", 18) }}Viber</a>
 </nav>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="/static/vendor/gsap.min.js?v=3.12.5"></script>
+<script defer src="/static/vendor/ScrollTrigger.min.js?v=3.12.5"></script>
 <script defer src="/static/js/main.js?v={{ asset_v("js/main.js") }}"></script>
 </body>
 </html>

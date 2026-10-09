@@ -8,40 +8,36 @@
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="eyebrow" data-r>{{ t.hero.eyebrow }}</p>
-      <h1 id="h1" class="h1" data-r>{{ t.hero.h1_pre }} <mark>{{ t.hero.h1_mark }}</mark>{{ t.hero.h1_post }}</h1>
+      <h1 id="h1" class="h1" data-r>{{ t.hero.h1_pre }} <em>{{ t.hero.h1_mark }}</em>{{ t.hero.h1_post }}</h1>
       <p class="lead" data-r>{{ t.hero.lead }}</p>
       <div class="hero-actions" data-r>
-        <a class="btn btn-marker" href="#raboti">{{ t.hero.cta }} {{ icon("down", 18) }}</a>
-        <a class="hero-tel mono" href="tel:{{ studio.phone }}">{{ icon("phone", 18) }} {{ studio.phone_display }}</a>
+        <a class="btn btn-marker" href="#zayavka" data-focus="#lead-name">{{ t.hero.cta }} {{ icon("arrow", 18) }}</a>
+        <a class="link hero-link" href="#raboti">{{ t.hero.cta2 }}</a>
       </div>
       <p class="hero-price" data-r><span class="num">{{ t.hero.price_from }}</span> <span>{{ t.hero.price_note }}</span></p>
       <ul class="trust" data-r>{% for x in t.hero.trust %}<li>{{ icon("check", 16) }}{{ x }}</li>{% endfor %}</ul>
     </div>
 
-    <div class="hero-phone">
+    <figure class="hero-phone">
       <div class="phone">
-        <div class="phone-screen">
-          <img src="/static/shots/avto-profi.webp" width="780" height="1688" alt="{{ t.hero.phone_alt }}" fetchpriority="high">
+        <div class="phone-screen lock">
+          <p class="lock-time" aria-hidden="true">21:40</p>
+          <p class="lock-date" aria-hidden="true">{{ t.hero.lock_date }}</p>
+          <ol class="notifs">
+            {% for n in t.hero.notifs %}
+            <li class="notif">
+              <span class="notif-ic notif-{{ n.icon }}">{{ icon(n.icon, 18) }}</span>
+              <span class="notif-body"><b>{{ n.app }}</b><span>{{ n.text }}</span></span>
+              <time>{{ n.time }}</time>
+            </li>
+            {% endfor %}
+          </ol>
         </div>
       </div>
-      <ol class="notifs" aria-label="{{ t.hero.eyebrow }}">
-        {% for n in t.hero.notifs %}
-        <li class="notif{% if loop.index <= 2 %} is-static{% endif %}">
-          <span class="notif-ic notif-{{ n.icon }}">{{ icon(n.icon, 18) }}</span>
-          <span class="notif-body"><b>{{ n.app }}</b><span>{{ n.text }}</span></span>
-          <time class="mono">{{ n.time }}</time>
-        </li>
-        {% endfor %}
-      </ol>
-    </div>
+      <figcaption class="hero-cap">{{ t.hero.notif_caption }}</figcaption>
+    </figure>
   </div>
 </section>
-
-<div class="marquee stage" aria-hidden="true">
-  <div class="marquee-track mono">
-    {% for _ in range(2) %}<span>{% for n in t.niches %}{{ n }}<i></i>{% endfor %}</span>{% endfor %}
-  </div>
-</div>
 
 <section class="reel stage" id="raboti" aria-labelledby="reel-h">
   <div class="wrap reel-head">
@@ -54,10 +50,10 @@
       {% for w in works %}
       <article class="slide" style="--tone: {{ w.tone }}">
         <div class="slide-copy">
-          <p class="slide-n mono">{{ "%02d" % loop.index }} / {{ "%02d" % works|length }} · {{ w.niche }}</p>
+          <p class="slide-n">{{ w.niche }}</p>
           <h3 class="slide-name">{{ w.name }}</h3>
           <p class="slide-idea">{{ w.idea }}</p>
-          <p class="slide-feat"><span class="mono">{{ t.reel.feature }}</span> <mark>{{ w.feature }}</mark></p>
+          <p class="slide-feat"><span>{{ t.reel.feature }}:</span> <strong>{{ w.feature }}</strong></p>
           <div class="slide-actions">
             <a class="btn btn-marker" href="/demo/{{ w.slug }}/" target="_blank" rel="noopener">{{ t.reel.open }} {{ icon("out", 16) }}</a>
             <a class="link" href="{{ P }}/raboti/{{ w.slug }}/">{{ t.reel.case }}</a>
@@ -71,26 +67,16 @@
     </div>
   </div>
   <div class="wrap reel-foot">
-    <p class="mono reel-hint">{{ t.reel.hint }} {{ icon("arrow", 14) }}</p>
+    <p class="reel-hint">{{ t.reel.hint }} {{ icon("arrow", 14) }}</p>
     <p class="reel-note">{{ t.reel.demo_note }}</p>
     <a class="link" href="{{ P }}/raboti/">{{ t.reel.all }}</a>
   </div>
-</section>
-
-<section class="sec paper" aria-labelledby="ns-h">
   <div class="wrap">
-    <p class="eyebrow" data-r>{{ t.noshab.eyebrow }}</p>
-    <h2 id="ns-h" class="h2 h2-narrow" data-r>{{ t.noshab.h2 }}</h2>
-    <ul class="ideas">
-      {% for w in works %}
-      <li class="idea" data-r>
-        <span class="idea-niche mono">{{ w.niche }}</span>
-        <p class="idea-text">{{ w.idea }}</p>
-        <span class="idea-arrow" aria-hidden="true">{{ icon("arrow", 28) }}</span>
-        <a class="idea-feat" href="{{ P }}/raboti/{{ w.slug }}/"><mark>{{ w.feature }}</mark></a>
-      </li>
-      {% endfor %}
-    </ul>
+    <a class="client" href="{{ t.client.url }}" target="_blank" rel="noopener" data-r>
+      <span class="client-tag">{{ t.client.label }}</span>
+      <span class="client-body"><b>{{ t.client.name }}</b> {{ t.client.text }}</span>
+      <span class="client-go">{{ t.client.open }} {{ icon("out", 16) }}</span>
+    </a>
   </div>
 </section>
 
@@ -116,15 +102,15 @@
           <div class="ba-info">
             <b>{{ t.ba.name }}</b><span>{{ t.ba.kind }}</span><span class="ba-open">{{ t.ba.open_now }}</span>
             <div class="ba-btns"><span class="on">{{ icon("phone", 16) }}{{ t.ba.btn_call }}</span><span>{{ icon("pin", 16) }}{{ t.ba.btn_route }}</span><span class="on">{{ icon("globe", 16) }}{{ t.ba.btn_site }}</span><span class="on">{{ icon("clock", 16) }}{{ t.ba.btn_book }}</span></div>
-            <ul class="ba-have"><li>{{ icon("tag", 15) }}<span class="num">{{ t.ba.site_prices }}</span></li><li>{{ icon("check", 15) }}{{ t.ba.site_line }}</li></ul>
+            <ul class="ba-have"><li>{{ icon("tag", 15) }}{{ t.ba.site_prices }}</li><li>{{ icon("check", 15) }}{{ t.ba.site_line }}</li></ul>
           </div>
         </div>
-        <span class="ba-label ba-l-before mono">{{ t.ba.before }}</span>
-        <span class="ba-label ba-l-after mono">{{ t.ba.after }}</span>
+        <span class="ba-label ba-l-before">{{ t.ba.before }}</span>
+        <span class="ba-label ba-l-after">{{ t.ba.after }}</span>
         <span class="ba-handle" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></span>
         <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="{{ t.ba.handle }}">
       </div>
-      <figcaption class="mono">{{ t.ba.caption }}</figcaption>
+      <figcaption>{{ t.ba.caption }}</figcaption>
     </figure>
   </div>
 </section>
@@ -139,7 +125,7 @@
       {% for s in t.how.steps %}
       <li class="tl-step">
         <span class="tl-dot" aria-hidden="true"></span>
-        <p class="tl-day"><span class="num">{{ s.day }}</span></p>
+        <p class="tl-day">{{ s.day }}</p>
         <h3>{{ s.title }}</h3>
         <p>{{ s.text }}</p>
       </li>
@@ -155,13 +141,14 @@
       <p class="eyebrow" data-r>{{ t.prices.eyebrow }}</p>
       <h2 id="pr-h" class="h2" data-r>{{ t.prices.h2 }}</h2>
       <p class="lead" data-r>{{ t.prices.lead }}</p>
+      <p class="pr-why" data-r>{{ t.prices.why }}</p>
       <div class="pr-card" data-r>
         <h3>{{ t.prices.hosting.title.split(':')[0] }}: <span class="num">0 €</span></h3>
         <p>{{ t.prices.hosting.text }}</p>
       </div>
       <div class="pr-card" data-r>
-        <h3>{{ t.prices.care.title }} <span class="pr-opt mono">{{ t.prices.care.note }}</span></h3>
-        <p class="pr-care"><span class="num">{{ t.prices.care.price }}</span> <span class="mono">{{ t.prices.care.per }}</span></p>
+        <h3>{{ t.prices.care.title }} <span class="pr-opt">{{ t.prices.care.note }}</span></h3>
+        <p class="pr-care"><span class="num">{{ t.prices.care.price }} {{ t.prices.care.per }}</span></p>
         <ul class="ticks">{% for x in t.prices.care["items"] %}<li>{{ icon("check", 16) }}{{ x }}</li>{% endfor %}</ul>
       </div>
       <a class="link" href="{{ P }}/ceni/" data-r>{{ t.prices.more }}</a>

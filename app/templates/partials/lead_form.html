@@ -28,7 +28,7 @@
   {% endif %}
   <div class="lead-foot">
     <button class="btn btn-ink" type="submit">{{ t.cta.send }}</button>
-    <p class="lead-note">{{ t.cta.privacy }}</p>
+    <p class="lead-note">{{ t.cta.privacy }} <a href="{{ '' if lang == 'bg' else '/' ~ lang }}/poveritelnost/">{{ t.cta.privacy_link }}</a></p>
   </div>
   <p class="lead-status" role="status" aria-live="polite"></p>
 </form>
