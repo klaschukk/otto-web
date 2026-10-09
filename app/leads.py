@@ -63,7 +63,7 @@ def lead():
                      (name, business, phone, message, source, lang, ip))
     db.commit()
 
-    text = f"Нова заявка #{cur.lastrowid}\n{name} · {business or '—'}\n{phone}\n{message}\nот: {source or '—'} ({lang})"
+    text = f"Otto.web · нова заявка #{cur.lastrowid}\n{name} · {business or '—'}\n{phone}\n{message}\nот: {source or '—'} ({lang})"
     cfg = current_app.config
     if not cfg.get("TESTING"):
         threading.Thread(target=notify_telegram, args=(cfg["TELEGRAM_TOKEN"], cfg["TELEGRAM_CHAT_ID"], text),
