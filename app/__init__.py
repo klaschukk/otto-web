@@ -36,6 +36,7 @@ def create_app(test_config=None):
         GIT_SHA=os.environ.get("GIT_SHA", "dev"),
         UMAMI_SRC=os.environ.get("UMAMI_SRC", ""),
         UMAMI_ID=os.environ.get("UMAMI_ID", ""),
+        GOOGLE_SITE_VERIFICATION=os.environ.get("GOOGLE_SITE_VERIFICATION", ""),
         LEADS_PER_HOUR=5,
         SEND_FILE_MAX_AGE_DEFAULT=60 * 60 * 24 * 7,
         SESSION_COOKIE_HTTPONLY=True,
