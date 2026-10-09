@@ -6,3 +6,5 @@ pages.yml
 data/
 .pytest_cache/
 docs/PROMPT_V3_NEW_CHAT.md
+contract/firm.local.yaml
+contract/out/
