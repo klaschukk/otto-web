@@ -1,0 +1,264 @@
+<!doctype html>
+<!-- otto:custom — ручное демо, исходник сохраняется в custom/avto-profi/ при сборке -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Авто Профи — автосервиз в Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--asphalt:#15171a;--asphalt-2:#1e2125;--steel:#2c3036;--paper:#f1f0ec;--ink:#15171a;--muted:#9aa0a8;
+  --yellow:#ffc400;--plate:#0a3fa8;--ok:#3ccf7a;
+  --display:"Russo One",Impact,sans-serif;--body:"Rubik",system-ui,sans-serif;--mono:"JetBrains Mono",monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--asphalt);color:#f4f4f2;font:16px/1.55 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.demo-bar{background:var(--yellow);color:var(--ink);font:500 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:700}
+
+.top{display:flex;align-items:center;gap:20px;padding:14px 20px;max-width:1140px;margin:0 auto}
+.plate{display:flex;align-items:stretch;border:2.5px solid #fff;border-radius:6px;background:#fff;color:var(--ink);text-decoration:none;
+  font:22px/1 var(--display);letter-spacing:.06em;overflow:hidden;box-shadow:0 4px 0 #000}
+.plate .eu{background:var(--plate);color:#fff;font:700 10px/1 var(--body);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:4px 5px;gap:3px}
+.plate .eu i{display:block;width:12px;height:12px;border-radius:50%;border:1.5px dotted var(--yellow)}
+.plate .num{padding:6px 10px}
+.top nav{display:flex;gap:22px;margin-left:auto}
+.top nav a{text-decoration:none;color:var(--muted);font-weight:500}
+.top nav a:hover{color:#fff}
+.top .tel{font:700 15px var(--mono);text-decoration:none;color:var(--yellow)}
+
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start;padding-top:42px;padding-bottom:64px}
+.tag{font:700 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);margin:0 0 16px}
+h1{font:clamp(2.4rem,6vw,4.4rem)/1 var(--display);margin:0 0 20px;text-transform:uppercase;letter-spacing:.01em}
+h1 em{font-style:normal;color:var(--yellow)}
+.lead{font-size:1.15rem;color:#c9ccd1;max-width:46ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 24px;border-radius:4px;font:700 16px var(--body);
+  text-decoration:none;cursor:pointer;border:2px solid var(--yellow);background:var(--yellow);color:var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:#fff;border-color:#4a4f57}
+.trust{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:30px;color:var(--muted);font-size:.92rem}
+.trust b{color:#fff;font:700 1.05rem var(--mono)}
+
+/* работна карта — калкулатор */
+.card{background:var(--paper);color:var(--ink);border-radius:6px;padding:22px 22px 18px;position:relative;
+  box-shadow:0 30px 60px -30px #000;transform:rotate(.6deg)}
+.card::before{content:"";position:absolute;top:-10px;left:50%;width:90px;height:22px;margin-left:-45px;background:rgba(255,196,0,.75);transform:rotate(-2deg)}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px}
+.card-h b{font:20px var(--display);text-transform:uppercase}
+.card-h span{font:500 12px var(--mono);color:#666}
+.label{font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#555;margin:0 0 8px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:16px}
+.seg button{font:500 14px var(--body);padding:10px 6px;border:2px solid #cfcdc6;background:#fff;border-radius:4px;cursor:pointer;color:var(--ink)}
+.seg button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:#fff}
+.jobs{list-style:none;padding:0;margin:0 0 14px}
+.jobs label{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #cfcdc6;cursor:pointer}
+.jobs input{width:20px;height:20px;accent-color:var(--ink);flex:none}
+.jobs .n{flex:1}
+.jobs .p{font:500 14px var(--mono)}
+.total{display:flex;justify-content:space-between;align-items:baseline;background:var(--ink);color:#fff;padding:12px 14px;border-radius:4px}
+.total span{font-size:13px;color:#bbb}
+.total b{font:700 28px var(--mono);color:var(--yellow)}
+.small{font-size:12.5px;color:#666;margin:8px 0 12px}
+.send{display:grid;grid-template-columns:1fr auto;gap:8px}
+.send .btn{min-height:48px;font-size:15px}
+.send .btn.wa{background:#fff;border-color:var(--ink);color:var(--ink)}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#fff;color:var(--ink);padding:10px 16px;border-radius:4px;
+  font-weight:500;box-shadow:0 10px 30px #000;z-index:20}
+
+.tape{height:18px;background:repeating-linear-gradient(-45deg,var(--yellow) 0 18px,var(--ink) 18px 36px)}
+
+section.block{padding:72px 0}
+h2{font:clamp(1.8rem,4vw,2.8rem)/1.05 var(--display);text-transform:uppercase;margin:0 0 28px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--steel)}
+.step{padding:26px;position:relative}
+.step+.step{border-left:2px solid var(--steel)}
+.step .no{font:700 13px var(--mono);color:var(--yellow)}
+.step h3{font:22px var(--display);text-transform:uppercase;margin:8px 0}
+.step p{margin:0;color:#c9ccd1}
+.stamp{position:absolute;right:16px;top:16px;font:700 11px var(--mono);border:2px solid var(--ok);color:var(--ok);padding:3px 7px;transform:rotate(8deg);border-radius:3px}
+
+.photos{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.photos figure{margin:0;position:relative}
+.photos img{width:100%;height:340px;object-fit:cover;border-radius:4px;filter:saturate(.85) contrast(1.05)}
+.photos figcaption{position:absolute;left:12px;bottom:12px;background:var(--ink);font:500 13px var(--mono);padding:5px 9px}
+
+.guarantee{background:var(--yellow);color:var(--ink)}
+.guarantee .wrap{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+.big{font:clamp(4rem,14vw,9rem)/.85 var(--display)}
+.big small{display:block;font-size:.32em;letter-spacing:.06em}
+.guarantee p{font-size:1.15rem;max-width:52ch;margin:0}
+
+.faq details{border-bottom:2px solid var(--steel);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:1.1rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";font:700 22px var(--mono);color:var(--yellow)}
+.faq details[open] summary::after{content:"−"}
+.faq p{color:#c9ccd1;margin:10px 0 0;max-width:70ch}
+
+.contact{display:grid;grid-template-columns:1fr 1.3fr;gap:32px}
+.hours{width:100%;border-collapse:collapse;font-family:var(--mono);margin-bottom:24px}
+.hours td{padding:10px 0;border-bottom:1px solid var(--steel)}
+.hours td:last-child{text-align:right;color:var(--yellow)}
+.hours tr.today td{color:#fff;font-weight:700}
+.map{width:100%;height:100%;min-height:320px;border:0;border-radius:4px;filter:grayscale(1) invert(.92) contrast(.9)}
+footer{border-top:2px solid var(--steel);padding:24px 20px;max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.9rem}
+.callbar{display:none}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:860px){
+  .top nav{display:none}.top .tel{margin-left:auto}
+  .hero{grid-template-columns:1fr;gap:34px;padding-top:26px}
+  .card{transform:none}
+  .steps{grid-template-columns:1fr}.step+.step{border-left:0;border-top:2px solid var(--steel)}
+  .photos{grid-template-columns:1fr}.photos img{height:220px}
+  .guarantee .wrap{grid-template-columns:1fr;gap:16px}
+  .contact{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--ink);border-top:2px solid var(--yellow)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:700;text-decoration:none}
+  .callbar a:first-child{background:var(--yellow);color:var(--ink)}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Демо от <a href="../../">Otto.web</a>: бизнесът е измислен, сайтът е истински. Бутоните звънят на Otto.web.</div>
+
+<header class="top">
+  <a class="plate" href="#" aria-label="Авто Профи, начало"><span class="eu"><i></i>BG</span><span class="num">А 2012 АП</span></a>
+  <nav aria-label="Навигация"><a href="#calc">Цени</a><a href="#how">Как работим</a><a href="#contact">Контакт</a></nav>
+  <a class="tel" href="tel:+359876752600">0876 752 600</a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div>
+    <p class="tag">Автосервиз · Промишлена зона Север · от 2012</p>
+    <h1>Цената знаете <em>преди</em> ремонта</h1>
+    <p class="lead">Сметнете ориентировъчната цена сами. Ако при ремонта открием нещо ново, първо ви звъним. Без изненади на касата.</p>
+    <div class="cta">
+      <a class="btn" href="tel:+359876752600">Обадете се</a>
+      <a class="btn ghost" href="#calc">Сметни цената ↓</a>
+    </div>
+    <div class="trust"><span><b>6 мес.</b> гаранция на труда</span><span><b>2</b> подемника</span><span><b>всички</b> марки</span></div>
+  </div>
+
+  <form class="card" id="calc" aria-label="Калкулатор на цена">
+    <div class="card-h"><b>Работна карта</b><span id="today"></span></div>
+    <p class="label">Колата</p>
+    <div class="seg" role="group" aria-label="Клас на колата">
+      <button type="button" data-k="1" aria-pressed="true">Малка</button>
+      <button type="button" data-k="1.15" aria-pressed="false">Средна</button>
+      <button type="button" data-k="1.35" aria-pressed="false">Джип / бус</button>
+    </div>
+    <p class="label">Какво да направим</p>
+    <ul class="jobs" id="jobs"></ul>
+    <div class="total"><span>Ориентировъчно, само труд</span><b id="sum">0 €</b></div>
+    <p class="small">Частите ги купуваме ние по каталожна цена или ги носите вие. Точната цена казваме след оглед.</p>
+    <div class="send">
+      <button type="button" class="btn" id="viber">Запиши ме във Viber</button>
+      <a class="btn wa" id="wa" href="#">WhatsApp</a>
+    </div>
+  </form>
+</section>
+
+<div class="tape" aria-hidden="true"></div>
+
+<section class="block wrap" id="how">
+  <h2>Как работим</h2>
+  <div class="steps">
+    <div class="step"><span class="no">01</span><h3>Диагностика</h3><p>Компютърна проверка и оглед. Показваме ви какво намерихме, на живо или със снимки във Viber.</p><span class="stamp">20 €</span></div>
+    <div class="step"><span class="no">02</span><h3>Одобрение</h3><p>Казваме цената за труд и части. Започваме чак след вашето „да“.</p><span class="stamp">ВИЕ РЕШАВАТЕ</span></div>
+    <div class="step"><span class="no">03</span><h3>Ремонт</h3><p>Старите части ви ги връщаме или снимаме. Ако се появи нещо ново, спираме и звъним.</p><span class="stamp">6 МЕС.</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="photos">
+    <figure><img src="../../static/img/auto-hero.webp" alt="Механик проверява двигател" loading="lazy" width="1024" height="681"><figcaption>Диагностика за всички марки</figcaption></figure>
+    <figure><img src="../../static/img/auto-2.webp" alt="Механик в сервиза" loading="lazy" width="1024" height="681"><figcaption>Два подемника</figcaption></figure>
+  </div>
+</section>
+
+<section class="block" style="padding-bottom:0">
+  <div class="guarantee"><div class="wrap">
+    <div class="big">6<small>МЕСЕЦА</small></div>
+    <p><b>Гаранция на труда за всеки ремонт.</b> Ако нещо, което сме сменили, създаде проблем, оправяме го без пари за труд. Пазим касовата бележка и снимките в картата на колата ви.</p>
+  </div></div>
+</section>
+
+<section class="block wrap faq">
+  <h2>Въпроси</h2>
+  <details><summary>Мога ли да донеса собствени части?</summary><p>Да. Тогава гаранцията е само за труда, не за частта.</p></details>
+  <details><summary>Трябва ли да си запазя час?</summary><p>За диагностика и масло не е задължително, идвате директно. За по-големи ремонти се обадете ден по-рано.</p></details>
+  <details><summary>Колко време отнема смяна на масло?</summary><p>Около 30 минути. Може да изчакате в сервиза с кафе.</p></details>
+</section>
+
+<section class="block wrap contact" id="contact">
+  <div>
+    <h2>Елате</h2>
+    <table class="hours" id="hours">
+      <tr data-d="1 2 3 4 5"><td>Пон – Пет</td><td>08:00 – 18:00</td></tr>
+      <tr data-d="6"><td>Събота</td><td>09:00 – 14:00</td></tr>
+      <tr data-d="0"><td>Неделя</td><td>почивен ден</td></tr>
+    </table>
+    <p>Промишлена зона Север, Бургас<br><span style="color:var(--muted)">(демо адрес)</span></p>
+    <p><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%9F%D1%80%D0%BE%D0%BC%D0%B8%D1%88%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%B7%D0%BE%D0%BD%D0%B0%20%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81">Маршрут в Google Maps</a></p>
+  </div>
+  <iframe class="map" title="Карта" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps?q=%D0%9F%D1%80%D0%BE%D0%BC%D0%B8%D1%88%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%B7%D0%BE%D0%BD%D0%B0%20%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&output=embed"></iframe>
+</section>
+</main>
+
+<footer><span>© Авто Профи, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="tel:+359876752600">Обадете се</a><a href="#calc">Цена</a><a href="#contact">Маршрут</a></div>
+
+<script>
+var PHONE="359876752600";
+var JOBS=[["Компютърна диагностика",20],["Смяна на масло и филтри",20],["Накладки, предна ос",30],["Накладки, задна ос",30],
+  ["Зареждане на климатик",45],["Смяна на 4 гуми с баланс",24],["Геометрия (развал-сближение)",30]];
+var k=1, car="Малка";
+var list=document.getElementById("jobs");
+JOBS.forEach(function(j,i){
+  var li=document.createElement("li");
+  li.innerHTML='<label><input type="checkbox" value="'+i+'"'+(i===0?" checked":"")+'><span class="n">'+j[0]+'</span><span class="p" data-base="'+j[1]+'"></span></label>';
+  list.appendChild(li);
+});
+function price(b){return Math.round(b*k)}
+function chosen(){return Array.prototype.filter.call(list.querySelectorAll("input"),function(c){return c.checked}).map(function(c){return JOBS[c.value]})}
+function message(){
+  var c=chosen();
+  return "Здравейте! Искам час в Авто Профи. Кола: "+car+". Услуги: "+(c.length?c.map(function(j){return j[0]}).join(", "):"консултация")+
+    ". Ориентировъчно: "+c.reduce(function(s,j){return s+price(j[1])},0)+" € за труд.";
+}
+function render(){
+  list.querySelectorAll(".p").forEach(function(p){p.textContent=price(+p.dataset.base)+" €"});
+  document.getElementById("sum").textContent=chosen().reduce(function(s,j){return s+price(j[1])},0)+" €";
+  document.getElementById("wa").href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(message());
+}
+document.querySelectorAll(".seg button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".seg button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true");k=+b.dataset.k;car=b.textContent;render();
+  });
+});
+list.addEventListener("change",render);
+document.getElementById("viber").addEventListener("click",function(){
+  var t=message();
+  function go(){location.href="viber://chat?number=%2B"+PHONE}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast("Текстът е копиран. Поставете го във Viber.");setTimeout(go,900)},go)}else{go()}
+});
+function toast(s){var d=document.createElement("div");d.className="toast";d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+var now=new Date();
+document.getElementById("today").textContent="№ "+(now.getMonth()+1)+String(now.getDate()).padStart(2,"0")+" · "+now.toLocaleDateString("bg-BG");
+document.querySelectorAll("#hours tr").forEach(function(r){if(r.dataset.d.split(" ").indexOf(String(now.getDay()))>-1)r.className="today"});
+if(location.search.indexOf("shot")>-1)document.getElementById("demo-bar").hidden=true;
+render();
+</script>
+</body>
+</html>
