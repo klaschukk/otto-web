@@ -1,0 +1,20 @@
+# Деплой по тегу v*: ssh на сервер → git pull → docker compose up → проверка /health.
+# Секреты репозитория: DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY.
+name: deploy
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy over SSH
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          install -m 600 /dev/null key && printf '%s\n' "$KEY" > key
+          ssh -i key -o StrictHostKeyChecking=accept-new "$USER@$HOST" \
+            'cd /home/otto-web && git pull --ff-only && make up'
