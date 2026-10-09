@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block title %}{{ t.works_page.title }}{% endblock %}
+{% block main %}
+<section class="ph stage">
+  <div class="wrap">
+    <p class="eyebrow">Otto.web</p>
+    <h1 class="h1">{{ t.works_page.h1 }}</h1>
+    <p class="lead">{{ t.works_page.lead }}</p>
+  </div>
+</section>
+<section class="sec paper">
+  <div class="wrap">
+    <h2 class="sub-h" data-r>{{ t.works_page.demos }}</h2>
+    <div class="grid-works">
+      {% for w in works %}
+      <a class="wcard" href="{{ P }}/raboti/{{ w.slug }}/" style="--tone: {{ w.tone }}" data-r>
+        <div>
+          <span class="mono">{{ "%02d" % loop.index }} · {{ w.niche }}</span>
+          <h3>{{ w.name }}</h3>
+          <p>{{ w.idea }}</p>
+          <p class="wcard-feat"><mark>{{ w.feature }}</mark></p>
+        </div>
+        <span class="phone"><span class="phone-screen"><img src="/static/shots/{{ w.slug }}.webp" width="780" height="1688" alt="" loading="lazy" decoding="async"></span></span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="sec paper-2">
+  <div class="wrap">
+    <h2 class="sub-h" data-r>{{ t.works_page.own }}</h2>
+    <div class="own">
+      {% for o in t.works_page.own_items %}
+      <article class="own-card" data-r>
+        <img src="/static/img/{{ o.img }}" width="1200" height="750" alt="{{ o.name }}" loading="lazy" decoding="async">
+        <div>
+          <h3>{{ o.name }}</h3>
+          <p>{{ o.text }}</p>
+          <a class="link" href="{{ o.url }}" target="_blank" rel="noopener">{{ t.works_page.visit }} {{ icon("out", 16) }}</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% include "partials/final.html" %}
+{% endblock %}

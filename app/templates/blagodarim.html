@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block title %}{{ t.thanks.title }}{% endblock %}
+{% block main %}
+<section class="ph stage" style="min-height:60vh">
+  <div class="wrap">
+    <p class="eyebrow">Otto.web</p>
+    <h1 class="h1">{{ t.thanks.h1 }}</h1>
+    <p class="lead" style="margin-bottom:32px">{{ t.thanks.lead }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-marker" href="tel:{{ studio.phone }}">{{ icon("phone", 18) }}{{ studio.phone_display }}</a>
+      <a class="link" style="color:#fff" href="{{ P }}/">{{ t.thanks.back }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

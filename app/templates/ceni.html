@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% from "partials/lead_form.html" import lead_form %}
+{% block title %}{{ t.ceni_page.title }}{% endblock %}
+{% block main %}
+<section class="ph stage">
+  <div class="wrap">
+    <p class="eyebrow">{{ t.prices.eyebrow }}</p>
+    <h1 class="h1">{{ t.prices.h2 }}</h1>
+    <p class="lead">{{ t.ceni_page.lead }}</p>
+  </div>
+</section>
+<section class="sec paper">
+  <div class="wrap">
+    <form class="calc" id="calc" onsubmit="return false">
+      <div>
+        <fieldset>
+          <legend>{{ t.ceni_page.package }}</legend>
+          {% for p in t.prices.packages %}
+          <label class="opt"><input type="radio" name="pkg" value="{{ p.price }}" data-name="{{ p.name }}"{% if p.featured %} checked{% endif %}>
+            <span><b>{{ p.name }}</b><small>{{ p.for }} · {{ p["items"][-1] }}</small></span><span class="num">{{ p.price }} €</span></label>
+          {% endfor %}
+        </fieldset>
+        <fieldset>
+          <legend>{{ t.ceni_page.extras }}</legend>
+          {% for e in t.prices.extras %}
+          <label class="opt"><input type="checkbox" name="extra" value="{{ e.price }}" data-name="{{ e.name }}">
+            <span>{{ e.name }}</span><span class="mono">{% if e.unit %}{{ e.unit }} {% endif %}{{ e.price }} €</span></label>
+          {% endfor %}
+          <label class="opt"><input type="checkbox" name="care" value="15">
+            <span><b>{{ t.prices.care.title }}</b><small>{{ t.prices.care["items"] | join(" · ") }}</small></span><span class="mono">15 {{ t.prices.care.per }}</span></label>
+        </fieldset>
+      </div>
+      <aside class="calc-sum" aria-live="polite">
+        <p class="eyebrow">{{ t.ceni_page.calc_title }}</p>
+        <dl>
+          <div><dt>{{ t.ceni_page.total }}</dt><dd><span class="num" id="sum-once">149 €</span></dd></div>
+          <div><dt>{{ t.ceni_page.monthly }}</dt><dd><span class="num" id="sum-month">0 €</span></dd></div>
+        </dl>
+        <a class="btn btn-marker" href="#zayavka-calc">{{ t.ceni_page.send }} {{ icon("down", 18) }}</a>
+        <p>{{ t.ceni_page.domain_note }}</p>
+        <p>{{ t.prices.total_note }}</p>
+      </aside>
+    </form>
+  </div>
+</section>
+<section class="sec paper-2">
+  <div class="wrap pr-grid">
+    <div class="pr-side">
+      <div class="pr-card" data-r><h3>{{ t.prices.hosting.title.split(':')[0] }}: <span class="num">0 €</span></h3><p>{{ t.prices.hosting.text }}</p></div>
+    </div>
+    <div class="pr-side">
+      <div class="pr-card" data-r><h3>{{ t.prices.care.title }} <span class="pr-opt mono">{{ t.prices.care.note }}</span></h3>
+        <p class="pr-care"><span class="num">15</span> <span class="mono">{{ t.prices.care.per }}</span></p>
+        <ul class="ticks">{% for x in t.prices.care["items"] %}<li>{{ icon("check", 16) }}{{ x }}</li>{% endfor %}</ul></div>
+    </div>
+  </div>
+</section>
+<section class="final" id="zayavka-calc" aria-labelledby="cta-h">
+  <div class="wrap">
+    <h2 id="cta-h" class="h2 final-h">{{ t.cta.h2_pre }} <span>{{ t.cta.h2_post }}</span></h2>
+    <p class="lead">{{ t.cta.lead }}</p>
+    {{ lead_form(t, lang, "ceni", message=True, id="calc-lead") }}
+  </div>
+</section>
+{% endblock %}

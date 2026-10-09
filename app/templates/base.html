@@ -1,0 +1,78 @@
+{% from "partials/icons.html" import icon %}<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ t.meta.title }}{% endblock %}</title>
+<meta name="description" content="{% block description %}{{ t.meta.description }}{% endblock %}">
+<link rel="canonical" href="{{ cfg.BASE_URL }}{{ P }}{{ page_path }}">
+{% for l, href in alt.items() %}<link rel="alternate" hreflang="{{ l }}" href="{{ cfg.BASE_URL }}{{ href }}">
+{% endfor %}<link rel="alternate" hreflang="x-default" href="{{ cfg.BASE_URL }}{{ alt.bg }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Otto.web">
+<meta property="og:locale" content="{{ t.locale }}">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ self.description() }}">
+<meta property="og:url" content="{{ cfg.BASE_URL }}{{ P }}{{ page_path }}">
+<meta property="og:image" content="{{ cfg.BASE_URL }}/static/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0f11">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Onest:wght@400;500;800&display=swap">
+<link rel="stylesheet" href="/static/css/site.css?v={{ asset_v("css/site.css") }}">
+<script>document.documentElement.classList.add("js")</script>
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Otto.web",
+  "url": cfg.BASE_URL ~ P ~ "/", "telephone": studio.phone, "email": studio.email,
+  "image": cfg.BASE_URL ~ "/static/og.png", "priceRange": "€79–€249",
+  "areaServed": {"@type": "City", "name": "Burgas"},
+  "address": {"@type": "PostalAddress", "addressLocality": "Burgas", "addressCountry": "BG"},
+  "description": t.meta.description} | tojson }}</script>
+{% if cfg.UMAMI_SRC and cfg.UMAMI_ID %}<script defer src="{{ cfg.UMAMI_SRC }}" data-website-id="{{ cfg.UMAMI_ID }}"></script>{% endif %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+<a class="skip" href="#main">{{ t.skip }}</a>
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="{{ P }}/" aria-label="Otto.web">Otto<span>.web</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="{{ P }}/raboti/"{% if page_path.startswith('/raboti') %} aria-current="page"{% endif %}>{{ t.nav.works }}</a>
+      <a href="{{ P }}/ceni/"{% if page_path == '/ceni/' %} aria-current="page"{% endif %}>{{ t.nav.prices }}</a>
+      <a href="{{ P }}/#how">{{ t.nav.how }}</a>
+      <a href="{{ P }}/kontakt/"{% if page_path == '/kontakt/' %} aria-current="page"{% endif %}>{{ t.nav.contact }}</a>
+      <span class="langs">{% for l, href in alt.items() %}<a href="{{ href }}" hreflang="{{ l }}" lang="{{ l }}"{% if l == lang %} aria-current="true"{% endif %}>{{ l | upper }}</a>{% endfor %}</span>
+    </nav>
+    <a class="hdr-tel mono" href="tel:{{ studio.phone }}">{{ icon("phone", 16) }}<span>{{ studio.phone_display }}</span></a>
+    <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="{{ t.nav.menu }}" data-close="{{ t.nav.close }}">{{ icon("menu", 22) }}</button>
+  </div>
+</header>
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="{{ P }}/">Otto<span>.web</span></a>
+      <p>{{ t.footer.line }}</p>
+    </div>
+    <div class="ftr-links">
+      <a class="mono" href="tel:{{ studio.phone }}">{{ studio.phone_display }}</a>
+      <a href="viber://chat?number=%2B{{ studio.phone | replace('+','') }}">Viber</a>
+      <a href="https://wa.me/{{ studio.whatsapp }}" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/{{ studio.telegram }}" rel="noopener">Telegram</a>
+      <a href="mailto:{{ studio.email }}">{{ studio.email }}</a>
+    </div>
+    <p class="ftr-small mono">© {{ 2026 }} Otto.web · {{ t.footer.made }} · {{ t.footer.rights }}</p>
+  </div>
+</footer>
+<nav class="mbar" aria-label="{{ t.nav.call }}">
+  <a class="mbar-call" href="tel:{{ studio.phone }}">{{ icon("phone", 18) }}{{ t.nav.call }}</a>
+  <a href="viber://chat?number=%2B{{ studio.phone | replace('+','') }}">{{ icon("viber", 18) }}Viber</a>
+</nav>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="/static/js/main.js?v={{ asset_v("js/main.js") }}"></script>
+</body>
+</html>
