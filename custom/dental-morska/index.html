@@ -1,0 +1,347 @@
+<!doctype html>
+<!-- otto:custom — ручное демо, исходник сохраняется в custom/dental-morska/ при сборке -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дентал Морска — дентален кабинет в Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f8f7;--foam:#e1f0ee;--sand:#f4eee3;--sea:#1f8a8a;--sea-ink:#156b6b;--deep:#0f3d3e;--muted:#4d6668;--line:#cfe0de;--tooth:#fff;--tooth-b:#a9c9c6;
+  --serif:"Literata",Georgia,serif;--body:"Golos Text",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--deep);font:17px/1.6 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding-left:20px;padding-right:20px}
+.demo-bar{background:var(--deep);color:#fff;font:400 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:600}
+
+.top{display:flex;align-items:center;gap:26px;padding:18px 20px;max-width:1140px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 20px/1 var(--serif)}
+.logo svg{flex:none}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;color:var(--muted);font-size:15px}
+.top nav a:hover{color:var(--deep)}
+.top .tel{font-weight:600;text-decoration:none;color:var(--sea-ink)}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding-top:36px;padding-bottom:80px}
+.kicker{font:500 14px var(--body);color:var(--sea-ink);margin:0 0 16px}
+h1{font:400 clamp(2.4rem,5.4vw,4.2rem)/1.1 var(--serif);letter-spacing:-.015em;margin:0 0 22px}
+h1 b{font-weight:600;color:var(--sea-ink)}
+.lead{font-size:1.12rem;color:var(--muted);max-width:44ch;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:12px;font:600 16px var(--body);
+  text-decoration:none;cursor:pointer;border:2px solid var(--sea-ink);background:var(--sea-ink);color:#fff;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--sea-ink)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:30px 0 0;padding:0;list-style:none;color:var(--muted);font-size:15px}
+.facts b{color:var(--deep);font-weight:600}
+.hero-img{margin:0;position:relative}
+.hero-img img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;border-radius:28px}
+.hero-img::before{content:"";position:absolute;inset:auto -14px -14px auto;width:60%;height:60%;border-radius:28px;background:var(--foam);z-index:-1}
+.wave{display:block;width:100%;height:40px;color:var(--foam)}
+
+/* карта на зъбите */
+.map-sec{background:var(--foam);padding:40px 0 88px}
+h2{font:400 clamp(1.9rem,4vw,3rem)/1.12 var(--serif);letter-spacing:-.01em;margin:0 0 12px}
+.sec-lead{color:var(--muted);max-width:56ch;margin:0 0 36px}
+.map-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.chart{background:#fff;border-radius:24px;padding:20px 20px 16px;box-shadow:0 24px 50px -36px rgba(15,61,62,.45)}
+.tabs{display:flex;gap:6px;background:var(--bg);border-radius:14px;padding:4px;margin-bottom:8px}
+.tabs button{flex:1;min-height:44px;border:0;border-radius:10px;background:transparent;font:500 15px var(--body);color:var(--muted);cursor:pointer}
+.tabs button[aria-selected=true]{background:#fff;color:var(--deep);box-shadow:0 2px 8px rgba(15,61,62,.12)}
+.jaw{position:relative;width:100%;max-width:420px;margin:0 auto;aspect-ratio:400/390}
+.jaw[hidden]{display:none}
+.jaw .mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;font:400 1.15rem/1.3 var(--serif);color:var(--muted);pointer-events:none;width:52%}
+.jaw .mid small{display:block;font:400 13px var(--body);margin-top:4px}
+.t{position:absolute;transform:translate(-50%,-50%);display:grid;place-items:center;padding:0;border:2px solid var(--tooth-b);background:var(--tooth);
+  font:600 12px var(--body);color:var(--muted);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.t:hover{border-color:var(--sea)}
+.t[aria-pressed=true]{background:var(--sea-ink);border-color:var(--sea-ink);color:#fff}
+.t.m{width:44px;height:44px;border-radius:14px 14px 18px 18px}
+.t.p{width:40px;height:40px;border-radius:46%}
+.t.c{width:38px;height:40px;border-radius:50% 50% 44% 44%/62% 62% 38% 38%}
+.t.i{width:36px;height:38px;border-radius:40% 40% 34% 34%}
+.sides{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:2px 6px 0}
+
+.panel{background:#fff;border-radius:24px;padding:28px;min-height:100%;box-shadow:0 24px 50px -36px rgba(15,61,62,.45)}
+.panel h3{font:600 1.5rem/1.2 var(--serif);margin:0 0 4px}
+.panel .tname{color:var(--muted);margin:0 0 20px}
+.label{font:500 13px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.probs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;border:0;padding:0}
+.probs label{position:relative}
+.probs input{position:absolute;opacity:0;inset:0;margin:0}
+.probs span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);font-size:15px;cursor:pointer}
+.probs input:checked+span{background:var(--deep);border-color:var(--deep);color:#fff}
+.probs input:focus-visible+span{outline:3px solid var(--sea);outline-offset:2px}
+.result{border-top:1px solid var(--line);padding-top:20px}
+.result h4{font:600 1.15rem var(--serif);margin:0 0 6px}
+.result p{margin:0 0 14px;color:var(--muted)}
+.items{list-style:none;padding:0;margin:0 0 16px}
+.items li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.items li b{white-space:nowrap;font-weight:600}
+.from{display:flex;align-items:baseline;justify-content:space-between;gap:12px;background:var(--sand);border-radius:14px;padding:14px 18px;margin:0 0 10px}
+.from span{color:var(--muted);font-size:15px}
+.from b{font:600 2rem/1 var(--serif);color:var(--sea-ink)}
+.small{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+.send{display:flex;flex-wrap:wrap;gap:10px}
+.send .btn{flex:1 1 auto}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:10px 18px;border-radius:12px;z-index:20;box-shadow:0 10px 30px rgba(15,61,62,.35)}
+
+section.block{padding-top:88px;padding-bottom:88px}
+.visit{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;list-style:none;padding:0;margin:0;counter-reset:v}
+.visit li{background:#fff;border-radius:20px;padding:26px;counter-increment:v}
+.visit li::before{content:counter(v);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--foam);color:var(--sea-ink);font:600 1.1rem var(--serif);margin-bottom:14px}
+.visit h3{font:600 1.2rem/1.3 var(--serif);margin:0 0 6px}
+.visit p{margin:0;color:var(--muted)}
+
+.prices{width:100%;border-collapse:collapse;background:#fff;border-radius:20px;overflow:hidden}
+.prices th,.prices td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+.prices th{font:500 13px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--sand)}
+.prices td:last-child,.prices th:last-child{text-align:right;white-space:nowrap}
+.prices tr:last-child td{border-bottom:0}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:24px}
+.hours{width:100%;border-collapse:collapse;margin:0 0 22px}
+.hours td{padding:11px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{color:var(--sea-ink);font-weight:600}
+.addr{margin:0 0 20px;font-size:1.05rem}
+.addr span{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:24px 20px;max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.92rem}
+.callbar{display:none}
+:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (max-width:900px){
+  .top{padding:14px 16px}.top nav{display:none}.top .tel{margin-left:auto}
+  .hero{grid-template-columns:1fr;gap:32px;padding-top:12px;padding-bottom:56px}
+  .hero-img::before{display:none}
+  .map-sec{padding:28px 0 64px}
+  .map-grid{grid-template-columns:1fr;gap:20px}
+  .chart{padding:14px 10px 12px}
+  .panel{padding:22px 18px}
+  section.block{padding-top:64px;padding-bottom:64px}
+  .visit{grid-template-columns:1fr;gap:14px}
+  .prices th,.prices td{padding:12px 14px}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--deep)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:600;text-decoration:none;color:#fff}
+  .callbar a:first-child{background:var(--sea-ink)}
+}
+@media (min-width:901px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Демо от <a href="../../">Otto.web</a>: бизнесът е измислен, сайтът е истински. Бутоните звънят на Otto.web.</div>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Дентал Морска, начало">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M8 4c-3 0-5 2.6-5 6.2 0 3 1.2 5 2 8 .8 3.2 1 7.8 3.2 7.8 2.4 0 2-6 4.3-6h1c2.3 0 1.9 6 4.3 6 2.2 0 2.4-4.6 3.2-7.8.8-3 2-5 2-8C27 6.6 25 4 22 4c-2.6 0-3.6 1.6-7 1.6S10.6 4 8 4z" fill="none" stroke="#156b6b" stroke-width="2"/><path d="M4 23c3-2 6-2 9 0s6 2 9 0 4-1.6 5-1" fill="none" stroke="#1f8a8a" stroke-width="2" stroke-linecap="round"/></svg>
+    Дентал Морска</a>
+  <nav aria-label="Навигация"><a href="#karta">Карта на зъбите</a><a href="#ceni">Цени</a><a href="#kontakt">Контакт</a></nav>
+  <a class="tel" href="tel:+359876752600">0876 752 600</a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <div>
+    <p class="kicker">Дентален кабинет · Бургас</p>
+    <h1>Покажете кой зъб. <b>Ще ви кажем цената.</b></h1>
+    <p class="lead">Натиснете зъба на картата и изберете какво ви притеснява. Ще видите лечението и ориентировъчната цена още преди да дойдете.</p>
+    <div class="cta">
+      <a class="btn" href="#karta">Отворете картата</a>
+      <a class="btn ghost" href="tel:+359876752600">Обадете се</a>
+    </div>
+    <ul class="facts"><li><b>30 €</b> първи преглед</li><li><b>Снимка</b> на място</li><li><b>Само</b> с предварителен час</li></ul>
+  </div>
+  <figure class="hero-img"><img src="../../static/img/dent-hero.webp" alt="Светъл дентален кабинет със стол" width="1024" height="683" fetchpriority="high"></figure>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V22C240 2 480 2 720 20s480 18 720-2v22z" fill="currentColor"/></svg>
+<section class="map-sec" id="karta">
+  <div class="wrap">
+    <h2>Карта на зъбите</h2>
+    <p class="sec-lead">Картата е като в огледало: лявата ви страна е вляво. Номерата са по международната система FDI, същите, които ползва зъболекарят.</p>
+    <div class="map-grid">
+      <div class="chart">
+        <div class="tabs" role="tablist" aria-label="Челюст">
+          <button type="button" role="tab" id="tab-up" aria-controls="jaw-up" aria-selected="true">Горна челюст</button>
+          <button type="button" role="tab" id="tab-low" aria-controls="jaw-low" aria-selected="false" tabindex="-1">Долна челюст</button>
+        </div>
+        <div class="jaw" id="jaw-up" role="tabpanel" aria-labelledby="tab-up"><p class="mid">Горни зъби<small>Изберете зъб</small></p></div>
+        <div class="jaw" id="jaw-low" role="tabpanel" aria-labelledby="tab-low" hidden><p class="mid">Долни зъби<small>Изберете зъб</small></p></div>
+        <div class="sides" aria-hidden="true"><span>← лява страна</span><span>дясна страна →</span></div>
+      </div>
+
+      <form class="panel" id="panel" onsubmit="return false">
+        <h3 id="p-title">Зъб 16</h3>
+        <p class="tname" id="p-name">първи молар, горе вдясно</p>
+        <p class="label" id="probs-l">Какво ви притеснява</p>
+        <fieldset class="probs" id="probs" aria-labelledby="probs-l"></fieldset>
+        <div class="result">
+          <h4 id="r-title"></h4>
+          <p id="r-text"></p>
+          <ul class="items" id="r-items"></ul>
+          <div class="from" aria-live="polite"><span>Ориентировъчно</span><b id="r-from"></b></div>
+          <p class="small">Цените са примерни (демо). Точната цена казваме след преглед и снимка.</p>
+          <div class="send">
+            <button type="button" class="btn" id="viber">Запишете час във Viber</button>
+            <a class="btn ghost" id="wa" href="#">WhatsApp</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>Първото посещение</h2>
+  <p class="sec-lead">Без изненади: знаете какво ще се случи, преди да седнете на стола.</p>
+  <ol class="visit">
+    <li><h3>Преглед и снимка</h3><p>Гледаме зъбите и правим снимка, ако е нужна. Отнема около 30 минути.</p></li>
+    <li><h3>План и цена</h3><p>Показваме ви снимката на екрана и казваме какво предлагаме и колко струва. Решавате вие.</p></li>
+    <li><h3>Лечение с час</h3><p>Записваме ви за удобен час. Ако е спешно и боли, гледаме ви още същия ден.</p></li>
+  </ol>
+</section>
+
+<section class="block wrap" id="ceni" style="padding-top:0">
+  <h2>Цени</h2>
+  <p class="sec-lead">Ориентировъчни цени (демо). Окончателната цена е след преглед.</p>
+  <table class="prices">
+    <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
+    <tbody>
+      <tr><td>Преглед и консултация</td><td>30 €</td></tr>
+      <tr><td>Почистване на зъбен камък и полиране</td><td>от 50 €</td></tr>
+      <tr><td>Фотополимерна пломба</td><td>от 50 €</td></tr>
+      <tr><td>Лечение на канал</td><td>от 90 €</td></tr>
+      <tr><td>Керамична корона</td><td>от 250 €</td></tr>
+      <tr><td>Избелване в кабинет</td><td>от 200 €</td></tr>
+      <tr><td>Имплант (без корона)</td><td>от 650 €</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="block wrap contact" id="kontakt" style="padding-top:0">
+  <img src="../../static/img/dent-2.webp" alt="Кабинет със зъболекарски стол и шкафове" loading="lazy" width="1024" height="686">
+  <div>
+    <h2>Как да ни намерите</h2>
+    <p class="addr">център, Бургас<br><span>(демо адрес)</span></p>
+    <table class="hours" id="hours">
+      <tr data-d="1 2 3 4 5"><td>Пон – Пет</td><td>09:00 – 19:00</td></tr>
+      <tr data-d="6"><td>Събота</td><td>09:00 – 13:00</td></tr>
+      <tr data-d="0"><td>Неделя</td><td>почивен ден</td></tr>
+    </table>
+    <div class="cta">
+      <a class="btn" href="tel:+359876752600">Обадете се</a>
+      <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81%20%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80">Маршрут</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><span>© Дентал Морска, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="tel:+359876752600">Обадете се</a><a href="#karta">Цена</a><a href="#kontakt">Маршрут</a></div>
+
+<script>
+var PHONE="359876752600";
+var POS=["","централен резец","страничен резец","кучешки зъб","първи премолар","втори премолар","първи молар","втори молар","мъдрец"];
+var QUAD=["","горе вдясно","горе вляво","долу вляво","долу вдясно"];
+var KIND=[0,"i","i","c","p","p","m","m","m"];
+var W={i:41,c:42,p:43,m:46}; // тегло за разстоянието по дъгата
+// [ключ, етикет, функция(позиция 1–8) -> {title, text, from: най-ниска цена на пълно лечение, items:[[име,цена]]}]
+function canal(n){return n<4?90:n<6?110:140}
+var PROBS=[
+  ["pain","Боли ме",function(n){return {title:"Преглед и при нужда лечение на канал",text:"Първо снимка, за да видим дали е засегнат нервът. Ако е, лекуваме канала и затваряме зъба с пломба.",
+    from:30,items:[["Преглед и снимка",30],["Лечение на канал",canal(n)],["Пломба след канал",n>5?60:50]]}}],
+  ["caries","Кариес / тъмно петно",function(n){return {title:"Фотополимерна пломба",text:"Почистваме кариеса и възстановяваме зъба с пломба в цвета на зъба. Обикновено за едно посещение.",
+    from:n>5?60:50,items:[["Преглед",30],["Пломба",n>5?60:50]]}}],
+  ["broken","Счупен зъб",function(n){return {title:"Изграждане или корона",text:"Малко счупване изграждаме с композит. Ако е отчупена голяма част, предлагаме керамична корона.",
+    from:70,items:[["Преглед и снимка",30],["Изграждане с композит",70],["или керамична корона",250]]}}],
+  ["missing","Липсва зъб",function(n){return {title:"Имплант или мост",text:"Обясняваме двата варианта със снимката пред вас: имплант на мястото на зъба или мост върху съседните.",
+    from:650,items:[["Консултация и снимка",30],["Имплант (без корона)",650],["или мост, на зъб",250]]}}],
+  ["tartar","Зъбен камък / кървене",function(){return {title:"Почистване с ултразвук",text:"Почистване на камъка и полиране. Важи за цялата уста, не само за този зъб.",
+    from:50,items:[["Почистване и полиране",50]]}}],
+  ["white","По-бели зъби",function(){return {title:"Избелване в кабинет",text:"Първо почистване, после избелване в кабинета за около час. Важи за цялата усмивка.",
+    from:200,items:[["Почистване",50],["Избелване",200]]}}]
+];
+var tooth=16, prob="caries";
+
+function info(fdi){var q=fdi/10|0,n=fdi%10;return {q:q,n:n,name:POS[n]+", "+QUAD[q]}}
+function arc(lower){ // точки по половин елипса, отляво надясно; дължина по дъгата
+  var pts=[],L=0,prev=null;
+  for(var s=0;s<=400;s++){
+    var th=Math.PI*(1-s/400),x=200+165*Math.cos(th),y=lower?30+320*Math.sin(th):360-320*Math.sin(th);
+    if(prev)L+=Math.hypot(x-prev[0],y-prev[1]);pts.push([x,y,L]);prev=[x,y];
+  }
+  return {pts:pts,L:L};
+}
+function buildJaw(el,order,lower){
+  var a=arc(lower),wsum=order.reduce(function(s,f){return s+W[KIND[f%10]]},0),acc=0,j=0;
+  order.forEach(function(f){
+    var w=W[KIND[f%10]],target=(acc+w/2)/wsum*a.L;acc+=w;
+    while(j<a.pts.length-1&&a.pts[j][2]<target)j++;
+    var p=a.pts[j],b=document.createElement("button");
+    b.type="button";b.className="t "+KIND[f%10];b.textContent=f;b.dataset.f=f;
+    b.style.left=(p[0]/4)+"%";b.style.top=(p[1]/3.9)+"%";
+    b.setAttribute("aria-label","Зъб "+f+", "+info(f).name);b.setAttribute("aria-pressed",String(f===tooth));
+    el.appendChild(b);
+  });
+}
+// огледален изглед: лявата страна на пациента е вляво
+buildJaw(document.getElementById("jaw-up"),[28,27,26,25,24,23,22,21,11,12,13,14,15,16,17,18],false);
+buildJaw(document.getElementById("jaw-low"),[38,37,36,35,34,33,32,31,41,42,43,44,45,46,47,48],true);
+
+var probs=document.getElementById("probs");
+PROBS.forEach(function(p){
+  var l=document.createElement("label");
+  l.innerHTML='<input type="radio" name="prob" value="'+p[0]+'"'+(p[0]===prob?" checked":"")+'><span>'+p[1]+'</span>';
+  probs.appendChild(l);
+});
+function current(){var p=PROBS.filter(function(x){return x[0]===prob})[0];return {label:p[1],r:p[2](tooth%10)}}
+function message(){var c=current();return "Здравейте! Искам час в Дентал Морска. Зъб "+tooth+" ("+info(tooth).name+"). Проблем: "+c.label.toLowerCase()+". "+c.r.title+", ориентировъчно от "+c.r.from+" €."}
+function render(){
+  var c=current(),r=c.r;
+  document.getElementById("p-title").textContent="Зъб "+tooth;
+  document.getElementById("p-name").textContent=info(tooth).name;
+  document.getElementById("r-title").textContent=r.title;
+  document.getElementById("r-text").textContent=r.text;
+  document.getElementById("r-items").innerHTML=r.items.map(function(i){return "<li><span>"+i[0]+"</span><b>"+i[1]+" €</b></li>"}).join("");
+  document.getElementById("r-from").textContent="от "+r.from+" €";
+  document.getElementById("wa").href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(message());
+  document.querySelectorAll(".t").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.f===tooth))});
+}
+document.querySelectorAll(".jaw").forEach(function(j){
+  j.addEventListener("click",function(e){
+    var b=e.target.closest(".t");if(!b)return;tooth=+b.dataset.f;render();
+    if(matchMedia("(max-width:900px)").matches)document.getElementById("panel").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"start"});
+  });
+});
+probs.addEventListener("change",function(e){prob=e.target.value;render()});
+var tabs=[document.getElementById("tab-up"),document.getElementById("tab-low")];
+function selectTab(i,focus){
+  tabs.forEach(function(t,k){t.setAttribute("aria-selected",String(k===i));t.tabIndex=k===i?0:-1;document.getElementById(t.getAttribute("aria-controls")).hidden=k!==i});
+  if(focus)tabs[i].focus();
+}
+tabs.forEach(function(t,i){
+  t.addEventListener("click",function(){selectTab(i)});
+  t.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();selectTab(1-i,true)}});
+});
+document.getElementById("viber").addEventListener("click",function(){
+  var t=message();
+  function go(){location.href="viber://chat?number=%2B"+PHONE}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast("Текстът е копиран. Поставете го във Viber.");setTimeout(go,900)},go)}else{go()}
+});
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+var now=new Date();
+document.querySelectorAll("#hours tr").forEach(function(r){if(r.dataset.d.split(" ").indexOf(String(now.getDay()))>-1)r.className="today"});
+if(location.search.indexOf("shot")>-1)document.getElementById("demo-bar").hidden=true;
+render();
+</script>
+</body>
+</html>
