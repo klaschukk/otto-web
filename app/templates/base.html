@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% block title %}{{ t.meta.title }}{% endblock %}</title>
+{% if cfg.GOOGLE_SITE_VERIFICATION %}<meta name="google-site-verification" content="{{ cfg.GOOGLE_SITE_VERIFICATION }}">
+{% endif %}<title>{% block title %}{{ t.meta.title }}{% endblock %}</title>
 <meta name="description" content="{% block description %}{{ t.meta.description }}{% endblock %}">
 <link rel="canonical" href="{{ cfg.BASE_URL }}{{ P }}{{ page_path }}">
 {% for l, href in alt.items() %}<link rel="alternate" hreflang="{{ l }}" href="{{ cfg.BASE_URL }}{{ href }}">
