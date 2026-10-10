@@ -1,0 +1,68 @@
+# Otto.web — состояние (читать первым)
+
+Обновлено: 2026-10-10. Этот файл — единственное, что нужно прочитать, чтобы продолжить работу. Подробности: `README.md` (команды), `DESIGN.md` (дизайн-система), `docs/V3_SPEC.md` (исходное ТЗ).
+
+## Где что
+
+| Что | Где |
+|---|---|
+| Живой сайт | https://otto-web.online (HTTPS Let's Encrypt, автопродление certbot) |
+| Стек | Flask 3 + Jinja2 + gunicorn + SQLite в Docker Compose (`app` + `web` nginx на 127.0.0.1:8080), снаружи host-nginx |
+| Страницы | `app/templates/*.html`, тексты `app/i18n/{bg,en,ru}.yaml`, стили `static/css/site.css`, JS `static/js/` |
+| Работы | `app/works.yaml` (4 демо) + реальный клиент SARAFAN (блок `client:` в i18n) |
+| Демо | `custom/<slug>/index.html` → `/demo/<slug>/` (ручные, один HTML на демо, noindex) |
+| Заявки | `POST /api/lead` → `data/otto.db` + Telegram; список `/admin/` (логин в `.env`) |
+| Секреты | `.env` (не в git): админка, Telegram, BASE_URL, OTTO_BIND, GOOGLE_SITE_VERIFICATION |
+| Договор | шаблон `contract/dogovor.html` + `contract/firm.local.yaml` (не в git) → `python contract/render.py` → `contract/out/` |
+| Лиды | `/home/site-studio/leads/` (вне репо) |
+| Домен | Namecheap, otto-web.online до 09.10.2027, автопродление выключено (продление ~30–40 $) |
+
+## Команды
+
+```bash
+make test      # pytest (36 тестов)
+make up        # пересобрать и перезапустить контейнеры, проверить /health
+make shots     # скриншоты демо для витрины
+make backup    # копия базы заявок
+make domain    # ТОЛЬКО владелец от root: vhost + сертификат (уже выполнено 09.10)
+```
+
+После любой правки шаблонов, CSS, i18n или демо нужен `make up`: контейнер отдаёт файлы из образа.
+Проверка скриншотом: `chromium --headless=new --no-sandbox --window-size=390,2000 --screenshot=out.png URL`.
+Браузер gstack browse общий для всех сессий на сервере: для своих проверок брать отдельный headless chromium.
+
+## Правила
+
+- Коммиты маленькие, identity `klaschuk <178824815+klaschukk@users.noreply.github.com>`, без строк про ИИ-инструменты. Перед коммитом `git diff`.
+- В репо (он публичный) не попадают: домашний адрес, IBAN, имя управителя, `.env`. На сайте о фирме: название + ЕИК + «гр. Бургас».
+- Не выдумывать цифры, отзывы, клиентов. Демо помечены как демо, цены в демо примерные.
+- Системный nginx, systemd и сертификаты меняет только владелец (готовим скрипт и make-цель).
+- SARAFAN называть «детски клуб», не «детска градина».
+
+## Сделано
+
+- v3 сайт: главная, /raboti/ (+ кейсы), /ceni/ (калькулятор), /kontakt/, политика конфиденциальности, bg/en/ru, /admin/.
+- 4 ручных демо: avto-profi (калькулятор), berber-studio (часы на сегодня), studio-mila (палитра лаков), dental-morska (карта зубов FDI).
+- Форма → SQLite + Telegram (бот общий с prevozni, сообщения начинаются с «Otto.web · нова заявка»).
+- Домен, HTTPS, редирект http→https, :8080 закрыт снаружи. Search Console подтверждён, sitemap отправлен.
+- Почта info@otto-web.online → пересылка на Gmail (Namecheap).
+- Договор: 6 страниц A4, реквизиты вне репо.
+
+## Очередь
+
+1. [ ] QA сайта: все страницы bg/en/ru на 390/768/1440, формы, доступность, скорость.
+2. [ ] Лиды: бизнесы Бургаса без сайта из проверяемых источников, с подобранным демо.
+3. [ ] `docs/STRATEGY.md`: одна страница — кому звонить, что говорить, возражения.
+4. [ ] Листовка A4 на болгарском с QR на сайт, PDF.
+5. [ ] Аналитика Umami для otto-web.online (UMAMI_SRC/UMAMI_ID в `.env` пустые).
+6. [ ] Шрифты демо под `/demo/` грузятся с Google Fonts: перенести на свой сервер.
+
+## Вопросы владельцу
+
+- Письмо на info@otto-web.online дошло до Gmail? Тогда меняем email на сайте.
+- Фото лицом для блока «Кой стои зад Otto.web» (сейчас монограмма).
+- Мама согласна, что SARAFAN показан как работа?
+
+## Журнал
+
+- 10.10 ночь: создан этот файл, начат ночной проход.
