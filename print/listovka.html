@@ -56,19 +56,23 @@ h2{font:800 13.5pt/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 3mm}
 .works-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3mm}
 .works-h span{font-size:9.4pt;color:var(--sub)}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm}
-.w{display:grid;grid-template-columns:13.5mm 1fr;gap:2.6mm;align-items:center}
-.ph{width:13.5mm;height:27mm;border:1.4pt solid var(--ink);border-radius:3mm;overflow:hidden;background:var(--ink)}
+.w{display:grid;grid-template-columns:12.5mm 1fr;gap:2.6mm;align-items:center}
+.ph{width:12.5mm;height:25mm;border:1.4pt solid var(--ink);border-radius:3mm;overflow:hidden;background:var(--ink)}
 .ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 .w b{display:block;font:800 10.4pt/1.15 var(--sans);letter-spacing:-.01em}
 .w span{display:block;font-size:8.8pt;line-height:1.3;color:var(--sub);margin-top:1mm}
 
-.cta{margin:auto 0 0;background:var(--marker);padding:4.5mm 6mm;display:grid;grid-template-columns:30mm 1fr;gap:8mm;align-items:center}
+.cta{margin:auto 0 0;background:var(--marker);padding:4.5mm 6mm;display:grid;grid-template-columns:30mm 1fr 25mm;gap:7mm;align-items:center}
+.me{margin:0;text-align:center;font-size:8.6pt;line-height:1.25}
+.me img{display:block;width:25mm;height:30mm;object-fit:cover;object-position:50% 18%;border-radius:2.5mm;margin-bottom:1.2mm}
+.me b{display:block;font-weight:800;font-size:10pt}
 .qr{background:#fff;padding:1.8mm;width:30mm;height:30mm}
 .qr svg{display:block;width:100%;height:100%}
-.cta h2{font-size:15pt;margin-bottom:1.5mm}
-.cta .tel{font:500 25pt/1.05 var(--mono);letter-spacing:-.02em;margin:.5mm 0 1.2mm}
+.cta h2{font-size:13.5pt;margin-bottom:1mm}
+.cta .tel{font:500 23pt/1.05 var(--mono);letter-spacing:-.02em;margin:.5mm 0 1mm}
 .cta p{font-size:10.2pt}
-.hand{margin-top:2.6mm;font-size:10.2pt;display:flex;gap:2mm;align-items:flex-end}
+.cta .startup{font-size:9.2pt;margin-top:1mm}
+.hand{margin-top:2.2mm;font-size:10.2pt;display:flex;gap:2mm;align-items:flex-end}
 .hand i{flex:1;border-bottom:.9pt solid var(--ink);height:5mm}
 .foot{margin-top:2.6mm;color:var(--sub);font-size:7.8pt;display:flex;justify-content:space-between}
 </style>
@@ -97,7 +101,7 @@ h2{font:800 13.5pt/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 3mm}
     </div>
 
     <div class="offer">
-      <h2>Правя сайтове за малък бизнес в Бургас</h2>
+      <h2>Правя сайтове по поръчка за бизнеси в Бургас</h2>
       <ul>
         <li>Първо правя пример с вашето име, услуги и цени. Безплатно и без ангажимент.</li>
         <li>Ако ви хареса, подписваме договор с фиксирана цена.</li>
@@ -106,19 +110,20 @@ h2{font:800 13.5pt/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 3mm}
       </ul>
       <div class="receipt">
         <div class="h"><span>Ценоразпис</span><span>Бургас</span></div>
-        <div class="row"><span><b>Сайт-визитка</b><small>1 страница, бутони за обаждане, карта</small></span><span class="d"></span><mark>79 €</mark></div>
-        <div class="row"><span><b>Бизнес</b><small>до 5 страници, галерия, форма</small></span><span class="d"></span><mark>149 €</mark></div>
-        <div class="row"><span><b>Бизнес+</b><small>2 езика, онлайн заявка за час</small></span><span class="d"></span><mark>249 €</mark></div>
+        <div class="row"><span><b>Сайт-визитка</b><small>1 страница, обаждане, карта</small></span><span class="d"></span><mark>79 €</mark></div>
+        <div class="row"><span><b>Бизнес</b><small>до 5 страници, форма</small></span><span class="d"></span><mark>149 €</mark></div>
+        <div class="row"><span><b>Бизнес+</b><small>2 езика, онлайн заявка</small></span><span class="d"></span><mark>249 €</mark></div>
         <p class="f">Цените са крайни, без скрити такси.</p>
       </div>
     </div>
   </div>
 
   <div class="works">
-    <div class="works-h"><h2 style="margin:0">Всеки сайт е различен</h2><span>Четири демо сайта за измислени бизнеси: otto-web.online/raboti</span></div>
+    <div class="works-h"><h2 style="margin:0">Всеки сайт е различен</h2><span>Демо сайтове за измислени бизнеси: otto-web.online/raboti</span></div>
     <div class="strip">
+      <div class="w"><div class="ph"><img src="../static/shots/bistro-kei.webp" alt=""></div><div><b>Ресторант</b><span>Маса за 20 секунди</span></div></div>
       <div class="w"><div class="ph"><img src="../static/shots/avto-profi.webp" alt=""></div><div><b>Автосервиз</b><span>Калкулатор на цената</span></div></div>
-      <div class="w"><div class="ph"><img src="../static/shots/berber-studio.webp" alt=""></div><div><b>Барбершоп</b><span>Свободни часове днес</span></div></div>
+      
       <div class="w"><div class="ph"><img src="../static/shots/studio-mila.webp" alt=""></div><div><b>Маникюр</b><span>Палитра гел лакове</span></div></div>
       <div class="w"><div class="ph"><img src="../static/shots/dental-morska.webp" alt=""></div><div><b>Зъболекар</b><span>Карта на зъбите с цени</span></div></div>
     </div>
@@ -127,11 +132,13 @@ h2{font:800 13.5pt/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 3mm}
   <div class="cta">
     <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" class="segno"><path class="qrline" stroke="#111214" d="M0 0.5h7m1 0h2m1 0h1m1 0h2m2 0h2m3 0h7m-29 1h1m5 0h1m1 0h5m3 0h1m2 0h2m1 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m6 0h1m1 0h1m1 0h4m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h3m3 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h2m3 0h1m5 0h1m1 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-20 1h1m1 0h4m1 0h1m2 0h2m-21 1h1m2 0h6m5 0h5m2 0h1m2 0h1m1 0h3m-29 1h4m3 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m4 0h1m1 0h2m-25 1h1m2 0h3m2 0h1m2 0h3m3 0h1m1 0h1m3 0h1m-25 1h3m2 0h1m2 0h1m3 0h4m2 0h3m2 0h1m2 0h1m-26 1h1m2 0h1m2 0h1m1 0h2m2 0h2m3 0h1m1 0h2m4 0h1m-28 1h1m1 0h1m3 0h1m1 0h2m2 0h4m4 0h8m-29 1h4m2 0h1m2 0h3m1 0h4m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m-29 1h2m2 0h1m2 0h3m5 0h2m2 0h1m1 0h1m1 0h2m1 0h1m1 0h1m-29 1h3m1 0h4m1 0h1m2 0h2m1 0h2m2 0h2m4 0h1m-26 1h5m2 0h3m1 0h2m1 0h2m1 0h1m1 0h2m3 0h1m1 0h2m-28 1h2m1 0h5m2 0h2m2 0h2m1 0h1m1 0h1m2 0h4m2 0h1m-29 1h2m1 0h1m1 0h1m2 0h4m1 0h2m1 0h1m1 0h1m2 0h1m1 0h4m-27 1h2m1 0h2m1 0h1m1 0h1m4 0h1m1 0h1m1 0h1m2 0h8m-20 1h1m1 0h2m2 0h2m1 0h2m1 0h1m3 0h2m-26 1h7m1 0h2m4 0h4m1 0h2m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h4m3 0h1m1 0h1m1 0h2m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m1 0h1m4 0h2m1 0h2m1 0h7m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h2m1 0h1m2 0h4m1 0h1m1 0h1m1 0h1m4 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m2 0h4m1 0h1m2 0h2m1 0h2m1 0h3m-29 1h1m5 0h1m4 0h2m1 0h3m5 0h2m1 0h2m1 0h1m-29 1h7m1 0h3m1 0h1m2 0h2m3 0h3"/></svg></div>
     <div>
-      <h2>Сканирайте с камерата и разгледайте примерите</h2>
+      <h2>Сканирайте и разгледайте примерите</h2>
       <p class="tel">0876 752 600</p>
-      <p>Обаждане, Viber или WhatsApp. Всеки ден, 10:00–20:00. <b>Кирил</b></p>
+      <p>Обаждане, Viber или WhatsApp. Всеки ден, 10:00–20:00.</p>
+      <p class="startup">Otto.web е моят стартъп: трупам опит преди университета.</p>
       <p class="hand"><span>Пример за вас:</span><i></i></p>
     </div>
+    <figure class="me"><img src="../static/img/kiril.webp" alt=""><b>Кирил</b>Otto.web</figure>
   </div>
   <div class="foot"><span>Otto.web · „СМАРТ ЧАЙЛД“ ЕООД, ЕИК 208013140 · гр. Бургас · Не е регистрирана по ДДС</span><span>otto-web.online</span></div>
 </div>
