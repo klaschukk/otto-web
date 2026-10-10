@@ -12,6 +12,7 @@ company: "„СМАРТ ЧАЙЛД“ ЕООД, ЕИК 208013140"
 
 # Что показываем на главной (ручные демо из custom/, у каждого свой дизайн)
 showcase:
+  - { slug: "bistro-kei", name: "Бистро „Кей“", niche_label: "Ресторант" }
   - { slug: "avto-profi", name: "Авто Профи", niche_label: "Автосервиз" }
   - { slug: "berber-studio", name: "Berber Studio", niche_label: "Барбершоп" }
   - { slug: "studio-mila", name: "Studio Mila", niche_label: "Салон за красота" }

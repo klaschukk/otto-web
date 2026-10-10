@@ -1,0 +1,309 @@
+<!doctype html>
+<!-- otto:custom — ручное демо, исходник сохраняется в custom/bistro-kei/ при сборке -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бистро „Кей“ — риба и морска кухня в Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../../static/fonts/demo/bistro-kei.css">
+<style>
+:root{--sea:#0f2a3d;--sea-2:#17384f;--sand:#f5efe4;--sand-2:#eadfcd;--ink:#14212b;--muted:#5b6770;--line:#d9ccb6;--terra:#b8452f;--terra-d:#9a3725;
+  --display:"Playfair Display",Georgia,serif;--body:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sand);color:var(--ink);font:17px/1.55 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-left:20px;padding-right:20px}
+.demo-bar{background:var(--ink);color:var(--sand);font:400 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:700}
+
+.top{position:absolute;left:0;right:0;z-index:5;display:flex;align-items:center;gap:26px;padding:16px 24px;color:#fff}
+.logo{display:inline-flex;align-items:center;gap:10px;min-height:44px;font:800 26px/1 var(--display);text-decoration:none;letter-spacing:.01em}
+.logo svg{flex:none}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;font-weight:600;font-size:15px;opacity:.9}
+.top nav a:hover{opacity:1}
+.top .tel{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none}
+
+.hero{position:relative;min-height:min(88vh,780px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--sea)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,61,.55) 0%,rgba(15,42,61,.15) 38%,rgba(15,42,61,.88) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:48px}
+.kicker{font:600 14px var(--body);letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px;opacity:.92}
+h1{font:800 clamp(2.5rem,6.6vw,5rem)/1.02 var(--display);margin:0 0 18px;max-width:14ch}
+h1 em{font-style:italic;font-weight:600}
+.lead{font-size:1.15rem;max-width:44ch;margin:0 0 28px;color:#eef2f4}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:999px;font:700 16px var(--body);
+  text-decoration:none;cursor:pointer;border:2px solid var(--terra);background:var(--terra);color:#fff;transition:transform .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn.dark{background:var(--sea);border-color:var(--sea)}
+.now{display:flex;flex-wrap:wrap;gap:8px 22px;margin:26px 0 0;padding:0;list-style:none;font-size:15px}
+.now li{display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:#7ddc9a}
+.dot.off{background:#f0b34a}
+
+/* резервация */
+section.block{padding-top:84px;padding-bottom:84px}
+h2{font:800 clamp(2rem,4.4vw,3.2rem)/1.06 var(--display);margin:0 0 12px}
+.sub{color:var(--muted);max-width:54ch;margin:0 0 32px}
+.book{background:#fff;border-radius:22px;padding:28px;box-shadow:0 30px 60px -44px rgba(15,42,61,.55);display:grid;grid-template-columns:1.25fr .75fr;gap:36px}
+.label{font:700 13px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.chips button{min-height:46px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--sand);font:600 15px var(--body);color:var(--ink);cursor:pointer}
+.chips button small{display:block;font:400 12px var(--body);color:var(--muted);margin-top:-2px}
+.chips button[aria-pressed=true]{background:var(--sea);border-color:var(--sea);color:#fff}
+.chips button[aria-pressed=true] small{color:#c9d6de}
+.chips button:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px;margin:0 0 22px}
+.times button{min-height:46px;padding:0;border-radius:12px;border:1.5px solid var(--line);background:var(--sand);font:700 15px var(--body);color:var(--ink);cursor:pointer}
+.times button[aria-pressed=true]{background:var(--terra);border-color:var(--terra);color:#fff}
+.row2{display:flex;flex-wrap:wrap;gap:22px 40px}
+.step{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--sand)}
+.step button{width:46px;height:46px;border:0;background:transparent;font:700 22px/1 var(--body);color:var(--ink);cursor:pointer;border-radius:50%}
+.step output{min-width:56px;text-align:center;font:700 17px var(--body)}
+.ticket{background:var(--sea);color:#fff;border-radius:16px;padding:22px;display:flex;flex-direction:column}
+.ticket .label{color:#b9c9d3}
+.ticket b{display:block;font:800 1.9rem/1.15 var(--display);margin-bottom:6px}
+.ticket p{margin:0 0 18px;color:#dbe5ea}
+.ticket .btn{width:100%;margin-top:8px}
+.ticket .btn.wa{background:transparent;border-color:#fff}
+.ticket small{display:block;margin-top:14px;color:#b9c9d3;font-size:13px}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+
+/* меню */
+.menu-sec{background:var(--sand-2)}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 26px;padding-bottom:4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:46px;padding:0 18px;border-radius:999px;border:1.5px solid transparent;background:transparent;font:700 15px var(--body);color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{background:#fff;border-color:var(--line);color:var(--ink)}
+.dishes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.dishes li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.dishes h3{font:600 1.22rem/1.25 var(--display);margin:0}
+.dishes .p{font:700 1.1rem var(--body);white-space:nowrap}
+.dishes p{grid-column:1/2;margin:0;color:var(--muted);font-size:15px}
+.dishes .g{text-align:right;color:var(--muted);font-size:13.5px}
+.tag{display:inline-block;font:700 11.5px var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--terra-d);border:1px solid var(--terra-d);border-radius:5px;padding:1px 6px;margin-left:8px;vertical-align:2px}
+.lunch{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;background:#fff;border-radius:16px;padding:18px 22px;margin-top:30px}
+.lunch b{font:800 1.3rem var(--display)}
+.lunch span{color:var(--muted)}
+.lunch strong{font:800 1.6rem var(--display);color:var(--terra-d);white-space:nowrap}
+.note{font-size:13.5px;color:var(--muted);margin:16px 0 0}
+
+.plates{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plates figure{margin:0;position:relative;border-radius:18px;overflow:hidden}
+.plates img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.plates figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 14px;background:linear-gradient(transparent,rgba(15,42,61,.86));color:#fff;font:600 1.1rem var(--display)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:700}
+.hours tr.today td{color:var(--terra-d)}
+.addr{font-size:1.1rem;margin:0 0 20px}
+.addr span{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:24px 20px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.92rem}
+footer a{display:inline-block;padding:10px 0}
+.callbar{display:none}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.hero :focus-visible,.ticket :focus-visible{outline-color:#fff}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (max-width:860px){
+  .top{padding:12px 16px}.top nav{display:none}.top .tel{margin-left:auto}
+  .hero{min-height:auto}.hero .wrap{padding-top:110px;padding-bottom:36px}
+  section.block{padding-top:60px;padding-bottom:60px}
+  .book{grid-template-columns:1fr;padding:20px 16px;gap:24px}
+  .dishes{grid-template-columns:1fr}
+  .plates{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--sea)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:700;text-decoration:none;color:#fff}
+  .callbar a:first-child{background:var(--terra)}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Демо от <a href="../../">Otto.web</a>: бизнесът е измислен, сайтът е истински. Бутоните звънят на Otto.web.</div>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Бистро Кей, начало">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M2 18c3-3 6-3 9 0s6 3 9 0 6-3 8-1M2 24c3-3 6-3 9 0s6 3 9 0 6-3 8-1" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="21" cy="8" r="4" fill="#f0b34a"/></svg>Кей</a>
+  <nav aria-label="Навигация"><a href="#masa">Резервация</a><a href="#menu">Меню</a><a href="#kontakt">Контакт</a></nav>
+  <a class="tel" href="tel:+359876752600">0876 752 600</a>
+</header>
+
+<main>
+<section class="hero">
+  <img src="../../static/img/rest-hero.webp" alt="Тераса с маси под дърветата и изглед към морето" width="1024" height="653" fetchpriority="high">
+  <div class="wrap">
+    <p class="kicker">Бистро · риба и морска кухня · Бургас</p>
+    <h1>Риба от тази сутрин. <em>Маса за довечера.</em></h1>
+    <p class="lead">Вижте какво има днес и запазете маса за 20 секунди. Без да чакате някой да вдигне телефона.</p>
+    <div class="cta">
+      <a class="btn" href="#masa">Запазете маса</a>
+      <a class="btn ghost" href="#menu">Вижте менюто</a>
+    </div>
+    <ul class="now"><li><span class="dot" id="dot"></span><span id="open-now">Работно време: 11:00–23:00</span></li><li>Тераса с изглед към морето</li><li>Обедно меню 12:00–15:00</li></ul>
+  </div>
+</section>
+
+<section class="block wrap" id="masa">
+  <h2>Маса за 20 секунди</h2>
+  <p class="sub">Изберете ден, час и колко сте. Съобщението е готово, остава да го изпратите.</p>
+  <form class="book" id="book" onsubmit="return false">
+    <div>
+      <p class="label" id="l-day">Кога</p>
+      <div class="chips" id="days" role="group" aria-labelledby="l-day"></div>
+      <p class="label" id="l-time">В колко часа</p>
+      <div class="times" id="times" role="group" aria-labelledby="l-time"></div>
+      <div class="row2">
+        <div><p class="label" id="l-ppl">Колко души</p>
+          <div class="step" role="group" aria-labelledby="l-ppl"><button type="button" id="minus" aria-label="По-малко">−</button><output id="ppl" aria-live="polite">2</output><button type="button" id="plus" aria-label="Повече">+</button></div></div>
+        <div><p class="label" id="l-zone">Къде</p>
+          <div class="chips" id="zone" role="group" aria-labelledby="l-zone" style="margin:0"><button type="button" aria-pressed="true">На терасата</button><button type="button" aria-pressed="false">Вътре</button></div></div>
+      </div>
+    </div>
+    <div class="ticket" aria-live="polite">
+      <p class="label">Вашата резервация</p>
+      <b id="t-when">Изберете час</b>
+      <p id="t-what">2 души · на терасата</p>
+      <button type="button" class="btn" id="viber">Изпратете във Viber</button>
+      <a class="btn wa" id="wa" href="#">WhatsApp</a>
+      <small>Потвърждаваме със съобщение до 15 минути. За повече от 10 души се обадете.</small>
+    </div>
+  </form>
+</section>
+
+<section class="block menu-sec" id="menu">
+  <div class="wrap">
+    <h2>Меню</h2>
+    <p class="sub">Цените са в евро. Уловът се сменя според това, което е дошло сутринта.</p>
+    <div class="tabs" role="tablist" aria-label="Раздели на менюто" id="tabs"></div>
+    <ul class="dishes" id="dishes" role="tabpanel"></ul>
+    <div class="lunch"><div><b>Обедно меню</b> <span>· делник, 12:00–15:00 · супа и основно ястие</span></div><strong>9 €</strong></div>
+    <p class="note">Демо: ястията и цените са примерни. Информация за алергени: попитайте сервитьора.</p>
+  </div>
+</section>
+
+<section class="block wrap">
+  <h2>От кухнята</h2>
+  <p class="sub">Малко ястия, приготвени както трябва.</p>
+  <div class="plates">
+    <figure><img src="../../static/img/rest-midi.webp" alt="Миди с бял сос и магданоз в дълбока чиния" loading="lazy" width="1024" height="683"><figcaption>Черноморски миди натюр</figcaption></figure>
+    <figure><img src="../../static/img/rest-riba.webp" alt="Риба на скара с резен лимон" loading="lazy" width="1024" height="576"><figcaption>Лаврак на скара</figcaption></figure>
+    <figure><img src="../../static/img/rest-salata.webp" alt="Салата и чаша бяло вино на маса с изглед към морето" loading="lazy" width="1280" height="720"><figcaption>Салата и чаша бяло вино</figcaption></figure>
+  </div>
+</section>
+
+<section class="block wrap contact" id="kontakt" style="padding-top:0">
+  <div>
+    <h2>Елате</h2>
+    <p class="addr">Морската градина, Бургас<br><span>(демо адрес)</span></p>
+    <div class="cta">
+      <a class="btn dark" href="tel:+359876752600">Обадете се</a>
+      <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%B0%20%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%BD%D0%B0%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81">Маршрут</a>
+    </div>
+  </div>
+  <table class="hours" id="hours">
+    <tr data-d="1 2 3 4"><td>Понеделник – четвъртък</td><td>11:00 – 23:00</td></tr>
+    <tr data-d="5 6"><td>Петък и събота</td><td>11:00 – 24:00</td></tr>
+    <tr data-d="0"><td>Неделя</td><td>11:00 – 22:00</td></tr>
+  </table>
+</section>
+</main>
+
+<footer><span>© Бистро „Кей“, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="#masa">Маса</a><a href="#menu">Меню</a><a href="tel:+359876752600">Обадете се</a></div>
+
+<script>
+var PHONE="359876752600";
+var CLOSE={0:22,1:23,2:23,3:23,4:23,5:24,6:24}; // час на затваряне по ден от седмицата, отваряме в 11
+var MENU=[
+ ["Улов на деня",[["Лаврак на скара","Цяла риба, зехтин, лимон, печени зеленчуци","350 г",14],["Паламуд на скара","Със салата от печени чушки","300 г",12],["Сафрид, пържен","Хрупкав, с лимон и чеснов сос","250 г",8,"любимо"],["Калмари на плоча","С чесън и магданоз","220 г",11],["Черноморски миди натюр","Бяло вино, чесън, копър","400 г",9]]],
+ ["Салати и предястия",[["Шопска салата","Домати, краставици, сирене","350 г",6,"постно"],["Тарама","Домашна, с препечен хляб","150 г",5],["Салата с печен пипер и сирене","","300 г",7],["Рибена чорба","По бургаска рецепта","300 мл",5],["Пържени тиквички","С млечен сос и копър","250 г",6,"постно"]]],
+ ["Скара",[["Пилешко филе на скара","С гарнитура по избор","250 г",9],["Свински врат","Със запечени картофи","280 г",10],["Кюфтета, 3 броя","Домашни, с лютеница","240 г",7],["Зеленчуци на скара","Тиквичка, патладжан, чушка, гъби","300 г",7,"постно"]]],
+ ["Десерти",[["Крем карамел","Домашен","150 г",4],["Баклава с орехи","","120 г",4],["Сладолед, 2 топки","Ванилия, шоколад или смокиня","120 г",4]]],
+ ["Напитки",[["Домашна лимонада","Лимон и мента","400 мл",4],["Наливна бира","","500 мл",3],["Бяло вино, чаша","От региона на Поморие","150 мл",5],["Еспресо","","",2],["Минерална вода","","330 мл",2]]]
+];
+var now=new Date(), day=0, time=null, ppl=2, zone="на терасата";
+function pad(n){return String(n).padStart(2,"0")}
+function dateOf(i){var d=new Date(now);d.setDate(now.getDate()+i);return d}
+function dayLabel(i){return i===0?"Днес":i===1?"Утре":dateOf(i).toLocaleDateString("bg-BG",{weekday:"long"})}
+function slots(i){ // от 12:00 до час преди затваряне, през 30 минути; за днес само бъдещите
+  var d=dateOf(i), end=(CLOSE[d.getDay()]-1)*60, cut=i===0?now.getHours()*60+now.getMinutes()+30:0, out=[];
+  for(var m=12*60;m<=end;m+=30) if(m>=cut) out.push(pad(m/60|0)+":"+pad(m%60));
+  return out;
+}
+var daysEl=document.getElementById("days"), timesEl=document.getElementById("times");
+function buildDays(){
+  daysEl.innerHTML="";
+  for(var i=0;i<5;i++){(function(i){
+    var b=document.createElement("button"), d=dateOf(i);b.type="button";
+    b.innerHTML=dayLabel(i)+"<small>"+d.toLocaleDateString("bg-BG",{day:"numeric",month:"long"})+"</small>";
+    b.setAttribute("aria-pressed",String(i===day)); if(!slots(i).length) b.disabled=true;
+    b.addEventListener("click",function(){day=i;time=null;buildDays();buildTimes();render()});
+    daysEl.appendChild(b);
+  })(i)}
+}
+function buildTimes(){
+  timesEl.innerHTML="";
+  slots(day).forEach(function(t){
+    var b=document.createElement("button");b.type="button";b.textContent=t;b.setAttribute("aria-pressed",String(t===time));
+    b.addEventListener("click",function(){time=t;buildTimes();render()});
+    timesEl.appendChild(b);
+  });
+}
+function when(){return dayLabel(day).toLowerCase()+", "+dateOf(day).toLocaleDateString("bg-BG",{day:"numeric",month:"long"})+" в "+time}
+function message(){return "Здравейте! Искам маса в бистро „Кей“: "+when()+", за "+ppl+(ppl===1?" човек":" души")+", "+zone+"."}
+function render(){
+  document.getElementById("ppl").textContent=ppl;
+  document.getElementById("t-when").textContent=time?(dayLabel(day)+", "+time):"Изберете час";
+  document.getElementById("t-what").textContent=ppl+(ppl===1?" човек":" души")+" · "+zone;
+  document.getElementById("wa").href=time?"https://wa.me/"+PHONE+"?text="+encodeURIComponent(message()):"#";
+}
+document.getElementById("minus").addEventListener("click",function(){if(ppl>1){ppl--;render()}});
+document.getElementById("plus").addEventListener("click",function(){if(ppl<10){ppl++;render()}});
+document.querySelectorAll("#zone button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("#zone button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true");zone=b.textContent.toLowerCase();render();
+  });
+});
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+document.getElementById("wa").addEventListener("click",function(e){if(!time){e.preventDefault();toast("Първо изберете час.")}});
+document.getElementById("viber").addEventListener("click",function(){
+  if(!time){toast("Първо изберете час.");return}
+  var t=message();
+  function go(){location.href="viber://chat?number=%2B"+PHONE}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast("Текстът е копиран. Поставете го във Viber.");setTimeout(go,900)},go)}else{go()}
+});
+// меню с раздели
+var tabsEl=document.getElementById("tabs"), dishesEl=document.getElementById("dishes"), cur=0;
+function showMenu(i,focus){
+  cur=i;
+  tabsEl.querySelectorAll("button").forEach(function(b,k){b.setAttribute("aria-selected",String(k===i));b.tabIndex=k===i?0:-1;if(k===i&&focus)b.focus()});
+  dishesEl.innerHTML=MENU[i][1].map(function(d){
+    return "<li><h3>"+d[0]+(d[4]?'<span class="tag">'+d[4]+"</span>":"")+'</h3><span class="p">'+d[3]+" €</span><p>"+d[1]+'</p><span class="g">'+d[2]+"</span></li>";
+  }).join("");
+}
+MENU.forEach(function(m,i){
+  var b=document.createElement("button");b.type="button";b.setAttribute("role","tab");b.textContent=m[0];
+  b.addEventListener("click",function(){showMenu(i)});
+  b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();showMenu((cur+(e.key==="ArrowRight"?1:MENU.length-1))%MENU.length,true)}});
+  tabsEl.appendChild(b);
+});
+// отворено ли е сега
+var h=now.getHours()+now.getMinutes()/60, cl=CLOSE[now.getDay()], open=h>=11&&h<cl;
+document.getElementById("open-now").textContent=open?"Отворено сега · до "+(cl===24?"00":cl)+":00":"Сега е затворено · отваряме в 11:00";
+if(!open)document.getElementById("dot").className="dot off";
+document.querySelectorAll("#hours tr").forEach(function(r){if(r.dataset.d.split(" ").indexOf(String(now.getDay()))>-1)r.className="today"});
+if(location.search.indexOf("shot")>-1)document.getElementById("demo-bar").hidden=true;
+if(!slots(0).length)day=1;
+buildDays();buildTimes();showMenu(0);render();
+</script>
+</body>
+</html>

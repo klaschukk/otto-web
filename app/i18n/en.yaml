@@ -37,7 +37,7 @@ hero:
 niches: ["garages", "beauty salons", "dentists", "barbershops", "restaurants", "hotels", "tradespeople", "clinics"]
 reel:
   eyebrow: "Work"
-  h2: "Four businesses and four completely different websites"
+  h2: "Five businesses and five completely different websites"
   lead: "No shared template. Every site starts from what the business sells and has one feature its competitors don't."
   feature: "Feature"
   open: "Open the demo"
@@ -175,9 +175,9 @@ footer:
   privacy: "Privacy"
 works_page:
   title: "Work: websites for garages, salons and dentists · Otto.web"
-  description: "A real client and four demo sites: a garage with a price calculator, a barbershop with free slots, a nail salon with a polish palette, a dentist with a tooth map."
+  description: "A real client and five demo sites: a restaurant with table booking, a garage with a price calculator, a barbershop with free slots, a nail salon with a polish palette, a dentist with a tooth map."
   h1: "Work"
-  lead: "Four demo websites for made-up businesses, each with its own concept, plus our own projects with real visitors."
+  lead: "Five demo websites for made-up businesses, each with its own concept, plus our own projects with real visitors."
   demos: "Demo websites"
   own: "Own projects"
   own_items:

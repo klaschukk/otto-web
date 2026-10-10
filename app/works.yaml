@@ -1,4 +1,17 @@
 # Демо-работы: каждая со своей концепцией. Скриншот телефона: static/shots/<slug>.webp (shots.py)
+- slug: bistro-kei
+  name: "Бистро „Кей“"
+  tone: "#b8452f"
+  niche: {bg: "Ресторант", en: "Restaurant", ru: "Ресторан"}
+  feature: {bg: "Маса за 20 секунди", en: "A table in 20 seconds", ru: "Столик за 20 секунд"}
+  idea:
+    bg: "Гостът решава къде да вечеря от телефона. Иска да види менюто с цени и да запази маса, без да чака някой да вдигне."
+    en: "A guest picks where to eat on the phone. They want the menu with prices and a table, without waiting for someone to pick up."
+    ru: "Гость выбирает, где поужинать, с телефона. Он хочет увидеть меню с ценами и забронировать столик, не дожидаясь, пока кто-то возьмёт трубку."
+  did:
+    bg: "Тераса на цял екран, меню по раздели с грамаж и цени и резервация с три докосвания: ден, час и брой гости. Готовото съобщение отива във Viber или WhatsApp."
+    en: "A full-screen terrace, a tabbed menu with weights and prices, and a three-tap booking: day, time and party size. The ready message goes to Viber or WhatsApp."
+    ru: "Терраса на весь экран, меню по разделам с граммовкой и ценами и бронь в три касания: день, время и число гостей. Готовое сообщение уходит в Viber или WhatsApp."
 - slug: avto-profi
   name: "Авто Профи"
   tone: "#ffc400"
