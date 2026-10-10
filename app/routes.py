@@ -102,6 +102,12 @@ def health():
     return f"ok {current_app.config['GIT_SHA']}\n", 200, {"Content-Type": "text/plain"}
 
 
+@bp.route("/favicon.ico")
+def favicon():
+    # браузеры и поисковики просят этот адрес сами, в том числе на демо-страницах без <link rel="icon">
+    return current_app.send_static_file("favicon.ico")
+
+
 @bp.route("/robots.txt")
 def robots():
     base = current_app.config["BASE_URL"]

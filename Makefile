@@ -10,6 +10,7 @@ shots:           ## скриншоты демо для витрины (нуже�
 up:              ## собрать и запустить на :8080
 	mkdir -p data && chown -R 10001:10001 data  # контейнер пишет в базу от uid 10001
 	GIT_SHA=$(GIT_SHA) docker compose up -d --build --remove-orphans
+	docker compose exec -T web nginx -s reload  # deploy/nginx.conf примонтирован: без reload правки не применяются
 	@sleep 3; curl -fsS http://127.0.0.1:8080/health
 
 domain:          ## от root: otto-web.online в host-nginx + HTTPS (после DNS в Namecheap)

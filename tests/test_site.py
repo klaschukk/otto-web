@@ -104,3 +104,10 @@ def test_no_third_party_assets_on_studio_pages(client):
 def test_privacy_has_controller_but_no_address(client):
     html = client.get("/poveritelnost/").get_data(as_text=True)
     assert "ЕИК" in html and "{company}" not in html and "Сарафово" not in html
+
+
+def test_favicon_ico_is_served(client):
+    r = client.get("/favicon.ico")
+    assert r.status_code == 200
+    assert r.data[:4] == b"\x00\x00\x01\x00"  # заголовок ICO
+
