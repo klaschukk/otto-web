@@ -8,3 +8,4 @@ data/
 docs/PROMPT_V3_NEW_CHAT.md
 contract/firm.local.yaml
 contract/out/
+print/out/
