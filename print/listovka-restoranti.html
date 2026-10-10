@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Otto.web — листовка A4 за заведения</title>
-<!-- Листовка A4 для раздачи владельцам бизнеса. PDF: python print/render.py → print/out/listovka.pdf
-     Печать: A4, 100 %, цветная или чёрно-белая. Поля по 9–13 мм: без полей не печатает почти ни один принтер. QR ведёт на сайт с меткой utm_source=flyer. -->
-<style>
-@font-face{font-family:"Onest";font-weight:100 900;src:url(../static/fonts/onest-cyrillic-4c7562.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+<!-- Листовка A4 для раздачи. PDF: python print/render.py → print/out/. Печать: A4, 100 %, цвет или ч/б, поля уже заложены.
+     QR: https://otto-web.online/demo/bistro-kei/?utm_source=flyer -->
+<style>@font-face{font-family:"Onest";font-weight:100 900;src:url(../static/fonts/onest-cyrillic-4c7562.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Onest";font-weight:100 900;src:url(../static/fonts/onest-latin-cebbb5.woff2) format("woff2");unicode-range:U+0000-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC}
 @font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(../static/fonts/ibm-plex-mono-cyrillic-5907a9.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+2116}
 @font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(../static/fonts/ibm-plex-mono-latin-a7544c.woff2) format("woff2");unicode-range:U+0000-00FF,U+2013-2014,U+20AC}
@@ -14,58 +13,51 @@
 @page{size:A4;margin:0}
 *{box-sizing:border-box}
 html{background:#8a8a8a}
-body{margin:0;font:10.6pt/1.45 var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font:10.4pt/1.42 var(--sans);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{width:210mm;height:297mm;margin:8mm auto;background:#fff;padding:11mm 13mm 9mm;display:flex;flex-direction:column;overflow:hidden}
 @media print{html{background:#fff}.sheet{margin:0}}
 p{margin:0}
-.mono{font-family:var(--mono);font-weight:500}
 mark{background:var(--marker);color:inherit;padding:0 .18em;white-space:nowrap;font-family:var(--mono);font-weight:500}
-
-.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:4mm;border-bottom:1.2pt solid var(--ink)}
+.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:3.5mm;border-bottom:1.2pt solid var(--ink)}
 .logo{font:800 17pt/1 var(--sans);letter-spacing:-.04em;display:flex;align-items:center;gap:1.2mm}
 .logo span{background:var(--marker);font:500 11pt/1 var(--mono);letter-spacing:0;padding:1.2mm 1.6mm}
-.top .mono{font-size:9.5pt}
+.top .mono{font:500 9.5pt var(--mono)}
+h1{font:800 27pt/1.05 var(--sans);letter-spacing:-.035em;margin:5.5mm 0 2.6mm}
+.lead{font-size:11.6pt;line-height:1.38;color:var(--sub);max-width:172mm}
+h2{font:800 12.6pt/1.12 var(--sans);letter-spacing:-.02em;margin:0 0 2.4mm}
 
-h1{font:800 25pt/1.04 var(--sans);letter-spacing:-.035em;margin:5mm 0 2.2mm}
-.lead{font-size:11.6pt;line-height:1.35;color:var(--sub)}
+/* три больших телефона: главное на листе */
+.phones{margin-top:5mm;background:var(--paper-2);border-radius:4mm;padding:4.6mm 8mm 0;height:80mm;display:grid;grid-template-columns:repeat(3,1fr);gap:9mm;overflow:hidden}
+.p{margin:0;display:flex;flex-direction:column;min-height:0}
+.p figcaption{padding-bottom:2.6mm}
+.p b{display:block;font:800 11.4pt/1.1 var(--sans);letter-spacing:-.01em}
+.p span{display:block;font-size:9pt;line-height:1.25;color:var(--sub);margin-top:.6mm}
+.frame{flex:1;min-height:0;border:1.7mm solid var(--ink);border-bottom:0;border-radius:6mm 6mm 0 0;overflow:hidden;background:var(--ink)}
+.frame img{display:block;width:100%;height:auto}
+.under{font-size:9.2pt;color:var(--sub);margin-top:1.8mm}
+.under b{color:var(--ink);font-weight:700}
 
-.cols{display:grid;grid-template-columns:1.18fr .82fr;gap:9mm;margin-top:4.5mm}
-h2{font:800 13.5pt/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 3mm}
+.cols{display:grid;grid-template-columns:1.16fr .84fr;gap:9mm;margin-top:5mm;margin-bottom:4mm}
 .test{list-style:none;margin:0;padding:0;counter-reset:q}
-.test li{counter-increment:q;display:grid;grid-template-columns:7mm 1fr auto;gap:2.5mm;align-items:start;padding:1.7mm 0;border-top:.6pt solid var(--line)}
+.test li{counter-increment:q;display:grid;grid-template-columns:6mm 1fr auto;gap:2.4mm;align-items:start;padding:1.7mm 0;border-top:.6pt solid var(--line)}
 .test li:last-child{border-bottom:.6pt solid var(--line)}
-.test li::before{content:counter(q);font:500 10pt/1.45 var(--mono);color:var(--sub)}
-.yn{display:flex;gap:2.5mm;font:500 8.5pt/1 var(--mono);color:var(--sub);padding-top:1mm;white-space:nowrap}
+.test li::before{content:counter(q);font:500 10pt/1.42 var(--mono);color:var(--sub)}
+.yn{display:flex;gap:2.4mm;font:500 8.5pt/1 var(--mono);color:var(--sub);padding-top:1mm;white-space:nowrap}
 .yn i{display:inline-block;width:3.6mm;height:3.6mm;border:.9pt solid var(--ink);vertical-align:-.7mm;margin-right:1mm}
-.verdict{margin-top:3mm;padding:2.6mm 3.4mm;background:var(--paper-2);font-size:10.4pt;line-height:1.42}
+.verdict{margin-top:2.6mm;padding:2.4mm 3.2mm;background:var(--paper-2);font-size:10pt;line-height:1.4}
 .verdict b{font-weight:800}
-
-.offer ul{list-style:none;margin:0 0 3mm;padding:0}
-.offer li{position:relative;padding:0 0 1.4mm 5mm}
-.offer li::before{content:"";position:absolute;left:0;top:2.2mm;width:2.6mm;height:.9pt;background:var(--ink)}
-.receipt{border:.9pt solid var(--ink);padding:2.8mm 3.6mm 2.4mm}
-.receipt .h{display:flex;justify-content:space-between;font:500 8pt var(--mono);color:var(--sub);padding-bottom:2mm;border-bottom:.6pt dashed var(--ink);margin-bottom:1.6mm}
-.row{display:flex;align-items:baseline;gap:2mm;padding:1.1mm 0}
-.row b{font-weight:800}
+.receipt{border:.9pt solid var(--ink);padding:2.6mm 3.6mm 2.2mm}
+.row{display:flex;align-items:baseline;gap:2mm;padding:1mm 0}
 .row>span:first-child{flex:0 1 auto}
+.row b{font-weight:800}
 .row .d{flex:1;min-width:5mm;border-bottom:.6pt dotted #9a9a94;transform:translateY(-1mm)}
 .row small{display:block;font-size:8.6pt;color:var(--sub);font-weight:400}
-.receipt .f{font-size:8.6pt;color:var(--sub);padding-top:2mm;border-top:.6pt dashed var(--ink);margin-top:1.6mm}
+.receipt .f{font-size:8.8pt;color:var(--sub);padding-top:1.8mm;border-top:.6pt dashed var(--ink);margin-top:1.4mm}
+.how{list-style:none;margin:2.6mm 0 0;padding:0;font-size:9.8pt}
+.how li{position:relative;padding:0 0 .9mm 4.6mm}
+.how li::before{content:"";position:absolute;left:0;top:2.1mm;width:2.4mm;height:.9pt;background:var(--ink)}
 
-.works{margin-top:4.5mm;margin-bottom:3.5mm}
-.works-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:3mm}
-.works-h span{font-size:9.4pt;color:var(--sub)}
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm}
-.w{display:grid;grid-template-columns:12.5mm 1fr;gap:2.6mm;align-items:center}
-.ph{width:12.5mm;height:25mm;border:1.4pt solid var(--ink);border-radius:3mm;overflow:hidden;background:var(--ink)}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
-.w b{display:block;font:800 10.4pt/1.15 var(--sans);letter-spacing:-.01em}
-.w span{display:block;font-size:8.8pt;line-height:1.3;color:var(--sub);margin-top:1mm}
-
-.cta{margin:auto 0 0;background:var(--marker);padding:4.5mm 6mm;display:grid;grid-template-columns:30mm 1fr 25mm;gap:7mm;align-items:center}
-.me{margin:0;text-align:center;font-size:8.6pt;line-height:1.25}
-.me img{display:block;width:25mm;height:30mm;object-fit:cover;object-position:50% 18%;border-radius:2.5mm;margin-bottom:1.2mm}
-.me b{display:block;font-weight:800;font-size:10pt}
+.cta{margin:auto 0 0;background:var(--marker);padding:4.4mm 6mm;display:grid;grid-template-columns:30mm 1fr 25mm;gap:7mm;align-items:center}
 .qr{background:#fff;padding:1.8mm;width:30mm;height:30mm}
 .qr svg{display:block;width:100%;height:100%}
 .cta h2{font-size:13.5pt;margin-bottom:1mm}
@@ -74,65 +66,35 @@ h2{font:800 13.5pt/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 3mm}
 .cta .startup{font-size:9.2pt;margin-top:1mm}
 .hand{margin-top:2.2mm;font-size:10.2pt;display:flex;gap:2mm;align-items:flex-end}
 .hand i{flex:1;border-bottom:.9pt solid var(--ink);height:5mm}
+.me{margin:0;text-align:center;font-size:8.6pt;line-height:1.25}
+.me img{display:block;width:25mm;height:30mm;object-fit:cover;object-position:50% 18%;border-radius:2.5mm;margin-bottom:1.2mm}
+.me b{display:block;font-weight:800;font-size:10pt}
 .foot{margin-top:2.6mm;color:var(--sub);font-size:7.8pt;display:flex;justify-content:space-between}
 </style>
 </head>
 <body>
 <div class="sheet">
-  <div class="top">
-    <div class="logo">Otto<span>.web</span></div>
-    <div class="mono">Сайтове за заведения · Бургас · otto-web.online</div>
-  </div>
-
-  <h1>Гостът избира къде да вечеря от телефона.<br>Вижда ли вашето меню?</h1>
-  <p class="lead">Тест за 2 минути: извадете телефона и вижте заведението си през очите на госта.</p>
-
+  <div class="top"><div class="logo">Otto<span>.web</span></div><div class="mono">Сайтове за заведения · Бургас · otto-web.online</div></div>
+  <h1>Сайт за вашето заведение.<br>Първо го виждате, после плащате.</h1>
+  <p class="lead">Меню със снимки и цени и резервация с три докосвания. Безплатно ви правя пример с вашето име и меню. Ако ви хареса, подписваме договор с фиксирана цена.</p>
+  <div class="phones"><figure class="p"><figcaption><b>Първи екран</b><span>Отворено ли е, меню, маса</span></figcaption><div class="frame"><img src="../static/shots/bistro-kei.webp" alt=""></div></figure><figure class="p"><figcaption><b>Резервация</b><span>Ден, час и брой гости</span></figcaption><div class="frame"><img src="../static/shots/bistro-kei-masa.webp" alt="" style="margin-top:-36%"></div></figure><figure class="p"><figcaption><b>Меню</b><span>По раздели, с грамаж и цени</span></figcaption><div class="frame"><img src="../static/shots/bistro-kei-menu.webp" alt=""></div></figure></div>
+  <p class="under">Това е работещ примерен сайт за ресторант. Отворете го от телефона: <b>otto-web.online/demo/bistro-kei</b></p>
   <div class="cols">
     <div>
-      <h2>Отговорете с „да“ или „не“</h2>
-      <ol class="test">
-        <li><span>Напишете в Google името на заведението и „Бургас“. Излиза ли нещо освен картата и отзивите?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li>
-        <li><span>Вижда ли се менюто с цени, без да се търсят снимки във Facebook?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li>
-        <li><span>Може ли да се запази маса с едно докосване: обаждане или съобщение?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li>
-        <li><span>Вярно ли е работното време, включително за празниците?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li>
-        <li><span>Снимките на ястията ваши ли са и от тази година ли са?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li>
-      </ol>
-      <p class="verdict"><b>Две или повече „не“?</b> Тогава гостът, който снощи е избирал къде да вечеря, не е видял менюто ви, цените и как да запази маса.</p>
+      <h2>Тест за 1 минута: как ви вижда гостът</h2>
+      <ol class="test"><li><span>Напишете в Google името на заведението и „Бургас“. Излиза ли нещо освен картата и отзивите?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li><li><span>Вижда ли се менюто с цени, без да се търсят снимки във Facebook?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li><li><span>Може ли да се запази маса с едно докосване: обаждане или съобщение?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li><li><span>Вярно ли е работното време, включително за празниците?</span><span class="yn"><span><i></i>да</span><span><i></i>не</span></span></li></ol>
+      <p class="verdict"><b>Две „не“ или повече?</b> Тогава гостът, който избира къде да вечеря, не вижда менюто ви и не знае как да запази маса.</p>
     </div>
-
-    <div class="offer">
-      <h2>Правя сайтове по поръчка за заведения в Бургас</h2>
-      <ul>
-        <li>Меню със снимки и цени, което се отваря за секунда.</li>
-        <li>Резервация с три докосвания: ден, час и брой гости.</li>
-        <li>Първо правя пример с вашето име и меню. Безплатно и без ангажимент.</li>
-        <li>Фиксирана цена в договора. Хостинг: 0 €.</li>
-      </ul>
-      <div class="receipt">
-        <div class="h"><span>Ценоразпис</span><span>Бургас</span></div>
-        <div class="row"><span><b>Сайт-визитка</b><small>меню, работно време, карта</small></span><span class="d"></span><mark>79 €</mark></div>
-        <div class="row"><span><b>Бизнес</b><small>меню по раздели, резервация</small></span><span class="d"></span><mark>149 €</mark></div>
-        <div class="row"><span><b>Бизнес+</b><small>2 езика, заявка за маса</small></span><span class="d"></span><mark>249 €</mark></div>
-        <p class="f">Цените са крайни, без скрити такси.</p>
-      </div>
+    <div>
+      <h2>Цени</h2>
+      <div class="receipt"><div class="row"><span><b>Сайт-визитка</b><small>меню, работно време, карта</small></span><span class="d"></span><mark>79 €</mark></div><div class="row"><span><b>Бизнес</b><small>меню по раздели, резервация</small></span><span class="d"></span><mark>149 €</mark></div><div class="row"><span><b>Бизнес+</b><small>2 езика, заявка за маса</small></span><span class="d"></span><mark>249 €</mark></div><p class="f">Цените са крайни. Хостинг: 0 €.</p></div>
+      <ul class="how"><li>Готово за 3 до 7 дни.</li><li>Сайтът и домейнът са на ваше име.</li></ul>
     </div>
   </div>
-
-  <div class="works">
-    <div class="works-h"><h2 style="margin:0">Всеки сайт е различен</h2><span>Примерен сайт за ресторант: otto-web.online/demo/bistro-kei</span></div>
-    <div class="strip">
-      <div class="w"><div class="ph"><img src="../static/shots/bistro-kei.webp" alt=""></div><div><b>Ресторант</b><span>Маса за 20 секунди</span></div></div>
-      <div class="w"><div class="ph"><img src="../static/shots/avto-profi.webp" alt=""></div><div><b>Автосервиз</b><span>Калкулатор на цената</span></div></div>
-      
-      <div class="w"><div class="ph"><img src="../static/shots/studio-mila.webp" alt=""></div><div><b>Маникюр</b><span>Палитра гел лакове</span></div></div>
-      <div class="w"><div class="ph"><img src="../static/shots/dental-morska.webp" alt=""></div><div><b>Зъболекар</b><span>Карта на зъбите с цени</span></div></div>
-    </div>
-  </div>
-
   <div class="cta">
     <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" class="segno"><path class="qrline" stroke="#111214" d="M0 0.5h7m1 0h3m3 0h1m2 0h2m7 0h7m-33 1h1m5 0h1m2 0h2m2 0h2m1 0h3m1 0h3m1 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h1m2 0h5m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h3m2 0h6m1 0h4m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h1m3 0h4m1 0h1m2 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h6m2 0h3m1 0h3m1 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-23 1h1m1 0h1m7 0h1m1 0h1m1 0h1m-25 1h1m1 0h1m3 0h2m2 0h2m3 0h2m3 0h1m3 0h1m2 0h1m2 0h1m1 0h1m-33 1h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m3 0h1m1 0h1m1 0h2m2 0h1m2 0h1m2 0h1m1 0h2m-32 1h1m1 0h2m1 0h2m2 0h1m1 0h4m1 0h1m1 0h2m1 0h2m1 0h1m3 0h2m1 0h1m-33 1h2m6 0h4m2 0h3m3 0h1m1 0h4m1 0h3m-30 1h2m4 0h3m3 0h3m1 0h1m7 0h4m4 0h1m-31 1h1m1 0h2m1 0h2m4 0h2m1 0h1m1 0h2m3 0h2m1 0h2m3 0h2m-32 1h2m2 0h4m2 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h2m3 0h2m2 0h1m-31 1h1m1 0h1m2 0h1m2 0h2m3 0h2m1 0h1m1 0h1m1 0h1m1 0h4m1 0h1m-30 1h8m1 0h2m5 0h1m1 0h3m2 0h2m1 0h2m1 0h1m1 0h1m-32 1h2m2 0h1m3 0h1m1 0h1m1 0h1m2 0h3m1 0h3m1 0h2m1 0h1m2 0h1m1 0h2m-33 1h1m2 0h2m1 0h3m3 0h1m1 0h2m1 0h4m2 0h2m2 0h1m1 0h2m1 0h1m-32 1h2m2 0h1m5 0h3m2 0h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h2m-29 1h3m1 0h3m1 0h2m2 0h1m3 0h1m2 0h1m1 0h3m3 0h2m-32 1h1m5 0h1m5 0h1m3 0h1m1 0h2m1 0h6m1 0h2m1 0h1m-33 1h2m4 0h1m4 0h3m1 0h2m2 0h1m2 0h2m8 0h1m-31 1h1m2 0h1m1 0h2m1 0h2m1 0h1m4 0h2m4 0h3m1 0h1m2 0h1m-32 1h4m2 0h5m3 0h3m2 0h2m1 0h8m1 0h1m-24 1h2m2 0h2m1 0h2m2 0h2m2 0h2m3 0h1m2 0h2m-33 1h7m1 0h1m1 0h6m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m3 0h2m2 0h1m1 0h1m1 0h3m1 0h3m3 0h2m1 0h1m-32 1h1m1 0h3m1 0h1m3 0h2m1 0h1m1 0h2m3 0h1m2 0h6m2 0h1m-32 1h1m1 0h3m1 0h1m2 0h2m7 0h5m2 0h1m1 0h6m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h3m1 0h2m3 0h1m2 0h2m1 0h3m-33 1h1m5 0h1m2 0h1m1 0h1m1 0h1m1 0h1m3 0h1m3 0h7m-30 1h7m1 0h2m1 0h3m1 0h2m2 0h2m3 0h1m2 0h3m2 0h1"/></svg></div>
     <div>
-      <h2>Сканирайте: примерен сайт за ресторант</h2>
+      <h2>Сканирайте и отворете примерния сайт</h2>
       <p class="tel">0876 752 600</p>
       <p>Обаждане, Viber или WhatsApp. Всеки ден, 10:00–20:00.</p>
       <p class="startup">Otto.web е моят стартъп: трупам опит преди университета.</p>
