@@ -238,7 +238,7 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 .rc-pkg.is-featured{background:linear-gradient(90deg,var(--marker) 0 5px,transparent 5px);padding-left:18px;margin-left:-30px;padding-left:30px}
 .rc-line{display:flex;align-items:baseline;gap:10px}
 .rc-line h3{font:800 1.35rem/1.2 var(--sans);letter-spacing:-.02em;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.rc-pop{font:500 .8rem var(--sans);background:var(--ink);color:#fff;padding:3px 7px;border-radius:5px}
+.rc-pop{font:500 .85rem var(--sans);background:var(--ink);color:#fff;padding:3px 7px;border-radius:5px}
 .rc-dots{flex:1;min-width:16px;border-bottom:2px dotted #b9b7ae;transform:translateY(-5px)}
 .rc-line .num{font-size:1.35rem}
 .rc-for{color:var(--sub);font-size:.9rem;margin:4px 0 12px}
@@ -474,7 +474,8 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 
 .pr-why{border-left:3px solid var(--ink);padding-left:16px;margin:-12px 0 28px;color:var(--sub);max-width:56ch}
 .pr-why-d{font-size:1.05rem;margin-top:14px}
-.lead-note a{text-decoration:underline;text-underline-offset:3px}
+.lead-note a{text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:12px 0;margin:-12px 0}
+.tap{display:inline-block;padding:12px 0;margin:-12px 0}
 .ftr-legal{grid-column:1/-1;color:var(--sub-d);font-size:.95rem;line-height:1.6;margin:0!important}
 .ftr-legal a{text-decoration:underline;text-underline-offset:3px}
 .legal{max-width:72ch}

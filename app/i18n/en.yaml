@@ -173,7 +173,8 @@ footer:
   hours: "Every day 10:00–20:00"
   privacy: "Privacy"
 works_page:
-  title: "Work — Otto.web"
+  title: "Work: websites for garages, salons and dentists · Otto.web"
+  description: "A real client and four demo sites: a garage with a price calculator, a barbershop with free slots, a nail salon with a polish palette, a dentist with a tooth map."
   h1: "Work"
   lead: "Four demo websites for made-up businesses, each with its own concept, plus our own projects with real visitors."
   demos: "Demo websites"
@@ -192,7 +193,8 @@ case:
   back: "All work"
   phone_hint: "Best viewed on a phone."
 ceni_page:
-  title: "Prices — Otto.web"
+  title: "Website prices in Burgas: from €79 · Otto.web"
+  description: "Business card site €79, Business €149, Business+ €249. Fixed price in the contract, hosting €0. Package and add-on calculator."
   h1: "Prices"
   lead: "Pick a package and extras. The total is what goes into the contract."
   calc_title: "Calculator"
@@ -204,7 +206,8 @@ ceni_page:
   send: "Send me this offer"
   domain_note: "The domain (~€10–15 a year) is paid separately, directly to the registrar."
 kontakt_page:
-  title: "Contact — Otto.web"
+  title: "Contact: phone, Viber and request form · Otto.web Burgas"
+  description: "Call or message on Viber and WhatsApp: +359 876 752 600. Reply within 1 hour, every day 10:00–20:00. A free example for your business."
   h1: "Contact"
   lead: "Phone or Viber is fastest. If I don't pick up, I call back within 1 hour. Every day 10:00–20:00."
   phone: "Phone"
@@ -227,7 +230,7 @@ e404:
   lead: "It isn't here. Maybe you're looking for our work or prices."
   home: "Back to home"
 privacy:
-  title: "Privacy — Otto.web"
+  title: "Privacy: how we handle your data · Otto.web"
   h1: "How we handle your data"
   updated: "Updated: 9 October 2026"
   sections:
