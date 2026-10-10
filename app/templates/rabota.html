@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% from "partials/icons.html" import icon %}
 {% block title %}{{ work.name }} · {{ work.feature }} — Otto.web{% endblock %}
-{% block description %}{{ work.idea }} {{ work.did }}{% endblock %}
+{% block description %}{{ (work.idea ~ " " ~ work.did)|truncate(155, False, "…") }}{% endblock %}
 {% block main %}
 <section class="ph stage">
   <div class="wrap">
-    <p class="eyebrow"><a href="{{ P }}/raboti/" style="color:inherit">{{ t.case.back }}</a> · {{ work.niche }}</p>
+    <p class="eyebrow"><a class="tap" href="{{ P }}/raboti/" style="color:inherit">{{ t.case.back }}</a> · {{ work.niche }}</p>
     <h1 class="h1">{{ work.name }}</h1>
     <p class="lead">{{ work.niche }} · {{ work.feature }}</p>
   </div>
