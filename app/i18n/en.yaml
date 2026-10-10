@@ -245,7 +245,7 @@ privacy:
     - h: "Who sees it"
       p: "Only us. The site and the request database are on our server at netcup GmbH in Germany. For each new request we get a Telegram notification with your name, business and phone. We don't sell or share data with third parties for advertising."
     - h: "Cookies and tracking"
-      p: "The studio site uses no advertising or analytics cookies and loads its fonts and scripts from our own server. The demo sites under /demo/ load fonts from Google Fonts, which sends your IP address to Google."
+      p: "The studio site uses no advertising or analytics cookies and loads its fonts and scripts from our own server. We keep anonymous visit statistics with our own Umami installation on our server: no cookies, no profiles, nothing shared with third parties. The demo sites under /demo/ load fonts from Google Fonts, which sends your IP address to Google."
     - h: "Your rights"
       p: "You can ask for access, correction, deletion, restriction or portability of your data, or object to its processing. Write to {email}; we reply within 30 days. You may complain to the Bulgarian Commission for Personal Data Protection (CPDP), www.cpdp.bg."
 client:

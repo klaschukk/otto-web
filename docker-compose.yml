@@ -21,3 +21,10 @@ services:
       - "${OTTO_BIND:-0.0.0.0}:8080:80"
     volumes:
       - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks: [default, umami]
+
+# сеть контейнера со своей статистикой (Umami) на этом же сервере: nginx проксирует /u/script.js и /u/api/send
+networks:
+  umami:
+    external: true
+    name: umami_default
