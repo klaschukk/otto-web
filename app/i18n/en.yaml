@@ -76,7 +76,7 @@ how:
     - {day: "Day 0", title: "A 15-minute talk", text: "By phone or in person. What you sell, to whom, and what annoys you about your competitors' websites."}
     - {day: "Day 1–2", title: "We build your example", text: "A demo with your name, services and prices. Free, no commitment. We send the link on Viber."}
     - {day: "Day 3", title: "Changes", text: "You tell us what to change, we change it. Two rounds of changes are included."}
-    - {day: "Day 4", title: "The site is live", text: "Domain, HTTPS, Google map, call buttons. You pay once you accept the site."}
+    - {day: "Day 4", title: "The site is live", text: "Domain, HTTPS, Google map, call buttons. For the business-card site you pay after you accept it; larger packages have an advance set in the contract."}
 prices:
   eyebrow: "Prices"
   h2: "The price is in the contract and doesn't change."
@@ -232,7 +232,7 @@ e404:
 privacy:
   title: "Privacy: how we handle your data · Otto.web"
   h1: "How we handle your data"
-  updated: "Updated: 9 October 2026"
+  updated: "Updated: 10 October 2026"
   sections:
     - h: "Who is responsible"
       p: "The data controller is {company}. Contact: {email}, phone {phone}."
