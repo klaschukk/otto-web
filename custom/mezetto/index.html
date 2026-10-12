@@ -106,6 +106,24 @@ blockquote{margin:0 0 22px;padding:0 0 0 18px;border-left:3px solid var(--amber)
 blockquote p{margin:0 0 6px;font-size:1.12rem}
 blockquote cite{font-style:normal;color:var(--muted);font-size:.92rem}
 
+/* писмо до собственика: светла хартия върху тъмния сайт, за да се вижда, че не е част от сайта на заведението */
+.offer-sec{background:var(--cream);color:#17130b}
+.offer-sec .hand{color:#8a5a12}
+.offer{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;margin-top:24px}
+.offer p{margin:0 0 14px;max-width:58ch}
+.offer .cta{margin-top:24px}
+.offer-sec .btn.ghost{border-color:#17130b;color:#17130b}
+.price-card{background:#fff;border:1px solid #d9ccb3;border-radius:12px;padding:24px}
+.price-card .label{color:#6b6253}
+.badge{display:inline-block;background:var(--green);color:#fff;font:500 12px var(--display);letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:4px;margin-bottom:12px}
+.price{display:flex;align-items:baseline;gap:14px;margin:0 0 6px}
+.price b{font:700 3.4rem/1 var(--display)}
+.price s{font:500 1.5rem var(--display);color:#8b8170}
+.incl{margin:14px 0;padding:0;list-style:none}
+.incl li{padding:9px 0;border-top:1px solid #e6dcc8;font-size:15.5px}
+.price-card .more{font-size:14.5px;color:#4d4638;margin:0}
+.fine{font-size:13.5px;color:#6b6253;margin:28px 0 0;max-width:86ch}
+.offer-sec :focus-visible{outline-color:#17130b}
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .hours{width:100%;border-collapse:collapse}
 .hours td{padding:12px 0;border-bottom:1px solid var(--line)}
@@ -126,6 +144,7 @@ footer a{display:inline-block;padding:10px 0}
   .guests{grid-template-columns:1fr;gap:28px}
   .guests img{aspect-ratio:4/3}
   .contact{grid-template-columns:1fr;gap:28px}
+  .offer{grid-template-columns:1fr;gap:28px}
   .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--coal);border-top:1px solid var(--line)}
   .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:700;text-decoration:none;color:var(--cream)}
   .callbar a:first-child{background:var(--amber);color:#17130b}
@@ -134,11 +153,11 @@ footer a{display:inline-block;padding:10px 0}
 </style>
 </head>
 <body>
-<div class="demo-bar" id="demo-bar">Примерен сайт за Mezetto от <a href="../../">Otto.web</a>. Не е официалният сайт на заведението. Цените в менюто са примерни.</div>
+<div class="demo-bar" id="demo-bar">Примерен сайт за Mezetto от <a href="../../">Otto.web</a>. Не е официалният сайт на заведението. <a href="#otto">Цена и условия</a></div>
 
 <header class="top">
   <a class="logo" href="#" aria-label="Mezetto Beer and Wine Pub, начало"><b>Mezetto</b><span>Beer &amp; Wine Pub</span></a>
-  <nav aria-label="Навигация"><a href="#masa">Резервация</a><a href="#menu">Меню</a><a href="#kontakt">Контакт</a></nav>
+  <nav aria-label="Навигация"><a href="#menu">Меню</a><a href="#masa">Резервация</a><a href="#kontakt">Контакт</a></nav>
   <a class="tel" href="tel:+359877190900">087 719 0900</a>
 </header>
 
@@ -150,10 +169,32 @@ footer a{display:inline-block;padding:10px 0}
     <h1>Наливна бира и вино на Тройката <em>Масата ви чака довечера.</em></h1>
     <p class="lead">Вижте менюто и запазете маса за 20 секунди. Без да чакате някой да вдигне телефона.</p>
     <div class="cta">
-      <a class="btn" href="#masa">Запазете маса</a>
-      <a class="btn ghost" href="#menu">Вижте менюто</a>
+      <a class="btn" href="#menu">Вижте менюто</a>
+      <a class="btn ghost" href="#masa">Запазете маса</a>
     </div>
     <ul class="now"><li><span class="dot" id="dot"></span><span id="open-now">Работно време: 10:30–00:00</span></li><li>В центъра, на площад „Тройката“</li><li>Guinness и Estrella на кран</li></ul>
+  </div>
+</section>
+
+<section class="block menu-sec" id="menu">
+  <div class="wrap">
+    <p class="hand">какво има на крана днес</p>
+    <h2>Меню</h2>
+    <p class="sub">Цените са в евро. Менюто се отваря от телефона, без PDF и без снимки на листа.</p>
+    <div class="tabs" role="tablist" aria-label="Раздели на менюто" id="tabs"></div>
+    <ul class="dishes" id="dishes" role="tabpanel"></ul>
+    <p class="note"><b>Примерно меню.</b> Напитките и ястията са тези, които гостите ви споменават в отзивите. Цените и грамажите са примерни: слагаме вашите за 15 минути, когато пратите снимка на менюто.</p>
+  </div>
+</section>
+
+<section class="block wrap guests">
+  <figure><img src="../../static/img/mezetto-bar.webp" alt="Чаша наливна бира на дървения бар, зад нея крановете за Guinness и Estrella" width="800" height="1088"></figure>
+  <div>
+    <h2>Какво казват гостите</h2>
+    <p class="score"><b>4,3</b><span>от 5 в Google · 745 отзива</span></p>
+    <blockquote><p>„Страхотно място в сърцето на Бургас, точно на площад Тройката. Атмосферата е изключително уютна и предразполагаща за дълги разговори с приятели.“</p><cite>Стефани С. · отзив в Google</cite></blockquote>
+    <blockquote><p>„Много уютна атмосферата, чувстваш се като на гости в нечий дом, а не като в заведение.“</p><cite>Rosi P. · отзив в Google</cite></blockquote>
+    <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Mezetto%20Beer%20%26%20Wine%20Pub%20Burgas&query_place_id=ChIJiwCTqL-UpkARNUYOGC4u-Vk">Всички отзиви в Google</a>
   </div>
 </section>
 
@@ -185,28 +226,6 @@ footer a{display:inline-block;padding:10px 0}
   </form>
 </section>
 
-<section class="block menu-sec" id="menu">
-  <div class="wrap">
-    <p class="hand">какво има на крана днес</p>
-    <h2>Меню</h2>
-    <p class="sub">Цените са в евро. Менюто се отваря от телефона, без PDF и без снимки на листа.</p>
-    <div class="tabs" role="tablist" aria-label="Раздели на менюто" id="tabs"></div>
-    <ul class="dishes" id="dishes" role="tabpanel"></ul>
-    <p class="note"><b>Примерно меню.</b> Напитките и ястията са тези, които гостите ви споменават в отзивите. Цените и грамажите са примерни: слагаме вашите за 15 минути, когато пратите снимка на менюто.</p>
-  </div>
-</section>
-
-<section class="block wrap guests">
-  <figure><img src="../../static/img/mezetto-bar.webp" alt="Чаша наливна бира на дървения бар, зад нея крановете за Guinness и Estrella" width="800" height="1088"></figure>
-  <div>
-    <h2>Какво казват гостите</h2>
-    <p class="score"><b>4,3</b><span>от 5 в Google · 745 отзива</span></p>
-    <blockquote><p>„Страхотно място в сърцето на Бургас, точно на площад Тройката. Атмосферата е изключително уютна и предразполагаща за дълги разговори с приятели.“</p><cite>Стефани С. · отзив в Google</cite></blockquote>
-    <blockquote><p>„Много уютна атмосферата, чувстваш се като на гости в нечий дом, а не като в заведение.“</p><cite>Rosi P. · отзив в Google</cite></blockquote>
-    <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Mezetto%20Beer%20%26%20Wine%20Pub%20Burgas&query_place_id=ChIJiwCTqL-UpkARNUYOGC4u-Vk">Всички отзиви в Google</a>
-  </div>
-</section>
-
 <section class="block wrap contact" id="kontakt" style="padding-top:0">
   <div>
     <h2>Елате</h2>
@@ -221,10 +240,45 @@ footer a{display:inline-block;padding:10px 0}
     <tr><td>Телефон</td><td>087 719 0900</td></tr>
   </table>
 </section>
+
+<section class="block offer-sec" id="otto">
+  <div class="wrap">
+    <p class="hand">за собственика на Mezetto</p>
+    <h2>Това е демо. Направих го за вас.</h2>
+    <div class="offer">
+      <div>
+        <p>Казвам се Кирил, от Otto.web съм. Говорихме по телефона. Всичко по-горе е пример как може да изглежда сайтът на Mezetto: меню от телефона, резервация на маса, работно време и маршрут.</p>
+        <p>Снимките и цените в менюто са примерни. В истинския сайт слагам вашите. Ако искате, идвам да снимам бара и ястията и подреждам снимките в сайта.</p>
+        <p><b>Работим през фирма:</b> „СМАРТ ЧАЙЛД“ ЕООД, с договор и плащане по фактура. Плащате, след като приемете сайта.</p>
+        <p>Ще се радвам Mezetto да стане първото заведение, за което правим сайт. Мога да мина през бара тези дни заедно с майка ми, която подписва от името на фирмата, и с готовия договор.</p>
+        <div class="cta">
+          <a class="btn" href="viber://chat?number=%2B359876752600">Пишете ми във Viber</a>
+          <a class="btn ghost" href="tel:+359876752600">0876 752 600</a>
+        </div>
+      </div>
+      <div class="price-card">
+        <p class="label">Цена за такъв сайт</p>
+        <span class="badge">−30 % за първото заведение</span>
+        <p class="price"><b>55 €</b><s>79 €</s></p>
+        <p>Еднократно. Без месечна такса, хостингът е безплатен.</p>
+        <ul class="incl">
+          <li>Една страница: меню с цени, резервация, работно време</li>
+          <li>Бутони за обаждане, Viber и WhatsApp</li>
+          <li>Google карта и маршрут</li>
+          <li>Изглежда добре на телефон, HTTPS</li>
+          <li>2 кръга корекции</li>
+          <li>Готов за 3–4 дни</li>
+        </ul>
+        <p class="more">Искате няколко страници, галерия и настройка на Google Business профил? Пакет „Бизнес“: 104 € вместо 149 €.</p>
+      </div>
+    </div>
+    <p class="fine">Демо страница на Otto.web. Не е официалният сайт на Mezetto и не се показва в Google. Без бисквитки и без реклами. Домейнът не е включен в цената: плаща се отделно и е на ваше име. Фирмата не е регистрирана по ДДС, цените са крайни. Ако не искате тази страница да съществува, пишете ми и я изтривам.</p>
+  </div>
+</section>
 </main>
 
 <footer><span>Примерен сайт за Mezetto Beer &amp; Wine Pub, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
-<div class="callbar"><a href="#masa">Маса</a><a href="#menu">Меню</a><a href="tel:+359877190900">Обадете се</a></div>
+<div class="callbar"><a href="#menu">Меню</a><a href="#masa">Маса</a><a href="tel:+359877190900">Обадете се</a></div>
 
 <script>
 var PHONE="359877190900";
