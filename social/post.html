@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- Картинка для поста в соцсетях, 1080×1350. Язык: ?bg (по умолчанию) или ?ru. Рендер: node render.js -->
+<html lang="bg"><head><meta charset="utf-8"><title>Otto.web — пост</title>
+<style>
+@font-face{font-family:"Onest";font-weight:100 900;src:url(../static/fonts/onest-cyrillic-4c7562.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-weight:100 900;src:url(../static/fonts/onest-latin-cebbb5.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(../static/fonts/ibm-plex-mono-cyrillic-5907a9.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(../static/fonts/ibm-plex-mono-latin-a7544c.woff2) format("woff2")}
+:root{--stage:#0e0f11;--stage-2:#17191c;--line-d:#2a2d31;--sub-d:#a3a7ad;--marker:#ffe24a;--ink:#111214;--sans:"Onest",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box;margin:0}
+body{width:1080px;height:1350px;overflow:hidden;background:var(--stage);color:#fff;font-family:var(--sans);position:relative}
+.top{padding:60px 64px 0}
+.brand{font:800 34px/1 var(--sans);letter-spacing:-.03em;display:flex;align-items:center;gap:6px}
+.brand span{background:var(--marker);color:var(--ink);font:500 26px/1 var(--mono);padding:6px 8px;letter-spacing:0}
+h1{font:800 104px/.95 var(--sans);letter-spacing:-.035em;margin-top:44px}
+h1 em{font-style:normal;color:var(--marker)}
+.lead{font:400 37px/1.3 var(--sans);color:var(--sub-d);margin-top:26px;max-width:880px}
+.row{display:flex;align-items:center;gap:28px;margin-top:34px}
+.price{background:var(--marker);color:var(--ink);font:500 60px/1 var(--mono);padding:14px 20px;white-space:nowrap}
+.row p{font:500 29px/1.3 var(--sans);color:#fff}
+.row p span{display:block;color:var(--sub-d);font-weight:400}
+.phones{position:absolute;left:32px;right:32px;top:690px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.frame{border:10px solid #2f3237;border-radius:44px;overflow:hidden;background:#000;height:740px}
+.frame img{display:block;width:100%;height:auto}
+.foot{position:absolute;left:0;right:0;bottom:0;height:210px;background:linear-gradient(180deg,rgba(14,15,17,0) 0%,rgba(14,15,17,.985) 40%,#0e0f11 100%);display:flex;align-items:flex-end;justify-content:space-between;padding:0 64px 44px;font:500 31px/1 var(--mono)}
+.foot b{font-weight:500;color:var(--marker)}
+</style></head><body>
+<div class="top">
+  <div class="brand">Otto<span>.web</span></div>
+  <h1 id="h"></h1>
+  <p class="lead" id="lead"></p>
+  <div class="row"><div class="price" id="price"></div><p id="terms"></p></div>
+</div>
+<div class="phones">
+  <div class="frame"><img src="../static/shots/bistro-kei.webp" alt=""></div>
+  <div class="frame"><img src="../static/shots/bistro-kei-menu.webp" alt=""></div>
+  <div class="frame"><img src="../static/shots/bistro-kei-masa.webp" alt="" style="margin-top:-36%"></div>
+</div>
+<div class="foot"><span>otto-web.online</span><span>Telegram <b>@klaschukk</b></span></div>
+<script>
+var T={bg:{h:"Сайт за вашето <em>заведение</em>",lead:"Меню от телефона, резервация на маса и карта. Първо виждате безплатен пример.",price:"от 79 €",terms:"еднократно<span>без месечна такса</span>"},
+       ru:{h:"Сайт для вашего <em>заведения</em>",lead:"Меню с телефона, бронь столика и карта. Сначала бесплатный пример.",price:"от 79 €",terms:"один раз<span>без абонентской платы</span>"}};
+var t=T[location.search.indexOf("ru")>-1?"ru":"bg"];
+document.documentElement.lang=location.search.indexOf("ru")>-1?"ru":"bg";
+h.innerHTML=t.h;lead.textContent=t.lead;price.textContent=t.price;terms.innerHTML=t.terms;
+</script></body></html>
