@@ -15,6 +15,8 @@ PAGES = {  # endpoint -> путь без языкового префикса
 
 with open(Path(__file__).parent / "works.yaml", encoding="utf-8") as f:
     WORKS = yaml.safe_load(f)
+with open(Path(__file__).parent / "landings.yaml", encoding="utf-8") as f:
+    LANDINGS = yaml.safe_load(f)  # посадочные под поисковые запросы, по одной на нишу
 
 
 def prefix(lang):
@@ -27,8 +29,10 @@ def ctx(lang, page_path, **extra):
     alt = {l: prefix(l) + page_path for l in LANGS}
     works = [{**w, "niche": w["niche"][lang], "feature": w["feature"][lang],
               "idea": w["idea"][lang], "did": w["did"][lang]} for w in WORKS]
-    return dict(t=t, lang=lang, P=prefix(lang), studio=current_app.config["STUDIO"],
-                alt=alt, page_path=page_path, works=works, cfg=current_app.config, **extra)
+    landings = [{"slug": p["slug"], "work": p["work"], "name": p["name"][lang], "h1": p[lang]["h1"]}
+                for p in LANDINGS["pages"]]
+    return dict(t=t, lang=lang, P=prefix(lang), studio=current_app.config["STUDIO"], alt=alt, page_path=page_path,
+                works=works, landings=landings, ll=LANDINGS["labels"][lang], cfg=current_app.config, **extra)
 
 
 def page(endpoint_name, path):
@@ -80,6 +84,23 @@ def blagodarim(lang):
 @page("poveritelnost", "/poveritelnost/")
 def poveritelnost(lang):
     return render_template("poveritelnost.html", **ctx(lang, "/poveritelnost/"))
+
+
+def landing(p):
+    """Посадочная страница ниши: /<slug>/ на трёх языках, тексты из landings.yaml."""
+    path = f"/{p['slug']}/"
+
+    @page(p["slug"], path)
+    def view(lang):
+        c = ctx(lang, path)
+        work = next(w for w in c["works"] if w["slug"] == p["work"])
+        return render_template("usluga.html", pg=p[lang], slug=p["slug"], work=work, **c)
+
+    PAGES[p["slug"]] = path  # попадает в sitemap
+
+
+for _p in LANDINGS["pages"]:
+    landing(_p)
 
 
 @bp.route("/demo/")

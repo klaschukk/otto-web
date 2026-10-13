@@ -22,6 +22,7 @@
         <a class="btn btn-ink" href="/demo/{{ work.slug }}/" target="_blank" rel="noopener">{{ t.case.open }} {{ icon("out", 16) }}</a>
         <span class="mono" style="font-size:.85rem;color:var(--sub)">{{ t.case.phone_hint }}</span>
       </div>
+      {% for l in landings if l.work == work.slug %}<p style="margin-top:28px"><a class="link" href="{{ P }}/{{ l.slug }}/">{{ l.h1 }} {{ icon("arrow", 18) }}</a></p>{% endfor %}
     </div>
     <a class="case-phone" href="/demo/{{ work.slug }}/" target="_blank" rel="noopener" aria-label="{{ t.case.open }}">
       <span class="phone"><span class="phone-screen"><img src="/static/shots/{{ work.slug }}.webp" width="780" height="1688" alt="{{ work.name }}"></span></span>

@@ -3,7 +3,8 @@ import sqlite3
 
 import pytest
 
-PAGES = ["/", "/raboti/", "/raboti/avto-profi/", "/raboti/dental-morska/", "/ceni/", "/kontakt/", "/blagodarim/", "/poveritelnost/"]
+PAGES = ["/", "/raboti/", "/raboti/avto-profi/", "/raboti/dental-morska/", "/ceni/", "/kontakt/", "/blagodarim/", "/poveritelnost/",
+         "/sait-za-restorant/", "/sait-za-salon/", "/sait-za-avtoservis/", "/sait-za-barbershop/", "/sait-za-zabolekar/"]
 
 
 @pytest.mark.parametrize("prefix", ["", "/en", "/ru"])
@@ -23,7 +24,15 @@ def test_404(client):
 def test_health_robots_sitemap(client):
     assert client.get("/health").get_data(as_text=True).startswith("ok")
     assert "Disallow: /demo/" in client.get("/robots.txt").get_data(as_text=True)
-    assert "/en/ceni/" in client.get("/sitemap.xml").get_data(as_text=True)
+    sm = client.get("/sitemap.xml").get_data(as_text=True)
+    assert "/en/ceni/" in sm and "/ru/sait-za-restorant/" in sm
+
+
+def test_landing_has_faq_and_service_markup(client):
+    html = client.get("/sait-za-restorant/").get_data(as_text=True)
+    assert '"FAQPage"' in html and '"Service"' in html and '"price": "79"' in html
+    assert html.count("<h1") == 1 and "/sait-za-salon/" in html and "/demo/bistro-kei/" in html
+    assert "/sait-za-restorant/" in client.get("/raboti/bistro-kei/").get_data(as_text=True)
 
 
 def count(app):

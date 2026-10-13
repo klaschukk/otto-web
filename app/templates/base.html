@@ -33,6 +33,7 @@
   "address": {"@type": "PostalAddress", "addressLocality": "Burgas", "addressCountry": "BG"},
   "description": t.meta.description} | tojson }}</script>
 {% if cfg.UMAMI_SRC and cfg.UMAMI_ID %}<script defer src="{{ cfg.UMAMI_SRC }}" data-website-id="{{ cfg.UMAMI_ID }}"></script>{% endif %}
+{% block head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
 <a class="skip" href="#main">{{ t.skip }}</a>
@@ -66,6 +67,10 @@
       <a href="https://t.me/{{ studio.telegram }}" rel="noopener">Telegram</a>
       <a href="mailto:{{ studio.email }}">{{ studio.email }}</a>
     </div>
+    <nav class="ftr-svc" aria-label="{{ ll.services }}">
+      <span>{{ ll.services }}</span>
+      {% for l in landings %}<a href="{{ P }}/{{ l.slug }}/">{{ l.h1 }}</a>{% endfor %}
+    </nav>
     <p class="ftr-legal">Otto.web · {{ studio.company }} · {{ t.footer.city }} · {{ t.footer.vat }}<br>{{ t.footer.hours }} · <a href="{{ P }}/poveritelnost/">{{ t.footer.privacy }}</a></p>
     <p class="ftr-small">© 2026 Otto.web · {{ t.footer.rights }}</p>
   </div>

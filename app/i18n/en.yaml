@@ -1,8 +1,8 @@
 locale: en_GB
 lang_name: EN
 meta:
-  title: "Otto.web — websites for small businesses in Burgas"
-  description: "Websites for salons, garages, dentists and barbershops in Burgas. Each one is different. You see your example first, then you pay. From €79."
+  title: "Website design in Burgas for restaurants and bars · Otto.web"
+  description: "Website design in Burgas for restaurants, bars, salons, garages and dentists. Each one is different. You see your example first, then you pay. From €79."
 skip: "Skip to content"
 nav:
   works: "Work"
@@ -17,7 +17,7 @@ hero:
   h1_pre: "Websites that make your phone"
   h1_mark: "ring"
   h1_post: "."
-  lead: "We build websites for small businesses in Burgas. Every site is different. You see yours first, then you pay."
+  lead: "We build websites for restaurants, salons and garages in Burgas. Every site is different. You see yours first, then you pay."
   cta: "I want a free example"
   cta2: "See our work"
   notif_caption: "Example notifications from a client's site"
@@ -166,7 +166,7 @@ cta:
   privacy: "I only use your number to call you about the website."
   privacy_link: "How we handle your data"
 footer:
-  line: "Websites for small businesses in Burgas."
+  line: "Websites built in Burgas."
   rights: "Demo websites are for made-up businesses."
   made: "Made in Burgas"
   city: "Burgas, Bulgaria"
