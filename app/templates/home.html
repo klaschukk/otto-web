@@ -84,40 +84,7 @@
   </div>
 </section>
 
-<section class="sec paper-2" aria-labelledby="ba-h">
-  <div class="wrap ba-grid">
-    <div>
-      <p class="eyebrow" data-r>{{ t.ba.eyebrow }}</p>
-      <h2 id="ba-h" class="h2" data-r>{{ t.ba.h2 }}</h2>
-      <p class="lead" data-r>{{ t.ba.lead }}</p>
-    </div>
-    <figure class="ba" data-r>
-      <div class="ba-stage" style="--pos: 50%">
-        <div class="ba-card ba-before" aria-hidden="true">
-          <div class="map"><span class="map-pin">{{ icon("pin", 22) }}</span></div>
-          <div class="ba-info">
-            <b>{{ t.ba.name }}</b><span>{{ t.ba.kind }}</span><span class="ba-open">{{ t.ba.open_now }}</span>
-            <div class="ba-btns"><span>{{ icon("phone", 16) }}{{ t.ba.btn_call }}</span><span>{{ icon("pin", 16) }}{{ t.ba.btn_route }}</span></div>
-            <ul class="ba-miss"><li>{{ icon("globe", 15) }}{{ t.ba.no_site }}</li><li>{{ icon("photo", 15) }}{{ t.ba.no_photos }}</li><li>{{ icon("tag", 15) }}{{ t.ba.no_prices }}</li></ul>
-          </div>
-        </div>
-        <div class="ba-card ba-after" aria-hidden="true">
-          <div class="map"><span class="map-pin map-pin-y">{{ icon("pin", 22) }}</span><span class="map-site"><img src="/static/shots/avto-profi.webp" alt="" width="780" height="1688" loading="lazy"></span></div>
-          <div class="ba-info">
-            <b>{{ t.ba.name }}</b><span>{{ t.ba.kind }}</span><span class="ba-open">{{ t.ba.open_now }}</span>
-            <div class="ba-btns"><span class="on">{{ icon("phone", 16) }}{{ t.ba.btn_call }}</span><span>{{ icon("pin", 16) }}{{ t.ba.btn_route }}</span><span class="on">{{ icon("globe", 16) }}{{ t.ba.btn_site }}</span><span class="on">{{ icon("clock", 16) }}{{ t.ba.btn_book }}</span></div>
-            <ul class="ba-have"><li>{{ icon("tag", 15) }}{{ t.ba.site_prices }}</li><li>{{ icon("check", 15) }}{{ t.ba.site_line }}</li></ul>
-          </div>
-        </div>
-        <span class="ba-label ba-l-before">{{ t.ba.before }}</span>
-        <span class="ba-label ba-l-after">{{ t.ba.after }}</span>
-        <span class="ba-handle" aria-hidden="true"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></span>
-        <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="{{ t.ba.handle }}">
-      </div>
-      <figcaption>{{ t.ba.caption }}</figcaption>
-    </figure>
-  </div>
-</section>
+{% include "partials/story.html" %}
 
 <section class="sec paper" id="how" aria-labelledby="how-h">
   <div class="wrap">

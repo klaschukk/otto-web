@@ -1,0 +1,86 @@
+{% from "partials/icons.html" import icon %}
+{# «Путь гостя»: скроллителлинг. Шаги слева (это и есть текст истории), телефон справа закреплён.
+   Состояние сцены = data-s на секции (1–6), его ставит main.js по прокрутке. Без JS телефон в состоянии 5. #}
+{% set s = t.story %}{% set u = s.ui %}
+<section class="sec paper-2 sx" id="put" data-s="5" aria-labelledby="sx-h">
+  <div class="wrap">
+    <div class="sx-head">
+      <p class="eyebrow" data-r>{{ s.eyebrow }}</p>
+      <h2 id="sx-h" class="h2" data-r>{{ s.h2 }}</h2>
+      <p class="lead" data-r>{{ s.lead }}</p>
+    </div>
+    <div class="sx-grid">
+      <div class="sx-steps">
+        <span class="sx-line" aria-hidden="true"><i></i></span>
+        <ol class="sx-list">
+        {% for st in s.steps %}
+        <li class="sx-step" data-step="{{ loop.index }}">
+          <div class="sx-card"><p class="sx-time">{{ st.time }}</p><h3>{{ st.title }}</h3><p>{{ st.text }}</p></div>
+        </li>
+        {% endfor %}
+        </ol>
+      </div>
+      <div class="sx-stage" aria-hidden="true">
+        <span class="sx-bar"><i></i></span>
+        <div class="phone sx-phone"><div class="phone-screen sx-screen"><div class="sx-view">
+
+          <div class="sx-map">
+            <svg class="sx-streets" viewBox="0 0 100 205" preserveAspectRatio="none">
+              <path class="sx-sea" d="M84 0 H100 V205 H94 C90 160 96 120 88 80 C84 50 90 20 84 0 Z"/>
+              <rect class="sx-park" x="28" y="140" width="26" height="30" rx="2"/>
+              <path class="sx-st" d="M0 49 H84 M0 127 H90 M0 176 H94 M20 0 V205 M64 0 V205"/>
+              <path class="sx-blvd" d="M0 92 L86 70"/>
+              <path class="sx-route" pathLength="1" d="M52 127 H64 V49 H72"/>
+              <circle class="sx-runner" r="1.6"><animateMotion id="sx-run" dur="1.4s" repeatCount="indefinite" begin="indefinite" path="M52 127 H64 V49 H72"/></circle>
+            </svg>
+            <div class="sx-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>{{ u.search }}</span></div>
+            <span class="sx-pin sx-pin-3" style="--x:22%;--y:78%;--i:2"><span class="sx-drop">{{ icon("pin", 14) }}</span><b>{{ u.third }}</b></span>
+            <span class="sx-pin sx-pin-near" style="--x:72%;--y:23.9%;--i:1"><span class="sx-drop">{{ icon("pin", 14) }}</span><b>{{ u.near }}</b><em>{{ u.near_label }}</em></span>
+            <span class="sx-pin sx-pin-you" style="--x:36%;--y:40%;--i:0"><span class="sx-drop">{{ icon("pin", 14) }}</span><b>{{ u.place }}</b></span>
+            <span class="sx-me" style="--x:52%;--y:62%"></span>
+            <div class="sx-sheet">
+              <i class="sx-grab"></i>
+              <b class="sx-name">{{ u.place }}</b>
+              <span class="sx-rate"><span>★★★★★</span> {{ u.rating }}</span>
+              <span>{{ u.kind }}</span>
+              <span class="sx-open">{{ u.open }}</span>
+              <span class="sx-btns"><span class="on">{{ icon("pin", 12) }}{{ u.route }}</span><span>{{ icon("phone", 12) }}{{ u.call }}</span><span class="sx-nosite">{{ icon("globe", 12) }}{{ u.no_site }}</span></span>
+            </div>
+          </div>
+
+          <div class="sx-photo">
+            <p class="sx-photo-cap">{{ u.photo_cap }}</p>
+            <div class="sx-paper"><b>{{ u.menu_word }}</b><i></i><i class="x"></i><i></i><i></i><i class="x"></i><i></i><i></i><i class="x"></i></div>
+          </div>
+
+          <div class="sx-site">
+            <div class="sx-site-top"><b>{{ u.place }}</b></div>
+            <p class="sx-site-h">{{ u.site_h }}</p>
+            <div class="sx-tabs">{% for x in u.tabs %}<span{% if loop.first %} class="on"{% endif %}>{{ x }}</span>{% endfor %}</div>
+            <ul class="sx-dishes">{% for d in u.dishes %}<li style="--i:{{ loop.index }}"><span>{{ d.n }}<small>{{ d.g }}</small></span><b>{{ d.p }}</b></li>{% endfor %}</ul>
+            <div class="sx-book">
+              <p>{{ u.book_h }}</p>
+              <div class="sx-chips">{% for c in u.book %}<span style="--d:{{ loop.index }}">{{ c }}</span>{% endfor %}</div>
+              <span class="sx-send">{{ u.book_btn }}</span>
+            </div>
+          </div>
+
+          <div class="sx-viber">
+            <div class="sx-vtop">{{ icon("viber", 16) }}<span>{{ u.viber_from }}</span></div>
+            <div class="sx-chat">
+              <p class="sx-in">{{ u.viber_msg }}<time>19:47</time></p>
+              <p class="sx-out">{{ u.viber_reply }}<time>19:48 ✓✓</time></p>
+            </div>
+          </div>
+
+        </div></div></div>
+        <p class="sx-cap"><span class="sx-cap-g">{{ u.cap_guest }}</span><span class="sx-cap-o">{{ u.cap_owner }}</span></p>
+      </div>
+    </div>
+    <div class="sx-end" data-r>
+      <a class="btn btn-ink" href="#zayavka" data-focus="#lead-name">{{ s.cta }} {{ icon("arrow", 18) }}</a>
+      <a class="link" href="/demo/bistro-kei/" target="_blank" rel="noopener">{{ s.demo }} {{ icon("out", 16) }}</a>
+      <p class="sx-note">{{ s.note }}</p>
+    </div>
+  </div>
+</section>

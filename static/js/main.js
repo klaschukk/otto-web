@@ -52,13 +52,29 @@
     new IntersectionObserver(function (en) { mbar.classList.toggle("is-hidden", en[0].isIntersecting); }, { threshold: 0.15 }).observe(hero);
   }
 
-  /* До / След: ползунок */
-  $$(".ba-stage").forEach(function (st) {
-    var r = $(".ba-range", st);
-    var set = function () { st.style.setProperty("--pos", r.value + "%"); };
-    r.addEventListener("input", set);
-    set();
-  });
+  /* 4-й момент, «Путь гостя»: шаг, чья карточка пересекла линию, задаёт состояние телефона (data-s 1–6).
+     Без GSAP: обычный scroll + rAF. При reduced-motion состояния меняются, но без переходов и бегущей точки */
+  var sx = $(".sx");
+  if (sx) {
+    var sxSteps = $$(".sx-step", sx), sxList = $(".sx-list", sx), sxRun = document.getElementById("sx-run"), sxCur = 0, sxQueued = false;
+    var sxSet = function (n) {
+      if (n === sxCur) return;
+      sxCur = n; sx.dataset.s = String(n);
+      sxSteps.forEach(function (st, i) { st.classList.toggle("on", i + 1 === n); });
+      if (sxRun && sxRun.beginElement && !reduce) { try { if (n === 4) sxRun.beginElement(); else sxRun.endElement(); } catch (e) {} }
+    };
+    var sxTick = function () {
+      sxQueued = false;
+      var vh = window.innerHeight, line = vh * (window.innerWidth < 900 ? 0.82 : 0.6), n = 1;
+      sxSteps.forEach(function (st, i) { if ($(".sx-card", st).getBoundingClientRect().top < line) n = i + 1; });
+      sxSet(n);
+      var r = sxList.getBoundingClientRect();
+      sx.style.setProperty("--p", Math.min(1, Math.max(0, (line - r.top) / r.height)).toFixed(3));
+    };
+    window.addEventListener("scroll", function () { if (!sxQueued) { sxQueued = true; requestAnimationFrame(sxTick); } }, { passive: true });
+    window.addEventListener("resize", sxTick);
+    sxTick();
+  }
 
   /* форма заявки: fetch + ошибки у полей */
   $$("form.leadf").forEach(function (f) {

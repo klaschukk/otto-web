@@ -28,6 +28,12 @@ def test_health_robots_sitemap(client):
     assert "/en/ceni/" in sm and "/ru/sait-za-restorant/" in sm
 
 
+@pytest.mark.parametrize("prefix", ["", "/en", "/ru"])
+def test_home_story_has_six_steps(client, prefix):
+    html = client.get(prefix + "/").get_data(as_text=True)
+    assert html.count('class="sx-step"') == 6 and 'data-s="5"' in html and "ba-stage" not in html
+
+
 def test_landing_has_faq_and_service_markup(client):
     html = client.get("/sait-za-restorant/").get_data(as_text=True)
     assert '"FAQPage"' in html and '"Service"' in html and '"price": "79"' in html
