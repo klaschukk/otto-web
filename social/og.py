@@ -1,6 +1,6 @@
 """Картинки превью ссылок (Open Graph, 1200×630): главная на трёх языках и пять посадочных.
 Тексты берутся из app/i18n/*.yaml и app/landings.yaml. Запуск: make og (HTML → PNG через headless Chromium)."""
-import html, json, re, subprocess, sys
+import html, json, os, re, subprocess, sys
 from pathlib import Path
 import yaml
 
@@ -65,8 +65,8 @@ def main():
     for name, doc in jobs:
         (TMP / f"{name}.html").write_text(doc, encoding="utf-8")
     (TMP / "jobs.json").write_text(json.dumps([n for n, _ in jobs]), encoding="utf-8")
-    subprocess.run(["node", str(R / "social" / "render_og.js")], check=True,
-                   env={"PATH": "/usr/bin:/bin:/usr/local/bin"})
+    # NODE_PATH с playwright-core задаётся в local.mk (не в репозитории), make og передаёт его сюда
+    subprocess.run(["node", str(R / "social" / "render_og.js")], check=True, env=dict(os.environ))
     print(f"  static/og/: {len(jobs)} картинок")
 
 

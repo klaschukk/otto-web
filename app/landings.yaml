@@ -63,14 +63,14 @@ pages:
         - "Работно време с надпис „отворено сега“, карта и маршрут"
         - "Бутон за обаждане с едно докосване"
         - "QR код към менюто, който слагате на масите"
-        - "Дизайн в стила на заведението, а не шаблон"
+        - "Дизайн в стила на заведението"
       faq:
         - q: "Колко струва сайт за ресторант?"
           a: "Сайт-визитка с меню, резервация и карта е 79 € еднократно. Ако искате няколко страници, галерия и настройка на Google Business профил, пакет „Бизнес“ е 149 €. Хостингът е безплатен и месечна такса няма."
         - q: "Как работи резервацията на маса?"
           a: "Гостът избира ден, час и брой хора. Сайтът подготвя съобщение и го изпраща на вашия Viber или WhatsApp, а вие потвърждавате с един отговор. Не ви трябва отделна система с абонамент."
         - q: "Имаме страница във Facebook. Защо ни е сайт?"
-          a: "Страницата остава. Но във Facebook менюто се губи между постовете, а човек, който търси ресторант в Бургас през Google, вижда сайтове и карти, не постове. Сайтът събира менюто, цените и резервацията на един адрес."
+          a: "Страницата остава. Но във Facebook менюто се губи между постовете, а човек, който търси ресторант в Бургас през Google, вижда сайтове и карти, а постовете във Facebook там почти не излизат. Сайтът събира менюто, цените и резервацията на един адрес."
         - q: "Менюто ни се променя често. Какво правим?"
           a: "Пращате ни новото меню и го сменяме. Два кръга корекции са в цената. Ако менюто се сменя всеки месец, има „Грижа за сайта“ за 15 € на месец: нови цени и снимки, до 30 минути промени."
         - q: "Ще излезем ли първи в Google?"
@@ -90,14 +90,14 @@ pages:
         - "Часы работы с отметкой «открыто сейчас», карта и маршрут"
         - "Кнопка звонка в одно касание"
         - "QR-код на меню, который ставится на столы"
-        - "Дизайн в стиле заведения, а не шаблон"
+        - "Дизайн в стиле заведения"
       faq:
         - q: "Сколько стоит сайт для ресторана?"
           a: "Сайт-визитка с меню, бронью и картой стоит 79 € один раз. Если нужны несколько страниц, галерея и настройка профиля Google Business, пакет «Бизнес» стоит 149 €. Хостинг бесплатный, абонентской платы нет."
         - q: "Как работает бронь столика?"
           a: "Гость выбирает день, время и число людей. Сайт готовит сообщение и отправляет его в ваш Viber или WhatsApp, вы подтверждаете одним ответом. Отдельная система с подпиской не нужна."
         - q: "У нас есть страница в Facebook. Зачем сайт?"
-          a: "Страница остаётся. Но в Facebook меню теряется между постами, а человек, который ищет ресторан в Бургасе через Google, видит сайты и карты, а не посты. Сайт собирает меню, цены и бронь по одному адресу."
+          a: "Страница остаётся. Но в Facebook меню теряется между постами, а человек, который ищет ресторан в Бургасе через Google, видит сайты и карты, а посты из Facebook там почти не попадаются. Сайт собирает меню, цены и бронь по одному адресу."
         - q: "Меню часто меняется. Что делать?"
           a: "Присылаете новое меню, мы меняем. Два круга правок входят в цену. Если меню меняется каждый месяц, есть «Забота о сайте» за 15 € в месяц: новые цены и фото, до 30 минут правок."
         - q: "Мы будем первыми в Google?"
@@ -117,14 +117,14 @@ pages:
         - "Opening hours with an “open now” label, a map and directions"
         - "A one-tap call button"
         - "A QR code to the menu for your tables"
-        - "A design in the style of your place, not a template"
+        - "A design in the style of your place"
       faq:
         - q: "How much does a restaurant website cost?"
           a: "A one-page site with a menu, booking and a map is €79, paid once. If you want several pages, a gallery and a Google Business profile set-up, the Business package is €149. Hosting is free and there is no monthly fee."
         - q: "How does the table booking work?"
           a: "The guest picks a day, a time and the party size. The site prepares a message and sends it to your Viber or WhatsApp, and you confirm with one reply. You do not need a separate system with a subscription."
         - q: "We have a Facebook page. Why a website?"
-          a: "The page stays. But on Facebook the menu gets lost between posts, and someone searching Google for a restaurant in Burgas sees sites and maps, not posts. A site puts the menu, the prices and the booking at one address."
+          a: "The page stays. But on Facebook the menu gets lost between posts, and someone searching Google for a restaurant in Burgas sees sites and maps, and Facebook posts rarely show up there. A site puts the menu, the prices and the booking at one address."
         - q: "Our menu changes often. What then?"
           a: "You send us the new menu and we change it. Two rounds of edits are included. If the menu changes every month, Site care is €15 a month: new prices and photos, up to 30 minutes of edits."
         - q: "Will we be first on Google?"
@@ -139,14 +139,14 @@ pages:
       h1: "Сайт за салон за красота в Бургас"
       lead: "Ценоразпис, вашите работи и записване с едно докосване. Клиентката вижда всичко, преди да ви пише."
       intro:
-        - "Клиентката избира салон по две неща: как изглеждат работите и колко струва. В Instagram вижда снимките, но цените и свободните дни са в съобщенията. Всеки въпрос „колко е маникюр с гел лак“ ви отнема време."
+        - "Клиентката избира салон по снимките на работите и по цената. В Instagram вижда снимките, но цените и свободните дни са в съобщенията. Всеки въпрос „колко е маникюр с гел лак“ ви отнема време."
         - "Сайтът слага ценоразписа, работите и бутона за записване на един екран. В каталозите стоите до конкурентите си, а на своя сайт сте само вие."
       gets:
         - "Ценоразпис по услуги, който се чете лесно от телефон"
         - "Галерия с ваши работи"
         - "Бутон за записване: съобщението идва във вашия Viber или WhatsApp"
         - "Работно време, карта и маршрут до салона"
-        - "Идея, която е само ваша: в примера клиентката избира цвят гел лак направо на сайта"
+        - "Функция специално за салон, например избор на цвят гел лак направо на сайта"
       faq:
         - q: "Колко струва сайт за салон?"
           a: "Сайт-визитка с ценоразпис, галерия и записване е 79 € еднократно. Хостингът е безплатен и месечна такса няма."
@@ -169,7 +169,7 @@ pages:
         - "Галерея ваших работ"
         - "Кнопка записи: сообщение приходит в ваш Viber или WhatsApp"
         - "Часы работы, карта и маршрут до салона"
-        - "Идея только для вас: в примере клиентка выбирает цвет гель-лака прямо на сайте"
+        - "Функция специально для салона, например выбор цвета гель-лака прямо на сайте"
       faq:
         - q: "Сколько стоит сайт для салона?"
           a: "Сайт-визитка с прайсом, галереей и записью стоит 79 € один раз. Хостинг бесплатный, абонентской платы нет."
@@ -185,14 +185,14 @@ pages:
       h1: "Beauty salon website in Burgas"
       lead: "A price list, your work and one-tap booking. The client sees everything before she writes to you."
       intro:
-        - "A client picks a salon by two things: how the work looks and what it costs. Instagram shows the photos, but the prices and free days stay in the messages. Every “how much is a gel manicure” takes your time."
+        - "A client picks a salon by the photos of the work and by the price. Instagram shows the photos, but the prices and free days stay in the messages. Every “how much is a gel manicure” takes your time."
         - "A site puts the price list, the work and the booking button on one screen. In directories you sit next to your competitors; on your own site there is only you."
       gets:
         - "A price list by service, easy to read on a phone"
         - "A gallery of your work"
         - "A booking button: the message reaches your Viber or WhatsApp"
         - "Opening hours, a map and directions to the salon"
-        - "An idea of your own: in the sample the client picks a gel polish colour right on the site"
+        - "A feature made for salons, such as picking a gel polish colour right on the site"
       faq:
         - q: "How much does a salon website cost?"
           a: "A one-page site with a price list, a gallery and booking is €79, paid once. Hosting is free and there is no monthly fee."
@@ -212,19 +212,19 @@ pages:
       h1: "Сайт за автосервиз в Бургас"
       lead: "Услуги с цени, които се виждат преди обаждането. Клиентът звъни на този сервиз, при който знае какво го чака."
       intro:
-        - "Човек търси сервиз, когато колата вече не е наред. Отваря картата, вижда няколко сервиза наблизо и звъни на първия, при който се вижда цена. Страхува се от сметката, а не от ремонта."
+        - "Човек търси сервиз, когато колата вече не е наред. Отваря картата, вижда няколко сервиза наблизо и звъни на първия, при който се вижда цена. Повече се притеснява от сметката, отколкото от самия ремонт."
         - "Сайтът показва услугите, ориентировъчните цени и работното време, преди клиентът да вдигне телефона. Така получавате обаждания от хора, които вече знаят какво искат."
       gets:
         - "Списък с услуги и ориентировъчни цени"
         - "Бутон за обаждане и запитване във Viber с едно докосване"
         - "Карта, маршрут и работно време"
         - "Сайт, който се отваря бързо на телефон, дори със слаб интернет"
-        - "Идея, която е само ваша: в примера калкулатор показва цената по клас на колата"
+        - "Функция специално за сервиз, например калкулатор на цената по клас на колата"
       faq:
         - q: "Колко струва сайт за автосервиз?"
           a: "Сайт-визитка с услуги, цени, карта и бутони за връзка е 79 € еднократно. Хостингът е безплатен и месечна такса няма."
         - q: "Не мога да дам точни цени. Какво пишем?"
-          a: "Пишем цени „от“ и какво влиза в тях. Клиентът иска ориентир, не оферта. Точната цена остава за огледа в сервиза."
+          a: "Пишем цени „от“ и какво влиза в тях. На клиента му стига да знае горе-долу колко ще му излезе. Точната цена остава за огледа в сервиза."
         - q: "Имаме профил в Google Maps. Не стига ли?"
           a: "Профилът показва адрес и телефон, но не и услугите с цени. Когато в профила има линк към сайт, клиентът вижда и какво правите, и колко струва. В пакет „Бизнес“ настройваме профила заедно със сайта."
     ru:
@@ -233,19 +233,19 @@ pages:
       h1: "Сайт для автосервиса в Бургасе"
       lead: "Услуги с ценами, которые видны до звонка. Клиент звонит в тот сервис, где понимает, что его ждёт."
       intro:
-        - "Сервис ищут, когда машина уже не в порядке. Человек открывает карту, видит несколько сервисов рядом и звонит в первый, где видна цена. Он боится счёта, а не ремонта."
+        - "Сервис ищут, когда машина уже не в порядке. Человек открывает карту, видит несколько сервисов рядом и звонит в первый, где видна цена. Счёта он боится больше, чем самого ремонта."
         - "Сайт показывает услуги, ориентировочные цены и часы работы до того, как клиент возьмёт телефон. Так вам звонят люди, которые уже знают, чего хотят."
       gets:
         - "Список услуг и ориентировочные цены"
         - "Кнопка звонка и заявка в Viber в одно касание"
         - "Карта, маршрут и часы работы"
         - "Сайт, который быстро открывается на телефоне даже при слабом интернете"
-        - "Идея только для вас: в примере калькулятор показывает цену по классу машины"
+        - "Функция специально для автосервиса, например калькулятор цены по классу машины"
       faq:
         - q: "Сколько стоит сайт для автосервиса?"
           a: "Сайт-визитка с услугами, ценами, картой и кнопками связи стоит 79 € один раз. Хостинг бесплатный, абонентской платы нет."
         - q: "Я не могу назвать точные цены. Что писать?"
-          a: "Пишем цены «от» и что в них входит. Клиенту нужен ориентир, а не смета. Точная цена остаётся для осмотра в сервисе."
+          a: "Пишем цены «от» и что в них входит. Клиенту достаточно понимать, сколько примерно это будет стоить. Точная цена остаётся для осмотра в сервисе."
         - q: "У нас есть профиль в Google Maps. Этого мало?"
           a: "Профиль показывает адрес и телефон, но не услуги с ценами. Когда в профиле есть ссылка на сайт, клиент видит и что вы делаете, и сколько это стоит. В пакете «Бизнес» мы настраиваем профиль вместе с сайтом."
     en:
@@ -254,19 +254,19 @@ pages:
       h1: "Car repair shop website in Burgas"
       lead: "Services with prices that show before the call. A customer rings the garage where they know what to expect."
       intro:
-        - "People look for a garage when the car is already in trouble. They open the map, see a few garages nearby and call the first one that shows a price. They fear the bill, not the repair."
+        - "People look for a garage when the car is already in trouble. They open the map, see a few garages nearby and call the first one that shows a price. They worry about the bill more than about the repair."
         - "A site shows the services, guide prices and opening hours before the customer picks up the phone. You get calls from people who already know what they want."
       gets:
         - "A list of services with guide prices"
         - "A one-tap call button and a Viber request"
         - "A map, directions and opening hours"
         - "A site that opens fast on a phone, even on a weak connection"
-        - "An idea of your own: in the sample a calculator shows the price by car class"
+        - "A feature made for garages, such as a price calculator by car class"
       faq:
         - q: "How much does a garage website cost?"
           a: "A one-page site with services, prices, a map and contact buttons is €79, paid once. Hosting is free and there is no monthly fee."
         - q: "I cannot give exact prices. What do we write?"
-          a: "We write “from” prices and what they cover. The customer wants a guide, not a quote. The exact price stays for the inspection at the garage."
+          a: "We write “from” prices and what they cover. The customer only needs a rough idea of the cost. The exact price stays for the inspection at the garage."
         - q: "We have a Google Maps profile. Is that not enough?"
           a: "The profile shows the address and phone, but not the services with prices. When the profile links to a site, the customer sees both what you do and what it costs. In the Business package we set up the profile together with the site."
 
@@ -279,19 +279,19 @@ pages:
       h1: "Сайт за барбершоп в Бургас"
       lead: "Цените, майсторите и записването за днес на един екран. Клиентът избира час и ви го праща."
       intro:
-        - "В барбершопа се идва днес, не следващата седмица. Клиентът иска да знае две неща: колко струва и кога има място. Ако трябва да пише и да чака отговор, отива в салона, който отговори пръв."
+        - "В барбершопа обикновено се ходи още същия ден. Клиентът иска да види колко струва и кога има свободно място. Ако трябва да пише и да чака отговор, отива в салона, който отговори пръв."
         - "Сайтът показва цените и приема запитване за час, докато вие работите с машинката в ръка. Отговаряте с едно съобщение, когато се освободите."
       gets:
         - "Ценоразпис: подстригване, брада, комбинации"
         - "Избор на час: клиентът натиска удобния час и го праща във вашия Viber"
         - "Работно време, карта и маршрут"
         - "Снимки на салона и на вашите работи"
-        - "Дизайн с характер, който се помни"
+        - "Дизайн в стила на вашия барбершоп"
       faq:
         - q: "Колко струва сайт за барбершоп?"
           a: "Сайт-визитка с цени, часове и бутони за връзка е 79 € еднократно. Хостингът е безплатен и месечна такса няма."
         - q: "Сайтът знае ли кои часове са заети?"
-          a: "В сайта-визитка не. Клиентът избира час и ви го праща във Viber, а вие потвърждавате. Това е запитване, не календар. Онлайн заявка с известие е част от пакет „Бизнес+“ за 249 €."
+          a: "В сайта-визитка не. Клиентът избира час и ви го праща във Viber, а вие потвърждавате. Сайтът не води календар, само ви праща запитването. Онлайн заявка с известие е част от пакет „Бизнес+“ за 249 €."
         - q: "Работя сам. Има ли смисъл?"
           a: "Да. Точно когато работите сам, не можете да вдигате телефона по време на подстригване. Сайтът събира запитванията и вие отговаряте между двама клиенти."
     ru:
@@ -300,19 +300,19 @@ pages:
       h1: "Сайт для барбершопа в Бургасе"
       lead: "Цены, мастера и запись на сегодня на одном экране. Клиент выбирает время и отправляет его вам."
       intro:
-        - "В барбершоп идут сегодня, а не через неделю. Клиенту важны две вещи: сколько стоит и когда есть место. Если нужно писать и ждать ответа, он уходит в салон, который ответил первым."
+        - "В барбершоп обычно идут в тот же день. Клиент хочет видеть цену и свободное время. Если нужно писать и ждать ответа, он уходит в салон, который ответил первым."
         - "Сайт показывает цены и принимает запрос на время, пока вы работаете с машинкой в руке. Отвечаете одним сообщением, когда освободитесь."
       gets:
         - "Прайс: стрижка, борода, комплексы"
         - "Выбор времени: клиент нажимает удобный час и отправляет его в ваш Viber"
         - "Часы работы, карта и маршрут"
         - "Фото салона и ваших работ"
-        - "Дизайн с характером, который запоминается"
+        - "Дизайн в стиле вашего барбершопа"
       faq:
         - q: "Сколько стоит сайт для барбершопа?"
           a: "Сайт-визитка с ценами, временем и кнопками связи стоит 79 € один раз. Хостинг бесплатный, абонентской платы нет."
         - q: "Сайт знает, какие часы заняты?"
-          a: "В сайте-визитке нет. Клиент выбирает время и отправляет его вам в Viber, а вы подтверждаете. Это запрос, а не календарь. Онлайн-заявка с уведомлением входит в пакет «Бизнес+» за 249 €."
+          a: "В сайте-визитке нет. Клиент выбирает время и отправляет его вам в Viber, а вы подтверждаете. Календарь сайт не ведёт, он только присылает вам запрос. Онлайн-заявка с уведомлением входит в пакет «Бизнес+» за 249 €."
         - q: "Я работаю один. Есть ли смысл?"
           a: "Да. Именно когда вы работаете один, вы не можете брать трубку во время стрижки. Сайт собирает запросы, и вы отвечаете между двумя клиентами."
     en:
@@ -321,19 +321,19 @@ pages:
       h1: "Barbershop website in Burgas"
       lead: "Prices, barbers and same-day booking on one screen. The customer picks a time and sends it to you."
       intro:
-        - "People come to a barber today, not next week. The customer wants two things: the price and a free slot. If they have to write and wait, they go to the shop that answers first."
+        - "People usually want a haircut the same day. The customer wants to see the price and a free slot. If they have to write and wait, they go to the shop that answers first."
         - "A site shows the prices and takes a time request while you work with the clippers in hand. You answer with one message when you are free."
       gets:
         - "A price list: haircut, beard, combos"
         - "Time picking: the customer taps a slot and sends it to your Viber"
         - "Opening hours, a map and directions"
         - "Photos of the shop and of your work"
-        - "A design with character that people remember"
+        - "A design in the style of your barbershop"
       faq:
         - q: "How much does a barbershop website cost?"
           a: "A one-page site with prices, slots and contact buttons is €79, paid once. Hosting is free and there is no monthly fee."
         - q: "Does the site know which slots are taken?"
-          a: "Not on a one-page site. The customer picks a time and sends it to you on Viber, and you confirm. It is a request, not a calendar. An online request with a notification is part of the Business+ package at €249."
+          a: "Not on a one-page site. The customer picks a time and sends it to you on Viber, and you confirm. The site doesn't keep a calendar, it just sends you the request. An online request with a notification is part of the Business+ package at €249."
         - q: "I work alone. Is it worth it?"
           a: "Yes. When you work alone you cannot pick up the phone mid-haircut. The site collects the requests and you answer between two customers."
 
@@ -353,12 +353,12 @@ pages:
         - "Екипът: кой лекува, с каква специалност"
         - "Записване на час със съобщение във Viber или WhatsApp"
         - "Работно време, карта и маршрут до кабинета"
-        - "Идея, която е само ваша: в примера пациентът посочва зъба на карта и вижда лечението и цената"
+        - "Функция специално за кабинет, например карта на зъбите, на която пациентът вижда лечението и цената"
       faq:
         - q: "Колко струва сайт за зъболекарски кабинет?"
           a: "Сайт-визитка с услуги, цени, работно време и записване е 79 € еднократно. Хостингът е безплатен и месечна такса няма."
         - q: "Трябва ли да публикуваме цени?"
-          a: "Препоръчваме цени „от“ за най-честите услуги. Пациентът не търси оферта, а ориентир. Решението кои цени да се виждат е ваше."
+          a: "Препоръчваме цени „от“ за най-честите услуги. На пациента му стига да знае приблизителната цена. Решението кои цени да се виждат е ваше."
         - q: "Може ли пациентите да се записват онлайн?"
           a: "В сайта-визитка записването става със съобщение и вие потвърждавате часа. Онлайн заявка за час с известие е част от пакет „Бизнес+“ за 249 €."
     ru:
@@ -374,12 +374,12 @@ pages:
         - "Команда: кто лечит и по какой специальности"
         - "Запись на приём сообщением в Viber или WhatsApp"
         - "Часы работы, карта и маршрут до кабинета"
-        - "Идея только для вас: в примере пациент показывает зуб на карте и видит лечение и цену"
+        - "Функция специально для кабинета, например карта зубов, где пациент видит лечение и цену"
       faq:
         - q: "Сколько стоит сайт для стоматологического кабинета?"
           a: "Сайт-визитка с услугами, ценами, часами работы и записью стоит 79 € один раз. Хостинг бесплатный, абонентской платы нет."
         - q: "Нужно ли публиковать цены?"
-          a: "Советуем цены «от» на самые частые услуги. Пациент ищет не смету, а ориентир. Какие цены показывать, решаете вы."
+          a: "Советуем цены «от» на самые частые услуги. Пациенту достаточно знать примерную цену. Какие цены показывать, решаете вы."
         - q: "Можно ли записываться онлайн?"
           a: "В сайте-визитке запись идёт сообщением, и вы подтверждаете время. Онлайн-заявка на время с уведомлением входит в пакет «Бизнес+» за 249 €."
     en:
@@ -395,7 +395,7 @@ pages:
         - "The team: who treats and in which speciality"
         - "Appointment booking by a message on Viber or WhatsApp"
         - "Opening hours, a map and directions to the practice"
-        - "An idea of your own: in the sample the patient points at a tooth on a map and sees the treatment and the price"
+        - "A feature made for dental practices, such as a tooth map where the patient sees the treatment and the price"
       faq:
         - q: "How much does a dental practice website cost?"
           a: "A one-page site with services, prices, opening hours and booking is €79, paid once. Hosting is free and there is no monthly fee."

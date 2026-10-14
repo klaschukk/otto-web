@@ -38,7 +38,7 @@ niches: ["garages", "beauty salons", "dentists", "barbershops", "restaurants", "
 reel:
   eyebrow: "Work"
   h2: "Five businesses and five completely different websites"
-  lead: "No shared template. Every site starts from what the business sells and has one feature its competitors don't."
+  lead: "We don't use a shared template. Every site starts from what the business sells and has one feature its competitors don't."
   feature: "Feature"
   open: "Open the demo"
   case: "How it's made"
@@ -51,14 +51,14 @@ noshab:
   arrow: "→"
 story:
   eyebrow: "A guest's evening"
-  h2: "One evening. One phone. Three restaurants."
-  lead: "Scroll down. This is how a guest picks where to eat, and how a restaurant loses or wins the table."
+  h2: "How a guest picks where to eat tonight"
+  lead: "Scroll down to see how a restaurant loses or wins a table for tonight."
   steps:
     - {time: "19:42", title: "Hungry, in central Burgas.", text: "They open Google Maps and type “restaurant”. Three places nearby. One of them is yours."}
     - {time: "19:43", title: "Yours is the closest.", text: "4.6 stars and 312 reviews. The guest opens your listing and looks for the menu. There is no Website button."}
     - {time: "19:44", title: "The menu is a photo from 2023.", text: "On Facebook: a blurry page with prices fixed in pen. Nobody calls to ask what the soup costs."}
-    - {time: "19:45", title: "The guest goes next door.", text: "The food there is no better. Their menu and booking are simply on one screen."}
-    - {time: "With a site", title: "Menu and table on one screen.", text: "Prices in euro, portion sizes, sections. Day, time and party size: three taps."}
+    - {time: "19:45", title: "The guest goes next door.", text: "The food there is no better, but their menu is on their site and the table can be booked from the phone."}
+    - {time: "With a site", title: "Menu and table on one screen.", text: "The menu shows prices in euro and portion sizes. The guest picks a day, a time and the party size and sends the request in three taps."}
     - {time: "19:47", title: "The booking reaches you.", text: "In Viber on your phone, with day, time and party size. You reply “See you then” and the table is yours."}
   cta: "I want a site like this"
   demo: "Open the Kei demo"
@@ -244,12 +244,12 @@ kontakt_page:
   form_title: "Or leave a request"
   map_title: "Map of Burgas"
 thanks:
-  title: "Thank you — Otto.web"
+  title: "Thank you · Otto.web"
   h1: "Got your request."
   lead: "I'll call within 1 hour, every day 10:00–20:00. If you're in a hurry, call me."
   back: "Back to home"
 e404:
-  title: "Page not found — Otto.web"
+  title: "Page not found · Otto.web"
   h1: "This page doesn't ring."
   lead: "It isn't here. Maybe you're looking for our work or prices."
   home: "Back to home"

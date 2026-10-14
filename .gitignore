@@ -9,3 +9,5 @@ contract/firm.local.yaml
 contract/out/
 print/out/
 social/og_build/
+local.mk
+docs/
