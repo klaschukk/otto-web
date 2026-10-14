@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "partials/shot.html" import shot %}
 {% from "partials/icons.html" import icon %}
 {% block title %}{{ work.name }} · {{ work.feature }} — Otto.web{% endblock %}
 {% block description %}{{ (work.idea ~ " " ~ work.did)|truncate(155, False, "…") }}{% endblock %}
@@ -6,7 +7,7 @@
 <section class="ph stage">
   <div class="wrap">
     <p class="eyebrow"><a class="tap" href="{{ P }}/raboti/" style="color:inherit">{{ t.case.back }}</a> · {{ work.niche }}</p>
-    <h1 class="h1">{{ work.name }}</h1>
+    <h1 class="h1">{{ work.name|nb }}</h1>
     <p class="lead">{{ work.niche }} · {{ work.feature }}</p>
   </div>
 </section>
@@ -25,7 +26,7 @@
       {% for l in landings if l.work == work.slug %}<p style="margin-top:28px"><a class="link" href="{{ P }}/{{ l.slug }}/">{{ l.h1 }} {{ icon("arrow", 18) }}</a></p>{% endfor %}
     </div>
     <a class="case-phone" href="/demo/{{ work.slug }}/" target="_blank" rel="noopener" aria-label="{{ t.case.open }}">
-      <span class="phone"><span class="phone-screen"><img src="/static/shots/{{ work.slug }}.webp" width="780" height="1688" alt="{{ work.name }}"></span></span>
+      <span class="phone"><span class="phone-screen">{{ shot(work.slug, work.name, "(max-width: 860px) 66vw, 320px", False) }}</span></span>
     </a>
   </div>
   <div class="wrap" style="margin-top:clamp(56px,8vw,112px)">

@@ -1,0 +1,4 @@
+{# Скриншот демо в телефоне: лёгкая версия 390 px для экранов попроще, полная 780 px для ретины #}
+{% macro shot(slug, alt="", sizes="300px", lazy=True) -%}
+<img src="/static/shots/{{ slug }}.webp" srcset="/static/shots/{{ slug }}-200.webp 200w, /static/shots/{{ slug }}-300.webp 300w, /static/shots/{{ slug }}-390.webp 390w, /static/shots/{{ slug }}.webp 780w" sizes="{{ sizes }}" width="780" height="1688" alt="{{ alt }}"{% if lazy %} loading="lazy"{% endif %} decoding="async">
+{%- endmacro %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "partials/shot.html" import shot %}
 {% from "partials/icons.html" import icon %}
 {% from "partials/receipt.html" import receipt %}
 {% block body_class %}page-home{% endblock %}
@@ -42,7 +43,7 @@
 <section class="reel stage" id="raboti" aria-labelledby="reel-h">
   <div class="wrap reel-head">
     <p class="eyebrow" data-r>{{ t.reel.eyebrow }}</p>
-    <h2 id="reel-h" class="h2" data-r>{{ t.reel.h2 }}</h2>
+    <h2 id="reel-h" class="h2" data-r>{{ t.reel.h2|nb }}</h2>
     <p class="lead" data-r>{{ t.reel.lead }}</p>
   </div>
   <div class="reel-pin">
@@ -51,7 +52,7 @@
       <article class="slide" style="--tone: {{ w.tone }}">
         <div class="slide-copy">
           <p class="slide-n">{{ w.niche }}</p>
-          <h3 class="slide-name">{{ w.name }}</h3>
+          <h3 class="slide-name">{{ w.name|nb }}</h3>
           <p class="slide-idea">{{ w.idea }}</p>
           <p class="slide-feat"><span>{{ t.reel.feature }}:</span> <strong>{{ w.feature }}</strong></p>
           <div class="slide-actions">
@@ -60,7 +61,7 @@
           </div>
         </div>
         <a class="slide-phone" href="/demo/{{ w.slug }}/" target="_blank" rel="noopener" aria-label="{{ t.reel.open }}: {{ w.name }}">
-          <span class="phone phone-sm"><span class="phone-screen"><img src="/static/shots/{{ w.slug }}.webp" width="780" height="1688" alt="" loading="lazy" decoding="async"></span></span>
+          <span class="phone phone-sm"><span class="phone-screen">{{ shot(w.slug, sizes="(max-width: 899px) 42vw, 300px") }}</span></span>
         </a>
       </article>
       {% endfor %}
@@ -89,7 +90,7 @@
 <section class="sec paper" id="how" aria-labelledby="how-h">
   <div class="wrap">
     <p class="eyebrow" data-r>{{ t.how.eyebrow }}</p>
-    <h2 id="how-h" class="h2" data-r>{{ t.how.h2 }}</h2>
+    <h2 id="how-h" class="h2" data-r>{{ t.how.h2|nb }}</h2>
     <div class="tl">
       <span class="tl-line" aria-hidden="true"><span class="tl-fill"></span></span>
       <ol class="tl-list">
@@ -97,7 +98,7 @@
       <li class="tl-step">
         <span class="tl-dot" aria-hidden="true"></span>
         <p class="tl-day">{{ s.day }}</p>
-        <h3>{{ s.title }}</h3>
+        <h3>{{ s.title|nb }}</h3>
         <p>{{ s.text }}</p>
       </li>
       {% endfor %}
@@ -110,7 +111,7 @@
   <div class="wrap pr-grid">
     <div class="pr-side">
       <p class="eyebrow" data-r>{{ t.prices.eyebrow }}</p>
-      <h2 id="pr-h" class="h2" data-r>{{ t.prices.h2 }}</h2>
+      <h2 id="pr-h" class="h2" data-r>{{ t.prices.h2|nb }}</h2>
       <p class="lead" data-r>{{ t.prices.lead }}</p>
       <p class="pr-why" data-r>{{ t.prices.why }}</p>
       <div class="pr-card" data-r>
@@ -133,7 +134,7 @@
     <figure class="ab-photo" data-r><img src="/static/img/kiril.webp" width="600" height="600" alt="{{ t.about.monogram_alt }}" loading="lazy" decoding="async"></figure>
     <div>
       <p class="eyebrow" data-r>{{ t.about.eyebrow }}</p>
-      <h2 id="ab-h" class="h2" data-r>{{ t.about.h2 }}</h2>
+      <h2 id="ab-h" class="h2" data-r>{{ t.about.h2|nb }}</h2>
       {% for l in t.about.lines %}<p class="ab-line" data-r>{{ l }}</p>{% endfor %}
       <dl class="stats">
         {% for s in t.about.stats %}<div data-r><dt class="num">{{ s.num }}</dt><dd>{{ s.label }}</dd></div>{% endfor %}
@@ -146,7 +147,7 @@
   <div class="wrap faq-grid">
     <div>
       <p class="eyebrow" data-r>{{ t.faq.eyebrow }}</p>
-      <h2 id="faq-h" class="h2" data-r>{{ t.faq.h2 }}</h2>
+      <h2 id="faq-h" class="h2" data-r>{{ t.faq.h2|nb }}</h2>
     </div>
     <div class="faq">
       {% for f in t.faq["items"] %}

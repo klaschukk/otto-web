@@ -29,7 +29,11 @@ def main():
                             "--force-device-scale-factor=2", "--window-size=390,844", "--virtual-time-budget=5000",
                             f"--screenshot={png}", f"http://127.0.0.1:{port}/demo/{slug}/?shot=1"],
                            check=True, capture_output=True)
-            Image.open(png).convert("RGB").save(OUT / f"{slug}.webp", "WEBP", quality=78, method=6)
+            im = Image.open(png).convert("RGB")
+            im.save(OUT / f"{slug}.webp", "WEBP", quality=78, method=6)
+            # лёгкие версии 200/300/390 px для srcset в partials/shot.html
+            for w in (200, 300, 390):
+                im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(OUT / f"{slug}-{w}.webp", "WEBP", quality=80, method=6)
         print(f"  shots/{slug}.webp")
     srv.shutdown()
 

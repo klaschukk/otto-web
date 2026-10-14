@@ -1,9 +1,11 @@
 """Otto.web: сайт студии. Flask + SQLite, тексты в app/i18n/*.yaml."""
 import os
+import re
 import sqlite3
 from pathlib import Path
 
 import yaml
+from markupsafe import Markup
 from flask import Flask, g
 from werkzeug.middleware.proxy_fix import ProxyFix
 
@@ -67,6 +69,23 @@ def create_app(test_config=None):
         except OSError:
             return app.config["GIT_SHA"]
     app.jinja_env.globals["asset_v"] = asset_v
+
+    css_cache = {}
+
+    def inline_css(name):
+        """CSS в <head> вместо <link>: страницы открывают по ссылке один раз, лишний запрос до отрисовки дороже кеша."""
+        path = ROOT / "static" / name
+        key = (name, path.stat().st_mtime)
+        if key not in css_cache:
+            css_cache[key] = Markup(path.read_text(encoding="utf-8").replace("</", "<\\/"))
+        return css_cache[key]
+    app.jinja_env.globals["inline_css"] = inline_css
+
+    def nb(text):
+        """Короткие предлоги и союзы не остаются в конце строки заголовка: «в Бургас» переносится целиком."""
+        out = re.sub(r"(?<=\s)(в|във|за|и|с|със|на|от|до|по|для|без|a|in|for|to|of)\s", lambda m: m.group(1) + "\u00a0", str(text), flags=re.I)
+        return Markup(out) if isinstance(text, Markup) else out
+    app.jinja_env.filters["nb"] = nb
 
     from . import admin, leads, routes
     app.register_blueprint(routes.bp)

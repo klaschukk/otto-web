@@ -7,7 +7,7 @@
 <section class="ph stage">
   <div class="wrap">
     <p class="eyebrow">{{ t.hero.eyebrow }}</p>
-    <h1 class="h1">{{ t.kontakt_page.h1 }}</h1>
+    <h1 class="h1">{{ t.kontakt_page.h1|nb }}</h1>
     <p class="lead">{{ t.kontakt_page.lead }}</p>
   </div>
 </section>
@@ -25,7 +25,7 @@
         <div><dt>{{ t.kontakt_page.area }}</dt><dd>{{ t.kontakt_page.area_val }}</dd></div>
       </dl>
       <div class="paper">
-        <h2 class="sub-h">{{ t.kontakt_page.form_title }}</h2>
+        <h2 class="sub-h">{{ t.kontakt_page.form_title|nb }}</h2>
         {{ lead_form(t, lang, "kontakt", message=True, id="k-lead") }}
       </div>
     </div>

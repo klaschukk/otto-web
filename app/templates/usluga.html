@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "partials/shot.html" import shot %}
 {% from "partials/icons.html" import icon %}
 {% block title %}{{ pg.title }}{% endblock %}
 {% block description %}{{ pg.description }}{% endblock %}
@@ -18,7 +19,7 @@
 <section class="ph ph-lp stage">
   <div class="wrap">
     <p class="eyebrow">{{ ll.eyebrow }}</p>
-    <h1 class="h1">{{ pg.h1 }}</h1>
+    <h1 class="h1">{{ pg.h1|nb }}</h1>
     <p class="lead">{{ pg.lead }}</p>
     <p class="hero-price"><span class="num">{{ ll.from }}</span><span>{{ ll.from_note }}</span></p>
     <a class="btn btn-marker" href="#zayavka">{{ ll.cta }} {{ icon("down", 18) }}</a>
@@ -28,7 +29,7 @@
   <div class="wrap case">
     <div class="lp-text">
       {% for p in pg.intro %}<p data-r>{{ p }}</p>{% endfor %}
-      <h2 class="h2" data-r>{{ ll.gets_h }}</h2>
+      <h2 class="h2" data-r>{{ ll.gets_h|nb }}</h2>
       <ul class="ticks">{% for x in pg.gets %}<li data-r>{{ icon("check", 16) }}{{ x }}</li>{% endfor %}</ul>
       <div class="case-actions" data-r>
         <a class="btn btn-ink" href="/demo/{{ work.slug }}/" target="_blank" rel="noopener">{{ ll.demo_btn }} {{ icon("out", 16) }}</a>
@@ -36,13 +37,13 @@
       </div>
     </div>
     <a class="case-phone" href="/demo/{{ work.slug }}/" target="_blank" rel="noopener" aria-label="{{ ll.demo_btn }}: {{ work.name }}">
-      <span class="phone"><span class="phone-screen"><img src="/static/shots/{{ work.slug }}.webp" width="780" height="1688" alt="{{ work.name }} · {{ work.niche }}"></span></span>
+      <span class="phone"><span class="phone-screen">{{ shot(work.slug, work.name ~ " · " ~ work.niche, "(max-width: 860px) 66vw, 320px", False) }}</span></span>
     </a>
   </div>
 </section>
 <section class="sec paper-2" aria-labelledby="lp-price-h">
   <div class="wrap lp-price">
-    <h2 id="lp-price-h" class="h2" data-r>{{ ll.price_h }}</h2>
+    <h2 id="lp-price-h" class="h2" data-r>{{ ll.price_h|nb }}</h2>
     <p data-r>{{ ll.price_text }}</p>
     <a class="link" href="{{ P }}/ceni/" data-r>{{ ll.price_link }} {{ icon("arrow", 18) }}</a>
   </div>
@@ -50,7 +51,7 @@
 <section class="sec paper" aria-labelledby="faq-h">
   <div class="wrap faq-grid">
     <div>
-      <h2 id="faq-h" class="h2" data-r>{{ ll.faq_h }}</h2>
+      <h2 id="faq-h" class="h2" data-r>{{ ll.faq_h|nb }}</h2>
     </div>
     <div class="faq">
       {% for f in pg.faq %}
@@ -64,7 +65,7 @@
 </section>
 <section class="sec paper-2" aria-labelledby="lp-others-h">
   <div class="wrap">
-    <h2 id="lp-others-h" class="h2" data-r>{{ ll.others_h }}</h2>
+    <h2 id="lp-others-h" class="h2" data-r>{{ ll.others_h|nb }}</h2>
     <nav class="lp-others" aria-labelledby="lp-others-h">
       {% for l in landings if l.slug != slug %}<a href="{{ P }}/{{ l.slug }}/" title="{{ l.h1 }}">{{ l.name }}</a>{% endfor %}
     </nav>

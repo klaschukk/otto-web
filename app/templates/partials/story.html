@@ -6,7 +6,7 @@
   <div class="wrap">
     <div class="sx-head">
       <p class="eyebrow" data-r>{{ s.eyebrow }}</p>
-      <h2 id="sx-h" class="h2" data-r>{{ s.h2 }}</h2>
+      <h2 id="sx-h" class="h2" data-r>{{ s.h2|nb }}</h2>
       <p class="lead" data-r>{{ s.lead }}</p>
     </div>
     <div class="sx-grid">
@@ -15,7 +15,7 @@
         <ol class="sx-list">
         {% for st in s.steps %}
         <li class="sx-step" data-step="{{ loop.index }}">
-          <div class="sx-card"><p class="sx-time">{{ st.time }}</p><h3>{{ st.title }}</h3><p>{{ st.text }}</p></div>
+          <div class="sx-card"><p class="sx-time">{{ st.time }}</p><h3>{{ st.title|nb }}</h3><p>{{ st.text }}</p></div>
         </li>
         {% endfor %}
         </ol>

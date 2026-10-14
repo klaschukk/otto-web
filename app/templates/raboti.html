@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "partials/shot.html" import shot %}
 {% from "partials/icons.html" import icon %}
 {% block title %}{{ t.works_page.title }}{% endblock %}
 {% block description %}{{ t.works_page.description }}{% endblock %}
@@ -6,31 +7,31 @@
 <section class="ph stage">
   <div class="wrap">
     <p class="eyebrow">Otto.web</p>
-    <h1 class="h1">{{ t.works_page.h1 }}</h1>
+    <h1 class="h1">{{ t.works_page.h1|nb }}</h1>
     <p class="lead">{{ t.works_page.lead }}</p>
   </div>
 </section>
 <section class="sec paper">
   <div class="wrap">
-    <h2 class="sub-h" data-r>{{ t.client.label }}</h2>
+    <h2 class="sub-h" data-r>{{ t.client.label|nb }}</h2>
     <a class="client-card" href="{{ t.client.url }}" target="_blank" rel="noopener" data-r>
       <span class="client-shot">
-        <img src="/static/img/client-sarafan.webp" width="1200" height="750" alt="{{ t.client.name }}: sarafan-bg.com" loading="lazy" decoding="async">
-        <span class="phone phone-sm"><span class="phone-screen"><img src="/static/shots/sarafan.webp" width="780" height="1688" alt="" loading="lazy" decoding="async"></span></span>
+        <img src="/static/img/client-sarafan.webp" srcset="/static/img/client-sarafan-700.webp 700w, /static/img/client-sarafan.webp 1200w" sizes="(max-width: 899px) 92vw, 620px" width="1200" height="750" alt="{{ t.client.name }}: sarafan-bg.com" fetchpriority="high" decoding="async">
+        <span class="phone phone-sm"><span class="phone-screen">{{ shot("sarafan", sizes="(max-width: 899px) 28vw, 170px") }}</span></span>
       </span>
       <span class="client-card-body"><b>{{ t.client.name }}</b><span>{{ t.client.text }}</span><span class="link">{{ t.client.open }} {{ icon("out", 16) }}</span></span>
     </a>
-    <h2 class="sub-h" data-r style="margin-top:clamp(56px,7vw,96px)">{{ t.works_page.demos }}</h2>
+    <h2 class="sub-h" data-r style="margin-top:clamp(56px,7vw,96px)">{{ t.works_page.demos|nb }}</h2>
     <div class="grid-works">
       {% for w in works %}
       <a class="wcard" href="{{ P }}/raboti/{{ w.slug }}/" style="--tone: {{ w.tone }}" data-r>
         <div>
           <span class="wcard-niche">{{ w.niche }}</span>
-          <h3>{{ w.name }}</h3>
+          <h3>{{ w.name|nb }}</h3>
           <p>{{ w.idea }}</p>
           <p class="wcard-feat">{{ t.reel.feature }}: <strong>{{ w.feature }}</strong></p>
         </div>
-        <span class="phone"><span class="phone-screen"><img src="/static/shots/{{ w.slug }}.webp" width="780" height="1688" alt="" loading="lazy" decoding="async"></span></span>
+        <span class="phone"><span class="phone-screen">{{ shot(w.slug, sizes="(max-width: 760px) 100px, 150px") }}</span></span>
       </a>
       {% endfor %}
     </div>
@@ -38,13 +39,13 @@
 </section>
 <section class="sec paper-2">
   <div class="wrap">
-    <h2 class="sub-h" data-r>{{ t.works_page.own }}</h2>
+    <h2 class="sub-h" data-r>{{ t.works_page.own|nb }}</h2>
     <div class="own">
       {% for o in t.works_page.own_items %}
       <article class="own-card" data-r>
-        <img src="/static/img/{{ o.img }}" width="1200" height="750" alt="{{ o.name }}" loading="lazy" decoding="async">
+        <img src="/static/img/{{ o.img }}" srcset="/static/img/{{ o.img | replace('.webp', '-700.webp') }} 700w, /static/img/{{ o.img }} 1200w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 400px" width="1200" height="750" alt="{{ o.name }}" loading="lazy" decoding="async">
         <div>
-          <h3>{{ o.name }}</h3>
+          <h3>{{ o.name|nb }}</h3>
           <p>{{ o.text }}</p>
           <a class="link" href="{{ o.url }}" target="_blank" rel="noopener">{{ t.works_page.visit }} {{ icon("out", 16) }}</a>
         </div>
