@@ -165,7 +165,7 @@
       var dist = function () { return track.scrollWidth - window.innerWidth; };
       gsap.to(track, {
         x: function () { return -dist(); }, ease: "none",
-        scrollTrigger: { trigger: pin, start: "center center", end: function () { return "+=" + dist(); },
+        scrollTrigger: { trigger: pin, start: "center center+=32", end: function () { return "+=" + dist(); },
           pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 }
       });
     });
@@ -178,6 +178,15 @@
       if (fill) gsap.fromTo(fill, { scaleY: 0 }, { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".tl", start: "top 70%", end: "bottom 55%", scrub: 0.5 } });
     });
   }
-  if (document.readyState === "complete") motion();
-  else window.addEventListener("load", motion);
+  /* ссылка с якорем (/#put, /#how): браузер прыгает к нему раньше, чем GSAP добавит отступ под закреплённый шоурил,
+     и цель уезжает вниз. После настройки анимаций прыгаем к якорю ещё раз */
+  function toHash() {
+    var id = decodeURIComponent(location.hash.slice(1)), el = id && document.getElementById(id);
+    if (!el) return;
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    requestAnimationFrame(function () { el.scrollIntoView({ block: "start", behavior: "instant" }); });
+  }
+  function boot() { motion(); toHash(); }
+  if (document.readyState === "complete") boot();
+  else window.addEventListener("load", boot);
 })();

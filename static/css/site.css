@@ -133,7 +133,7 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 .slide-feat span{color:var(--sub-d);font-weight:400}
 .slide-feat strong{font-weight:500;color:#fff;text-decoration:underline;text-decoration-color:var(--tone);text-decoration-thickness:3px;text-underline-offset:6px}
 .slide-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
-.slide-phone{display:block;width:clamp(240px,24vw,320px);text-decoration:none;transition:transform .3s var(--ease)}
+.slide-phone{display:block;width:clamp(190px,min(24vw,calc((100vh - 150px) / 2.2)),320px);text-decoration:none;transition:transform .3s var(--ease)}
 .slide-phone:hover{transform:translateY(-6px) rotate(-1deg)}
 .phone-sm{border-radius:42px}
 .phone-sm .phone-screen{border-radius:33px}
@@ -168,7 +168,8 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 /* ПУТЬ ГОСТЯ: скроллителлинг. Состояние сцены = data-s на .sx (1–6), ставит main.js; без JS видно состояние 5.
    Внутри телефона размеры в cqw, чтобы экран масштабировался целиком. Цвета экрана — цвета приложений (Google Maps, Viber), не наши */
 .sx-head{max-width:860px}
-.sx-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(40px,7vw,120px);margin-top:clamp(16px,3vw,40px)}
+.sx{--sxw:clamp(190px,calc((100vh - 170px) / 2.2),300px)}
+.sx-grid{display:grid;grid-template-columns:minmax(0,1fr) var(--sxw);gap:clamp(40px,7vw,120px);margin-top:clamp(16px,3vw,40px)}
 .sx-steps{position:relative;padding-left:30px}
 .sx-line{position:absolute;left:6px;top:0;bottom:0;width:2px;background:var(--line)}
 .sx-line i{position:absolute;inset:0;background:var(--ink);transform-origin:top;transform:scaleY(var(--p,0))}
@@ -183,8 +184,8 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 .sx-time{font:500 .95rem var(--mono);color:var(--sub);margin-bottom:8px}
 .sx-card h3{font:800 clamp(1.35rem,2.3vw,1.85rem)/1.15 var(--sans);letter-spacing:-.025em;margin-bottom:8px;text-wrap:balance}
 .sx-card p:last-child{color:var(--sub)}
-.sx-stage{position:sticky;top:max(88px,calc(50vh - 330px));align-self:start;display:grid;justify-items:center;gap:14px}
-.sx-phone{width:300px;max-width:100%}
+.sx-stage{position:sticky;top:max(76px,calc(50vh - (var(--sxw) * 2.164 + 56px) / 2 + 32px));align-self:start;display:grid;justify-items:center;gap:14px}
+.sx-phone{width:var(--sxw);max-width:100%}
 .sx-bar{display:none}
 .sx-cap{font-size:.9rem;color:var(--sub);text-align:center}
 .sx-cap-o{display:none}
