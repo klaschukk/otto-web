@@ -356,6 +356,10 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 .lp-others{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
 .lp-others a{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;border:1.5px solid var(--ink);border-radius:999px;text-decoration:none;font-weight:500}
 .lp-others a:hover{background:var(--ink);color:#fff}
+.niches{margin-top:clamp(28px,4vw,48px)}
+.niches p{color:var(--sub-d);font-size:.95rem;margin-bottom:6px}
+.stage .lp-others a{border-color:var(--line-d);color:#f4f4f2}
+.stage .lp-others a:hover{background:var(--marker);border-color:var(--marker);color:var(--ink)}
 .grid-works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .wcard{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:24px;align-items:end;background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;text-decoration:none;overflow:hidden;
   transition:transform .25s var(--ease),box-shadow .25s}

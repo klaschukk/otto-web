@@ -1,7 +1,7 @@
 # Настройки студии. Телефон и фирму впиши один раз — они разойдутся по всему сайту.
 name: "Otto.web"
-domain: ""                      # после покупки: "otto-web.com" (создаст CNAME для GitHub Pages)
-base_url: "http://159.195.196.170:8080"   # после покупки домена: "https://<домен>"
+domain: ""                      # не заполнять: GitHub Pages отключён, сайт живёт на своём сервере
+base_url: "https://otto-web.online"
 phone: "+359876752600"
 phone_display: "0876 752 600"
 viber: "+359876752600"

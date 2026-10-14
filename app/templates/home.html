@@ -77,6 +77,10 @@
       <span class="client-body"><b>{{ t.client.name }}</b> {{ t.client.text }}</span>
       <span class="client-go">{{ t.client.open }} {{ icon("out", 16) }}</span>
     </a>
+    <nav class="niches" aria-label="{{ ll.services }}" data-r>
+      <p class="mono">{{ ll.services }}</p>
+      <div class="lp-others">{% for l in landings %}<a href="{{ P }}/{{ l.slug }}/">{{ l.h1 }}</a>{% endfor %}</div>
+    </nav>
   </div>
 </section>
 
