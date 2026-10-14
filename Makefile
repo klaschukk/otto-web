@@ -19,4 +19,7 @@ domain:          ## от root: otto-web.online в host-nginx + HTTPS (после
 backup:          ## копия базы заявок (для cron)
 	mkdir -p backups && sqlite3 data/otto.db ".backup backups/otto-$$(date +%F).db"
 
-.PHONY: test shots up domain backup
+.PHONY: test shots up domain backup og
+
+og:              ## картинки превью ссылок: static/og/*.png (главная bg/ru/en и посадочные)
+	.venv/bin/python social/og.py

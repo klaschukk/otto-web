@@ -2,6 +2,7 @@
 {% from "partials/icons.html" import icon %}
 {% block title %}{{ pg.title }}{% endblock %}
 {% block description %}{{ pg.description }}{% endblock %}
+{% block og_image %}/static/og/og-{{ slug }}-{{ lang }}.png{% endblock %}
 {% block head %}
 {% set url = cfg.BASE_URL ~ P ~ page_path %}
 {% set faq_items = [] %}
