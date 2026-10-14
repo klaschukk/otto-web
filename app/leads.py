@@ -61,9 +61,14 @@ def lead():
     if recent >= current_app.config["LEADS_PER_HOUR"]:
         return done(429, ok=False, errors={"form": "rate"})
 
-    cur = db.execute("INSERT INTO leads(name,business,phone,message,source,lang,ip) VALUES(?,?,?,?,?,?,?)",
-                     (name, business, phone, message, source, lang, ip))
+    # спам «добавим ваш сайт в Google»: номер не болгарский и ни слова кириллицей. Сохраняем, но без уведомления
+    digits = re.sub(r"\D", "", phone)
+    spam = not re.match(r"(00359|359|0)", digits) and not re.search(r"[а-яА-Я]", name + business + message)
+    cur = db.execute("INSERT INTO leads(name,business,phone,message,source,lang,ip,status) VALUES(?,?,?,?,?,?,?,?)",
+                     (name, business, phone, message, source, lang, ip, "spam" if spam else "new"))
     db.commit()
+    if spam:
+        return done(ok=True, id=cur.lastrowid)
 
     text = f"Otto.web · нова заявка #{cur.lastrowid}\n{name} · {business or '—'}\n{phone}\n{message}\nот: {source or '—'} ({lang})"
     cfg = current_app.config

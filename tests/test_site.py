@@ -71,6 +71,16 @@ def test_honeypot_blocks_bots(client, app):
     assert count(app) == 0
 
 
+def test_seo_spam_is_kept_quietly(client, app):
+    r = lead(client, name="Ted Ferretti", business="", phone="+1 283 555 0101", message="List your site in Google's Search Index")
+    assert r.status_code == 200
+    lead(client, name="Ivan", business="", phone="0888 123 456", message="hi")  # болгарский номер латиницей: не спам
+    con = sqlite3.connect(app.config["DB_PATH"])
+    rows = con.execute("SELECT name, status FROM leads ORDER BY id").fetchall()
+    con.close()
+    assert rows == [("Ted Ferretti", "spam"), ("Ivan", "new")]
+
+
 def test_rate_limit(client, app):
     for _ in range(5):
         assert lead(client).status_code == 200
