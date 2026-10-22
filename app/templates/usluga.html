@@ -11,7 +11,7 @@
 <script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_items} | tojson }}</script>
 <script type="application/ld+json">{{ {
   "@context": "https://schema.org", "@type": "Service", "name": pg.h1, "description": pg.description, "url": url,
-  "serviceType": "Web design", "areaServed": {"@type": "City", "name": "Burgas"},
+  "serviceType": "Web design", "areaServed": {"@type": "City", "name": area},
   "provider": {"@type": "ProfessionalService", "name": "Otto.web", "url": cfg.BASE_URL ~ P ~ "/", "telephone": studio.phone},
   "offers": {"@type": "Offer", "price": studio.packages[0].price | string, "priceCurrency": "EUR", "url": cfg.BASE_URL ~ P ~ "/ceni/"}} | tojson }}</script>
 {% endblock %}
@@ -68,6 +68,10 @@
     <h2 id="lp-others-h" class="h2" data-r>{{ ll.others_h|nb }}</h2>
     <nav class="lp-others" aria-labelledby="lp-others-h">
       {% for l in landings if l.slug != slug %}<a href="{{ P }}/{{ l.slug }}/" title="{{ l.h1 }}">{{ l.name }}</a>{% endfor %}
+    </nav>
+    <h2 id="lp-towns-h" class="h2" data-r style="margin-top:clamp(40px,6vw,72px)">{{ ll.towns_h|nb }}</h2>
+    <nav class="lp-others" aria-labelledby="lp-towns-h">
+      {% for l in towns if l.slug != slug %}<a href="{{ P }}/{{ l.slug }}/" title="{{ l.h1 }}">{{ l.name }}</a>{% endfor %}
     </nav>
   </div>
 </section>

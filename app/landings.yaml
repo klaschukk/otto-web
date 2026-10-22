@@ -15,6 +15,7 @@ labels:
     from: "от 79 €"
     from_note: "еднократно, фиксирана цена в договора"
     services: "Сайтове по вид бизнес"
+    towns_h: "Работим и в"
   ru:
     eyebrow: "Otto.web · Бургас"
     gets_h: "Что вы получаете"
@@ -29,6 +30,7 @@ labels:
     from: "от 79 €"
     from_note: "один раз, фиксированная цена в договоре"
     services: "Сайты по типу бизнеса"
+    towns_h: "Работаем также в"
   en:
     eyebrow: "Otto.web · Burgas"
     gets_h: "What you get"
@@ -43,6 +45,7 @@ labels:
     from: "from €79"
     from_note: "one-off, fixed price in the contract"
     services: "Sites by business type"
+    towns_h: "We also work in"
 
 pages:
   - slug: sait-za-restorant
@@ -403,3 +406,354 @@ pages:
           a: "We suggest “from” prices for the most common services. The patient is not after a quote but a guide. Which prices to show is your call."
         - q: "Can patients book online?"
           a: "On a one-page site booking is a message and you confirm the time. An online request for a time slot with a notification is part of the Business+ package at €249."
+  # градове около Бургас: kind town, своя секция «Работим и в»
+  - slug: izrabotka-na-sait-nesebar
+    kind: town
+    work: bistro-kei
+    name: {bg: "Несебър", ru: "Несебр", en: "Nessebar"}
+    bg:
+      title: "Изработка на сайт в Несебър: за ресторанти и заведения от 79 €"
+      description: "Сайт за ресторант, кафе или бар в Несебър: меню с цени от телефона, резервация на маса, карта. На няколко езика за туристите. Първо безплатен пример, цена от 79 €."
+      h1: "Изработка на сайт в Несебър"
+      lead: "Меню с цени от телефона, резервация на маса и карта до вашето заведение. За туристите сайтът може да е и на втори език."
+      intro:
+        - "В Стария Несебър заведенията са едно до друго и туристът избира бързо, често от телефона, докато върви по калдъръма. Търси снимки, меню с цени и как да стигне. Ако ги намери при съседа, сяда там."
+        - "Повечето гости през лятото не говорят български. Затова за заведенията в Несебър препоръчваме сайт на два езика, например български и английски. Това е пакет „Бизнес+“ за 249 €. За кафене или малко бистро стига и визитка за 79 €."
+        - "Сезонът тук е от май до октомври, а сайтът трябва да е готов и да се намира в Google преди него. Най-доброто време да го направите е зимата."
+      gets:
+        - "Меню по раздели с цени в евро, удобно за четене от телефон"
+        - "Втори език за туристите (английски, руски или немски) в пакет „Бизнес+“"
+        - "Резервация на маса: съобщението идва във вашия Viber или WhatsApp"
+        - "Карта и маршрут до заведението, работно време по сезони"
+        - "Дизайн в стила на вашето заведение"
+      faq:
+        - q: "Колко струва сайт за заведение в Несебър?"
+          a: "Визитка с меню, резервация и карта е 79 € еднократно. Сайт на два езика е пакет „Бизнес+“ за 249 €. Хостингът е безплатен и месечна такса няма."
+        - q: "Идвате ли на място в Несебър?"
+          a: "Да, Несебър е на 30 минути от Бургас. Идваме за среща или да снимаме залата и ястията, ако трябва."
+        - q: "Кога е най-добре да направим сайта?"
+          a: "Преди сезона: от ноември до март. Тогава имате време да пратите менюто и снимките, а сайтът успява да се появи в Google до май."
+    ru:
+      title: "Создание сайта в Несебре: для ресторанов и кафе от 79 €"
+      description: "Сайт для ресторана, кафе или бара в Несебре: меню с ценами с телефона, бронь столика, карта. На нескольких языках для туристов. Сначала бесплатный пример, цена от 79 €."
+      h1: "Создание сайта в Несебре"
+      lead: "Меню с ценами на телефоне, бронь столика и карта до вашего заведения. Для туристов сайт может быть и на втором языке."
+      intro:
+        - "В Старом Несебре заведения стоят одно за другим, и турист выбирает быстро, часто прямо с телефона, пока идёт по брусчатке. Он ищет фото, меню с ценами и как дойти. Если находит это у соседа, садится там."
+        - "Летом большинство гостей не говорит по-болгарски. Поэтому заведениям Несебра мы советуем сайт на двух языках, например на болгарском и английском. Это пакет «Бизнес+» за 249 €. Кафе или небольшому бистро хватит визитки за 79 €."
+        - "Сезон здесь с мая по октябрь, и сайт должен быть готов и находиться в Google до него. Лучшее время его сделать — зима."
+      gets:
+        - "Меню по разделам с ценами в евро, удобное для телефона"
+        - "Второй язык для туристов (английский, русский или немецкий) в пакете «Бизнес+»"
+        - "Бронь столика: сообщение приходит вам в Viber или WhatsApp"
+        - "Карта и маршрут до заведения, часы работы по сезонам"
+        - "Дизайн в стиле вашего заведения"
+      faq:
+        - q: "Сколько стоит сайт для заведения в Несебре?"
+          a: "Визитка с меню, бронью и картой стоит 79 € один раз. Сайт на двух языках — пакет «Бизнес+» за 249 €. Хостинг бесплатный, абонентской платы нет."
+        - q: "Вы приезжаете в Несебр?"
+          a: "Да, Несебр в 30 минутах от Бургаса. Приезжаем на встречу или снять зал и блюда, если нужно."
+        - q: "Когда лучше делать сайт?"
+          a: "До сезона: с ноября по март. Тогда есть время прислать меню и фото, и сайт успевает появиться в Google к маю."
+    en:
+      title: "Website design in Nessebar for restaurants and cafés from €79"
+      description: "A website for a restaurant, café or bar in Nessebar: a menu with prices on the phone, table booking, a map, and a second language for tourists. A free sample first, from €79."
+      h1: "Website design in Nessebar"
+      lead: "A menu with prices on the phone, table booking and a map to your place. For tourists the site can have a second language."
+      intro:
+        - "In Old Nessebar the restaurants sit side by side, and tourists choose quickly, often on the phone while walking the cobbled streets. They look for photos, a menu with prices and directions. If the place next door has them, that is where they sit down."
+        - "Most summer guests don't speak Bulgarian, so for places in Nessebar we recommend a site in two languages, for example Bulgarian and English. That is the Business+ package at €249. A café or a small bistro is fine with the €79 one-page site."
+        - "The season runs from May to October, and the site should be live and showing up on Google before it starts. Winter is the best time to build it."
+      gets:
+        - "A menu by section with prices in euro, easy to read on a phone"
+        - "A second language for tourists (English, Russian or German) in Business+"
+        - "Table booking: the message arrives in your Viber or WhatsApp"
+        - "A map, directions and seasonal opening hours"
+        - "A design in the style of your place"
+      faq:
+        - q: "How much is a website for a restaurant in Nessebar?"
+          a: "A one-page site with a menu, booking and a map is €79, paid once. A two-language site is the Business+ package at €249. Hosting is free and there is no monthly fee."
+        - q: "Do you come to Nessebar?"
+          a: "Yes, Nessebar is 30 minutes from Burgas. We come for a meeting or to photograph the room and the dishes if needed."
+        - q: "When is the best time to build the site?"
+          a: "Before the season, from November to March. That leaves time to send the menu and photos, and the site has time to show up on Google by May."
+  - slug: izrabotka-na-sait-slanchev-bryag
+    kind: town
+    work: bistro-kei
+    name: {bg: "Слънчев бряг", ru: "Солнечный берег", en: "Sunny Beach"}
+    bg:
+      title: "Изработка на сайт в Слънчев бряг: за ресторанти и барове от 79 €"
+      description: "Сайт за ресторант, бар или кафе в Слънчев бряг: меню на няколко езика, резервация на маса, карта. Първо безплатен пример, цена от 79 €."
+      h1: "Изработка на сайт в Слънчев бряг"
+      lead: "Меню на езика на туриста, резервация на маса и маршрут до вас. Гостът решава за минута, докато върви по алеята."
+      intro:
+        - "Слънчев бряг е най-големият курорт по Черноморието и заведенията по алеята и на първа линия са стотици. Туристът сравнява от телефона: снимки, цени, отзиви, разстояние. Печели този, при когото всичко се вижда веднага."
+        - "Гостите тук са от цяла Европа, затова менюто на един език не стига. В пакет „Бизнес+“ за 249 € сайтът е на два езика, например английски и руски, с онлайн заявка за маса. За бар или малко кафене стига визитка за 79 €."
+        - "Сайтът остава ваш и след сезона: домейнът е на ваше име, хостингът е безплатен. Догодина сменяте само цените."
+      gets:
+        - "Меню с цени в евро и снимки на ястията"
+        - "Два езика за туристите в пакет „Бизнес+“"
+        - "Резервация на маса или шезлонг със съобщение във Viber или WhatsApp"
+        - "Карта и маршрут, работно време по сезони"
+        - "Бързо зареждане дори при слаб мобилен интернет на плажа"
+      faq:
+        - q: "Колко струва сайт за бар или ресторант в Слънчев бряг?"
+          a: "Визитка с меню, резервация и карта е 79 € еднократно. На два езика е пакет „Бизнес+“ за 249 €. Хостингът е безплатен."
+        - q: "Сменяме цените всеки сезон. Какво правим?"
+          a: "Пращате ни новите цени и ги сменяме. Ако ги сменяте често, има „Грижа за сайта“ за 15 € на месец: промени до 30 минути, нови цени и снимки."
+        - q: "Кога да започнем?"
+          a: "През зимата или пролетта. Така до юни сайтът е готов и вече се вижда в Google."
+    ru:
+      title: "Создание сайта на Солнечном берегу: для ресторанов и баров от 79 €"
+      description: "Сайт для ресторана, бара или кафе на Солнечном берегу: меню на нескольких языках, бронь столика, карта. Сначала бесплатный пример, цена от 79 €."
+      h1: "Создание сайта на Солнечном берегу"
+      lead: "Меню на языке туриста, бронь столика и маршрут до вас. Гость решает за минуту, пока идёт по аллее."
+      intro:
+        - "Солнечный берег — самый большой курорт на побережье, и заведений на аллее и первой линии сотни. Турист сравнивает с телефона: фото, цены, отзывы, расстояние. Выигрывает тот, у кого всё видно сразу."
+        - "Гости здесь со всей Европы, поэтому меню на одном языке мало. В пакете «Бизнес+» за 249 € сайт на двух языках, например английском и русском, с онлайн-заявкой на столик. Бару или небольшому кафе хватит визитки за 79 €."
+        - "Сайт остаётся вашим и после сезона: домен на ваше имя, хостинг бесплатный. В следующем году меняете только цены."
+      gets:
+        - "Меню с ценами в евро и фото блюд"
+        - "Два языка для туристов в пакете «Бизнес+»"
+        - "Бронь столика или шезлонга сообщением в Viber или WhatsApp"
+        - "Карта и маршрут, часы работы по сезонам"
+        - "Быстрая загрузка даже при слабом мобильном интернете на пляже"
+      faq:
+        - q: "Сколько стоит сайт для бара или ресторана на Солнечном берегу?"
+          a: "Визитка с меню, бронью и картой стоит 79 € один раз. На двух языках — пакет «Бизнес+» за 249 €. Хостинг бесплатный."
+        - q: "Мы меняем цены каждый сезон. Как быть?"
+          a: "Присылаете новые цены, мы их меняем. Если меняете часто, есть «Забота о сайте» за 15 € в месяц: правки до 30 минут, новые цены и фото."
+        - q: "Когда начинать?"
+          a: "Зимой или весной. Тогда к июню сайт готов и уже виден в Google."
+    en:
+      title: "Website design in Sunny Beach for restaurants and bars from €79"
+      description: "A website for a restaurant, bar or café in Sunny Beach: a menu in several languages, table booking, a map. A free sample first, from €79."
+      h1: "Website design in Sunny Beach"
+      lead: "A menu in the tourist's language, table booking and directions to you. Guests decide in a minute while walking the promenade."
+      intro:
+        - "Sunny Beach is the largest resort on the Bulgarian coast, with hundreds of places along the promenade and the beachfront. Tourists compare on their phones: photos, prices, reviews, distance. The place that shows all of it right away wins."
+        - "Guests come from all over Europe, so a menu in one language is not enough. The Business+ package at €249 gives you a site in two languages, for example English and Russian, with online booking requests. A bar or a small café is fine with the €79 one-page site."
+        - "The site stays yours after the season: the domain is in your name and hosting is free. Next year you only change the prices."
+      gets:
+        - "A menu with prices in euro and photos of the dishes"
+        - "Two languages for tourists in Business+"
+        - "Booking a table or a sunbed with a message to Viber or WhatsApp"
+        - "A map, directions and seasonal opening hours"
+        - "Fast loading even on weak mobile internet at the beach"
+      faq:
+        - q: "How much is a website for a bar or restaurant in Sunny Beach?"
+          a: "A one-page site with a menu, booking and a map is €79, paid once. Two languages is the Business+ package at €249. Hosting is free."
+        - q: "We change prices every season. What then?"
+          a: "Send us the new prices and we change them. If you change them often, Site care is €15 a month: up to 30 minutes of edits, new prices and photos."
+        - q: "When should we start?"
+          a: "In winter or spring, so the site is ready and showing on Google by June."
+  - slug: izrabotka-na-sait-pomorie
+    kind: town
+    work: bistro-kei
+    name: {bg: "Поморие", ru: "Поморие", en: "Pomorie"}
+    bg:
+      title: "Изработка на сайт в Поморие: за ресторанти, винарни и кафенета от 79 €"
+      description: "Сайт за ресторант, винарна или кафе в Поморие: меню с цени, резервация, карта. За местни гости и туристи. Първо безплатен пример, цена от 79 €."
+      h1: "Изработка на сайт в Поморие"
+      lead: "Меню с цени, резервация на маса и карта. За гостите, които живеят тук, и за тези, които идват за лятото или за калните бани."
+      intro:
+        - "Поморие живее и извън сезона: тук има местни, които излизат вечер, и гости, които идват заради езерото, калните бани и винарните. И едните, и другите търсят заведение от телефона."
+        - "За ресторант или винарна сайтът показва менюто и цените, работното време през зимата и лятото и резервацията на маса. Ако имате дегустации или събития, „Бизнес“ за 149 € дава няколко страници и галерия."
+        - "Идваме на място: Поморие е на 20 минути от Бургас."
+      gets:
+        - "Меню и винена листа с цени в евро"
+        - "Резервация на маса или дегустация със съобщение във Viber или WhatsApp"
+        - "Работно време за зимата и за лятото"
+        - "Карта и маршрут до вас"
+        - "Галерия и отделна страница за събития в пакет „Бизнес“"
+      faq:
+        - q: "Колко струва сайт за заведение в Поморие?"
+          a: "Визитка с меню, резервация и карта е 79 € еднократно. С няколко страници и галерия е пакет „Бизнес“ за 149 €. Хостингът е безплатен."
+        - q: "Имаме винарна с дегустации. Става ли?"
+          a: "Да. Слагаме винената листа, дегустациите с цена и бутон за запитване. Гостът избира ден и брой хора и ви праща съобщение."
+        - q: "Идвате ли до Поморие?"
+          a: "Да, на 20 минути от Бургас сме. Идваме за среща или да снимаме, ако трябва."
+    ru:
+      title: "Создание сайта в Поморие: для ресторанов, винарен и кафе от 79 €"
+      description: "Сайт для ресторана, винарни или кафе в Поморие: меню с ценами, бронь, карта. Для местных и туристов. Сначала бесплатный пример, цена от 79 €."
+      h1: "Создание сайта в Поморие"
+      lead: "Меню с ценами, бронь столика и карта. Для тех, кто живёт здесь, и для тех, кто приезжает летом или на грязевые ванны."
+      intro:
+        - "Поморие живёт и вне сезона: здесь есть местные, которые выходят вечером, и гости, которые едут ради озера, грязевых ванн и винарен. И те и другие ищут заведение с телефона."
+        - "Ресторану или винарне сайт показывает меню и цены, часы работы зимой и летом и бронь столика. Если у вас дегустации или события, пакет «Бизнес» за 149 € даёт несколько страниц и галерею."
+        - "Приезжаем на место: Поморие в 20 минутах от Бургаса."
+      gets:
+        - "Меню и винная карта с ценами в евро"
+        - "Бронь столика или дегустации сообщением в Viber или WhatsApp"
+        - "Часы работы на зиму и на лето"
+        - "Карта и маршрут до вас"
+        - "Галерея и отдельная страница событий в пакете «Бизнес»"
+      faq:
+        - q: "Сколько стоит сайт для заведения в Поморие?"
+          a: "Визитка с меню, бронью и картой стоит 79 € один раз. С несколькими страницами и галереей — пакет «Бизнес» за 149 €. Хостинг бесплатный."
+        - q: "У нас винарня с дегустациями. Подойдёт?"
+          a: "Да. Размещаем винную карту, дегустации с ценой и кнопку заявки. Гость выбирает день и число людей и присылает вам сообщение."
+        - q: "Вы приезжаете в Поморие?"
+          a: "Да, мы в 20 минутах от Бургаса. Приезжаем на встречу или снять фото, если нужно."
+    en:
+      title: "Website design in Pomorie for restaurants, wineries and cafés from €79"
+      description: "A website for a restaurant, winery or café in Pomorie: a menu with prices, booking, a map. For locals and visitors. A free sample first, from €79."
+      h1: "Website design in Pomorie"
+      lead: "A menu with prices, table booking and a map. For the people who live here and for those who come for the summer or the mud baths."
+      intro:
+        - "Pomorie stays alive outside the season: locals go out in the evening, and visitors come for the lake, the mud baths and the wineries. Both look for a place on their phones."
+        - "For a restaurant or a winery the site shows the menu and prices, winter and summer opening hours and table booking. If you run tastings or events, the Business package at €149 adds several pages and a gallery."
+        - "We come to you: Pomorie is 20 minutes from Burgas."
+      gets:
+        - "A menu and wine list with prices in euro"
+        - "Booking a table or a tasting with a message to Viber or WhatsApp"
+        - "Winter and summer opening hours"
+        - "A map and directions"
+        - "A gallery and an events page in the Business package"
+      faq:
+        - q: "How much is a website for a place in Pomorie?"
+          a: "A one-page site with a menu, booking and a map is €79, paid once. With several pages and a gallery it is the Business package at €149. Hosting is free."
+        - q: "We are a winery with tastings. Does that work?"
+          a: "Yes. We add the wine list, the tastings with prices and a request button. The guest picks a day and the number of people and sends you a message."
+        - q: "Do you come to Pomorie?"
+          a: "Yes, we are 20 minutes from Burgas. We come for a meeting or to take photos if needed."
+  - slug: izrabotka-na-sait-sozopol
+    kind: town
+    work: bistro-kei
+    name: {bg: "Созопол", ru: "Созополь", en: "Sozopol"}
+    bg:
+      title: "Изработка на сайт в Созопол: за рибни ресторанти и кафенета от 79 €"
+      description: "Сайт за ресторант, механа или кафе в Созопол: меню с прясна риба и цени, резервация на маса, карта. Първо безплатен пример, цена от 79 €."
+      h1: "Изработка на сайт в Созопол"
+      lead: "Менюто с прясната риба на деня, резервация на маса и пътят до вас през Стария град."
+      intro:
+        - "В Созопол гостите идват за рибата и за гледката. Търсят в телефона „рибен ресторант Созопол“, гледат снимките и цената на килограм риба и звънят. Заведение без меню онлайн губи тези гости, особено вечер в сезона."
+        - "Сайтът показва менюто с цени, рибата на деня (сменяте я с едно съобщение до нас), работното време и резервация на маса с изглед. През септември, около фестивала „Аполония“, гостите идват отново, затова сайтът работи и след август."
+        - "Идваме на място, Созопол е на 35 минути от Бургас."
+      gets:
+        - "Меню с цени в евро и отделен раздел за рибата на деня"
+        - "Резервация на маса със съобщение във Viber или WhatsApp"
+        - "Карта и маршрут през Стария град, информация за паркиране"
+        - "Снимки на заведението и гледката"
+        - "Втори език за чуждите гости в пакет „Бизнес+“"
+      faq:
+        - q: "Колко струва сайт за ресторант в Созопол?"
+          a: "Визитка с меню, резервация и карта е 79 € еднократно. С галерия и Google Business профил е „Бизнес“ за 149 €, на два езика е „Бизнес+“ за 249 €. Хостингът е безплатен."
+        - q: "Рибата ни се сменя всеки ден. Как да я показваме?"
+          a: "Пращате ни снимка или списък във Viber и сменяме раздела. Ако се сменя всеки ден, „Грижа за сайта“ за 15 € на месец покрива тези промени."
+        - q: "Идвате ли до Созопол?"
+          a: "Да, на 35 минути сме. Идваме за среща или за снимки."
+    ru:
+      title: "Создание сайта в Созополе: для рыбных ресторанов и кафе от 79 €"
+      description: "Сайт для ресторана, механы или кафе в Созополе: меню со свежей рыбой и ценами, бронь столика, карта. Сначала бесплатный пример, цена от 79 €."
+      h1: "Создание сайта в Созополе"
+      lead: "Меню со свежей рыбой дня, бронь столика и дорога к вам через Старый город."
+      intro:
+        - "В Созополь едут за рыбой и видом. Гости ищут в телефоне «рыбный ресторан Созополь», смотрят фото и цену за килограмм рыбы и звонят. Заведение без меню онлайн теряет этих гостей, особенно вечером в сезон."
+        - "Сайт показывает меню с ценами, рыбу дня (меняете её одним сообщением нам), часы работы и бронь столика с видом. В сентябре, во время фестиваля «Аполония», гости приезжают снова, поэтому сайт работает и после августа."
+        - "Приезжаем на место, Созополь в 35 минутах от Бургаса."
+      gets:
+        - "Меню с ценами в евро и отдельный раздел «рыба дня»"
+        - "Бронь столика сообщением в Viber или WhatsApp"
+        - "Карта и маршрут через Старый город, информация о парковке"
+        - "Фото заведения и вида"
+        - "Второй язык для иностранных гостей в пакете «Бизнес+»"
+      faq:
+        - q: "Сколько стоит сайт для ресторана в Созополе?"
+          a: "Визитка с меню, бронью и картой стоит 79 € один раз. С галереей и профилем Google Business — «Бизнес» за 149 €, на двух языках — «Бизнес+» за 249 €. Хостинг бесплатный."
+        - q: "Рыба у нас меняется каждый день. Как её показывать?"
+          a: "Присылаете фото или список в Viber, и мы меняем раздел. Если меняется ежедневно, «Забота о сайте» за 15 € в месяц покрывает эти правки."
+        - q: "Вы приезжаете в Созополь?"
+          a: "Да, мы в 35 минутах. Приезжаем на встречу или снять фото."
+    en:
+      title: "Website design in Sozopol for fish restaurants and cafés from €79"
+      description: "A website for a restaurant, tavern or café in Sozopol: a menu with fresh fish and prices, table booking, a map. A free sample first, from €79."
+      h1: "Website design in Sozopol"
+      lead: "Your menu with today's fresh fish, table booking and the way to you through the Old Town."
+      intro:
+        - "People come to Sozopol for the fish and the view. They search for a fish restaurant on their phones, look at photos and the price per kilo and call. A place without a menu online loses those guests, especially in the evening in season."
+        - "The site shows the menu with prices, the fish of the day (you change it with one message to us), opening hours and booking a table with a view. In September, around the Apollonia festival, visitors come back, so the site keeps working after August."
+        - "We come to you; Sozopol is 35 minutes from Burgas."
+      gets:
+        - "A menu with prices in euro and a separate fish-of-the-day section"
+        - "Table booking with a message to Viber or WhatsApp"
+        - "A map and directions through the Old Town, parking information"
+        - "Photos of the place and the view"
+        - "A second language for foreign guests in Business+"
+      faq:
+        - q: "How much is a website for a restaurant in Sozopol?"
+          a: "A one-page site with a menu, booking and a map is €79, paid once. With a gallery and a Google Business profile it is Business at €149; in two languages it is Business+ at €249. Hosting is free."
+        - q: "Our fish changes every day. How do we show it?"
+          a: "Send us a photo or a list on Viber and we update the section. If it changes daily, Site care at €15 a month covers those edits."
+        - q: "Do you come to Sozopol?"
+          a: "Yes, we are 35 minutes away. We come for a meeting or for photos."
+  - slug: izrabotka-na-sait-primorsko
+    kind: town
+    work: bistro-kei
+    name: {bg: "Приморско", ru: "Приморско", en: "Primorsko"}
+    bg:
+      title: "Изработка на сайт в Приморско: за барове, кафенета и ресторанти от 79 €"
+      description: "Сайт за бар, кафе или ресторант в Приморско: меню с цени, резервация, карта, събития. Първо безплатен пример, цена от 79 €."
+      h1: "Изработка на сайт в Приморско"
+      lead: "Меню, цени и резервация на маса за кратък и натоварен сезон. Гостите решават вечерта къде да отидат, от телефона."
+      intro:
+        - "В Приморско сезонът е кратък и пълен: юни, юли, август. Гостите са предимно млади, решават в последния момент и търсят в телефона къде има място, музика и какви са цените."
+        - "Сайтът събира на едно място менюто, цените на коктейлите, събитията за седмицата и резервацията на маса. Сменяте програмата с едно съобщение до нас."
+        - "Правим сайта извън сезона, за да е готов и да се вижда в Google преди юни."
+      gets:
+        - "Меню и коктейлна карта с цени в евро"
+        - "Програма за седмицата: партита, музика на живо, събития"
+        - "Резервация на маса със съобщение във Viber или WhatsApp"
+        - "Карта и маршрут до вас"
+        - "Дизайн в стила на вашето място"
+      faq:
+        - q: "Колко струва сайт за бар в Приморско?"
+          a: "Визитка с меню, резервация и карта е 79 € еднократно. С галерия и страница за събития е „Бизнес“ за 149 €. Хостингът е безплатен."
+        - q: "Програмата ни се сменя всяка седмица. Как?"
+          a: "Пращате ни програмата във Viber и я сменяме. „Грижа за сайта“ за 15 € на месец покрива редовните промени."
+        - q: "Кога да направим сайта?"
+          a: "Зимата и пролетта. До юни сайтът е готов, а Google е успял да го покаже."
+    ru:
+      title: "Создание сайта в Приморско: для баров, кафе и ресторанов от 79 €"
+      description: "Сайт для бара, кафе или ресторана в Приморско: меню с ценами, бронь, карта, события. Сначала бесплатный пример, цена от 79 €."
+      h1: "Создание сайта в Приморско"
+      lead: "Меню, цены и бронь столика для короткого и насыщенного сезона. Гости решают вечером, куда пойти, с телефона."
+      intro:
+        - "В Приморско сезон короткий и плотный: июнь, июль, август. Гости в основном молодые, решают в последний момент и ищут в телефоне, где есть места, музыка и какие цены."
+        - "Сайт собирает в одном месте меню, цены коктейлей, события недели и бронь столика. Программу меняете одним сообщением нам."
+        - "Делаем сайт вне сезона, чтобы он был готов и виден в Google до июня."
+      gets:
+        - "Меню и коктейльная карта с ценами в евро"
+        - "Программа на неделю: вечеринки, живая музыка, события"
+        - "Бронь столика сообщением в Viber или WhatsApp"
+        - "Карта и маршрут до вас"
+        - "Дизайн в стиле вашего места"
+      faq:
+        - q: "Сколько стоит сайт для бара в Приморско?"
+          a: "Визитка с меню, бронью и картой стоит 79 € один раз. С галереей и страницей событий — «Бизнес» за 149 €. Хостинг бесплатный."
+        - q: "Программа меняется каждую неделю. Как быть?"
+          a: "Присылаете программу в Viber, и мы её меняем. «Забота о сайте» за 15 € в месяц покрывает регулярные правки."
+        - q: "Когда делать сайт?"
+          a: "Зимой и весной. К июню сайт готов, и Google успевает его показать."
+    en:
+      title: "Website design in Primorsko for bars, cafés and restaurants from €79"
+      description: "A website for a bar, café or restaurant in Primorsko: a menu with prices, booking, a map, events. A free sample first, from €79."
+      h1: "Website design in Primorsko"
+      lead: "Menu, prices and table booking for a short, busy season. Guests decide where to go in the evening, on their phones."
+      intro:
+        - "Primorsko's season is short and full: June, July and August. Guests are mostly young, decide at the last minute and check on their phones where there is space, music and what things cost."
+        - "The site puts the menu, cocktail prices, this week's events and table booking in one place. You change the programme with one message to us."
+        - "We build the site off-season so it is ready and showing on Google before June."
+      gets:
+        - "A menu and cocktail list with prices in euro"
+        - "A weekly programme: parties, live music, events"
+        - "Table booking with a message to Viber or WhatsApp"
+        - "A map and directions"
+        - "A design in the style of your place"
+      faq:
+        - q: "How much is a website for a bar in Primorsko?"
+          a: "A one-page site with a menu, booking and a map is €79, paid once. With a gallery and an events page it is Business at €149. Hosting is free."
+        - q: "Our programme changes every week. What then?"
+          a: "Send us the programme on Viber and we update it. Site care at €15 a month covers regular edits."
+        - q: "When should we build the site?"
+          a: "In winter and spring. By June the site is ready and Google has had time to show it."

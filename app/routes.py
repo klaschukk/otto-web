@@ -29,10 +29,12 @@ def ctx(lang, page_path, **extra):
     alt = {l: prefix(l) + page_path for l in LANGS}
     works = [{**w, "niche": w["niche"][lang], "feature": w["feature"][lang],
               "idea": w["idea"][lang], "did": w["did"][lang]} for w in WORKS]
-    landings = [{"slug": p["slug"], "work": p["work"], "name": p["name"][lang], "h1": p[lang]["h1"]}
-                for p in LANDINGS["pages"]]
+    pages = [{"slug": p["slug"], "work": p["work"], "name": p["name"][lang], "h1": p[lang]["h1"], "town": p.get("kind") == "town"}
+             for p in LANDINGS["pages"]]
+    landings = [p for p in pages if not p["town"]]  # ниши
+    towns = [p for p in pages if p["town"]]  # города около Бургаса
     return dict(t=t, lang=lang, P=prefix(lang), studio=current_app.config["STUDIO"], alt=alt, page_path=page_path,
-                works=works, landings=landings, ll=LANDINGS["labels"][lang], cfg=current_app.config, **extra)
+                works=works, landings=landings, towns=towns, ll=LANDINGS["labels"][lang], cfg=current_app.config, **extra)
 
 
 def page(endpoint_name, path):
@@ -94,7 +96,8 @@ def landing(p):
     def view(lang):
         c = ctx(lang, path)
         work = next(w for w in c["works"] if w["slug"] == p["work"])
-        return render_template("usluga.html", pg=p[lang], slug=p["slug"], work=work, **c)
+        area = p["name"]["en"] if p.get("kind") == "town" else "Burgas"
+        return render_template("usluga.html", pg=p[lang], slug=p["slug"], work=work, area=area, **c)
 
     PAGES[p["slug"]] = path  # попадает в sitemap
 

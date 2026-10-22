@@ -4,7 +4,8 @@ import sqlite3
 import pytest
 
 PAGES = ["/", "/raboti/", "/raboti/avto-profi/", "/raboti/dental-morska/", "/ceni/", "/kontakt/", "/blagodarim/", "/poveritelnost/",
-         "/sait-za-restorant/", "/sait-za-salon/", "/sait-za-avtoservis/", "/sait-za-barbershop/", "/sait-za-zabolekar/"]
+         "/sait-za-restorant/", "/sait-za-salon/", "/sait-za-avtoservis/", "/sait-za-barbershop/", "/sait-za-zabolekar/",
+         "/izrabotka-na-sait-nesebar/", "/izrabotka-na-sait-slanchev-bryag/", "/izrabotka-na-sait-pomorie/", "/izrabotka-na-sait-sozopol/", "/izrabotka-na-sait-primorsko/"]
 
 
 @pytest.mark.parametrize("prefix", ["", "/en", "/ru"])

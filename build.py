@@ -8,6 +8,7 @@
 python build.py           собрать всё
 python build.py --serve   собрать и открыть на http://127.0.0.1:8000
 """
+import os
 import shutil
 from datetime import date
 import sys
@@ -53,8 +54,11 @@ def main():
         shutil.copytree(src, OUT / "demo" / src.name)
         print(f"  demo/{src.name}/  (custom)")
 
-    # личные демо для лидов (leadgen/make_demos.py): leads_demos/<slug>/, папка не в git
+    # личные демо для лидов (leadgen/make_demos.py): leads_demos/<slug>/, папка не в git.
+    # Публикуются только явно: PUBLISH_LEAD_DEMOS=1 .venv/bin/python build.py (решение Кирилла, по умолчанию выключено)
     leads = ROOT / "leads_demos"
+    if os.environ.get("PUBLISH_LEAD_DEMOS") != "1":
+        leads = ROOT / "leads_demos_off"
     for src in sorted(leads.glob("*/")) if leads.exists() else []:
         if not (OUT / "demo" / src.name).exists():
             shutil.copytree(src, OUT / "demo" / src.name)

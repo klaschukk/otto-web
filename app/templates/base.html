@@ -72,6 +72,8 @@
     <nav class="ftr-svc" aria-label="{{ ll.services }}">
       <span>{{ ll.services }}</span>
       {% for l in landings %}<a href="{{ P }}/{{ l.slug }}/">{{ l.h1 }}</a>{% endfor %}
+      <span>{{ ll.towns_h }}</span>
+      {% for l in towns %}<a href="{{ P }}/{{ l.slug }}/">{{ l.name }}</a>{% endfor %}
     </nav>
     <p class="ftr-legal">Otto.web · {{ studio.company }} · {{ t.footer.city }} · {{ t.footer.vat }}<br>{{ t.footer.hours }} · <a href="{{ P }}/poveritelnost/">{{ t.footer.privacy }}</a></p>
     <p class="ftr-small">© 2026 Otto.web · {{ t.footer.rights }}</p>
