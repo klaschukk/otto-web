@@ -136,3 +136,29 @@ def test_favicon_ico_is_served(client):
     assert r.status_code == 200
     assert r.data[:4] == b"\x00\x00\x01\x00"  # заголовок ICO
 
+
+
+def login(client):
+    token = csrf_of(client, "/admin/login")
+    client.post("/admin/login", data={"user": "admin", "password": "secret-pass", "csrf": token})
+    return csrf_of(client, "/admin/deals")
+
+
+def test_ledger_requires_login(client):
+    for p in ("/admin/deals", "/admin/money", "/admin/week"):
+        assert client.get(p).status_code == 302
+
+
+def test_ledger_deal_money_hours_and_week(client):
+    t = login(client)
+    client.post("/admin/deals", data={"csrf": t, "venue": "Тест бистро", "stage": "show", "package": "biznes", "price": "149"})
+    page = client.get("/admin/deals").get_data(as_text=True)
+    assert "Тест бистро" in page
+    client.post("/admin/deals/1", data={"csrf": t, "stage": "paid"})
+    client.post("/admin/deals/1", data={"csrf": t, "hours": "5", "what": "сборка"})
+    client.post("/admin/money", data={"csrf": t, "kind": "in", "amount": "149", "category": "оплата сайта", "deal_id": "1"})
+    client.post("/admin/money", data={"csrf": t, "kind": "out", "amount": "9,5", "category": "сервер"})
+    client.post("/admin/week", data={"csrf": t, "contacts": "12", "replies": "3", "shows": "1"})
+    week = client.get("/admin/week").get_data(as_text=True)
+    assert "<b>140</b>" in week and ">12<" in week and "27.9" in week  # итог 149−9,5 ≈ 140; € в час (149−9,5)/5
+    assert "29.8" in client.get("/admin/deals").get_data(as_text=True)  # 149/5 по сделке

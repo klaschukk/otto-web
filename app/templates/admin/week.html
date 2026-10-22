@@ -1,0 +1,19 @@
+{% set title = 'Неделя' %}{% include "admin/_head.html" %}
+<h1 class="sub-h">Сегодня</h1>
+<form class="arow" method="post"><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>День <input type="date" name="day" value="{{ today }}"></label>
+<label>Контактов <input type="number" name="contacts" min="0" inputmode="numeric" value="{{ today_row.contacts if today_row else 0 }}"></label>
+<label>Ответили <input type="number" name="replies" min="0" inputmode="numeric" value="{{ today_row.replies if today_row else 0 }}"></label>
+<label>«Покажи» <input type="number" name="shows" min="0" inputmode="numeric" value="{{ today_row.shows if today_row else 0 }}"></label>
+<button class="btn btn-ink" type="submit">Сохранить</button></form>
+<p class="ahint">Контакт = сообщение в Viber, звонок или визит. Цель из BUSINESS.md: 2–3 контакта в день.</p>
+<h2 class="sub-h">Воронка сейчас</h2>
+<div class="afunnel">{% for s, label in stages %}<div><b class="num">{{ funnel[s] }}</b><span>{{ label }}</span></div>{% endfor %}</div>
+<h2 class="sub-h">По неделям</h2>
+<div style="overflow-x:auto"><table>
+<tr><th>Неделя</th><th>Контакты</th><th>Ответы</th><th>«Покажи»</th><th>Оплаты</th><th>Пришло €</th><th>Ушло €</th><th>Итог €</th><th>Часы</th><th>€ в час</th></tr>
+{% for w in weeks %}<tr><td class="mono">{{ w.week }}</td><td>{{ w.contacts }}</td><td>{{ w.replies }}</td><td>{{ w.shows }}</td><td>{{ w.paid }}</td>
+<td>{{ '%.0f'|format(w.got) }}</td><td>{{ '%.0f'|format(w.spent) }}</td><td><b>{{ '%.0f'|format(w.net) }}</b></td><td>{{ '%.1f'|format(w.hours) }}</td>
+<td>{{ '%.1f'|format(w.per_hour) if w.per_hour is not none else '—' }}</td></tr>{% endfor %}
+</table></div>
+</div></body></html>

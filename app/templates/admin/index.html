@@ -1,6 +1,7 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>Заявки — Otto.web</title><link rel="stylesheet" href="/static/css/site.css"></head>
 <body><div class="admin">
+<nav class="anav" aria-label="Учёт"><a href="{{ url_for('ledger.week') }}">Неделя</a><a href="{{ url_for('ledger.deals') }}">Сделки</a><a href="{{ url_for('ledger.money') }}">Деньги</a><a href="{{ url_for('admin.index') }}" aria-current="page">Заявки с сайта</a></nav>
 <div class="bar"><h1 class="sub-h" style="margin:0">Заявки <span class="num">{{ rows|length }}</span></h1>
 <div style="display:flex;gap:12px;align-items:center"><a class="link" href="{{ url_for('admin.export') }}">CSV</a>
 <form method="post" action="{{ url_for('admin.logout') }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="btn btn-ink" type="submit">Выйти</button></form></div></div>

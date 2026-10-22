@@ -1,0 +1,4 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>{{ title }} — Otto.web</title><link rel="stylesheet" href="/static/css/site.css"></head>
+<body><div class="admin">
+<nav class="anav" aria-label="Учёт"><a href="{{ url_for('ledger.week') }}"{% if title == 'Неделя' %} aria-current="page"{% endif %}>Неделя</a><a href="{{ url_for('ledger.deals') }}"{% if title == 'Сделки' %} aria-current="page"{% endif %}>Сделки</a><a href="{{ url_for('ledger.money') }}"{% if title == 'Деньги' %} aria-current="page"{% endif %}>Деньги</a><a href="{{ url_for('admin.index') }}"{% if title == 'Заявки' %} aria-current="page"{% endif %}>Заявки с сайта</a></nav>

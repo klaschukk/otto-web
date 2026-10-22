@@ -1,0 +1,19 @@
+{% set title = 'Деньги' %}{% include "admin/_head.html" %}
+<h1 class="sub-h">Записать</h1>
+<form class="arow" method="post"><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>День <input type="date" name="day" value="{{ today }}"></label>
+<label>Тип <select name="kind"><option value="in">Пришло</option><option value="out">Ушло</option></select></label>
+<label>Сумма € <input name="amount" inputmode="decimal" size="6" required></label>
+<label>Категория <select name="category"><optgroup label="Пришло">{% for c in cin %}<option>{{ c }}</option>{% endfor %}</optgroup><optgroup label="Ушло">{% for c in cout %}<option>{{ c }}</option>{% endfor %}</optgroup></select></label>
+<label>Сделка <select name="deal_id"><option value="">—</option>{% for d in deals %}<option value="{{ d.id }}">{{ d.venue }}</option>{% endfor %}</select></label>
+<label>Заметка <input name="note" maxlength="200" placeholder="фактура №, кто платил"></label>
+<button class="btn btn-ink" type="submit">Записать</button></form>
+<h2 class="sub-h">По месяцам</h2>
+{% if not months %}<p>Записей нет. Первая запись: оплата сервера или первый аванс.</p>{% else %}
+<table><tr><th>Месяц</th><th>Пришло €</th><th>Ушло €</th><th>Итог €</th></tr>
+{% for m in months %}<tr><td class="mono">{{ m.month }}</td><td>{{ '%.2f'|format(m.got) }}</td><td>{{ '%.2f'|format(m.spent) }}</td><td><b>{{ '%.2f'|format(m.got - m.spent) }}</b></td></tr>{% endfor %}</table>{% endif %}
+<h2 class="sub-h">Все записи</h2>
+<div style="overflow-x:auto"><table><tr><th>День</th><th></th><th>€</th><th>Категория</th><th>Сделка</th><th>Заметка</th></tr>
+{% for r in rows %}<tr><td class="mono">{{ r.day }}</td><td>{{ '+' if r.kind == 'in' else '−' }}</td><td>{{ '%.2f'|format(r.amount) }}</td><td>{{ r.category }}</td><td>{{ r.venue or '' }}</td><td>{{ r.note }}</td></tr>{% endfor %}
+</table></div>
+</div></body></html>

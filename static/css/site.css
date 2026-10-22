@@ -547,6 +547,21 @@ mark,.num{background:linear-gradient(100deg,transparent .12em,var(--marker) .12e
 .admin th{font:500 .75rem var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--sub)}
 .admin select{min-height:36px}
 .admin .bar{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap}
+.anav{display:flex;flex-wrap:wrap;gap:6px 20px;margin-bottom:24px;font-weight:500}
+.anav a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none;border-bottom:3px solid transparent}
+.anav a[aria-current]{border-bottom-color:var(--marker)}
+.admin .sub-h{margin:28px 0 12px}
+.arow{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end}
+.arow label{display:grid;gap:4px;font-size:.85rem;color:var(--sub)}
+.admin input,.admin select{min-height:40px;padding:6px 10px;border:1.5px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+.admin td .arow{margin-top:6px;flex-wrap:nowrap}
+.admin td .arow input{min-width:0}
+.ahint{color:var(--sub);font-size:.9rem;margin-top:8px}
+.afunnel{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.afunnel div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:2px}
+.afunnel b{font-size:1.4rem}
+.afunnel span{font-size:.82rem;color:var(--sub)}
+.adue td{background:#fff7d1}
 .admin-login{max-width:380px;margin:12vh auto;padding:32px;background:#fff;border:1px solid var(--line);border-radius:18px;display:grid;gap:14px}
 .admin-login input{min-height:48px;padding:10px 14px;border:2px solid var(--ink);border-radius:10px}
 

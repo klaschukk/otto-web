@@ -1,0 +1,28 @@
+{% set title = 'Сделки' %}{% include "admin/_head.html" %}
+<h1 class="sub-h">Новая сделка</h1>
+<form class="arow" method="post"><input type="hidden" name="csrf" value="{{ csrf }}">
+<label>Заведение <input name="venue" required maxlength="120"></label>
+<label>Телефон <input name="phone" inputmode="tel" maxlength="40"></label>
+<label>Канал <select name="channel"><option>Viber</option><option>Звонок</option><option>Визит</option><option>Сайт</option><option>Facebook</option><option>Telegram</option><option>Знакомые</option></select></label>
+<label>Этап <select name="stage">{% for s, l in stages %}<option value="{{ s }}">{{ l }}</option>{% endfor %}</select></label>
+<label>Пакет <select name="package">{% for s, l in packages %}<option value="{{ s }}">{{ l }}</option>{% endfor %}</select></label>
+<label>Цена € <input name="price" inputmode="decimal" size="6"></label>
+<label>Следующий шаг <input name="next_step" maxlength="200"></label>
+<label>Когда <input type="date" name="next_date"></label>
+<button class="btn btn-ink" type="submit">Добавить</button></form>
+<h2 class="sub-h">Все сделки <span class="num">{{ rows|length }}</span></h2>
+{% if not rows %}<p>Пока пусто. Добавляй каждое «покажи» и каждый разговор, где спросили цену.</p>{% else %}
+<div style="overflow-x:auto"><table>
+<tr><th>Заведение</th><th>Этап</th><th>Пакет, цена</th><th>Следующий шаг</th><th>Часы</th><th>Получено €</th><th>€ в час</th></tr>
+{% for r in rows %}<tr{% if r.next_date and r.next_date <= today and r.stage not in ('done','lost') %} class="adue"{% endif %}>
+<td><b>{{ r.venue }}</b><br><a class="mono" href="tel:{{ r.phone }}">{{ r.phone }}</a><br><small>{{ r.channel }} · с {{ r.ts }}</small></td>
+<td><form method="post" action="{{ url_for('ledger.deal_update', deal_id=r.id) }}"><input type="hidden" name="csrf" value="{{ csrf }}">
+<select name="stage" onchange="this.form.submit()" aria-label="Этап">{% for s, l in stages %}<option value="{{ s }}"{% if s == r.stage %} selected{% endif %}>{{ l }}</option>{% endfor %}</select><noscript><button>OK</button></noscript></form></td>
+<td>{{ dict(packages)[r.package].split(' ')[0] if r.package else '—' }}{% if r.price %}<br>{{ '%.0f'|format(r.price) }} €{% endif %}</td>
+<td><form class="arow" method="post" action="{{ url_for('ledger.deal_update', deal_id=r.id) }}"><input type="hidden" name="csrf" value="{{ csrf }}">
+<input name="next_step" value="{{ r.next_step }}" aria-label="Следующий шаг"><input type="date" name="next_date" value="{{ r.next_date }}" aria-label="Когда"><button>OK</button></form></td>
+<td>{{ '%.1f'|format(r.h) }}<form class="arow" method="post" action="{{ url_for('ledger.deal_update', deal_id=r.id) }}"><input type="hidden" name="csrf" value="{{ csrf }}">
+<input name="hours" inputmode="decimal" size="3" placeholder="ч" aria-label="Часы"><input name="what" size="8" placeholder="что делал" aria-label="Что делал"><button>+</button></form></td>
+<td>{{ '%.0f'|format(r.got) }}</td><td>{{ '%.1f'|format(r.got / r.h) if r.h else '—' }}</td></tr>{% endfor %}
+</table></div>{% endif %}
+</div></body></html>

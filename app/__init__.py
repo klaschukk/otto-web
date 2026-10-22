@@ -87,10 +87,11 @@ def create_app(test_config=None):
         return Markup(out) if isinstance(text, Markup) else out
     app.jinja_env.filters["nb"] = nb
 
-    from . import admin, leads, routes
+    from . import admin, ledger, leads, routes
     app.register_blueprint(routes.bp)
     app.register_blueprint(leads.bp)
     app.register_blueprint(admin.bp)
+    app.register_blueprint(ledger.bp)
     return app
 
 
@@ -108,6 +109,41 @@ CREATE TABLE IF NOT EXISTS leads(
   status TEXT NOT NULL DEFAULT 'new'
 );
 CREATE INDEX IF NOT EXISTS leads_ip_ts ON leads(ip, ts);
+CREATE TABLE IF NOT EXISTS deals(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts TEXT NOT NULL DEFAULT (date('now')),
+  venue TEXT NOT NULL,
+  phone TEXT NOT NULL DEFAULT '',
+  channel TEXT NOT NULL DEFAULT '',
+  stage TEXT NOT NULL DEFAULT 'contact',
+  package TEXT NOT NULL DEFAULT '',
+  price REAL NOT NULL DEFAULT 0,
+  next_step TEXT NOT NULL DEFAULT '',
+  next_date TEXT NOT NULL DEFAULT '',
+  updated TEXT NOT NULL DEFAULT (date('now'))
+);
+CREATE TABLE IF NOT EXISTS money(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  day TEXT NOT NULL DEFAULT (date('now')),
+  kind TEXT NOT NULL CHECK (kind IN ('in','out')),
+  amount REAL NOT NULL,
+  category TEXT NOT NULL DEFAULT '',
+  deal_id INTEGER,
+  note TEXT NOT NULL DEFAULT ''
+);
+CREATE TABLE IF NOT EXISTS hours(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  day TEXT NOT NULL DEFAULT (date('now')),
+  deal_id INTEGER,
+  hours REAL NOT NULL,
+  what TEXT NOT NULL DEFAULT ''
+);
+CREATE TABLE IF NOT EXISTS activity(
+  day TEXT PRIMARY KEY,
+  contacts INTEGER NOT NULL DEFAULT 0,
+  replies INTEGER NOT NULL DEFAULT 0,
+  shows INTEGER NOT NULL DEFAULT 0
+);
 """
 
 
