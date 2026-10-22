@@ -1,0 +1,397 @@
+<!doctype html>
+<!-- otto:custom — ручное демо для реального заведения (Комплекс „Младост“, бул. „Стефан Стамболов“ 53), исходник в custom/mladost/ -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Комплекс „Младост“ — ресторант, банкети и празници, Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- своя статистика без cookies: видно, открыл ли владелец ссылку -->
+<script defer src="/u/script.js" data-website-id="7cbd7223-82fa-453b-ad6f-81c2c0c89307"></script>
+<link rel="stylesheet" href="../../static/fonts/demo/studio-mila.css">
+<style>
+/* салон за празници: топъл крем, винено червено от райетата покривки, злато от декорацията, сиво от стените на залата */
+:root{--cream:#f8f3ec;--cream-2:#efe6d9;--card:#fffdfa;--ink:#2a2221;--wine:#7a2c36;--wine-d:#5f2029;--gold:#a8823c;--muted:#6c625e;--line:#e3d8c8;--slate:#3a3f45;
+  --display:"Prata",Georgia,serif;--body:"Jost",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:17.5px/1.6 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-left:20px;padding-right:20px}
+.demo-bar{background:var(--slate);color:#efe9e0;font:400 13.5px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:600}
+
+.top{display:flex;align-items:center;gap:26px;padding:14px 24px;max-width:1168px;margin:0 auto}
+.logo{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;line-height:1;color:var(--wine)}
+.logo small{font:500 11px/1 var(--body);letter-spacing:.22em;color:var(--gold)}
+.logo b{font:400 25px/1.1 var(--display);letter-spacing:.08em;margin-top:3px}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font:500 16px var(--body)}
+.top nav a:hover{color:var(--wine)}
+.top .tel{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:none;color:var(--wine)}
+
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding-top:28px;padding-bottom:72px}
+.kicker{font:500 13px var(--body);letter-spacing:.2em;text-transform:uppercase;margin:0 0 16px;color:var(--gold)}
+h1{font:400 clamp(2.3rem,5vw,3.9rem)/1.12 var(--display);margin:0 0 18px;color:var(--wine);text-wrap:balance}
+h1 em{display:block;font:400 .44em/1.4 var(--body);font-style:normal;color:var(--muted);margin-top:16px}
+.lead{font-size:1.14rem;max-width:42ch;margin:0 0 28px;color:#4a403d}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:999px;font:500 16.5px var(--body);
+  text-decoration:none;cursor:pointer;border:2px solid var(--wine);background:var(--wine);color:#fff;transition:transform .18s,background .18s}
+.btn:hover{transform:translateY(-2px);background:var(--wine-d);border-color:var(--wine-d)}
+.btn.ghost{background:transparent;color:var(--wine)}
+.btn.ghost:hover{background:var(--wine);color:#fff}
+.now{display:flex;flex-wrap:wrap;gap:8px 22px;margin:28px 0 0;padding:0;list-style:none;font-size:15.5px;color:#4a403d}
+.now li{display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:#2f9e5b}
+.dot.off{background:var(--wine)}
+.hero figure{position:relative;margin:0}
+.hero figure img{width:100%;height:auto;aspect-ratio:7/5;object-fit:cover;border-radius:4px;outline:1px solid var(--gold);outline-offset:8px}
+.stamp{position:absolute;left:-18px;bottom:26px;background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 18px;box-shadow:0 14px 34px rgba(42,34,33,.16);display:flex;align-items:center;gap:12px}
+.stamp b{font:400 2rem/1 var(--display);color:var(--wine)}
+.stamp span{font-size:13.5px;line-height:1.35;color:var(--muted)}
+
+section.block{padding-top:80px;padding-bottom:80px}
+h2{font:400 clamp(1.9rem,4.2vw,2.8rem)/1.15 var(--display);margin:0 0 12px;color:var(--wine);text-wrap:balance}
+.sub{color:var(--muted);max-width:56ch;margin:0 0 32px}
+.eyebrow{font:500 13px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+
+/* три повода */
+.ways{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ways li{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:4px;padding:22px}
+.ways h3{font:400 1.35rem/1.25 var(--display);margin:0 0 6px;color:var(--wine)}
+.ways p{margin:0;color:#4a403d}
+.ways .t{display:block;font:600 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+
+.fav-sec{background:var(--cream-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.favs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.favs li{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.favs img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.favs div{padding:14px 16px 16px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
+.favs h3{font:600 1.04rem/1.3 var(--body);margin:0}
+.favs .p{font:400 1.12rem var(--display);color:var(--wine);white-space:nowrap}
+.favs small{grid-column:1/-1;color:var(--muted);font-size:14px}
+.credit{font-size:14px;color:var(--muted);margin:18px 0 0}
+
+.sheet{background:var(--card);border:1px solid var(--line);padding:28px 32px 32px;position:relative}
+.sheet:before{content:"";position:absolute;inset:6px;border:1px solid var(--gold);pointer-events:none;opacity:.5}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 18px;padding-bottom:4px;scrollbar-width:none;position:relative}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:46px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;font:500 15.5px var(--body);color:var(--ink);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{background:var(--wine);border-color:var(--wine);color:#fff}
+.dishes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 52px;position:relative}
+.dishes li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:15px 0;border-bottom:1px dotted #c3b49c}
+.dishes h3{font:600 1.04rem/1.3 var(--body);margin:0}
+.dishes .p{font:400 1.1rem var(--display);color:var(--wine);white-space:nowrap}
+.dishes p{grid-column:1/2;margin:0;color:var(--muted);font-size:14.5px}
+.tag{display:inline-block;font:600 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:2px}
+.note{font-size:14px;color:var(--muted);margin:24px 0 0;max-width:76ch}
+.note b{color:var(--ink)}
+
+/* запитване */
+.book{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:28px;display:grid;grid-template-columns:1.25fr .75fr;gap:36px}
+.label{font:600 12.5px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.chips button{min-height:46px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:500 15.5px var(--body);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--wine);border-color:var(--wine);color:#fff}
+.field{display:flex;flex-wrap:wrap;gap:22px 40px;margin:0 0 22px}
+.field input[type=date]{min-height:48px;border:1.5px solid var(--line);border-radius:10px;padding:0 12px;font:500 16px var(--body);color:var(--ink);background:#fff}
+.step{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:#fff}
+.step button{width:46px;height:46px;border:0;background:transparent;font:600 22px/1 var(--body);color:var(--ink);cursor:pointer}
+.step output{min-width:56px;text-align:center;font:600 17px var(--body)}
+.ticket{background:var(--wine);color:#fff;border-radius:4px;padding:22px;display:flex;flex-direction:column}
+.ticket .label{color:#e8c9cd}
+.ticket b{display:block;font:400 1.55rem/1.25 var(--display);margin-bottom:6px}
+.ticket p{margin:0 0 18px;color:#f6e6e8}
+.ticket .btn{width:100%;margin-top:8px;background:#fff;border-color:#fff;color:var(--wine)}
+.ticket .btn:hover{background:#f3e3e5}
+.ticket .btn.alt{background:transparent;border-color:#fff;color:#fff}
+.ticket small{display:block;margin-top:14px;color:#e8c9cd;font-size:13px}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+.guests{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+.guests figure{margin:0;border-radius:4px;overflow:hidden}
+.guests img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.score{display:flex;align-items:baseline;gap:12px;margin:0 0 24px}
+.score b{font:400 3.2rem/1 var(--display);color:var(--wine)}
+.score span{color:var(--muted)}
+blockquote{margin:0 0 22px;padding:0 0 0 18px;border-left:3px solid var(--gold)}
+blockquote p{margin:0 0 6px;font-size:1.1rem}
+blockquote cite{font-style:normal;color:var(--muted);font-size:.92rem}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:12px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.addr{font-size:1.15rem;margin:0 0 20px}
+.addr span{color:var(--muted)}
+
+.offer-sec{background:var(--slate);color:#efe9e0}
+.offer-sec h2{color:#fff}
+.offer-sec .eyebrow{color:#e0c58f}
+.offer{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;margin-top:24px}
+.offer p{margin:0 0 14px;max-width:58ch}
+.offer .cta{margin-top:24px}
+.offer-sec .btn{background:var(--gold);border-color:var(--gold)}
+.offer-sec .btn:hover{background:#8f6d2f;border-color:#8f6d2f}
+.offer-sec .btn.ghost{background:transparent;border-color:#efe9e0;color:#efe9e0}
+.offer-sec .btn.ghost:hover{background:#efe9e0;color:var(--slate)}
+.price-card{background:var(--card);color:var(--ink);border-radius:4px;padding:24px}
+.price{margin:0 0 6px}
+.price b{font:400 3.2rem/1 var(--display);color:var(--wine)}
+.incl{margin:14px 0;padding:0;list-style:none}
+.incl li{padding:9px 0;border-top:1px solid var(--line);font-size:15.5px}
+.price-card .more{font-size:14.5px;color:#4a403d;margin:0}
+.fine{font-size:13.5px;color:#b9b4ad;margin:28px 0 0;max-width:86ch}
+.offer-sec :focus-visible{outline-color:#fff}
+
+footer{border-top:1px solid var(--line);padding:24px 20px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.92rem}
+footer a{display:inline-block;padding:10px 0}
+.callbar{display:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (max-width:860px){
+  .top{padding:10px 16px}.top nav{display:none}.top .tel{margin-left:auto}
+  .hero{grid-template-columns:1fr;gap:30px;padding-top:12px;padding-bottom:52px}
+  .hero figure{order:-1;margin:0 8px}
+  .hero figure img{aspect-ratio:4/3}
+  .stamp{left:12px;bottom:-18px;padding:10px 14px}
+  .hero>div{padding-top:14px}
+  section.block{padding-top:56px;padding-bottom:56px}
+  .ways{grid-template-columns:1fr;gap:14px}
+  .favs{grid-template-columns:repeat(6,72%);overflow-x:auto;gap:14px;margin:0 -20px;padding:0 20px 6px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .favs::-webkit-scrollbar{display:none}
+  .favs li{scroll-snap-align:center}
+  .sheet{padding:20px 16px 22px}
+  .dishes{grid-template-columns:1fr}
+  .book{grid-template-columns:1fr;padding:20px 16px;gap:24px}
+  .guests{grid-template-columns:1fr;gap:28px}
+  .guests img{aspect-ratio:4/3}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .offer{grid-template-columns:1fr;gap:28px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--card);border-top:1px solid var(--line)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:600;text-decoration:none;color:var(--wine)}
+  .callbar a:first-child{background:var(--wine);color:#fff}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar">Примерен сайт за Комплекс „Младост“ от <a href="../../">Otto.web</a>. Не е официалният сайт на заведението. <a href="#otto">Цена и условия</a></div>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Комплекс Младост, начало"><small>BAR &amp; DINNER</small><b>МЛАДОСТ</b></a>
+  <nav aria-label="Навигация"><a href="#praznik">Празници</a><a href="#menu">Меню</a><a href="#kontakt">Контакт</a></nav>
+  <a class="tel" href="tel:+359884199946">088 419 9946</a>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div>
+    <p class="kicker">Български ресторант · Братя Миладинови · Бургас</p>
+    <h1>Празникът ви, в просторна зала с вкусна храна <em>Рождени дни, кръщенета, фирмени вечери. И обяд или вечеря всеки ден.</em></h1>
+    <p class="lead">Изберете повод, дата и колко души ще бъдете. Запитването е готово за изпращане, без да чакате някой да вдигне.</p>
+    <div class="cta">
+      <a class="btn" href="#praznik">Запитване за празник</a>
+      <a class="btn ghost" href="#menu">Вижте менюто</a>
+    </div>
+    <ul class="now"><li><span class="dot" id="dot"></span><span id="open-now">Делник 7:00–0:00</span></li><li>Зала и градина</li></ul>
+  </div>
+  <figure>
+    <img src="../../static/img/mladost-hero.webp" alt="Залата на Комплекс Младост, подредена за празник: дълга маса с бели покривки, сини салфетки и балони" width="1400" height="1000" fetchpriority="high">
+    <figcaption class="stamp"><b>4,5</b><span>от 5 в Google<br>631 отзива</span></figcaption>
+  </figure>
+</section>
+
+<section class="block wrap" style="padding-top:0">
+  <ul class="ways">
+    <li><span class="t">от 7:00 в делник</span><h3>Закуска и кафе</h3><p>Отваряме рано: кафе и закуска преди работа, на път за града.</p></li>
+    <li><span class="t">всеки ден</span><h3>Обяд и вечеря</h3><p>Българска и европейска кухня, паста, скара и много безмесни ястия.</p></li>
+    <li><span class="t">за големи компании</span><h3>Празници и банкети</h3><p>Просторна зала и градина. Подреждаме масите и украсата за вашия повод.</p></li>
+  </ul>
+</section>
+
+<section class="block fav-sec">
+  <div class="wrap">
+    <p class="eyebrow">какво поръчват гостите</p>
+    <h2>Любими на гостите</h2>
+    <p class="sub">Ястието се вижда, преди да го поръчате. Една снимка продава повече от три реда описание.</p>
+    <ul class="favs">
+      <li><img src="../../static/img/mladost-shnitsel.webp" alt="Виенски шницел с пармезан, лимон и картофи от сладък картоф" width="720" height="720" loading="lazy"><div><h3>Виенски шницел</h3><span class="p">11,90 €</span><small>с картофи от сладък картоф</small></div></li>
+      <li><img src="../../static/img/mladost-skara.webp" alt="Плато скара: кебапче, кюфте, наденица, пилешко и лютеница" width="720" height="720" loading="lazy"><div><h3>Плато скара</h3><span class="p">19,90 €</span><small>за двама · с лютеница</small></div></li>
+      <li><img src="../../static/img/mladost-patladzhan.webp" alt="Печен патладжан с домати, маслини и босилек" width="720" height="720" loading="lazy"><div><h3>Печен патладжан с домати</h3><span class="p">7,50 €</span><small>безмесно</small></div></li>
+      <li><img src="../../static/img/mladost-haloumi.webp" alt="Салата с рукола, диня и халуми на скара" width="720" height="720" loading="lazy"><div><h3>Салата с халуми и диня</h3><span class="p">8,50 €</span><small>рукола, халуми на скара</small></div></li>
+      <li><img src="../../static/img/mladost-pitsa.webp" alt="Пица с прошуто, чери домати и рукола" width="720" height="720" loading="lazy"><div><h3>Пица с прошуто и рукола</h3><span class="p">10,50 €</span><small>чери домати</small></div></li>
+      <li><img src="../../static/img/mladost-oriz.webp" alt="Ориз с печени зеленчуци: чушки, тиква и домати" width="720" height="720" loading="lazy"><div><h3>Ориз с печени зеленчуци</h3><span class="p">6,90 €</span><small>безмесно</small></div></li>
+    </ul>
+    <p class="credit">Снимките са на ваши гости, от картата на ресторанта в Google. Цените са примерни.</p>
+  </div>
+</section>
+
+<section class="block wrap" id="menu">
+  <p class="eyebrow">меню, от телефона</p>
+  <h2>Меню</h2>
+  <p class="sub">Цените са в евро. Отваря се за секунда, без PDF и без снимки на листа.</p>
+  <div class="sheet">
+    <div class="tabs" role="tablist" aria-label="Раздели на менюто" id="tabs"></div>
+    <ul class="dishes" id="dishes" role="tabpanel"></ul>
+  </div>
+  <p class="note"><b>Примерно меню.</b> Ястията са тези, които гостите снимат и хвалят в отзивите в Google. Цените са примерни: слагаме вашето меню, вашите цени и банкетните ви менюта за 15 минути, когато ни ги пратите.</p>
+</section>
+
+<section class="block wrap" id="praznik" style="padding-top:0">
+  <p class="eyebrow">маса или празник</p>
+  <h2>Запитване за 30 секунди</h2>
+  <p class="sub">Изберете повод, дата и колко души ще бъдете. Ние се обаждаме с предложение за меню.</p>
+  <form class="book" onsubmit="return false">
+    <div>
+      <p class="label" id="l-why">Повод</p>
+      <div class="chips" id="why" role="group" aria-labelledby="l-why"></div>
+      <div class="field">
+        <div><p class="label"><label for="date">Дата</label></p><input type="date" id="date"></div>
+        <div><p class="label" id="l-ppl">Колко души</p>
+          <div class="step" role="group" aria-labelledby="l-ppl"><button type="button" id="minus" aria-label="По-малко">−</button><output id="ppl" aria-live="polite">20</output><button type="button" id="plus" aria-label="Повече">+</button></div></div>
+      </div>
+      <p class="label" id="l-zone">Къде</p>
+      <div class="chips" id="zone" role="group" aria-labelledby="l-zone" style="margin:0"><button type="button" aria-pressed="true">В залата</button><button type="button" aria-pressed="false">В градината</button><button type="button" aria-pressed="false">Все едно</button></div>
+    </div>
+    <div class="ticket" aria-live="polite">
+      <p class="label">Вашето запитване</p>
+      <b id="t-what">Рожден ден</b>
+      <p id="t-when">Изберете дата</p>
+      <a class="btn" id="sms" href="#">Изпратете със SMS</a>
+      <a class="btn alt" href="tel:+359884199946">Обадете се</a>
+      <small>Обаждаме се до един работен ден с предложение за меню и цена на човек.</small>
+    </div>
+  </form>
+</section>
+
+<section class="block wrap guests" style="padding-top:0">
+  <figure><img src="../../static/img/mladost-masa.webp" alt="Маса в Младост: салата с чушки, узо и салфетка с логото на ресторанта" width="900" height="1125" loading="lazy"></figure>
+  <div>
+    <h2>Какво казват гостите</h2>
+    <p class="score"><b>4,5</b><span>от 5 в Google · 631 отзива</span></p>
+    <blockquote><p>„Салонът просторен с маси за големи компании! Обслужването бързо и адекватно! Храната много вкусна и без никакво забавяне!“</p><cite>Stanimira Velikova · отзив в Google</cite></blockquote>
+    <blockquote><p>„Гризините и талиатели „Болонезе“ са ТОП! По-вкусна паста в Бургас не съм ял.“</p><cite>Любо Джонев · отзив в Google</cite></blockquote>
+    <blockquote><p>„Опитах почти всичките им безмесни предложения и всичко беше много вкусно, а опции не малко!“</p><cite>Яна Николаева · отзив в Google</cite></blockquote>
+    <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81%20%D0%9C%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&query_place_id=ChIJ4WnnkpCUpkARYuB1aPUtIYY">Всички отзиви в Google</a>
+  </div>
+</section>
+
+<section class="block wrap contact" id="kontakt" style="padding-top:0">
+  <div>
+    <h2>Елате</h2>
+    <p class="addr">бул. „Стефан Стамболов“ 53, Бургас<br><span>ж.к. Братя Миладинови</span></p>
+    <div class="cta">
+      <a class="btn" href="tel:+359884199946">Обадете се</a>
+      <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81%20%D0%9C%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82%20%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81&destination_place_id=ChIJ4WnnkpCUpkARYuB1aPUtIYY">Маршрут</a>
+    </div>
+  </div>
+  <table class="hours">
+    <tr><td>Понеделник – петък</td><td>7:00 – 0:00</td></tr>
+    <tr><td>Събота</td><td>8:00 – 23:00</td></tr>
+    <tr><td>Неделя</td><td>9:00 – 23:00</td></tr>
+    <tr><td>Телефон</td><td>088 419 9946</td></tr>
+  </table>
+</section>
+
+<section class="block offer-sec" id="otto">
+  <div class="wrap">
+    <p class="eyebrow">за собственика на Комплекс „Младост“</p>
+    <h2>Това е демо. Направих го за вас.</h2>
+    <div class="offer">
+      <div>
+        <p>Казвам се Кирил, от Otto.web съм. Обадихме ви се и казахте да звъннем пак. Вместо да ви занимавам по телефона, направих страницата, за да видите сами как може да изглежда сайтът на ресторанта: празници и банкети, меню от телефона, работно време и маршрут.</p>
+        <p>Хората търсят „зала за рожден ден Бургас“ в Google. Сайт със залата, снимки от празници и бутон за запитване им дава повод да се обадят на вас. Снимките тук са на ваши гости, ястията са тези, които хвалят в отзивите. Цените са примерни.</p>
+        <p><b>Работим през фирма:</b> „СМАРТ ЧАЙЛД“ ЕООД, с договор и плащане по фактура. Плащате, след като приемете сайта.</p>
+        <p>Мога да мина през ресторанта тези дни заедно с майка ми, която подписва от името на фирмата, и с готовия договор.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+359876752600">Обадете ми се: 0876 752 600</a>
+          <a class="btn ghost" href="viber://chat?number=%2B359876752600">Viber</a>
+        </div>
+      </div>
+      <div class="price-card">
+        <p class="label">Цена за такъв сайт</p>
+        <p class="price"><b>79 €</b></p>
+        <p>Еднократно. Без месечна такса, хостингът е безплатен.</p>
+        <ul class="incl">
+          <li>Една страница: празници, меню с цени, работно време</li>
+          <li>Запитване за празник по SMS, Viber или телефон</li>
+          <li>Google карта и маршрут</li>
+          <li>Изглежда добре на телефон, HTTPS</li>
+          <li>2 кръга корекции</li>
+          <li>Готов за 3–4 дни</li>
+        </ul>
+        <p class="more">Отделна страница за залата с галерия от празници, банкетни менюта и настройка на Google Business профил: пакет „Бизнес“, 149 €.</p>
+      </div>
+    </div>
+    <p class="fine">Демо страница на Otto.web. Не е официалният сайт на Комплекс „Младост“ и не се показва в Google. Без бисквитки и без реклами. Домейнът не е включен в цената: плаща се отделно и е на ваше име. Фирмата не е регистрирана по ДДС, цените са крайни. Ако не искате тази страница да съществува, обадете ми се и я изтривам.</p>
+  </div>
+</section>
+</main>
+
+<footer><span>Примерен сайт за Комплекс „Младост“, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="#praznik">Празник</a><a href="#menu">Меню</a><a href="tel:+359884199946">Обадете се</a></div>
+
+<script>
+var PHONE="359884199946", NAME="Комплекс „Младост“";
+// работно време по картата в Google (21.10.2026): 0=неделя; 24 = полунощ
+var HOURS=[[9,23],[7,24],[7,24],[7,24],[7,24],[7,24],[8,23]];
+// примерно меню: ястията от снимките и отзивите на гостите, всички цени примерни — уточнить у владельца
+var MENU=[
+ ["Основни",[["Виенски шницел","С картофи от сладък картоф, пармезан, лимоново масло","",11.9,"любимо"],["Плато скара","Кебапчета, кюфтета, наденица, пилешко, лютеница · за двама","",19.9],["Пилешко филе в сос","С печени зеленчуци и картофено пюре","",9.9]]],
+ ["Паста и пица",[["Талиатели „Болонезе“","Гостите ги хвалят в отзивите","",8.9,"любимо"],["Пица с прошуто и рукола","Чери домати, моцарела","",10.5]]],
+ ["Безмесни",[["Печен патладжан с домати","Маслини, босилек","",7.5],["Ориз с печени зеленчуци","Чушки, тиква, домати","",6.9]]],
+ ["Салати",[["Салата с халуми и диня","Рукола, халуми на скара","",8.5],["Шопска салата","Домати, краставици, чушки, сирене","",5.9]]],
+ ["Към масата",[["Гризини","Домашни","",2.5],["Сладки картофи","С чеснов сос","",4.5]]]
+];
+var WHY=["Рожден ден","Кръщене","Фирмена вечеря","Абитуриентски","Помен","Просто маса"];
+var now=new Date(), why=0, ppl=20, zone="в залата";
+var dateEl=document.getElementById("date");
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+dateEl.min=iso(now);
+var whyEl=document.getElementById("why");
+WHY.forEach(function(w,i){var b=document.createElement("button");b.type="button";b.textContent=w;b.setAttribute("aria-pressed",String(i===why));
+  b.addEventListener("click",function(){why=i;whyEl.querySelectorAll("button").forEach(function(x,k){x.setAttribute("aria-pressed",String(k===i))});if(i===5&&ppl>8)ppl=4;if(i!==5&&ppl<10)ppl=20;render()});whyEl.appendChild(b)});
+function dateText(){if(!dateEl.value)return "";var d=new Date(dateEl.value+"T12:00");return d.toLocaleDateString("bg-BG",{weekday:"long",day:"numeric",month:"long"})}
+function render(){
+  document.getElementById("ppl").textContent=ppl;
+  document.getElementById("t-what").textContent=WHY[why]+" · "+ppl+(ppl===1?" човек":" души");
+  document.getElementById("t-when").textContent=dateEl.value?(dateText()+" · "+zone):"Изберете дата";
+  var msg="Здравейте! Запитване към "+NAME+": "+WHY[why].toLowerCase()+", "+dateText()+", около "+ppl+" души, "+zone+". Моля, обадете ми се с предложение за меню.";
+  document.getElementById("sms").href=dateEl.value?"sms:+"+PHONE+"?&body="+encodeURIComponent(msg):"#";
+}
+dateEl.addEventListener("change",render);
+document.getElementById("minus").addEventListener("click",function(){if(ppl>1){ppl-=ppl>10?5:1;render()}});
+document.getElementById("plus").addEventListener("click",function(){if(ppl<150){ppl+=ppl>=10?5:1;render()}});
+document.querySelectorAll("#zone button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll("#zone button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+    b.setAttribute("aria-pressed","true");zone=b.textContent.toLowerCase();render();
+  });
+});
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+document.getElementById("sms").addEventListener("click",function(e){if(!dateEl.value){e.preventDefault();toast("Първо изберете дата.");dateEl.focus()}});
+var tabsEl=document.getElementById("tabs"), dishesEl=document.getElementById("dishes"), cur=0;
+function showMenu(i,focus){
+  cur=i;
+  tabsEl.querySelectorAll("button").forEach(function(b,k){b.setAttribute("aria-selected",String(k===i));b.tabIndex=k===i?0:-1;if(k===i&&focus)b.focus()});
+  dishesEl.innerHTML=MENU[i][1].map(function(d){
+    return "<li><h3>"+d[0]+(d[4]?'<span class="tag">'+d[4]+"</span>":"")+'</h3><span class="p">'+d[3].toFixed(2).replace(".",",")+" €</span><p>"+d[1]+"</p></li>";
+  }).join("");
+}
+MENU.forEach(function(m,i){
+  var b=document.createElement("button");b.type="button";b.setAttribute("role","tab");b.textContent=m[0];
+  b.addEventListener("click",function(){showMenu(i)});
+  b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();showMenu((cur+(e.key==="ArrowRight"?1:MENU.length-1))%MENU.length,true)}});
+  tabsEl.appendChild(b);
+});
+var t=HOURS[now.getDay()], h=now.getHours()+now.getMinutes()/60, open=h>=t[0]&&h<t[1];
+var nx=HOURS[(now.getDay()+1)%7];
+document.getElementById("open-now").textContent=open?"Отворено сега · до "+(t[1]===24?"0:00":t[1]+":00"):(h<t[0]?"Отваряме днес в "+t[0]+":00":"Сега е затворено · отваряме утре в "+nx[0]+":00");
+document.getElementById("dot").className="dot"+(open?"":" off");
+showMenu(0); render();
+</script>
+</body>
+</html>

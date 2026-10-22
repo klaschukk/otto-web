@@ -1,0 +1,416 @@
+<!doctype html>
+<!-- otto:custom — ручное демо для реального заведения (Гранд Италия Лазур, ул. „Перущица“ 35), исходник в custom/grand-italia/ -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пицария Гранд Италия Лазур — меню и поръчка за вземане, Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- своя статистика без cookies: видно, открыл ли владелец ссылку -->
+<script defer src="/u/script.js" data-website-id="7cbd7223-82fa-453b-ad6f-81c2c0c89307"></script>
+<link rel="stylesheet" href="../../static/fonts/demo/berber-studio.css">
+<style>
+/* пицария: топла хартия на менюто, червено и зелено от знамето на табелата, тъмно дърво на масите */
+:root{--paper:#faf5ec;--paper-2:#f1e8d8;--card:#fffdf8;--ink:#221c18;--wood:#3a2a20;--muted:#6b6058;--line:#e2d6c2;--red:#c4322a;--red-d:#a32720;--green:#1d6b3e;--green-d:#155330;
+  --display:"Oswald","Arial Narrow",sans-serif;--body:"PT Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding-left:20px;padding-right:20px}
+.demo-bar{background:var(--wood);color:#f4ece0;font:400 13.5px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:700}
+.flag{height:4px;background:linear-gradient(90deg,var(--green) 0 33.3%,#fff 33.3% 66.6%,var(--red) 66.6%)}
+
+.top{display:flex;align-items:center;gap:26px;padding:12px 24px;max-width:1168px;margin:0 auto}
+.logo{display:inline-flex;flex-direction:column;text-decoration:none;line-height:1;color:var(--ink)}
+.logo b{font:700 25px/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.logo b i{font-style:normal;color:var(--red)}
+.logo span{font:700 11px/1 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--green);margin-top:5px;align-self:flex-end}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font:500 16px var(--display);letter-spacing:.06em;text-transform:uppercase}
+.top nav a:hover{color:var(--red)}
+.top .tel{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none}
+
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;padding-top:28px;padding-bottom:72px}
+.kicker{font:700 13px var(--body);letter-spacing:.16em;text-transform:uppercase;margin:0 0 16px;color:var(--green)}
+h1{font:700 clamp(2.5rem,5.6vw,4.4rem)/1.02 var(--display);text-transform:uppercase;margin:0 0 18px;text-wrap:balance}
+h1 em{display:block;font:400 .42em/1.35 var(--body);text-transform:none;font-style:normal;color:var(--muted);margin-top:16px}
+.lead{font-size:1.14rem;max-width:42ch;margin:0 0 28px;color:#463c35}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:8px;font:500 17px var(--display);letter-spacing:.05em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;border:2px solid var(--red);background:var(--red);color:#fff;transition:transform .18s,background .18s}
+.btn:hover{transform:translateY(-2px);background:var(--red-d);border-color:var(--red-d)}
+.btn.ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.now{display:flex;flex-wrap:wrap;gap:8px 22px;margin:28px 0 0;padding:0;list-style:none;font-size:15px;color:#463c35}
+.now li{display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:#2f9e5b}
+.dot.off{background:var(--red)}
+.hero figure{position:relative;margin:0}
+.hero figure img{width:100%;height:auto;aspect-ratio:7/5;object-fit:cover;border-radius:14px;box-shadow:0 22px 50px rgba(58,42,32,.22)}
+.stamp{position:absolute;left:-18px;bottom:26px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px;box-shadow:0 14px 34px rgba(58,42,32,.18);display:flex;align-items:center;gap:12px}
+.stamp b{font:700 2.1rem/1 var(--display);color:var(--red)}
+.stamp span{font-size:13.5px;line-height:1.35;color:var(--muted)}
+
+section.block{padding-top:80px;padding-bottom:80px}
+h2{font:700 clamp(2rem,4.4vw,3rem)/1.05 var(--display);text-transform:uppercase;margin:0 0 12px;text-wrap:balance}
+.sub{color:var(--muted);max-width:56ch;margin:0 0 32px}
+.eyebrow{font:700 13px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px}
+
+.fav-sec{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.favs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.favs li{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.favs img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.favs div{padding:14px 16px 16px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:baseline}
+.favs h3{font:500 1.15rem/1.25 var(--display);text-transform:uppercase;letter-spacing:.02em;margin:0}
+.favs .p{font:700 1.15rem var(--display);color:var(--red);white-space:nowrap}
+.favs small{grid-column:1/-1;color:var(--muted);font-size:14px}
+.credit{font-size:14px;color:var(--muted);margin:18px 0 0}
+
+/* меню: лист със зелено-червен ръб, като корицата на тяхното меню */
+.sheet{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--green);border-radius:4px 4px 12px 12px;padding:26px 30px 30px;box-shadow:0 10px 30px rgba(58,42,32,.06)}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 18px;padding-bottom:4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:46px;padding:0 18px;border-radius:8px;border:1.5px solid var(--line);background:transparent;font:500 15px var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected=true]{background:var(--green);border-color:var(--green);color:#fff}
+.dishes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+.dishes li{display:grid;grid-template-columns:1fr auto auto;gap:2px 14px;align-items:center;padding:14px 0;border-bottom:1px dashed #cdbfa6}
+.dishes h3{font:700 1.04rem/1.3 var(--body);margin:0}
+.dishes .p{font:700 1.12rem var(--display);white-space:nowrap}
+.dishes p{grid-column:1/2;margin:0;color:var(--muted);font-size:14.5px;line-height:1.45}
+.dishes .g{grid-column:2/3;text-align:right;color:var(--muted);font-size:13.5px;align-self:start}
+.add{grid-row:1/3;grid-column:3;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--red);background:#fff;color:var(--red);font:700 22px/1 var(--body);cursor:pointer;display:grid;place-items:center}
+.add:hover{background:var(--red);color:#fff}
+.add.on{background:var(--red);color:#fff;font-size:15px}
+.tag{display:inline-block;font:700 11px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:2px}
+.note{font-size:14px;color:var(--muted);margin:24px 0 0;max-width:76ch}
+.note b{color:var(--ink)}
+
+/* поръчка */
+.order{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+.label{font:700 12.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.cart{list-style:none;margin:0 0 22px;padding:0}
+.cart li{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.cart .q{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:8px}
+.cart .q button{width:40px;height:40px;border:0;background:transparent;font:700 20px/1 var(--body);cursor:pointer;color:var(--ink)}
+.cart .q output{min-width:28px;text-align:center;font-weight:700}
+.cart .sum{font:700 1.05rem var(--display);min-width:70px;text-align:right}
+.empty{color:var(--muted);margin:0 0 22px;padding:18px;border:1.5px dashed var(--line);border-radius:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.chips button{min-height:46px;padding:0 16px;border-radius:8px;border:1.5px solid var(--line);background:#fff;font:700 15px var(--body);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.chips button:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.ticket{background:var(--wood);color:#fff;border-radius:12px;padding:22px;display:flex;flex-direction:column;align-self:start}
+.ticket .label{color:#cdbba6}
+.ticket b{display:block;font:700 2.2rem/1.1 var(--display);margin-bottom:4px}
+.ticket p{margin:0 0 18px;color:#eadfd1}
+.ticket .btn{width:100%;margin-top:8px}
+.ticket .btn.alt{background:transparent;border-color:#fff;color:#fff}
+.ticket small{display:block;margin-top:14px;color:#cdbba6;font-size:13px}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+.guests{display:grid;grid-template-columns:.75fr 1.25fr;gap:48px;align-items:center}
+.guests figure{margin:0;border-radius:14px;overflow:hidden}
+.guests figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.guests figcaption{font-size:13.5px;color:var(--muted);padding:8px 2px 0}
+.score{display:flex;align-items:baseline;gap:12px;margin:0 0 24px}
+.score b{font:700 3.4rem/1 var(--display);color:var(--red)}
+.score span{color:var(--muted)}
+blockquote{margin:0 0 22px;padding:0 0 0 18px;border-left:3px solid var(--green)}
+blockquote p{margin:0 0 6px;font-size:1.1rem}
+blockquote cite{font-style:normal;color:var(--muted);font-size:.92rem}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:11px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:700}
+.hours tr.today td{color:var(--red)}
+.addr{font-size:1.15rem;margin:0 0 20px}
+.addr span{color:var(--muted)}
+
+/* писмо до собственика: тъмно дърво, за да се вижда, че не е част от сайта на пицарията */
+.offer-sec{background:var(--wood);color:#f4ece0}
+.offer-sec h2{color:#fff}
+.offer-sec .eyebrow{color:#f2a99f}
+.offer{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;margin-top:24px}
+.offer p{margin:0 0 14px;max-width:58ch}
+.offer .cta{margin-top:24px}
+.offer-sec .btn.ghost{border-color:#f4ece0;color:#f4ece0}
+.offer-sec .btn.ghost:hover{background:#f4ece0;color:var(--wood)}
+.price-card{background:var(--card);color:var(--ink);border-radius:14px;padding:24px}
+.price{margin:0 0 6px}
+.price b{font:700 3.4rem/1 var(--display);color:var(--red)}
+.incl{margin:14px 0;padding:0;list-style:none}
+.incl li{padding:9px 0;border-top:1px solid var(--line);font-size:15.5px}
+.price-card .more{font-size:14.5px;color:#4d433c;margin:0}
+.fine{font-size:13.5px;color:#cdbba6;margin:28px 0 0;max-width:86ch}
+.offer-sec :focus-visible{outline-color:#fff}
+
+footer{border-top:1px solid var(--line);padding:24px 20px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.92rem}
+footer a{display:inline-block;padding:10px 0}
+.callbar{display:none}
+.callbar .n{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:11px;background:#fff;color:var(--red);font-size:13px;margin-left:6px;padding:0 6px}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+@media (max-width:860px){
+  .top{padding:10px 16px}.top nav{display:none}.top .tel{margin-left:auto}
+  .hero{grid-template-columns:1fr;gap:26px;padding-top:8px;padding-bottom:52px}
+  .hero figure{order:-1}
+  .hero figure img{aspect-ratio:4/3}
+  .stamp{left:12px;bottom:-18px;padding:10px 14px}
+  .hero>div{padding-top:14px}
+  section.block{padding-top:56px;padding-bottom:56px}
+  .favs{grid-template-columns:repeat(6,72%);overflow-x:auto;gap:14px;margin:0 -20px;padding:0 20px 6px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .favs::-webkit-scrollbar{display:none}
+  .favs li{scroll-snap-align:center}
+  .sheet{padding:18px 14px 20px}
+  .dishes{grid-template-columns:1fr}
+  .order{grid-template-columns:1fr;padding:20px 16px;gap:24px}
+  .guests{grid-template-columns:1fr;gap:28px}
+  .guests figure img{aspect-ratio:4/3}
+  .contact{grid-template-columns:1fr;gap:28px}
+  .offer{grid-template-columns:1fr;gap:28px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--card);border-top:1px solid var(--line)}
+  .callbar a{flex:1;display:flex;align-items:center;justify-content:center;padding:17px 4px;font-weight:700;text-decoration:none}
+  .callbar a:first-child{background:var(--red);color:#fff}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar">Примерен сайт за пицария Гранд Италия Лазур от <a href="../../">Otto.web</a>. Не е официалният сайт на заведението. <a href="#otto">Цена и условия</a></div>
+<div class="flag" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Гранд Италия Лазур, начало"><b>Grand<i>’</i>Italia</b><span>Lazur</span></a>
+  <nav aria-label="Навигация"><a href="#menu">Меню</a><a href="#porachka">Поръчка</a><a href="#kontakt">Контакт</a></nav>
+  <a class="tel" href="tel:+359876533414">087 653 3414</a>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div>
+    <p class="kicker">Пицария · ж.к. Лазур · Бургас</p>
+    <h1>Пица на тънко тесто, направо от пещта <em>ул. „Перущица“ 35. Вторник – събота 11:00–22:00, неделя до 16:00.</em></h1>
+    <p class="lead">Цялото меню е на телефона. Изберете пиците и поръчката за вземане е готова за изпращане.</p>
+    <div class="cta">
+      <a class="btn" href="#menu">Вижте менюто</a>
+      <a class="btn ghost" href="#porachka">Поръчка за вземане</a>
+    </div>
+    <ul class="now"><li><span class="dot" id="dot"></span><span id="open-now">Вторник – събота 11:00–22:00</span></li><li>Маси за големи компании</li></ul>
+  </div>
+  <figure>
+    <img src="../../static/img/grand-italia-hero.webp" alt="Пица с шунка и черни маслини на дървена маса в Гранд Италия" width="1100" height="786" fetchpriority="high">
+    <figcaption class="stamp"><b>4,6</b><span>от 5 в Google<br>1 086 отзива</span></figcaption>
+  </figure>
+</section>
+
+<section class="block fav-sec">
+  <div class="wrap">
+    <p class="eyebrow">какво поръчват гостите</p>
+    <h2>Любими на гостите</h2>
+    <p class="sub">Пицата се вижда, преди да я поръчате. Снимката продава повече от три реда съставки.</p>
+    <ul class="favs" id="favs"></ul>
+    <p class="credit">Снимките са на ваши гости, от картата на пицарията в Google. Коя пица е на снимката, познаваме по съставките.</p>
+  </div>
+</section>
+
+<section class="block wrap" id="menu">
+  <p class="eyebrow">цялото меню, от телефона</p>
+  <h2>Меню</h2>
+  <p class="sub">Цените са в евро. Натиснете „+“ до ястието и то отива в поръчката за вземане.</p>
+  <div class="sheet">
+    <div class="tabs" role="tablist" aria-label="Раздели на менюто" id="tabs"></div>
+    <ul class="dishes" id="dishes" role="tabpanel"></ul>
+  </div>
+  <p class="note"><b>Менюто е вашето.</b> Ястията, съставките и грамажите са от снимки на менюто ви в Google. Там цените са в лева, тук са преизчислени в евро по курса 1,95583. Ако сте ги променили, слагаме новите за 15 минути.</p>
+</section>
+
+<section class="block wrap" id="porachka" style="padding-top:0">
+  <p class="eyebrow">без чакане на телефона</p>
+  <h2>Поръчка за вземане</h2>
+  <p class="sub">Изберете от менюто и кога ще минете. Съобщението се пише само, остава да го изпратите.</p>
+  <div class="order">
+    <div>
+      <p class="label">Вашата поръчка</p>
+      <ul class="cart" id="cart"></ul>
+      <p class="empty" id="empty">Още нищо не сте избрали. Натиснете „+“ до пица в менюто.</p>
+      <p class="label" id="l-when">Кога ще минете</p>
+      <div class="chips" id="when" role="group" aria-labelledby="l-when"></div>
+    </div>
+    <div class="ticket" aria-live="polite">
+      <p class="label">Общо</p>
+      <b id="total">0,00 €</b>
+      <p id="t-what">Изберете ястия от менюто</p>
+      <a class="btn" id="sms" href="#">Изпратете със SMS</a>
+      <a class="btn alt" href="tel:+359876533414">Обадете се</a>
+      <small>Потвърждаваме с обаждане. В истинския сайт поръчката може да идва във Viber, както ви е удобно.</small>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap guests" style="padding-top:0">
+  <figure><img src="../../static/img/grand-italia-peshta.webp" alt="Пещта за пица в Гранд Италия, вътре се пече пица" width="630" height="788" loading="lazy"><figcaption>Пещта, в която се пекат пиците. Снимка на гост от Google.</figcaption></figure>
+  <div>
+    <h2>Какво казват гостите</h2>
+    <p class="score"><b>4,6</b><span>от 5 в Google · 1 086 отзива</span></p>
+    <blockquote><p>„Пиците са изключително вкусни! Тънко тесто, невероятна плънка […] Да не пропусна и чудесните цени!“</p><cite>Stoyan Dimitrov · отзив в Google</cite></blockquote>
+    <blockquote><p>„Ароматната питка с чесън и кашкавал беше перфектното начало на вечерта ни.“</p><cite>Стефани Славчева · отзив в Google</cite></blockquote>
+    <blockquote><p>„Порциите са доста големи, а цените напълно приемливи.“</p><cite>Stefcho434 · отзив в Google</cite></blockquote>
+    <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=%D0%93%D1%80%D0%B0%D0%BD%D0%B4%20%D0%98%D1%82%D0%B0%D0%BB%D0%B8%D1%8F%20%D0%9B%D0%B0%D0%B7%D1%83%D1%80&query_place_id=ChIJf3VagY-UpkARiPtEm1Xv7Bw">Всички отзиви в Google</a>
+  </div>
+</section>
+
+<section class="block wrap contact" id="kontakt" style="padding-top:0">
+  <div>
+    <h2>Елате</h2>
+    <p class="addr">ж.к. Лазур, ул. „Перущица“ 35, Бургас<br><span>на ъгъла, с голяма табела GRAND’ITALIA</span></p>
+    <div class="cta">
+      <a class="btn" href="tel:+359876533414">Обадете се</a>
+      <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=%D0%93%D1%80%D0%B0%D0%BD%D0%B4%20%D0%98%D1%82%D0%B0%D0%BB%D0%B8%D1%8F%20%D0%9B%D0%B0%D0%B7%D1%83%D1%80&destination_place_id=ChIJf3VagY-UpkARiPtEm1Xv7Bw">Маршрут</a>
+    </div>
+  </div>
+  <table class="hours" id="hours"></table>
+</section>
+
+<section class="block offer-sec" id="otto">
+  <div class="wrap">
+    <p class="eyebrow">за собственика на Гранд Италия</p>
+    <h2>Това е демо. Направих го за вас.</h2>
+    <div class="offer">
+      <div>
+        <p>Казвам се Кирил, от Otto.web съм. Обадихме ви се и казахте да звъннем пак. Вместо да ви занимавам по телефона, направих страницата, за да видите сами как може да изглежда сайтът на пицарията: цялото меню от телефона, поръчка за вземане, работно време и маршрут.</p>
+        <p>Менюто е от снимките на вашето меню в Google, снимките на пиците са на ваши гости. Ако приемате поръчки през платформа за доставка, оттук поръчката идва направо при вас, без комисиона.</p>
+        <p><b>Работим през фирма:</b> „СМАРТ ЧАЙЛД“ ЕООД, с договор и плащане по фактура. Плащате, след като приемете сайта.</p>
+        <p>Мога да мина през пицарията тези дни заедно с майка ми, която подписва от името на фирмата, и с готовия договор.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+359876752600">Обадете ми се: 0876 752 600</a>
+          <a class="btn ghost" href="viber://chat?number=%2B359876752600">Viber</a>
+        </div>
+      </div>
+      <div class="price-card">
+        <p class="label">Цена за такъв сайт</p>
+        <p class="price"><b>79 €</b></p>
+        <p>Еднократно. Без месечна такса, хостингът е безплатен.</p>
+        <ul class="incl">
+          <li>Една страница: цялото меню с цени, поръчка, работно време</li>
+          <li>Бутони за обаждане, Viber и SMS</li>
+          <li>Google карта и маршрут</li>
+          <li>Изглежда добре на телефон, HTTPS</li>
+          <li>2 кръга корекции</li>
+          <li>Готов за 3–4 дни</li>
+        </ul>
+        <p class="more">Искате няколко страници, галерия и настройка на Google Business профил? Пакет „Бизнес“: 149 €.</p>
+      </div>
+    </div>
+    <p class="fine">Демо страница на Otto.web. Не е официалният сайт на Гранд Италия Лазур и не се показва в Google. Без бисквитки и без реклами. Домейнът не е включен в цената: плаща се отделно и е на ваше име. Фирмата не е регистрирана по ДДС, цените са крайни. Ако не искате тази страница да съществува, обадете ми се и я изтривам.</p>
+  </div>
+</section>
+</main>
+
+<footer><span>Примерен сайт за пицария Гранд Италия Лазур, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="#porachka">Поръчка<span class="n" id="cb-n" hidden>0</span></a><a href="#menu">Меню</a><a href="tel:+359876533414">Обадете се</a></div>
+
+<script>
+var PHONE="359876533414", NAME="Гранд Италия";
+// работно време по картата в Google (21.10.2026): 0=неделя
+var HOURS=[[11,16],null,[11,22],[11,22],[11,22],[11,22],[11,22]];
+var DAYN=["Неделя","Понеделник","Вторник","Сряда","Четвъртък","Петък","Събота"];
+// меню: названия, състав, грамажи и цени в лева от снимки на менюто им в Google; в евро по курсу 1,95583 (цены могли измениться — уточнить у владельца)
+var LV=1.95583;
+var MENU=[
+ ["Класическа пица",[["Маргарита","Доматен сос, моцарела, зехтин, риган","460 г",8.9],["Прошуто","Доматен сос, моцарела, шунка, зехтин, риган","550 г",11.2],["Вегетариана","Доматен сос, моцарела, царевица, пресен пипер, маслини, лук, топено сирене","600 г",11.5],["Туна","Доматен сос, моцарела, маслини, кисели краставички, лук, риба тон","600 г",12.5],["Лео","Доматен сос, моцарела, салам, пресен домат, зехтин, риган","550 г",12],["Капричоза","Доматен сос, моцарела, шунка, гъби, маслини, зехтин, риган","600 г",12.9],["Прошуто фунги","Доматен сос, моцарела, шунка, гъби, зехтин, риган","600 г",12.7],["Калцоне","Затворена пица: доматен сос, моцарела, шунка, гъби","600 г",12.7],["Рустика","Доматен сос, моцарела, луканка, кисели краставички, маслини","600 г",14.3],["Прошуто крудо с домат и пармезан","Доматен сос, моцарела, прошуто крудо, пресен домат, пармезан","600 г",15.1],["Поло","Доматен сос, моцарела, пилешка шунка, кисели краставички, топено сирене","650 г",13.5],["Гранд Италия","Доматен сос, моцарела, гъби, шунка, салам петрохан, маслини","610 г",15,"на заведението"]]],
+ ["Бяла пица",[["Бианка","Моцарела, сметана, пилешка шунка, топено сирене, бяло сирене","600 г",11.8],["Лукс","Моцарела, сметана, луканка, чедър","600 г",13.1],["Куатро формаджи","Моцарела, сметана, синьо сирене, чедър","550 г",12.8],["Буджарда","Моцарела, сметана, гъби, пилешка шунка, бекон, топено сирене","810 г",14.2],["Чоризо и бекон","Моцарела, сметана, чоризо, бекон, чедър","650 г",11.8],["Хавай","Моцарела, сметана, шунка, ананас","600 г",10.6]]],
+ ["Пикантна пица",[["Вентричина","Доматен сос, моцарела, пикантен салам „Вентричина“","600 г",12.3],["Пеперони и бекон","Доматен сос, моцарела, салам, бекон, пресен пипер, сладък чили сос","600 г",12.8],["Чоризо","Доматен сос, моцарела, чоризо, пресен пипер, маслини","600 г",11.8],["Калцоне пиканте","Доматен сос, моцарела, гъби, шпеков салам, петрохан, чушки халапеньо","700 г",13.2],["Дявола","Доматен сос, моцарела, шпеков салам, петрохан, сухо чили","600 г",12.9]]],
+ ["Фокачи",[["Фокача с чесън и масло","","250 г",3.6,"гостите я хвалят"],["Фокача с кашкавал и сирене","","350 г",4.5],["Класическа фокача с билки","","230 г",3.3],["Неаполитанска фокача, пикантна","","350 г",4.3]]],
+ ["Паста",[["Спагети „Болонезе“","Доматен сос, кайма, лук, моркови, пармезан","400 г",8.9],["Спагети „Арабиата“","Домати, маслини, каперси, магданоз","400 г",8.6],["Спагети с пиле","Пилешко филе, сметана, сос песто, чери домат, пармезан","350 г",11.2],["Спагети с аспержи и тиквички","Синьо сирене, сметана, пармезан","350 г",11.5],["Спагети със спанак и бекон","Сметана, синьо сирене, пармезан","350 г",12.6],["Веган паста","Доматен сос, гъби, маслини, тиквички, царевица, магданоз","400 г",13],["Спагети „Горгонзола“","Прясна паста от спанак, сметана, синьо сирене, пармезан","350 г",10.5],["Спагети с аспержи и риба тон","Прясна паста от спанак, сметана, сушен домат, каперси","350 г",13.4],["Талиатели с калмари и миди","Черна паста от мастило на сепия, сметана, чесън, домат","350 г",13.5],["Талиатели с аспержи и скариди","Черна паста, белени скариди, сметана, пармезан, сушен домат","350 г",14.2]]],
+ ["Салати",[["Селска салата","Домати, краставици, лук, пипер, сирене","400 г",9.5],["Капрезе","Домати, моцарела, сос песто","350 г",11.9],["Цезар с пиле","Зелени салати, краставици, чери домат, сос Цезар, панирано пиле, пармезан","400 г",13],["Цезар с бекон","Зелени салати, краставици, чери домат, сос Цезар, бекон, пармезан","400 г",12.5],["Цезар със сирена","Зелени салати, чери домат, краставици, червен лук, синьо сирене, пармезан","350 г",11.9],["Зелена салата с риба тон","Зелени салати, риба тон, краставици, царевица, маслини, лук, каперси","350 г",12.7],["Панцанела","Домати, краставици, маслини, каперси, червен лук, препечен хляб","350 г",9]]],
+ ["Предястия",[["Пържени картофи","","200 г",4.5],["Пържени картофи със сирене","","250 г",5.5],["Пилешки късчета с корнфлейкс","С чеснов сос","200 г",10.8],["Хрупкави пилешки филенца","Със сос барбекю, леко пикантни","200 г",10.8],["Панирани кашкавалчета","","200 г",9.8],["Панирани сиренца","Със сладко от боровинки","250 г",10.5],["Спаначени кюфтенца","С чеснов сос","200 г",9.1],["Пикантни тихоокеански пипала","","200 г",14.6],["Телешки език в масло","","150 г",10.6],["Задушено телешко шкембе","","200 г",10.5]]]
+];
+// любими: снимки на гости, пица по съставките
+var FAVS=[["vegetariana","Вегетариана","царевица, пипер, маслини, лук",0,2],["grand","Гранд Италия","шунка, петрохан, маслини, гъби",0,11],["krudo","Прошуто крудо с домат","пресен домат и пармезан",0,9],["kaprichoza","Капричоза","шунка, гъби, маслини",0,5],["peperoni","Пеперони и бекон","салам, бекон, пресен пипер",2,1],["fokacha","Фокача с чесън и масло","гостите я хвалят",3,0]];
+function eur(lv){return (lv/LV).toFixed(2).replace(".",",")+" €"}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+var cart={}; // ключ "раздел-ястие" -> брой
+function item(k){var p=k.split("-");return MENU[+p[0]][1][+p[1]]}
+function count(){var n=0;for(var k in cart)n+=cart[k];return n}
+function total(){var t=0;for(var k in cart)t+=cart[k]*item(k)[3]/LV;return t}
+document.getElementById("favs").innerHTML=FAVS.map(function(f){
+  var d=MENU[f[3]][1][f[4]];
+  return '<li><img src="../../static/img/grand-italia-'+f[0]+'.webp" alt="'+esc(f[1])+', снимка на гост" width="720" height="720" loading="lazy"><div><h3>'+esc(f[1])+'</h3><span class="p">'+eur(d[3])+'</span><small>'+esc(f[2])+(d[2]?" · "+d[2]:"")+'</small></div></li>';
+}).join("");
+var tabsEl=document.getElementById("tabs"), dishesEl=document.getElementById("dishes"), cur=0;
+function showMenu(i,focus){
+  cur=i;
+  tabsEl.querySelectorAll("button").forEach(function(b,k){b.setAttribute("aria-selected",String(k===i));b.tabIndex=k===i?0:-1;if(k===i&&focus)b.focus()});
+  dishesEl.innerHTML=MENU[i][1].map(function(d,j){
+    var k=i+"-"+j, n=cart[k]||0;
+    return "<li><h3>"+esc(d[0])+(d[4]?'<span class="tag">'+d[4]+"</span>":"")+'</h3><span class="p">'+eur(d[3])+'</span><button type="button" class="add'+(n?" on":"")+'" data-k="'+k+'" aria-label="Добавете '+esc(d[0])+' към поръчката">'+(n?"×"+n:"+")+"</button>"+(d[1]?"<p>"+esc(d[1])+"</p>":"<p></p>")+'<span class="g">'+d[2]+"</span></li>";
+  }).join("");
+}
+MENU.forEach(function(m,i){
+  var b=document.createElement("button");b.type="button";b.setAttribute("role","tab");b.textContent=m[0];
+  b.addEventListener("click",function(){showMenu(i)});
+  b.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();showMenu((cur+(e.key==="ArrowRight"?1:MENU.length-1))%MENU.length,true)}});
+  tabsEl.appendChild(b);
+});
+dishesEl.addEventListener("click",function(e){
+  var b=e.target.closest(".add"); if(!b) return;
+  var k=b.getAttribute("data-k"); cart[k]=(cart[k]||0)+1; showMenu(cur); renderCart();
+  toast(item(k)[0]+" е в поръчката");
+});
+// кога: днес/утре, на всеки 30 минути в работното време
+var now=new Date(), pick=null;
+function pad(n){return String(n).padStart(2,"0")}
+function slots(){
+  var out=[], d0=now.getDay(), mins=now.getHours()*60+now.getMinutes();
+  for(var off=0;off<3&&out.length<8;off++){
+    var h=HOURS[(d0+off)%7]; if(!h) continue;
+    for(var m=h[0]*60+30;m<=h[1]*60-30&&out.length<8;m+=30){ if(off===0&&m<mins+30) continue; out.push([off,pad(m/60|0)+":"+pad(m%60)]); }
+  }
+  return out;
+}
+function dlab(o){return o===0?"днес":o===1?"утре":DAYN[(now.getDay()+o)%7].toLowerCase()}
+function renderWhen(){
+  var el=document.getElementById("when"), s=slots(); el.innerHTML="";
+  if(!pick&&s.length) pick=s[0];
+  s.forEach(function(x){
+    var b=document.createElement("button");b.type="button";b.textContent=dlab(x[0])+" "+x[1];
+    b.setAttribute("aria-pressed",String(pick&&pick[0]===x[0]&&pick[1]===x[1]));
+    b.addEventListener("click",function(){pick=x;renderWhen();renderCart()});
+    el.appendChild(b);
+  });
+}
+function renderCart(){
+  var ul=document.getElementById("cart"), n=count(); ul.innerHTML="";
+  document.getElementById("empty").hidden=n>0;
+  Object.keys(cart).forEach(function(k){
+    var d=item(k), li=document.createElement("li");
+    li.innerHTML="<span>"+esc(d[0])+'</span><span class="q"><button type="button" aria-label="По-малко">−</button><output>'+cart[k]+'</output><button type="button" aria-label="Повече">+</button></span><span class="sum">'+eur(d[3]*cart[k])+"</span>";
+    var bs=li.querySelectorAll("button");
+    bs[0].addEventListener("click",function(){cart[k]--; if(!cart[k]) delete cart[k]; renderCart(); showMenu(cur)});
+    bs[1].addEventListener("click",function(){cart[k]++; renderCart(); showMenu(cur)});
+    ul.appendChild(li);
+  });
+  document.getElementById("total").textContent=total().toFixed(2).replace(".",",")+" €";
+  document.getElementById("t-what").textContent=n?(n+(n===1?" ястие":" ястия")+(pick?" · вземане "+dlab(pick[0])+" "+pick[1]:"")):"Изберете ястия от менюто";
+  var cb=document.getElementById("cb-n"); cb.hidden=!n; cb.textContent=n;
+  var lines=Object.keys(cart).map(function(k){return cart[k]+" x "+item(k)[0]}).join(", ");
+  var msg="Здравейте! Поръчка за вземане от "+NAME+": "+lines+". Ще мина "+(pick?dlab(pick[0])+" в "+pick[1]:"")+". Общо около "+total().toFixed(2).replace(".",",")+" евро.";
+  document.getElementById("sms").href=n?"sms:+"+PHONE+"?&body="+encodeURIComponent(msg):"#";
+}
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2200)}
+document.getElementById("sms").addEventListener("click",function(e){if(!count()){e.preventDefault();toast("Първо изберете ястие от менюто.")}});
+// работно време и „отворено ли е сега“
+var hrs=document.getElementById("hours"), order=[1,2,3,4,5,6,0], today=now.getDay();
+hrs.innerHTML=order.map(function(d){var h=HOURS[d];return '<tr'+(d===today?' class="today"':'')+'><td>'+DAYN[d]+(d===today?" (днес)":"")+"</td><td>"+(h?h[0]+":00 – "+h[1]+":00":"почивен ден")+"</td></tr>"}).join("")+'<tr><td>Телефон</td><td>087 653 3414</td></tr>';
+var th=HOURS[today], hh=now.getHours()+now.getMinutes()/60, open=th&&hh>=th[0]&&hh<th[1];
+function nextOpen(){for(var i=1;i<=7;i++){var d=(today+i)%7;if(HOURS[d])return (i===1?"утре":DAYN[d].toLowerCase())+" в "+HOURS[d][0]+":00"}}
+document.getElementById("open-now").textContent=open?"Отворено сега · до "+th[1]+":00":(th&&hh<th[0]?"Отваряме днес в "+th[0]+":00":"Сега е затворено · отваряме "+nextOpen());
+document.getElementById("dot").className="dot"+(open?"":" off");
+showMenu(0); renderWhen(); renderCart();
+</script>
+</body>
+</html>
