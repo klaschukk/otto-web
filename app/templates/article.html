@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block title %}{{ a.title }}{% endblock %}
+{% block description %}{{ a.description }}{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "Article", "headline": a.h1, "description": a.description,
+  "datePublished": a.date, "dateModified": a.date, "inLanguage": "bg", "mainEntityOfPage": cfg.BASE_URL ~ page_path,
+  "author": {"@type": "Organization", "name": "Otto.web", "url": cfg.BASE_URL ~ "/"},
+  "publisher": {"@type": "Organization", "name": "Otto.web", "url": cfg.BASE_URL ~ "/"},
+  "image": cfg.BASE_URL ~ "/static/og/og-bg.png"} | tojson }}</script>
+{% endblock %}
+{% block main %}
+<section class="ph ph-lp stage">
+  <div class="wrap">
+    <p class="eyebrow"><a class="tap" href="/polezno/" style="color:inherit">Полезно</a> · <time datetime="{{ a.date }}">{{ a.date[8:10] }}.{{ a.date[5:7] }}.{{ a.date[:4] }}</time></p>
+    <h1 class="h1">{{ a.h1|nb }}</h1>
+    <p class="lead">{{ a.lead }}</p>
+  </div>
+</section>
+<section class="sec paper">
+  <div class="wrap">
+    <article class="prose">{{ a.body|safe }}</article>
+    <p style="margin-top:32px"><a class="btn btn-ink" href="{{ a.cta_link }}">{{ a.cta }} {{ icon("arrow", 18) }}</a></p>
+  </div>
+</section>
+<section class="sec paper-2">
+  <div class="wrap">
+    <h2 class="h2">Още полезно</h2>
+    <div class="art-list">{% for o in others %}<a href="/polezno/{{ o.slug }}/"><b>{{ o.h1 }}</b><span>{{ o.lead }}</span></a>{% endfor %}</div>
+  </div>
+</section>
+{% include "partials/final.html" %}
+{% endblock %}

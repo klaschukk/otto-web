@@ -163,3 +163,12 @@ def test_ledger_deal_money_hours_and_week(client):
     week = client.get("/admin/week").get_data(as_text=True)
     assert "<b>140</b>" in week and ">12<" in week and "27.9" in week  # итог 149−9,5 ≈ 140; € в час (149−9,5)/5
     assert "29.8" in client.get("/admin/deals").get_data(as_text=True)  # 149/5 по сделке
+
+
+def test_articles_bg_only(client):
+    for p in ("/polezno/", "/polezno/menu-v-google-maps/", "/polezno/qr-menu-za-restorant/", "/polezno/kolko-struva-sait-za-restorant/"):
+        html = client.get(p).get_data(as_text=True)
+        assert "{{" not in html and 'hreflang="ru"' not in html
+    assert '"Article"' in client.get("/polezno/menu-v-google-maps/").get_data(as_text=True)
+    assert client.get("/polezno/nope/").status_code == 404
+    assert "/polezno/qr-menu-za-restorant/" in client.get("/sitemap.xml").get_data(as_text=True)

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Полезно за собственици на заведения · Otto.web{% endblock %}
+{% block description %}Кратки ръководства за ресторанти, кафенета и барове в Бургас: меню в Google Maps, QR меню, колко струва сайт.{% endblock %}
+{% block main %}
+<section class="ph ph-lp stage">
+  <div class="wrap">
+    <p class="eyebrow">Otto.web · Бургас</p>
+    <h1 class="h1">Полезно за заведения</h1>
+    <p class="lead">Кратки ръководства за собственици на ресторанти, кафенета и барове. Какво да направите сами и безплатно, и кога има смисъл от сайт.</p>
+  </div>
+</section>
+<section class="sec paper">
+  <div class="wrap"><div class="art-list">{% for a in articles %}<a href="/polezno/{{ a.slug }}/"><b>{{ a.h1 }}</b><span>{{ a.lead }}</span></a>{% endfor %}</div></div>
+</section>
+{% include "partials/final.html" %}
+{% endblock %}

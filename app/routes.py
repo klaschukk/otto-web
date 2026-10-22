@@ -15,6 +15,8 @@ PAGES = {  # endpoint -> путь без языкового префикса
 
 with open(Path(__file__).parent / "works.yaml", encoding="utf-8") as f:
     WORKS = yaml.safe_load(f)
+with open(Path(__file__).parent / "articles.yaml", encoding="utf-8") as f:
+    ARTICLES = yaml.safe_load(f)  # «Полезно»: статьи только на болгарском
 with open(Path(__file__).parent / "landings.yaml", encoding="utf-8") as f:
     LANDINGS = yaml.safe_load(f)  # посадочные под поисковые запросы, по одной на нишу
 
@@ -106,6 +108,23 @@ for _p in LANDINGS["pages"]:
     landing(_p)
 
 
+@bp.route("/polezno/")
+def polezno():
+    c = ctx("bg", "/polezno/")
+    c["alt"] = {"bg": "/polezno/"}
+    return render_template("polezno.html", articles=ARTICLES, **c)
+
+
+@bp.route("/polezno/<slug>/")
+def article(slug):
+    a = next((x for x in ARTICLES if x["slug"] == slug), None)
+    if not a:
+        abort(404)
+    c = ctx("bg", f"/polezno/{slug}/")
+    c["alt"] = {"bg": f"/polezno/{slug}/"}
+    return render_template("article.html", a=a, others=[x for x in ARTICLES if x is not a], **c)
+
+
 @bp.route("/demo/")
 def demo_index():
     return send_from_directory(DEMO_DIR, "index.html")
@@ -148,6 +167,8 @@ def sitemap():
         links = "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{base}{prefix(l)}{p}"/>' for l in LANGS)
         for l in LANGS:
             urls.append(f"<url><loc>{base}{prefix(l)}{p}</loc>{links}</url>")
+    for p in ["/polezno/"] + [f"/polezno/{a['slug']}/" for a in ARTICLES]:
+        urls.append(f'<url><loc>{base}{p}</loc><xhtml:link rel="alternate" hreflang="bg" href="{base}{p}"/></url>')
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
            'xmlns:xhtml="http://www.w3.org/1999/xhtml">' + "".join(urls) + "</urlset>\n")
     return xml, 200, {"Content-Type": "application/xml"}
