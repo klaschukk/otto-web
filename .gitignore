@@ -11,3 +11,5 @@ print/out/
 social/og_build/
 local.mk
 docs/
+leads_demos/
+leadgen/data/

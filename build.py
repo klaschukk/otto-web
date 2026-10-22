@@ -53,6 +53,14 @@ def main():
         shutil.copytree(src, OUT / "demo" / src.name)
         print(f"  demo/{src.name}/  (custom)")
 
+    # личные демо для лидов (leadgen/make_demos.py): leads_demos/<slug>/, папка не в git
+    leads = ROOT / "leads_demos"
+    for src in sorted(leads.glob("*/")) if leads.exists() else []:
+        if not (OUT / "demo" / src.name).exists():
+            shutil.copytree(src, OUT / "demo" / src.name)
+    if leads.exists():
+        print(f"  demo/: {len(list(leads.glob('*/')))} личных демо для лидов")
+
     demos = []
     for path in sorted((ROOT / "demos").glob("*.yaml")):
         d = load(path)

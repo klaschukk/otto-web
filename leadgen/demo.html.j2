@@ -1,0 +1,242 @@
+<!doctype html>
+<!-- otto:lead — личное демо для заведения, собрано leadgen/make_demos.py из карточки Google Maps -->
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ name }} — меню, резервация и работно време · Бургас</title>
+<meta name="robots" content="noindex, nofollow">
+<script defer src="/u/script.js" data-website-id="7cbd7223-82fa-453b-ad6f-81c2c0c89307"></script>
+<link rel="stylesheet" href="../../static/fonts/demo/{{ t.css }}.css">
+<style>
+:root{--bg:{{ t.bg }};--soft:{{ t.soft }};--ink:{{ t.ink }};--muted:{{ t.muted }};--line:{{ t.line }};--accent:{{ t.accent }};--on:{{ t.on }};
+  --display:{{ t.display|safe }};--body:{{ t.body|safe }};color-scheme:{{ "dark" if t.dark else "light" }}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--body);padding-bottom:64px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding-left:20px;padding-right:20px}
+.demo-bar{background:var(--accent);color:var(--on);font:400 13px/1.4 var(--body);text-align:center;padding:8px 16px}
+.demo-bar a{font-weight:700}
+.top{position:absolute;left:0;right:0;z-index:5;display:flex;align-items:center;gap:20px;padding:14px 20px;color:#fff}
+.logo{font:700 22px/1.1 var(--display);{% if t.up %}text-transform:uppercase;letter-spacing:.04em;{% endif %}text-decoration:none;max-width:60%}
+.top .tel{margin-left:auto;display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none}
+/* без чужих фото: типографская шапка, огромное слово по типу заведения на фоне */
+.hero{position:relative;min-height:min(82vh,720px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:{{ "#0b0b0c" if t.dark else t.ink }}}
+.hero-word{position:absolute;right:-.06em;top:.02em;font:700 clamp(9rem,34vw,26rem)/.8 var(--display);text-transform:uppercase;color:var(--accent);opacity:.22;letter-spacing:-.02em;pointer-events:none;user-select:none}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--accent)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:110px;padding-bottom:44px}
+.kicker{font:600 13px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px;opacity:.9}
+h1{font:700 clamp(2.5rem,7vw,5rem)/1.05 var(--display);{% if t.up %}text-transform:uppercase;{% endif %}margin:0 0 14px;max-width:16ch;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 26px;padding:0;list-style:none;font-size:15px}
+.facts li{display:flex;align-items:center;gap:8px}
+.star{color:#fbbc04}
+.dot{width:9px;height:9px;border-radius:50%;background:#7ddc9a}.dot.off{background:#f0b45a}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:10px;font:700 16px var(--body);text-decoration:none;cursor:pointer;
+  border:2px solid var(--accent);background:var(--accent);color:var(--on);transition:transform .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+section.block{padding-top:76px;padding-bottom:76px}
+h2{font:700 clamp(1.9rem,4.4vw,3rem)/1.1 var(--display);{% if t.up %}text-transform:uppercase;{% endif %}margin:0 0 12px;text-wrap:balance}
+.sub{color:var(--muted);max-width:56ch;margin:0 0 30px}
+.score{display:flex;align-items:baseline;gap:16px;margin:0;max-width:60ch}
+.score b{font:700 3rem/1 var(--display);color:var(--accent)}
+.score span{color:var(--muted)}
+.menu-card{border:2px dashed var(--line);border-radius:16px;padding:30px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:var(--soft)}
+.menu-card ul{list-style:none;margin:0;padding:0}
+.menu-card li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line);color:var(--muted)}
+.menu-card li i{display:block;height:12px;border-radius:6px;background:var(--line);width:var(--w)}
+.book{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;grid-template-columns:1.3fr .7fr;gap:30px}
+.label{font:600 12.5px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.chips button{min-height:46px;padding:0 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font:700 15px var(--body);color:var(--ink);cursor:pointer}
+.chips button small{display:block;font:400 12px var(--body);color:var(--muted)}
+.chips button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on)}
+.chips button[aria-pressed=true] small{color:var(--on);opacity:.8}
+.row2{display:flex;flex-wrap:wrap;gap:20px 36px}
+select,.step{min-height:46px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:700 16px var(--body)}
+select{padding:0 12px}
+.step{display:inline-flex;align-items:center}
+.step button{width:46px;height:44px;border:0;background:transparent;font:700 22px/1 var(--body);color:var(--ink);cursor:pointer}
+.step output{min-width:44px;text-align:center}
+.ticket{background:var(--ink);color:var(--bg);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.ticket b{font:700 1.5rem/1.2 var(--display)}
+.ticket .btn{width:100%}
+.ticket .btn.ghost{border-color:var(--bg);color:var(--bg)}
+.ticket small{opacity:.75;font-size:13px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:11px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:700}
+.offer-sec{background:{{ "#f4efe6" if t.dark else "#14161a" }};color:{{ "#17130b" if t.dark else "#f4f1ea" }}}
+.offer-sec .sub,.offer-sec .fine{color:inherit;opacity:.75}
+.offer{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start;margin-top:20px}
+.offer p{margin:0 0 14px;max-width:58ch}
+.offer-sec .btn{background:{{ "#17130b" if t.dark else "#f4f1ea" }};border-color:{{ "#17130b" if t.dark else "#f4f1ea" }};color:{{ "#f4efe6" if t.dark else "#14161a" }}}
+.offer-sec .btn.ghost{background:transparent;color:inherit}
+.price-card{background:#fff;color:#17130b;border-radius:14px;padding:24px}
+.price-card b.p{display:block;font:700 3rem/1 var(--display);margin:4px 0 6px}
+.incl{margin:14px 0;padding:0;list-style:none}
+.incl li{padding:8px 0;border-top:1px solid #e6dcc8;font-size:15px}
+.fine{font-size:13.5px;margin:26px 0 0;max-width:86ch}
+footer{border-top:1px solid var(--line);padding:22px 20px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.92rem}
+footer a{display:inline-block;padding:10px 0}
+.callbar{display:none}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;z-index:20}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media (max-width:860px){
+  .hero{min-height:auto}.hero .wrap{padding-top:96px;padding-bottom:34px}
+  section.block{padding-top:56px;padding-bottom:56px}
+  .menu-card,.book,.contact,.offer{grid-template-columns:1fr;gap:24px}
+  .book,.menu-card{padding:20px 16px}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bg);border-top:1px solid var(--line)}
+  .callbar a{flex:1;text-align:center;padding:17px 4px;font-weight:700;text-decoration:none}
+  .callbar a:last-child{background:var(--accent);color:var(--on)}
+}
+@media (min-width:861px){body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Примерен сайт за {{ name }} от <a href="../../">Otto.web</a>. Не е официалният сайт на заведението. <a href="#otto">Цена и условия</a></div>
+<header class="top"><a class="logo" href="#">{{ name }}</a><a class="tel" href="tel:+{{ dg }}">{{ phone_local }}</a></header>
+<main>
+<section class="hero">
+  <span class="hero-word" aria-hidden="true">{{ {"pizza":"пица","sea":"риба","kitchen":"кухня","bar":"бар","grill":"грил"}[kind] }}</span>
+  <div class="wrap">
+    <p class="kicker">{{ cat }} · {{ area if area != "Друг район" else "Бургас" }}</p>
+    <h1>{{ name }}</h1>
+    <ul class="facts">
+      <li><span class="star">★</span> {{ rating }} в Google · {{ rev }} отзива</li>
+      {% if hours_rows %}<li><span class="dot" id="dot"></span><span id="open-now">Работно време по-долу</span></li>{% endif %}
+      {% if addr %}<li>{{ addr }}</li>{% endif %}
+    </ul>
+    <div class="cta">
+      <a class="btn" href="#masa">Запазете маса</a>
+      <a class="btn ghost" href="tel:+{{ dg }}">Обадете се</a>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <p class="score"><b>{{ rating }}</b><span>от 5 в Google · {{ rev }} отзива. Гостите вече ви оценяват, а сайтът показва тази оценка на всеки, който ви търси.</span></p>
+</section>
+
+<section class="block wrap" id="menu" style="padding-top:0">
+  <div class="menu-card">
+    <div>
+      <h2>Менюто ви тук</h2>
+      <p class="sub" style="margin:0">Пращате снимка на менюто и го пренасяме тук: раздели, грамаж, цени в евро. Отваря се от телефона за секунда, без PDF и без снимка на листа.</p>
+    </div>
+    <ul aria-hidden="true"><li><i style="--w:60%"></i><i style="--w:18%"></i></li><li><i style="--w:72%"></i><i style="--w:18%"></i></li><li><i style="--w:50%"></i><i style="--w:18%"></i></li><li><i style="--w:66%"></i><i style="--w:18%"></i></li></ul>
+  </div>
+</section>
+
+<section class="block wrap" id="masa" style="padding-top:0">
+  <h2>Маса за 20 секунди</h2>
+  <p class="sub">Изберете ден, час и колко сте. Съобщението е готово, остава да го изпратите.</p>
+  <form class="book" onsubmit="return false">
+    <div>
+      <p class="label" id="l-day">Кога</p>
+      <div class="chips" id="days" role="group" aria-labelledby="l-day"></div>
+      <div class="row2">
+        <div><p class="label"><label for="time">В колко часа</label></p><select id="time"></select></div>
+        <div><p class="label" id="l-ppl">Колко души</p>
+          <div class="step" role="group" aria-labelledby="l-ppl"><button type="button" id="minus" aria-label="По-малко">−</button><output id="ppl" aria-live="polite">2</output><button type="button" id="plus" aria-label="Повече">+</button></div></div>
+      </div>
+    </div>
+    <div class="ticket" aria-live="polite">
+      <p class="label" style="color:inherit;opacity:.7;margin:0">Вашата резервация</p>
+      <b id="t-when">Изберете час</b>
+      {% if viber %}<button type="button" class="btn" id="send-viber">Изпратете във Viber</button>{% endif %}
+      <a class="btn{% if viber %} ghost{% endif %}" id="send-sms" href="#">Изпратете със SMS</a>
+      <small>Заведението потвърждава с обаждане.</small>
+    </div>
+  </form>
+</section>
+
+<section class="block wrap contact" id="kontakt" style="padding-top:0">
+  <div>
+    <h2>Елате</h2>
+    <p>{% if addr %}{{ addr }}, {% endif %}Бургас</p>
+    <div class="cta"><a class="btn" href="tel:+{{ dg }}">Обадете се</a><a class="btn ghost" href="{{ maps }}">Маршрут</a></div>
+  </div>
+  <table class="hours">
+    {% for d, v in hours_rows %}<tr><td>{{ d }}</td><td>{{ v }}</td></tr>{% endfor %}
+    <tr><td>Телефон</td><td>{{ phone_local }}</td></tr>
+  </table>
+</section>
+
+<section class="block offer-sec" id="otto">
+  <div class="wrap">
+    <p class="label" style="color:inherit;opacity:.7">за собственика на {{ name }}</p>
+    <h2>Това е демо. Направих го за вас.</h2>
+    <div class="offer">
+      <div>
+        <p>Казвам се Кирил, от Otto.web съм. Направих този пример, за да видите как може да изглежда сайтът на {{ name }}: резервация на маса, меню, работно време и маршрут.</p>
+        <p>Работното време, телефонът и оценката са от картата ви в Google. В истинския сайт слагам вашите снимки, менюто и цените: пращате ги или идвам да снимам залата и ястията.</p>
+        <p><b>Работим през фирма:</b> „СМАРТ ЧАЙЛД“ ЕООД, с договор и плащане по фактура. Плащате, след като приемете сайта.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+359876752600">Обадете ми се: 0876 752 600</a>
+          <a class="btn ghost" href="viber://chat?number=%2B359876752600">Viber</a>
+        </div>
+      </div>
+      <div class="price-card">
+        <p class="label" style="color:#6b6253">Цена за такъв сайт</p>
+        <b class="p">79 €</b>
+        <p style="margin:0">Еднократно. Без месечна такса, хостингът е безплатен.</p>
+        <ul class="incl">
+          <li>Меню с цени, резервация, работно време</li>
+          <li>Бутони за обаждане, Viber и WhatsApp</li>
+          <li>Google карта и маршрут</li>
+          <li>Удобен на телефон, с HTTPS</li>
+          <li>2 кръга корекции, готов за 3–4 дни</li>
+        </ul>
+        <p style="margin:0;font-size:14.5px;color:#4d4638">Няколко страници, галерия и Google Business профил: пакет „Бизнес“, 149 €.</p>
+      </div>
+    </div>
+    <p class="fine">Демо страница на Otto.web. Не е официалният сайт на {{ name }} и не се показва в Google. Без бисквитки и без реклами. Домейнът се плаща отделно и е на ваше име. Фирмата не е регистрирана по ДДС, цените са крайни. Ако не искате тази страница да съществува, пишете ми и я изтривам.</p>
+  </div>
+</section>
+</main>
+<footer><span>Примерен сайт за {{ name }}, Бургас</span><a href="../../">Сайт от Otto.web</a></footer>
+<div class="callbar"><a href="#menu">Меню</a><a href="tel:+{{ dg }}">Обадете се</a><a href="#masa">Маса</a></div>
+<script>
+var PHONE="{{ dg }}", NAME={{ name|tojson }}, H={{ hours_json|safe }};
+var now=new Date(), day=0, ppl=2;
+function pad(n){return String(n).padStart(2,"0")}
+function wd(d){return (d.getDay()+6)%7}
+function dateOf(i){var d=new Date(now);d.setDate(now.getDate()+i);return d}
+function label(i){return i===0?"Днес":i===1?"Утре":dateOf(i).toLocaleDateString("bg-BG",{weekday:"long"})}
+function spans(i){var s=H[wd(dateOf(i))];return s===undefined?[[660,1380]]:s}
+function slots(i){var out=[],cut=i===0?now.getHours()*60+now.getMinutes()+30:0;
+  spans(i).forEach(function(s){for(var m=Math.ceil(s[0]/30)*30;m<=s[1]-60;m+=30){var mm=m%1440;if(i===0&&m<cut)continue;out.push(pad(mm/60|0)+":"+pad(mm%60))}});return out}
+var daysEl=document.getElementById("days"),timeEl=document.getElementById("time");
+function buildDays(){daysEl.innerHTML="";for(var i=0;i<5;i++){(function(i){var b=document.createElement("button");b.type="button";
+  b.innerHTML=label(i)+"<small>"+dateOf(i).toLocaleDateString("bg-BG",{day:"numeric",month:"long"})+"</small>";
+  b.setAttribute("aria-pressed",String(i===day));if(!slots(i).length)b.disabled=true;
+  b.addEventListener("click",function(){day=i;buildDays();buildTimes();render()});daysEl.appendChild(b)})(i)}}
+function buildTimes(){timeEl.innerHTML="";slots(day).forEach(function(t){var o=document.createElement("option");o.textContent=t;timeEl.appendChild(o)})}
+function msg(){return "Здравейте! Искам маса в "+NAME+": "+label(day).toLowerCase()+", "+dateOf(day).toLocaleDateString("bg-BG",{day:"numeric",month:"long"})+" в "+timeEl.value+", за "+ppl+(ppl===1?" човек.":" души.")}
+function render(){document.getElementById("ppl").textContent=ppl;
+  document.getElementById("t-when").textContent=timeEl.value?label(day)+", "+timeEl.value+" · "+ppl+(ppl===1?" човек":" души"):"Няма свободни часове";
+  document.getElementById("send-sms").href="sms:+"+PHONE+"?&body="+encodeURIComponent(msg())}
+function toast(s){var d=document.createElement("div");d.className="toast";d.setAttribute("role","status");d.textContent=s;document.body.appendChild(d);setTimeout(function(){d.remove()},2600)}
+document.getElementById("minus").addEventListener("click",function(){if(ppl>1){ppl--;render()}});
+document.getElementById("plus").addEventListener("click",function(){if(ppl<20){ppl++;render()}});
+timeEl.addEventListener("change",render);
+var vb=document.getElementById("send-viber");
+if(vb)vb.addEventListener("click",function(){var t=msg();function go(){location.href="viber://chat?number=%2B"+PHONE}
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){toast("Текстът е копиран. Поставете го във Viber.");setTimeout(go,900)},go)}else go()});
+var od=document.getElementById("open-now");
+if(od&&Object.keys(H).length){var m=now.getHours()*60+now.getMinutes(),t=H[wd(now)]||[],y=H[(wd(now)+6)%7]||[],open=null;
+  t.forEach(function(s){if(m>=s[0]&&m<s[1])open=s[1]});y.forEach(function(s){if(s[1]>1440&&m<s[1]-1440)open=s[1]});
+  if(open!==null)od.textContent="Отворено сега · до "+pad((open%1440)/60|0)+":"+pad(open%60);
+  else{od.textContent="Сега е затворено";document.getElementById("dot").className="dot off"}}
+if(!slots(0).length)day=1;
+buildDays();buildTimes();render();
+</script>
+</body>
+</html>
